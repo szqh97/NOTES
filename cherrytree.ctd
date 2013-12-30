@@ -1,0 +1,45 @@
+<?xml version="1.0" ?><cherrytree><node name="C++" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="1"><rich_text>1.
+        u.lmsg.content =
+            (content_t*) malloc (sizeof (content_t) + size_);
+        if (!u.lmsg.content) {
+            errno = ENOMEM;
+            return -1;
+        }
+if the lmsg.content memory malloc failed, set errno to ENONMEM
+2.</rich_text><rich_text foreground="#ff0000">placement new</rich_text><rich_text>in zeromq in content_t::refcnt
+msg.hpp 103
+3. gcc 编译器从4.3以后不用 -lpthread, 使用-pthread代替
+4.C++快速读文件
+</rich_text><rich_text link="webs https://www.byvoid.com/blog/fast-readfile">https://www.byvoid.com/blog/fast-readfile</rich_text><rich_text>
+
+
+5.模板函数的声明与定义分离会编译失败
+
+
+第三种办法 最简单的使用swap,清除元素并回收内存
+
+1.     vector &lt;int&gt;().swap(vecInt);  //清除容器并最小化它的容量，
+
+2. 
+
+
+3.     j= vecInt.capacity();       //j=0  
+
+4.     i = vecInt.size();          //i=0       
+
+
+该语句是由vector &lt;int&gt;(vecInt).swap(vecInt)的变体而来，一下解释引自csdn：
+
+std::vector&lt;T&gt;(v).swap(v);的作用相当于：    
+  {  
+  std::vector&lt;T&gt;   temp(v);//1  
+  temp.swap(v);//2  
+  }  
+  第一句产生一个和v内容一模一样的vector，只不过temp的容量是恰好满足其大小的  
+  第二句把v和temp交换  
+  然后temp就自动解析掉了  
+    
+  这样写的作用是：把v的容量缩小到最佳值
+
+该例中执行这句时，capacity收缩到500
+</rich_text></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text></rich_text></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text></node><node name="git" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="4"><rich_text></rich_text></node></cherrytree>
