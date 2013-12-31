@@ -393,23 +393,8 @@ command &gt; /dev/null 1&gt;2&amp;
 1.   set -u，当你使用未初始化的变量时，让bash自动退出。你也可以使用可读性更强一点的set -o nounset
 
 2. 
+</rich_text><rich_text justification="left"></rich_text><rich_text>
 
-
-
-
-一、Linux shell 截取字符变量的前8位，有方法如下：
-　　1.expr substr “$a” 1 8
-　　2.echo $a|awk ‘{print substr(,1,8)}’
-　　3.echo $a|cut -c1-8
-　　4.expr $a : ‘\(.\\).*’
-　　5.echo $a|dd bs=1 count=8 2&gt;/dev/null
-二、按指定的字符串截取
-　　1、第一种方法: ${varible##*string} 从左向右截取最后一个string后的字符串 ${varible#*string}从左向右截取第一个string后的字符串 ${varible%%string*}从右向左截取最后一个string后的字符串 ${varible%string*}从右向左截取第一个string后的字符串 “*”只是一个通配符可以不要
-例子： $ MYVAR=foodforthought.jpg $ echo ${MYVAR##*fo} rthought.jpg $ echo ${MYVAR#*fo} odforthought.jpg
-　　2、第二种方法：${varible:n1:n2}:截取变量varible从n1到n2之间的字符串。
-可以根据特定字符偏移和长度，使用另一种形式的变量扩展，来选择特定子字符串。试着在 bash 中输入以下行： $ EXCLAIM=cowabunga $ echo ${EXCLAIM:0:3} cow $ echo ${EXCLAIM:3:7} abunga
-这种形式的字符串截断非常简便，只需用冒号分开来指定起始字符和子字符串长度。
-三、按照指定要求分割： 比如获取后缀名 ls -al | cut -d “.” -f2
 
 
 
@@ -457,7 +442,20 @@ main $*
 
 [chengmo@centos5 ~]$ ((num=8#123));
 [chengmo@centos5 ~]$ echo $num;
-83</codebox><node name="常用脚本" prog_lang="custom-colors" readonly="False" tags="" unique_id="10"><rich_text>1、查看主机网卡流量#!/bin/bash
+83
+一、Linux shell 截取字符变量的前8位，有方法如下：
+　　1.expr substr “$a” 1 8
+　　2.echo $a|awk ‘{print substr(,1,8)}’
+　　3.echo $a|cut -c1-8
+　　4.expr $a : ‘\(.\\).*’
+　　5.echo $a|dd bs=1 count=8 2&gt;/dev/null
+　　二、按指定的字符串截取
+　　1、第一种方法: ${varible##*string} 从左向右截取最后一个string后的字符串 ${varible#*string}从左向右截取第一个string后的字符串 ${varible%%string*}从右向左截取最后一个string后的字符串 ${varible%string*}从右向左截取第一个string后的字符串 “*”只是一个通配符可以不要
+例子： $ MYVAR=foodforthought.jpg $ echo ${MYVAR##*fo} rthought.jpg $ echo ${MYVAR#*fo} odforthought.jpg
+　　2、第二种方法：${varible:n1:n2}:截取变量varible从n1到n2之间的字符串。
+可以根据特定字符偏移和长度，使用另一种形式的变量扩展，来选择特定子字符串。试着在 bash 中输入以下行： $ EXCLAIM=cowabunga $ echo ${EXCLAIM:0:3} cow $ echo ${EXCLAIM:3:7} abunga
+这种形式的字符串截断非常简便，只需用冒号分开来指定起始字符和子字符串长度。
+三、按照指定要求分割： 比如获取后缀名 ls -al | cut -d “.” -f2</codebox><node name="常用脚本" prog_lang="custom-colors" readonly="False" tags="" unique_id="10"><rich_text>1、查看主机网卡流量#!/bin/bash
 #!/bin/bash#network#Mike.Xuwhile : ; do      time='date +%m&quot;-&quot;%d&quot; &quot;%k&quot;:&quot;%M'      day='date +%m&quot;-&quot;%d'      rx_before='ifconfig eth0|sed -n &quot;8&quot;p|awk '{print $2}'|cut -c7-'      tx_before='ifconfig eth0|sed -n &quot;8&quot;p|awk '{print $6}'|cut -c7-'      sleep 2      rx_after='ifconfig eth0|sed -n &quot;8&quot;p|awk '{print $2}'|cut -c7-'      tx_after='ifconfig eth0|sed -n &quot;8&quot;p|awk '{print $6}'|cut -c7-'      rx_result=$[(rx_after-rx_before)/256]      tx_result=$[(tx_after-tx_before)/256]      echo &quot;$time Now_In_Speed: &quot;$rx_result&quot;kbps Now_OUt_Speed: &quot;$tx_result&quot;kbps&quot;      sleep 2donedone2、系统状况监控#!/bin/sh#systemstat.sh#Mike.XuIP=192.168.1.227top -n 2| grep &quot;Cpu&quot; &gt;&gt;./temp/cpu.txtfree -m | grep &quot;Mem&quot; &gt;&gt; ./temp/mem.txtdf -k | grep &quot;sda1&quot; &gt;&gt; ./temp/drive_sda1.txt#df -k | grep sda2 &gt;&gt; ./temp/drive_sda2.txtdf -k | grep &quot;/mnt/storage_0&quot; &gt;&gt; ./temp/mnt_storage_0.txtdf -k | grep &quot;/mnt/storage_pic&quot; &gt;&gt; ./temp/mnt_storage_pic.txttime=`date +%m&quot;.&quot;%d&quot; &quot;%k&quot;:&quot;%M`connect=`netstat -na | grep &quot;219.238.148.30:80&quot; | wc -l`echo &quot;$time  $connect&quot; &gt;&gt; ./temp/connect_count.txt
 
 
@@ -599,7 +597,7 @@ chip@example.unicom.com:/home/chip umounted
  
 sshfs root@livedev:/opt tmp
 
-
+</rich_text><rich_text justification="left"></rich_text><rich_text>
 
 
 
@@ -1102,7 +1100,55 @@ Ctrl+a d ：退出当前终端，返回加载screen前的shell命令状态
 </rich_text><rich_text weight="heavy">:r !ls 会把执行的命令导入到vim中</rich_text><rich_text>
 
 
-</rich_text></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="34"><rich_text></rich_text></node></node></node><node name="tools" prog_lang="custom-colors" readonly="False" tags="" unique_id="14"><rich_text>taskwarrior 
+</rich_text></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="34"><rich_text></rich_text></node></node><node name="sed" prog_lang="sh" readonly="False" tags="sed" unique_id="43"><rich_text>sed 的一些命令
+
++ :：:label，标志一个label，用于b/t的跳转
++ =：[address]= 打印出行号
++ a：[address]a\ append text to this line.
++ b：[address[,address]]b[label] 条件分支语句
++ c：[address[,address]]c\ 替换内容
++ d：[address[,address]]d 删除pattern中的所有行，并读入下一新行到pattern中
++ D：[address[,address]]D 删除multiline pattern中的第一行，不读入下一行
++ g：[address[,address]]g 将hold space中的内容拷贝到pattern space中，原来pattern space里的内容清除
++ G：[address[,address]]G 将hold space中的内容append到pattern space\n后
++ h：[address[,address]]h 将pattern space中的内容拷贝到hold space中，原来的hold space里的内容被清除
++ H：[address[,address]]H 将pattern space中的内容append到hold space\n后
++ i：[address]i\ 在address行的前面插入文字，和a反义
++ l：[address[,address]]l 打印pattern space中的内容，不可打印字符打印出ascii
++ n：[address[,address]]n 输出pattern space中的内容，读入下一新行替换掉原来的行
++ N：[address[,address]]N 读入下一行形成multiline pattern，用于跨行处理
++ p：[address[,address]]p 打印出pattern space中的内容
++ P：[address[,address]]P 打印出multiline pattern space中的第一行
++ q：[address]q 碰到address行时退出sed script
++ r：[address]r file 将文件file的内容append到pattern space后
++ s：[address[,address]]s/pattern/replace/[flag] 将pattern替换成replace.flag:
++ n：替换第n个出现的pattern,默认是第一个出现的pattern
++ g：全部替换pattern
++ p：如果替换成功则打印
++ w file：将替换的行写入到文件里
++ t：[address[,address]]t [label] 如果替换成功则跳转
++ w：[address[,address]]w file 将pattern中的内容追加写到file文件
++ x：[address[,address]]x 交换hold space和pattern space的内容
++ y：[address1[,address2]]y/abc/xyz/ 将abc转换为对应的xyz
+
+
+sed -n '/([0-9]{1,3}.){3}[0-9]{1,3}/p' IP.txt #查找IP
+sed -i &quot;s#([0-9]{1,3}.){3}[0-9]{1,3}:([0-9]){1,4}#${IPPORT}#g&quot; &quot;$FILE&quot;
+
+sed -e &quot;/^[A-Za-z_][A-Za-z0-9_]* [A-Za-z_][A-Za-z0-9_]*::[A-Za-z_][A-Za-z0-9_]*(/=&quot; tttt #在tttt中查找类似UINT32 MyClass::setMyClass所在的行号
+
+sed -e ':K;N;s/\n/ /;bK' t #合并所有行，使用的label
+sed -e 'N;s/n/ /g' t #合并两行,多行类似
+
+sed -e '3{h;d}; 5{G}' t #交换3，5行， h,d,G
+
+sed  -e '2~2!d' t #保留偶数行
+
+sed -e '1!G;h;$!d' t #倒置所有的行
+
+sed -n '1!G;h;$p' t #倒置所有的行
+
+sed  -e :a -e '$q;N;11</rich_text></node></node><node name="tools" prog_lang="custom-colors" readonly="False" tags="" unique_id="14"><rich_text>taskwarrior 
 </rich_text><rich_text link="webs http://taskwarrior.org/projects/show/taskwarrior">http://taskwarrior.org/projects/show/taskwarrior</rich_text><rich_text>
 javascript x86
 </rich_text><rich_text link="webs http://bellard.org/jslinux/">http://bellard.org/jslinux/</rich_text><rich_text>
