@@ -1148,7 +1148,7 @@ sed -e '1!G;h;$!d' t #倒置所有的行
 
 sed -n '1!G;h;$p' t #倒置所有的行
 
-sed  -e :a -e '$q;N;11</rich_text></node></node><node name="tools" prog_lang="custom-colors" readonly="False" tags="" unique_id="14"><rich_text>taskwarrior 
+sed  -e ':a;$q;N;11,$D;ba' t #只显示最后的10行</rich_text></node></node><node name="tools" prog_lang="custom-colors" readonly="False" tags="" unique_id="14"><rich_text>taskwarrior 
 </rich_text><rich_text link="webs http://taskwarrior.org/projects/show/taskwarrior">http://taskwarrior.org/projects/show/taskwarrior</rich_text><rich_text>
 javascript x86
 </rich_text><rich_text link="webs http://bellard.org/jslinux/">http://bellard.org/jslinux/</rich_text><rich_text>
