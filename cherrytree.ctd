@@ -302,10 +302,10 @@ ffmpeg -pix_fmt uyvy422 -s 720x480 -r 25 -i all.yuv -b 20480k -f s16le -ar 48000
 </rich_text><node name="ffmpeg SDK" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="39"><rich_text>
 ffmpeg SDK </rich_text><rich_text link="webs http://ffmpeg.org/doxygen/trunk/index.html">http://ffmpeg.org/doxygen/trunk/index.html</rich_text><rich_text>
 1.
-/**
+</rich_text><rich_text justification="left"></rich_text><rich_text>/**
 
 2. 
-
+</rich_text><rich_text justification="left"></rich_text><rich_text>
 </rich_text><codebox char_offset="58" frame_height="200" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False">/**
  * Initialize libavformat and register all the muxers, demuxers and
  * protocols. If you do not call this function, then you can select
@@ -674,7 +674,7 @@ awk 'BEGIN{print strftime(&quot;%Y-%m-%d&quot;,systime())}'
 将日期转为时间戳
 awk 'BEGIN {printf(&quot;%dn&quot;,mktime(2006&quot; &quot;8&quot; &quot;5&quot; &quot;15&quot; &quot;09&quot; &quot;0))}'
 
-
+awk 'BEGIN {printf(&quot;%dn&quot;,mktime(&quot;2014&quot; &quot;1&quot; &quot;2&quot; &quot;01&quot; &quot;36&quot; &quot;0&quot;))}'
 vim -&gt; 其他程序
 &quot;*y
 
@@ -1196,7 +1196,10 @@ http://vim.sourceforge.net/scripts/script_search_results.php?order_by=rating
 </rich_text><rich_text weight="heavy">:r !ls 会把执行的命令导入到vim中</rich_text><rich_text>
 
 
-</rich_text></node></node><node name="vobile" prog_lang="custom-colors" readonly="False" tags="" unique_id="16"><rich_text>./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i 2.1387533947744.1387534303616.vdna -r t.xml</rich_text></node><node name="Myself" prog_lang="custom-colors" readonly="False" tags="" unique_id="17"><rich_text></rich_text><node name="TOREAD" prog_lang="custom-colors" readonly="False" tags="" unique_id="18"><rich_text>计算机类:
+</rich_text></node></node><node name="vobile" prog_lang="custom-colors" readonly="False" tags="" unique_id="16"><rich_text>./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i 2.1387533947744.1387534303616.vdna -r t.xml
+./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i </rich_text><rich_text link="webs http://192.168.1.249/download/2.1388696339843.1388699999970.tgz">2.1388696339843.1388699999970.</rich_text><rich_text>vdna -r x.xml
+
+</rich_text></node><node name="Myself" prog_lang="custom-colors" readonly="False" tags="" unique_id="17"><rich_text></rich_text><node name="TOREAD" prog_lang="custom-colors" readonly="False" tags="" unique_id="18"><rich_text>计算机类:
        SICP
       core algorithms deployed
        </rich_text><rich_text link="webs http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773">http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773</rich_text><rich_text>
@@ -1275,7 +1278,10 @@ http://blog.xupeng.me/2011/12/14/migrate-to-octopress/
 </rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="40"><rich_text weight="heavy">VOA</rich_text><rich_text>
 </rich_text><rich_text style="italic">voa     mms://a1905.l211052072.c2110.g.lm.akamaistream.net/D/1905/2110/v0001/reflector:52072</rich_text><rich_text>
 
-voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="41"><rich_text>vobile 常用
+voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822
+
+
+grep &quot;Internal*&quot; -B1 tg|grep -v &quot;\-\-&quot;|sed '/xml\ stream/d'|sed 's/^.*\ post\ data\ is:\ //g'</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="41"><rich_text>vobile 常用
 
 </rich_text><rich_text weight="heavy">
 1.vdna monitor sequence:</rich_text><rich_text>
