@@ -469,9 +469,14 @@ main $*
 　　4.expr $a : ‘\(.\\).*’
 　　5.echo $a|dd bs=1 count=8 2&gt;/dev/null
 　　二、按指定的字符串截取
-　　1、第一种方法: ${varible##*string} 从左向右截取最后一个string后的字符串 ${varible#*string}从左向右截取第一个string后的字符串 ${varible%%string*}从右向左截取最后一个string后的字符串 ${varible%string*}从右向左截取第一个string后的字符串 “*”只是一个通配符可以不要
+　　1、第一种方法: 
+　　${varible##*string} 从左向右截取最后一个string后的字符串 
+　　${varible#*string}从左向右截取第一个string后的字符串 
+　　${varible%%string*}从右向左截取最后一个string后的字符串 
+　　${varible%string*}从右向左截取第一个string后的字符串 “*”只是一个通配符可以不要
 例子： $ MYVAR=foodforthought.jpg $ echo ${MYVAR##*fo} rthought.jpg $ echo ${MYVAR#*fo} odforthought.jpg
-　　2、第二种方法：${varible:n1:n2}:截取变量varible从n1到n2之间的字符串。
+　　2、第二种方法：
+　　${varible:n1:n2}:截取变量varible从n1到n2之间的字符串。
 可以根据特定字符偏移和长度，使用另一种形式的变量扩展，来选择特定子字符串。试着在 bash 中输入以下行： $ EXCLAIM=cowabunga $ echo ${EXCLAIM:0:3} cow $ echo ${EXCLAIM:3:7} abunga
 这种形式的字符串截断非常简便，只需用冒号分开来指定起始字符和子字符串长度。
 三、按照指定要求分割： 比如获取后缀名 ls -al | cut -d “.” -f2</codebox><node name="常用脚本" prog_lang="custom-colors" readonly="False" tags="" unique_id="10"><rich_text>1、查看主机网卡流量#!/bin/bash
@@ -851,7 +856,8 @@ Ctrl+a d ：退出当前终端，返回加载screen前的shell命令状态
 • # !-n - 倒数第N条历史命令 
 • # !-n:p - 打印上一条命令（不执行） 
 • # !?string？- 最新一条含有“string”的命令 # !-n:gs/str1/str2/ - 将倒数第N条命令的str1替换为str2，并执行（若不加g,则仅替换第一个）
-</rich_text><node name="screen" prog_lang="custom-colors" readonly="False" tags="screen" unique_id="24"><rich_text style="italic">screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]
+
+do date -d &quot;$a&quot; +%s;</rich_text><node name="screen" prog_lang="custom-colors" readonly="False" tags="screen" unique_id="24"><rich_text style="italic">screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]
 Screen命令参数：</rich_text><rich_text>
 -A -[r|R]          将所有的视窗都调整为目前终端机的大小。
 -c filename        用指定的filename文件替代screen的配置文件’.screenrc’.
@@ -1197,7 +1203,7 @@ http://vim.sourceforge.net/scripts/script_search_results.php?order_by=rating
 
 
 </rich_text></node></node><node name="vobile" prog_lang="custom-colors" readonly="False" tags="" unique_id="16"><rich_text>./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i 2.1387533947744.1387534303616.vdna -r t.xml
-./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i 2.1388696339843.1388699999970.vdna -r 1388696339843.xml
+./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i </rich_text><rich_text link="webs http://192.168.1.249/download/2.1388696339843.1388699999970.tgz">2.1388696339843.1388699999970.</rich_text><rich_text>vdna -r x.xml
 
 </rich_text></node><node name="Myself" prog_lang="custom-colors" readonly="False" tags="" unique_id="17"><rich_text></rich_text><node name="TOREAD" prog_lang="custom-colors" readonly="False" tags="" unique_id="18"><rich_text>计算机类:
        SICP
