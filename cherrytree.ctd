@@ -196,18 +196,12 @@ ffmpeg -pix_fmt uyvy422 -s 720x576 -r 25 -i all.yuv -b </rich_text><rich_text ba
 ffmpeg -pix_fmt uyvy422 -s 720x480 -r 25 -i all.yuv -b 20480k -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
 </rich_text><node name="ffmpeg SDK" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="39"><rich_text>
 ffmpeg SDK </rich_text><rich_text link="webs http://ffmpeg.org/doxygen/trunk/index.html">http://ffmpeg.org/doxygen/trunk/index.html</rich_text><rich_text>
-a ffmpeg exampe </rich_text><rich_text link="webs http://blog.csdn.net/ajaxhe/article/details/9499815">http://blog.csdn.net/ajaxhe/article/details/9499815</rich_text><rich_text>
-compile  pkg-config --cflags --libs libavformat libavcodec 
 1.
 </rich_text><rich_text justification="left"></rich_text><rich_text>/**
 
 2. 
 </rich_text><rich_text justification="left"></rich_text><rich_text>
-<<<<<<< HEAD
 </rich_text><codebox char_offset="58" frame_height="200" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False">/**
-=======
-</rich_text><codebox char_offset="186" frame_height="200" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False">/**
->>>>>>> efe5d79ce2ad72e15792cf8af4f87d88b80a59dd
  * Initialize libavformat and register all the muxers, demuxers and
  * protocols. If you do not call this function, then you can select
  * exactly which formats you  want to support.
@@ -216,7 +210,7 @@ compile  pkg-config --cflags --libs libavformat libavcodec
  * @see av_register_output_format()
  *  call in first
  */
- void av_register_all(void);</codebox><codebox char_offset="196" frame_height="200" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False">/** Open a input stream and readn the header.The codecs are not opened. 
+ void av_register_all(void);</codebox><codebox char_offset="68" frame_height="200" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False">/** Open a input stream and readn the header.The codecs are not opened. 
  * NOTE: options is not NULL if the file is   videofile 
  */
 int avformat_open_input(AVFormatContext **ps, const char *filename, AVInputFormat *fmt, AVDictionary **options);  </codebox></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
