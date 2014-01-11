@@ -153,7 +153,7 @@ ioctl, select, poll, epolll这些的用法 
 </rich_text><rich_text style="italic">voa     mms://a1905.l211052072.c2110.g.lm.akamaistream.net/D/1905/2110/v0001/reflector:52072</rich_text><rich_text>
 
 voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="29"><rich_text>TVADS 发送job
-</rich_text><codebox char_offset="12" frame_height="80" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">curl -d '@task' &quot;http://192.168.1.50:8080/jobTracker/task/submit&quot; -H&quot;Content-Type:application/json&quot;</codebox></node><node name="snippet" prog_lang="custom-colors" readonly="False" tags="" unique_id="42"><rich_text justification="left"></rich_text><rich_text>
+</rich_text><rich_text justification="left"></rich_text><codebox char_offset="12" frame_height="80" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">curl -d '@task' &quot;http://192.168.1.50:8080/jobTracker/task/submit&quot; -H&quot;Content-Type:application/json&quot;</codebox></node><node name="snippet" prog_lang="custom-colors" readonly="False" tags="" unique_id="42"><rich_text justification="left"></rich_text><rich_text>
 </rich_text><rich_text justification="left"></rich_text><codebox char_offset="0" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False">/*异常处理，通过流来计算行数 */
 void readIntegerFile(const string&amp; fileName, vector&lt;int&gt;&amp; dest) throw(FileOpenError, FileReadError)
 {
@@ -1155,7 +1155,10 @@ wirte a script which vim can load tags which the open file is needed and lib scr
 
 寻找业余项目可以尝试从Elance、 oDesk或者Freelancer这些网站开始。
 
-</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+</rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="46"><rich_text></rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text></rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
+1. 处理丢帧的情况, (Osprey 没有这种情况, Black Magic要考虑, )
+2. 
+TVAds tracker 使用python调用 C++的方法,把merge cdna的部分替换</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
 2. mysql&gt; show status like '%onn%';
 
