@@ -276,18 +276,43 @@ python 多线程
 
 python xml dom 
 </rich_text><rich_text link="webs http://www.w3schools.com/dom/dom_nodes_set.asp">http://www.w3schools.com/dom/dom_nodes_set.asp</rich_text><rich_text> 
-</rich_text></node><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="13"><rich_text>1. python 生成 随机字符串:
+</rich_text></node><node name="kenel" prog_lang="custom-colors" readonly="False" tags="" unique_id="44"><rich_text></rich_text></node><node name="tips" prog_lang="python" readonly="False" tags="" unique_id="52"><rich_text>import traceback
+traceback.format_exc()
+
+1. python 生成 随机字符串:
 import random
 import string
 salt = ''.join(random.sample(string.ascii_letters+string.digits, 8))
 2. unix get disk space info
-</rich_text><rich_text justification="left"></rich_text><rich_text>
+
 
 3. dict and list 
 Python  中的字典使用了hast，因此，在查找中需要遍历整个list的情况，最好把list转为dict
-</rich_text><rich_text justification="left"></rich_text><rich_text>
+fromtimeimporttime
+t=time()
+list=['a','b','is','python','jason','hello','hill','with','phone','test',
+'dfdf','apple','pddf','ind','basic','none','baecr','var','bana','dd','wrd']
+ #list = dict.fromkeys(list,True)
+printlist
+filter=[]
+ foriinrange(1000000):
+     forfindin['is','hat','new','list','old','.']:
+         iffindnotinlist:
+             filter.append(find)
+ print&quot;total run time:&quot;
+ printtime()-t
+
 4.使用set求交集
-</rich_text><rich_text justification="left"></rich_text><rich_text>
+5. fromtimeimporttime
+ t=time()
+ lista=[1,2,3,4,5,6,7,8,9,13,34,53,42,44]
+ listb=[2,4,6,9,23]
+ intersection=[]
+ foriinrange(1000000):
+     list(set(lista)&amp;set(listb))
+ print&quot;total run time:&quot;
+ printtime()-t
+
 5.对循环的优化
 尽量把循环中的计算放到上一层中，用xrange代替range
 
@@ -308,27 +333,7 @@ out=&quot;%s%s%s%s&quot;%(head, prologue, query, tail)
 9,使用列表解析和生成器表达式
 a=[i for i in list]   g = (i for i in list)
 10 if done is not None 比语句 if done != None 更快
-</rich_text><codebox char_offset="145" frame_height="100" frame_width="700" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="python" width_in_pixels="True">import os from collections import namedtuple _ntuple_diskusage = namedtuple('usage','total used free') def disk_usage(path):    &quot;&quot;&quot;Return disk usage statistics about the given path.        Returned valus is a named tuple with attributes 'total', 'used' and        'free', which are the amount of total, used and free space, in bytes.        &quot;&quot;&quot;       st=os.statvfs(path)       free=st.f_bavail*st.f_frsize        total=st.f_blocks*st.f_frsize        used=(st.f_blocks-st.f_bfree)*st.f_frsize        return _ntuple_diskusage(total,used,free)</codebox><codebox char_offset="221" frame_height="500" frame_width="150" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="python" width_in_pixels="False">fromtimeimporttime
-t=time()
-list=['a','b','is','python','jason','hello','hill','with','phone','test',
-'dfdf','apple','pddf','ind','basic','none','baecr','var','bana','dd','wrd']
- #list = dict.fromkeys(list,True)
-printlist
-filter=[]
- foriinrange(1000000):
-     forfindin['is','hat','new','list','old','.']:
-         iffindnotinlist:
-             filter.append(find)
- print&quot;total run time:&quot;
- printtime()-t</codebox><codebox char_offset="222" frame_height="500" frame_width="150" highlight_brackets="True" show_line_numbers="True" syntax_highlighting="python" width_in_pixels="False"></codebox><codebox char_offset="235" frame_height="100" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="python" width_in_pixels="False">fromtimeimporttime
- t=time()
- lista=[1,2,3,4,5,6,7,8,9,13,34,53,42,44]
- listb=[2,4,6,9,23]
- intersection=[]
- foriinrange(1000000):
-     list(set(lista)&amp;set(listb))
- print&quot;total run time:&quot;
- printtime()-t</codebox></node><node name="kenel" prog_lang="custom-colors" readonly="False" tags="" unique_id="44"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
+</rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text>mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat/a}</rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
 find -mmin -60 -exec ls -l {} \;
 
 redirect io to null 
@@ -424,192 +429,7 @@ main $*
 5、全方位监控主机
 
 
-#!/bin/bash# check_xu.sh# 0 * * * * /home/check_xu.sh DAT=&quot;`date +%Y%m%d`&quot;HOUR=&quot;`date +%H`&quot;DIR=&quot;/home/oslog/host_${DAT}/${HOUR}&quot;DELAY=60COUNT=60# whether the responsible directory existif ! test -d ${DIR}then        /bin/mkdir -p ${DIR}fi# general checkexport TERM=linux/usr/bin/top -b -d ${DELAY} -n ${COUNT} &gt; ${DIR}/top_${DAT}.log 2&gt;&amp;1 &amp;# cpu check/usr/bin/sar -u ${DELAY} ${COUNT} &gt; ${DIR}/cpu_${DAT}.log 2&gt;&amp;1 &amp;#/usr/bin/mpstat -P 0 ${DELAY} ${COUNT} &gt; ${DIR}/cpu_0_${DAT}.log 2&gt;&amp;1 &amp;#/usr/bin/mpstat -P 1 ${DELAY} ${COUNT} &gt; ${DIR}/cpu_1_${DAT}.log 2&gt;&amp;1 &amp;# memory check/usr/bin/vmstat ${DELAY} ${COUNT} &gt; ${DIR}/vmstat_${DAT}.log 2&gt;&amp;1 &amp;# I/O check/usr/bin/iostat ${DELAY} ${COUNT} &gt; ${DIR}/iostat_${DAT}.log 2&gt;&amp;1 &amp;# network check/usr/bin/sar -n DEV ${DELAY} ${COUNT} &gt; ${DIR}/net_${DAT}.log 2&gt;&amp;1 &amp;#/usr/bin/sar -n EDEV ${DELAY} ${COUNT} &gt; ${DIR}/net_edev_${DAT}.log 2&gt;&amp;1 &amp;</rich_text></node></node><node name="collections" prog_lang="custom-colors" readonly="False" tags="" unique_id="21"><rich_text>Linux
-
-
-使用vimdiff作为svn diff的查看代码工具
-
-</rich_text><rich_text link="webs http://color/#3465A4">http://www.cnblogs.com/xuxm2007/archive/2012/05/11/2496243.html</rich_text><rich_text>
-
-
-</rich_text><rich_text weight="heavy">Linux 常用快捷键core文件设置</rich_text><rich_text>
-linux下默认是不产生core文件的，要用ulimit -c unlimited放开
-1、开启系统的Core Dump功能
-
-   ulimit -c core_file_size_in_kb
-
-   如果要关闭该功能core_file_size_in_kb为0就行了。
-
-2、设置Core Dump的核心转储文件目录和命名规则
-
-   文件的命名规则放在
-
-   </rich_text><rich_text link="webs http://color/#3465A4">/proc/sys/kernel/core_name_format文件中</rich_text><rich_text>
-
-   使用sysctl -w &quot;kernel.core_name_format=/coredump/%n.core&quot;
-
-   上例的core文件放在/coredump目录下，文件名是进程名+.core
-
-   以下是一些命名的格式说明
-
-   %P   The Process ID (current-&gt;pid)
-   %U   The UID of the process (current-&gt;uid)
-   %N   The command name of the process (current-&gt;comm)
-   %H   The nodename of the system (system_utsname.nodename)
-   %%   A &quot;%&quot;
-
-
-
-|/usr/share/apport/apport %p %s %c
-
-</rich_text><rich_text weight="heavy">设置默认编辑器</rich_text><rich_text>
-  update-alternatives --config editor
-
-
-dd if=1375752413.742425.data bs=32 skip=1 of=1.flac
-</rich_text><rich_text link="webs http://blog.csdn.net/androidyue/article/details/9295505">Ubuntu 12.04 如何修改背景色         http://blog.csdn.net/androidyue/article/details/9295505</rich_text><rich_text>sshfs
-sshfs root@livedev:/opt tmp
-
-
-
-
-find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
-find -mmin -60 -exec ls -l {} \;
-
-重定向
-redirect io to null 
-command &gt; /dev/null 2&gt;&amp;1
-
-
-</rich_text><rich_text scale="h1">修改时区 时间 等</rich_text><rich_text>
-
-dpkg-reconfigure timezonecon
-dpkg-reconfigure tzdata
-sudo cp /usr/share/zoneinfo/Asia/ShangHai /etc/localtime
-sudo ntpdate cn.pool.ntp.org
-
-
-
-
-</rich_text><rich_text scale="h1">解压deb包</rich_text><rich_text>
-
-dpkg-deb -x xxxx.deb di
-
-
-
-curl 
-curl --data-binary '@post_data.txt' </rich_text><rich_text link="webs http://192.168.100.228:8080/sendTasks">http://192.168.100.228:8080/sendTasks</rich_text><rich_text>
-
-Linux 修改键盘配置
-xev    xmdom -pke
-
-
- xmodmap -e &quot;keycode 180 = Escape NoSymbol Escape&quot;
-
-
-curl
-curl -d '@task' &quot;http://192.168.1.50:8080/jobTracker/task/submit&quot; -H&quot;Content-Type:application/json&quot;
-
-Linux 修改 crontab 编辑器
-update-alternatives --config editor
-
-1. 查看一个系统可以打开的文件的个数        cat /proc/sys/fs/file-max
-
-
-
-
-
-sshfs is an easy way to provide file access to a remote system with ssh. On Ubuntu, all you need to install it (on the remote client, nothing to do on the server if it already runs ssh) is run:
-sudo apt-get install sshfs
-To make things easier, you can make an /etc/fstab entry with the settings to mount a remote directory:
-sshfs#chip@example.unicom.com:/home/chip /home/chip/Remote-Home fuse umask=0,defaults,noauto,user 0 0
-Now, to mount the directory I just type (from my home directory):
-$ </rich_text><rich_text weight="heavy">mount Remote-Home</rich_text><rich_text>
-The problem is that if I try to unmount the directory it fails:
-$ </rich_text><rich_text weight="heavy">umount Remote-Home</rich_text><rich_text>
-umount: /home/chip/Remote-Home mount disagrees with the fstab
-The command you have to use is:
-$ </rich_text><rich_text weight="heavy">fusermount -u Remote-Home
-</rich_text><rich_text>But you can make umount work with two simple steps.
-First (this is the trick), run:
-$ </rich_text><rich_text weight="heavy">sudo ln -s mount.fuse mount.fuse.sshfs</rich_text><rich_text>
-Then, make two changes to the fstab file. First, change the filesystem type (column three) from fuse to fuse.sshfs. Then, remove &quot;sshfs#&quot; from the first field. Now, it will look something like:
-chip@example.unicom.com:/home/chip /home/chip/Remote-Home fuse.sshfs umask=0,defaults,noauto,user 0 0
-Now, everything will work as desired.
-$ </rich_text><rich_text weight="heavy">mount Remote-Home</rich_text><rich_text>
- .
- .
- .
-$ </rich_text><rich_text weight="heavy">umount -v Remote-Home</rich_text><rich_text>
-chip@example.unicom.com:/home/chip umounted
- 
- 
-sshfs root@livedev:/opt tmp
-
-</rich_text><rich_text justification="left"></rich_text><rich_text>
-
-
-
-
-
-
-</rich_text><codebox char_offset="2963" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
-
-+ :：:label，标志一个label，用于b/t的跳转
-+ =：[address]= 打印出行号
-+ a：[address]a\ append text to this line.
-+ b：[address[,address]]b[label] 条件分支语句
-+ c：[address[,address]]c\ 替换内容
-+ d：[address[,address]]d 删除pattern中的所有行，并读入下一新行到pattern中
-+ D：[address[,address]]D 删除multiline pattern中的第一行，不读入下一行
-+ g：[address[,address]]g 将hold space中的内容拷贝到pattern space中，原来pattern space里的内容清除
-+ G：[address[,address]]G 将hold space中的内容append到pattern space\n后
-+ h：[address[,address]]h 将pattern space中的内容拷贝到hold space中，原来的hold space里的内容被清除
-+ H：[address[,address]]H 将pattern space中的内容append到hold space\n后
-+ i：[address]i\ 在address行的前面插入文字，和a反义
-+ l：[address[,address]]l 打印pattern space中的内容，不可打印字符打印出ascii
-+ n：[address[,address]]n 输出pattern space中的内容，读入下一新行替换掉原来的行
-+ N：[address[,address]]N 读入下一行形成multiline pattern，用于跨行处理
-+ p：[address[,address]]p 打印出pattern space中的内容
-+ P：[address[,address]]P 打印出multiline pattern space中的第一行
-+ q：[address]q 碰到address行时退出sed script
-+ r：[address]r file 将文件file的内容append到pattern space后
-+ s：[address[,address]]s/pattern/replace/[flag] 将pattern替换成replace.flag:
-+ n：替换第n个出现的pattern,默认是第一个出现的pattern
-+ g：全部替换pattern
-+ p：如果替换成功则打印
-+ w file：将替换的行写入到文件里
-+ t：[address[,address]]t [label] 如果替换成功则跳转
-+ w：[address[,address]]w file 将pattern中的内容追加写到file文件
-+ x：[address[,address]]x 交换hold space和pattern space的内容
-+ y：[address1[,address2]]y/abc/xyz/ 将abc转换为对应的xyz
-
-
-sed -n '/([0-9]{1,3}.){3}[0-9]{1,3}/p' IP.txt #查找IP
-sed -i &quot;s#([0-9]{1,3}.){3}[0-9]{1,3}:([0-9]){1,4}#${IPPORT}#g&quot; &quot;$FILE&quot;
-
-sed -e &quot;/^[A-Za-z_][A-Za-z0-9_]* [A-Za-z_][A-Za-z0-9_]*::[A-Za-z_][A-Za-z0-9_]*(/=&quot; tttt #在tttt中查找类似UINT32 MyClass::setMyClass所在的行号
-
-sed -e ':K;N;s/n/ /;bK' t #合并所有行，使用的label
-sed -e 'N;s/n/ /g' t #合并两行
-
-sed '3{h;d}; 5{G}' ＃交换3，5行， h,d,G
-top -p 2222 -b &gt;txt&amp; #后台监控2222进程
-
-
-
-strftime 将时间戳转日期
-awk 'BEGIN{print strftime(&quot;%Y-%m-%d&quot;,systime())}'
-
-将日期转为时间戳
-awk 'BEGIN {printf(&quot;%dn&quot;,mktime(2006&quot; &quot;8&quot; &quot;5&quot; &quot;15&quot; &quot;09&quot; &quot;0))}'
-
-awk 'BEGIN {printf(&quot;%dn&quot;,mktime(&quot;2014&quot; &quot;1&quot; &quot;2&quot; &quot;01&quot; &quot;36&quot; &quot;0&quot;))}'
-vim -&gt; 其他程序
-&quot;*y
-
-其他程序-&gt;gvim
-“*p </codebox></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="22"><rich_text>Linux 剪裁
+#!/bin/bash# check_xu.sh# 0 * * * * /home/check_xu.sh DAT=&quot;`date +%Y%m%d`&quot;HOUR=&quot;`date +%H`&quot;DIR=&quot;/home/oslog/host_${DAT}/${HOUR}&quot;DELAY=60COUNT=60# whether the responsible directory existif ! test -d ${DIR}then        /bin/mkdir -p ${DIR}fi# general checkexport TERM=linux/usr/bin/top -b -d ${DELAY} -n ${COUNT} &gt; ${DIR}/top_${DAT}.log 2&gt;&amp;1 &amp;# cpu check/usr/bin/sar -u ${DELAY} ${COUNT} &gt; ${DIR}/cpu_${DAT}.log 2&gt;&amp;1 &amp;#/usr/bin/mpstat -P 0 ${DELAY} ${COUNT} &gt; ${DIR}/cpu_0_${DAT}.log 2&gt;&amp;1 &amp;#/usr/bin/mpstat -P 1 ${DELAY} ${COUNT} &gt; ${DIR}/cpu_1_${DAT}.log 2&gt;&amp;1 &amp;# memory check/usr/bin/vmstat ${DELAY} ${COUNT} &gt; ${DIR}/vmstat_${DAT}.log 2&gt;&amp;1 &amp;# I/O check/usr/bin/iostat ${DELAY} ${COUNT} &gt; ${DIR}/iostat_${DAT}.log 2&gt;&amp;1 &amp;# network check/usr/bin/sar -n DEV ${DELAY} ${COUNT} &gt; ${DIR}/net_${DAT}.log 2&gt;&amp;1 &amp;#/usr/bin/sar -n EDEV ${DELAY} ${COUNT} &gt; ${DIR}/net_edev_${DAT}.log 2&gt;&amp;1 &amp;</rich_text></node></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="22"><rich_text>Linux 剪裁
 </rich_text><rich_text link="webs http://blog.csdn.net/jinsen/article/details/4890922">http://blog.csdn.net/jinsen/article/details/4890922</rich_text><rich_text>
 2. Linux 破解wifi密码
 </rich_text><rich_text link="webs http://linux.cn/thread/12013/1/1/">http://linux.cn/thread/12013/1/1/</rich_text><rich_text>
@@ -619,7 +439,8 @@ vim -&gt; 其他程序
 4.Linux 技巧
 </rich_text><rich_text link="webs http://linux.cn/article-2389-1.html">http://linux.cn/article-2389-1.html</rich_text><rich_text>
 
-</rich_text></node><node name="screen" prog_lang="custom-colors" readonly="False" tags="screen" unique_id="36"><rich_text style="italic">screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]
+Unix 技巧
+</rich_text><rich_text link="webs http://blog.jobbole.com/55455/">http://blog.jobbole.com/55455/</rich_text></node><node name="screen" prog_lang="custom-colors" readonly="False" tags="screen" unique_id="36"><rich_text style="italic">screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]
 Screen命令参数：</rich_text><rich_text>
 -A -[r|R]          将所有的视窗都调整为目前终端机的大小。
 -c filename        用指定的filename文件替代screen的配置文件’.screenrc’.
@@ -725,211 +546,7 @@ Ctrl+a d ：退出当前终端，返回加载screen前的shell命令状态
    update-alternatives --config editor
 
 
- dd if=1375752413.742425.data bs=32 skip=1 of=1.flac</rich_text></node><node name="Linux 常用" prog_lang="custom-colors" readonly="False" tags="快捷键 " unique_id="35"><rich_text>
-• # ctrl + l - 清屏 
-• # ctrl + c - 终止命令
-• # ctrl + d - 退出 shell，好像也可以表示EOF
-• # ctrl + z - 将当前进程置于后台，fg还原。 
-• # ctrl + r - 从命令历史中找 
-• # ctrl + a - 光标移到行首 
-• # ctrl + e - 光标移到行尾
-• # ctrl + u - 清除光标到行首的字符 
-• # ctrl + w - 清除光标之前一个单词 
-• # ctrl + k - 清除光标到行尾的字符
-• # ctrl + t - 交换光标前两个字符 
-• # ctrl + y - 粘贴前一ctrl+u类命令删除的字符
-• # ctrl + p - 上一条命令
-• # ctrl + n - 下一条命令 
-• # ctrl + v - 输入控制字符 如ctrl+v &lt;ENTER&gt; ,会输入^M 
-• # ctrl + f - 光标后移一个字符
-• # ctrl + b - 光标前移一个字符 
-• # ctrl + h - 删除光标前一个字符 
-• # N+&lt;ESC&gt;+f - 光标后移N个单词，N为1时可省略
-• # N+&lt;ESC&gt;+b - 光标前移N个单词，N为1时可省略 
-• # ctrl + s - 挂起当前shell
-• # ctrl + q - 重新启用
-• # &lt;ESC&gt;+d 从光标开始处删除到行尾。挂起的shell 
-• # !! - 上一条命令 
-• # !-n - 倒数第N条历史命令 
-• # !-n:p - 打印上一条命令（不执行） 
-• # !?string？- 最新一条含有“string”的命令 # !-n:gs/str1/str2/ - 将倒数第N条命令的str1替换为str2，并执行（若不加g,则仅替换第一个）
-</rich_text></node><node name="Linux 常用" prog_lang="custom-colors" readonly="False" tags="快捷键 " unique_id="23"><rich_text>
-• # ctrl + l - 清屏 
-• # ctrl + c - 终止命令
-• # ctrl + d - 退出 shell，好像也可以表示EOF
-• # ctrl + z - 将当前进程置于后台，fg还原。 
-• # ctrl + r - 从命令历史中找 
-• # ctrl + a - 光标移到行首 
-• # ctrl + e - 光标移到行尾
-• # ctrl + u - 清除光标到行首的字符 
-• # ctrl + w - 清除光标之前一个单词 
-• # ctrl + k - 清除光标到行尾的字符
-• # ctrl + t - 交换光标前两个字符 
-• # ctrl + y - 粘贴前一ctrl+u类命令删除的字符
-• # ctrl + p - 上一条命令
-• # ctrl + n - 下一条命令 
-• # ctrl + v - 输入控制字符 如ctrl+v &lt;ENTER&gt; ,会输入^M 
-• # ctrl + f - 光标后移一个字符
-• # ctrl + b - 光标前移一个字符 
-• # ctrl + h - 删除光标前一个字符 
-• # N+&lt;ESC&gt;+f - 光标后移N个单词，N为1时可省略
-• # N+&lt;ESC&gt;+b - 光标前移N个单词，N为1时可省略 
-• # ctrl + s - 挂起当前shell
-• # ctrl + q - 重新启用
-• # &lt;ESC&gt;+d 从光标开始处删除到行尾。挂起的shell 
-• # !! - 上一条命令 
-• # !-n - 倒数第N条历史命令 
-• # !-n:p - 打印上一条命令（不执行） 
-• # !?string？- 最新一条含有“string”的命令 # !-n:gs/str1/str2/ - 将倒数第N条命令的str1替换为str2，并执行（若不加g,则仅替换第一个）
-
-do date -d &quot;$a&quot; +%s;</rich_text><node name="screen" prog_lang="custom-colors" readonly="False" tags="screen" unique_id="24"><rich_text style="italic">screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]
-Screen命令参数：</rich_text><rich_text>
--A -[r|R]          将所有的视窗都调整为目前终端机的大小。
--c filename        用指定的filename文件替代screen的配置文件’.screenrc’.
--d [pid.tty.host]  断开screen进程(使用该命令时，screen的状态一定要是Attached，也就是说有用户连在screen里)。一般进程的名字是以pid.tty.host这种形式表示(用screen -list命令可以看出状态)。
--D [pid.tty.host]  与-d命令实现一样的功能，区别就是如果执行成功，会踢掉原来在screen里的用户并让他logout。
--h &lt;行数&gt; 　       指定视窗的缓冲区行数。
-
--ls或–list        显示目前所有的screen作业。
--m                    即使目前已在作业中的screen作业，仍强制建立新的screen作业。
--p number or name  预先选择一个窗口。
--r [pid.tty.host]  恢复离线的screen进程，如果有多个断开的进程，需要指定[pid.tty.host]
--R                      先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业。
--s shell             指定建立新视窗时，所要执行的shell。
--S &lt;作业名称&gt;  指定screen作业的名称。(用来替代[pid.tty.host]的命名方式,可以简化操作).
--v                     显示版本信息。
--wipe                检查目前所有的screen作业，并删除已经无法使用的screen作业。
--x                     恢复之前离线的screen作业。
-
-Screen命令的常规用法:
-
-screen -d -r:连接一个screen进程，如果该进程是attached，就先踢掉远端用户再连接。
-
-screen -D -r:连接一个screen进程，如果该进程是attached，就先踢掉远端用户并让他logout再连接
-
-screen -ls或者-list:显示存在的screen进程，常用命令
-
-screen -m:如果在一个Screen进程里，用快捷键crtl+a c或者直接打screen可以创建一个新窗口,screen -m可以新建一个screen进程。
-
-screen -dm:新建一个screen，并默认是detached模式，也就是建好之后不会连上去。
-
-screen -p number or name:预先选择一个窗口。
-
-Screen实现后台运行程序的简单步骤:
-
-1&gt; 要进行某项操作时，先使用命令创建一个Screen:
-[linux@user~]$ screen -S test1
-
-2&gt;接着就可以在里面进行操作了，如果你的任务还没完成就要走开的话，使用命令保留Screen：
-[linux@user~]$ Ctrl+a+d                    #按Ctrl+a，然后再按d即可保留Screen
-[detached]                                 #这时会显示出这个提示，说明已经保留好Screen了
-
-如果你工作完成的话，就直接输入:
-[linux@user~]$ exit                        #这样就表示成功退出了
-[screen is terminating]
-
-3&gt; 如果你上一次保留了Screen，可以使用命令查看：
-[linux@user~]$ screen -ls
-There is a screen on:
-9649.test1   (Detached)
-
-恢复Screen，使用命令：
-[linux@user~]$ screen -r test1 (or 9649)
-
-Screen命令中用到的快捷键
-
-Ctrl+a c ：创建窗口
-
-Ctrl+a w ：窗口列表
-
-Ctrl+a n ：下一个窗口
-
-Ctrl+a p ：上一个窗口
-
-Ctrl+a 0-9 ：在第0个窗口和第9个窗口之间切换
-
-Ctrl+a K(大写) ：关闭当前窗口，并且切换到下一个窗口（当退出最后一个窗口时，该终端自动终止，并且退回到原始shell状态）
-
-exit ：关闭当前窗口，并且切换到下一个窗口（当退出最后一个窗口时，该终端自动终止，并且退回到原始shell状态）
-
-Ctrl+a d ：退出当前终端，返回加载screen前的shell命令状态
-</rich_text></node><node name="core文件设置" prog_lang="custom-colors" readonly="False" tags="core" unique_id="25"><rich_text>Linux
-
-
-使用vimdiff作为svn diff的查看代码工具
-
-</rich_text><rich_text link="webs http://color:#3465A4" weight="heavy">http://www.cnblogs.com/xuxm2007/archive/2012/05/11/2496243.html</rich_text><rich_text weight="heavy">Linux 常用快捷键core文件设置</rich_text><rich_text>
- linux下默认是不产生core文件的，要用ulimit -c unlimited放开
-1、开启系统的Core Dump功能
-
-    ulimit -c core_file_size_in_kb
-
-    如果要关闭该功能core_file_size_in_kb为0就行了。
-
-2、设置Core Dump的核心转储文件目录和命名规则
-
-    文件的命名规则放在
-
-    </rich_text><rich_text link="webs http://color:#3465A4">/proc/sys/kernel/core_name_format文件中</rich_text><rich_text>
-
-    使用sysctl -w &quot;kernel.core_name_format=/coredump/%n.core&quot;
-
-    上例的core文件放在/coredump目录下，文件名是进程名+.core
-
-    以下是一些命名的格式说明
-
-    %P   The Process ID (current-&gt;pid)
-    %U   The UID of the process (current-&gt;uid)
-    %N   The command name of the process (current-&gt;comm)
-    %H   The nodename of the system (system_utsname.nodename)
-    %%   A &quot;%&quot;
-
-</rich_text><rich_text weight="heavy">设置默认编辑器</rich_text><rich_text>
-   update-alternatives --config editor
-
-
- dd if=1375752413.742425.data bs=32 skip=1 of=1.flac</rich_text></node><node name="vim常用 " prog_lang="custom-colors" readonly="False" tags="vim" unique_id="26"><rich_text weight="heavy">marker折叠方式时，我们需要用标计来标识代码的折叠，系统默认是{{{和}}}• 折叠命令</rich_text><rich_text>
-• 
-• zf　创建折叠，比如在marker方式下：
-•         zf56G，创建从当前行起到56行的代码折叠；
-•         10zf或10zf+或zf10↓，创建从当前行起到后10行的代码折叠。
-•         10zf-或zf10↑，创建从当前行起到之前10行的代码折叠。
-•         在括号处zf%，创建从当前行起到对应的匹配的括号上去（（），{}，[]，&lt;&gt;等）。
-• zd  删除 (delete) 在光标下的折叠。仅当 'foldmethod' 设为 &quot;manual&quot; 或 &quot;marker&quot; 时有效。
-• zD  循环删除 (Delete) 光标下的折叠，即嵌套删除折叠。仅当 'foldmethod' 设为 &quot;manual&quot; 或 &quot;marker&quot; 时有效。
-• zE  除去 (Eliminate) 窗口里“所有”的折叠。仅当 'foldmethod' 设为 &quot;manual&quot; 或 &quot;marker&quot; 时有效。
-
-</rich_text><rich_text weight="heavy">:r !ls 会把执行的命令导入到vim中</rich_text><rich_text>
-
-
-</rich_text></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="27"><rich_text></rich_text></node></node><node name="Linux 常用" prog_lang="custom-colors" readonly="False" tags="快捷键 " unique_id="30"><rich_text>
-• # ctrl + l - 清屏 
-• # ctrl + c - 终止命令
-• # ctrl + d - 退出 shell，好像也可以表示EOF
-• # ctrl + z - 将当前进程置于后台，fg还原。 
-• # ctrl + r - 从命令历史中找 
-• # ctrl + a - 光标移到行首 
-• # ctrl + e - 光标移到行尾
-• # ctrl + u - 清除光标到行首的字符 
-• # ctrl + w - 清除光标之前一个单词 
-• # ctrl + k - 清除光标到行尾的字符
-• # ctrl + t - 交换光标前两个字符 
-• # ctrl + y - 粘贴前一ctrl+u类命令删除的字符
-• # ctrl + p - 上一条命令
-• # ctrl + n - 下一条命令 
-• # ctrl + v - 输入控制字符 如ctrl+v &lt;ENTER&gt; ,会输入^M 
-• # ctrl + f - 光标后移一个字符
-• # ctrl + b - 光标前移一个字符 
-• # ctrl + h - 删除光标前一个字符 
-• # N+&lt;ESC&gt;+f - 光标后移N个单词，N为1时可省略
-• # N+&lt;ESC&gt;+b - 光标前移N个单词，N为1时可省略 
-• # ctrl + s - 挂起当前shell
-• # ctrl + q - 重新启用
-• # &lt;ESC&gt;+d 从光标开始处删除到行尾。挂起的shell 
-• # !! - 上一条命令 
-• # !-n - 倒数第N条历史命令 
-• # !-n:p - 打印上一条命令（不执行） 
-• # !?string？- 最新一条含有“string”的命令 # !-n:gs/str1/str2/ - 将倒数第N条命令的str1替换为str2，并执行（若不加g,则仅替换第一个）
+ dd if=1375752413.742425.data bs=32 skip=1 of=1.flac</rich_text></node><node name="Linux 常用" prog_lang="custom-colors" readonly="False" tags="快捷键 " unique_id="30"><rich_text>mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat/a}
 </rich_text><node name="screen" prog_lang="custom-colors" readonly="False" tags="screen" unique_id="31"><rich_text style="italic">screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]
 Screen命令参数：</rich_text><rich_text>
 -A -[r|R]          将所有的视窗都调整为目前终端机的大小。
@@ -1098,7 +715,133 @@ sed -e '1!G;h;$!d' t #倒置所有的行
 
 sed -n '1!G;h;$p' t #倒置所有的行
 
-sed  -e ':a;$q;N;11,$D;ba' t #只显示最后的10行</rich_text></node></node><node name="tools" prog_lang="custom-colors" readonly="False" tags="" unique_id="14"><rich_text>taskwarrior 
+sed  -e ':a;$q;N;11,$D;ba' t #只显示最后的10行</rich_text></node><node name="collections" prog_lang="sh" readonly="False" tags="" unique_id="51"><rich_text>Linux
+
+
+使用vimdiff作为svn diff的查看代码工具
+
+http://www.cnblogs.com/xuxm2007/archive/2012/05/11/2496243.html
+
+
+Linux 常用快捷键core文件设置
+linux下默认是不产生core文件的，要用ulimit -c unlimited放开
+1、开启系统的Core Dump功能
+
+   ulimit -c core_file_size_in_kb
+
+   如果要关闭该功能core_file_size_in_kb为0就行了。
+
+2、设置Core Dump的核心转储文件目录和命名规则
+
+   文件的命名规则放在
+
+   /proc/sys/kernel/core_name_format文件中
+
+   使用sysctl -w &quot;kernel.core_name_format=/coredump/%n.core&quot;
+
+   上例的core文件放在/coredump目录下，文件名是进程名+.core
+
+   以下是一些命名的格式说明
+
+   %P   The Process ID (current-&gt;pid)
+   %U   The UID of the process (current-&gt;uid)
+   %N   The command name of the process (current-&gt;comm)
+   %H   The nodename of the system (system_utsname.nodename)
+   %%   A &quot;%&quot;
+
+
+
+|/usr/share/apport/apport %p %s %c
+
+设置默认编辑器
+  update-alternatives --config editor
+
+
+dd if=1375752413.742425.data bs=32 skip=1 of=1.flac
+Ubuntu 12.04 如何修改背景色         http://blog.csdn.net/androidyue/article/details/9295505sshfs
+sshfs root@livedev:/opt tmp
+
+
+
+
+find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
+find -mmin -60 -exec ls -l {} \;
+
+重定向
+redirect io to null 
+command &gt; /dev/null 2&gt;&amp;1
+
+
+修改时区 时间 等
+
+dpkg-reconfigure timezonecon
+dpkg-reconfigure tzdata
+sudo cp /usr/share/zoneinfo/Asia/ShangHai /etc/localtime
+sudo ntpdate cn.pool.ntp.org
+
+
+
+
+解压deb包
+
+dpkg-deb -x xxxx.deb di
+
+
+
+curl 
+curl --data-binary '@post_data.txt' http://192.168.100.228:8080/sendTasks
+
+Linux 修改键盘配置
+xev    xmdom -pke
+
+
+ xmodmap -e &quot;keycode 180 = Escape NoSymbol Escape&quot;
+
+
+curl
+curl -d '@task' &quot;http://192.168.1.50:8080/jobTracker/task/submit&quot; -H&quot;Content-Type:application/json&quot;
+
+Linux 修改 crontab 编辑器
+update-alternatives --config editor
+
+1. 查看一个系统可以打开的文件的个数        cat /proc/sys/fs/file-max
+
+
+
+
+
+sshfs is an easy way to provide file access to a remote system with ssh. On Ubuntu, all you need to install it (on the remote client, nothing to do on the server if it already runs ssh) is run:
+sudo apt-get install sshfs
+To make things easier, you can make an /etc/fstab entry with the settings to mount a remote directory:
+sshfs#chip@example.unicom.com:/home/chip /home/chip/Remote-Home fuse umask=0,defaults,noauto,user 0 0
+Now, to mount the directory I just type (from my home directory):
+$ mount Remote-Home
+The problem is that if I try to unmount the directory it fails:
+$ umount Remote-Home
+umount: /home/chip/Remote-Home mount disagrees with the fstab
+The command you have to use is:
+$ fusermount -u Remote-Home
+But you can make umount work with two simple steps.
+First (this is the trick), run:
+$ sudo ln -s mount.fuse mount.fuse.sshfs
+Then, make two changes to the fstab file. First, change the filesystem type (column three) from fuse to fuse.sshfs. Then, remove &quot;sshfs#&quot; from the first field. Now, it will look something like:
+chip@example.unicom.com:/home/chip /home/chip/Remote-Home fuse.sshfs umask=0,defaults,noauto,user 0 0
+Now, everything will work as desired.
+$ mount Remote-Home
+ 
+$ umount -v Remote-Home
+chip@example.unicom.com:/home/chip umounted
+ 
+ 
+sshfs root@livedev:/opt tmp
+
+mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat/a}
+tar xvf -C tmp/a/b/c newarc.tar.gz
+
+
+
+
+</rich_text></node></node><node name="tools" prog_lang="custom-colors" readonly="False" tags="" unique_id="14"><rich_text>taskwarrior 
 </rich_text><rich_text link="webs http://taskwarrior.org/projects/show/taskwarrior">http://taskwarrior.org/projects/show/taskwarrior</rich_text><rich_text>
 javascript x86
 </rich_text><rich_text link="webs http://bellard.org/jslinux/">http://bellard.org/jslinux/</rich_text><rich_text>
