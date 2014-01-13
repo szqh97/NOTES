@@ -149,6 +149,9 @@ ioctl, select, poll, epolll这些的用法 
 9. C++ 语言的15个隐晦特性
 </rich_text><rich_text link="webs http://blog.jobbole.com/54140/">http://blog.jobbole.com/54140/</rich_text><rich_text>
 
+10. 垃圾回收
+11. </rich_text><rich_text link="webs http://blog.jobbole.com/53376/">http://blog.jobbole.com/53376/</rich_text><rich_text>
+
 </rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
 </rich_text><rich_text style="italic">voa     mms://a1905.l211052072.c2110.g.lm.akamaistream.net/D/1905/2110/v0001/reflector:52072</rich_text><rich_text>
 
@@ -187,7 +190,34 @@ void readIntegerFile(const string&amp; fileName, vector&lt;int&gt;&amp; dest) th
 		}
 	}
 	istr.close();
-}</codebox><codebox char_offset="2" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False"></codebox></node></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
+}</codebox><codebox char_offset="2" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False"></codebox></node><node name="design_pattern" prog_lang="custom-colors" readonly="False" tags="" unique_id="50"><rich_text weight="heavy">Abstract </rich_text><rich_text style="italic" weight="heavy">Factory</rich_text><rich_text>
+      Provide an interface for creating  families of related or dependent objects without specifying their concrete classes
+</rich_text><rich_text weight="heavy">Adapter</rich_text><rich_text>
+      Convert the interface of a class into another interface clients expect. Adapter lets class work together that couldn't otherwise because of incompatible interface
+</rich_text><rich_text weight="heavy">Bridge</rich_text><rich_text>
+      Decouple an abstraction from its implementation so that the two can vary independently
+</rich_text><rich_text weight="heavy">Builder</rich_text><rich_text>
+      Separate the construction of a complex object from its representation so that the same construction process can create differenct representation
+</rich_text><rich_text weight="heavy">Chain of Responsibility</rich_text><rich_text>
+     Avoid coupling thesender of a request to its receiver by giving more than one object a chance to handle the request. Chain the receiving objects and pass the request along the chain until an object handles it.
+</rich_text><rich_text weight="heavy">Command </rich_text><rich_text>
+       Encapsulate a request as an object. thereby letting you parameterize clients with different requests, queue or log requests, nd support undoable operations.
+Composite
+    compose objects into tree structures to represent part-while hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly
+ Decorator
+        Attach additional responsibilities to an object dynamically.Decorators provides a flexbile alternative to subclassing for extending functionality
+Facade
+        Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use.
+Factory Method
+        Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclass.
+Flyweight
+        Use sharing to support large numbers of fine-grained objects efficiently
+Interpreter
+        Given a language, define a represention for its grammar along with an interpreter that use the representation to interpret sentences in the language
+Iterator
+        Provide a way to access the element of an aggregate object sequesntially without exposing its underlying representation.
+Memento                                                
+        </rich_text></node></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
 </rich_text></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="" unique_id="8"><rich_text>1. ffmpeg snapshot，一秒二次
 
         ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
@@ -1155,9 +1185,12 @@ wirte a script which vim can load tags which the open file is needed and lib scr
 
 寻找业余项目可以尝试从Elance、 oDesk或者Freelancer这些网站开始。
 
-</rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="46"><rich_text></rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text></rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
-1. 处理丢帧的情况, (Osprey 没有这种情况, Black Magic要考虑, )
-2. 
+</rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text></rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. taskGenerator 中的duration要修改
+1.taskGenerator 在第一次启动时会丢掉6个小时的任务,
+2. 判断两个dna文件是相邻的,而不是有间隔的(如果前面的没有可以直接把dna和 info 文件发过去.
+3. BlackMagic 卡的时间戳要要修改
+4. 处理丢帧的情况, (Osprey 没有这种情况, Black Magic要考虑, )
+5. 
 TVAds tracker 使用python调用 C++的方法,把merge cdna的部分替换</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
 2. mysql&gt; show status like '%onn%';
