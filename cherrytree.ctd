@@ -148,8 +148,8 @@ ioctl, select, poll, epolll这些的用法 
 
 9. C++ 语言的15个隐晦特性
 </rich_text><rich_text link="webs http://blog.jobbole.com/54140/">http://blog.jobbole.com/54140/</rich_text><rich_text>
-
-</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
+10 刘未鹏 C++
+</rich_text><rich_text link="webs http://blog.csdn.net/pongba/article/details/90643">http://blog.csdn.net/pongba/article/details/90643</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
 </rich_text><rich_text style="italic">voa     mms://a1905.l211052072.c2110.g.lm.akamaistream.net/D/1905/2110/v0001/reflector:52072</rich_text><rich_text>
 
 voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="29"><rich_text>TVADS 发送job
