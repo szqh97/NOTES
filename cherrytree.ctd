@@ -149,7 +149,10 @@ ioctl, select, poll, epolll这些的用法 
 9. C++ 语言的15个隐晦特性
 </rich_text><rich_text link="webs http://blog.jobbole.com/54140/">http://blog.jobbole.com/54140/</rich_text><rich_text>
 10 刘未鹏 C++
-</rich_text><rich_text link="webs http://blog.csdn.net/pongba/article/details/90643">http://blog.csdn.net/pongba/article/details/90643</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
+</rich_text><rich_text link="webs http://blog.csdn.net/pongba/article/details/90643">http://blog.csdn.net/pongba/article/details/90643</rich_text><rich_text>
+
+C++ Policy 
+</rich_text><rich_text link="webs http://blog.csdn.net/happylife1527/article/details/8204734">http://blog.csdn.net/happylife1527/article/details/8204734</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
 </rich_text><rich_text style="italic">voa     mms://a1905.l211052072.c2110.g.lm.akamaistream.net/D/1905/2110/v0001/reflector:52072</rich_text><rich_text>
 
 voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="29"><rich_text>TVADS 发送job
@@ -187,7 +190,28 @@ void readIntegerFile(const string&amp; fileName, vector&lt;int&gt;&amp; dest) th
 		}
 	}
 	istr.close();
-}</codebox><codebox char_offset="2" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False"></codebox></node></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
+}</codebox><codebox char_offset="2" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False"></codebox></node><node name="Modern C++ " prog_lang="cpp" readonly="False" tags="" unique_id="50"><rich_text>Q1. 什么是Policy， policy 与纯虚函数有什么异同 什么是符合 policy 的一个类？P9
+Q2. 何为 template template 参数？
+    host class ：如果class使用一个或者多个policies 称其为host class， 它负责把policy
+    的结构和行为组合为一个更复杂的结构和行为
+// Library code
+template &lt;class CreationPolicy&gt;
+class widgetManager: public CreationPolicy
+{ ... };
+
+//Aplication code
+typedef WidgetCreator&lt; OpNewCreator&lt;Widget&gt; &gt; myWidgetMgr;
+
+一般来说，host class 已经知道policy class所需的参数， 或是轻易可推导出来。
+// Library code
+template &lt;template &lt;class Created&gt; class CreationPolicy = OpNewCreator&gt;
+class widgeManager : public CreationPolicy&lt;Widge&gt;
+{ ... };
+
+// Aplication code
+typedef WidgetManager&lt;OpNewCreator&gt; MyWidgetMgr;
+
+Policy 不适用于动态连结和二进位接口（何为二进位接口？），所以本质上Policies和传统的接口并不互相竞争</rich_text></node></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
 </rich_text></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="" unique_id="8"><rich_text>1. ffmpeg snapshot，一秒二次
 
         ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
