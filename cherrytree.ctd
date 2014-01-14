@@ -211,7 +211,14 @@ class widgeManager : public CreationPolicy&lt;Widge&gt;
 // Aplication code
 typedef WidgetManager&lt;OpNewCreator&gt; MyWidgetMgr;
 
-Policy 不适用于动态连结和二进位接口（何为二进位接口？），所以本质上Policies和传统的接口并不互相竞争</rich_text></node></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
+Policy 不适用于动态连结和二进位接口（何为二进位接口？），所以本质上Policies和传统的接口并不互相竞争
+
+关于析构的问题：可以将一个host class自动转换为一个Policy class(向上转型）
+并稍后delete 该指针，否则直接delete该指针会出现不可预知的行为;在Policy中定义虚析构函数，
+    会妨碍Policy的静态连结特性，会为对象大小带来额外的开销。Policy只规范行为，
+    要避免虚析构函数
+
+Q： 虚函数是不是在执行速度上有额外的开销？</rich_text></node></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
 </rich_text></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="" unique_id="8"><rich_text>1. ffmpeg snapshot，一秒二次
 
         ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
