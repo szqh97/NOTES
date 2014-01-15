@@ -190,10 +190,12 @@ void readIntegerFile(const string&amp; fileName, vector&lt;int&gt;&amp; dest) th
 		}
 	}
 	istr.close();
-}</codebox><codebox char_offset="2" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False"></codebox></node><node name="Modern C++ " prog_lang="cpp" readonly="False" tags="" unique_id="50"><rich_text>Q1. 什么是Policy， policy 与纯虚函数有什么异同 什么是符合 policy 的一个类？P9
+}</codebox><codebox char_offset="2" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False"></codebox></node><node name="Modern C++ " prog_lang="cpp" readonly="False" tags="" unique_id="50"><rich_text>    基于Policy的Class设计 （Policy-Based Class Design）
+
+Q1. 什么是Policy， policy 与纯虚函数有什么异同 什么是符合 policy 的一个类？P9
 Q2. 何为 template template 参数？
     host class ：如果class使用一个或者多个policies 称其为host class， 它负责把policy
-    的结构和行为组合为一个更复杂的结构和行为
+    的结构和行为组合为一个更复杂的结构和行为。每一个参数代表一个policy
 // Library code
 template &lt;class CreationPolicy&gt;
 class widgetManager: public CreationPolicy
@@ -218,7 +220,15 @@ Policy 不适用于动态连结和二进位接口（何为二进位接口？）�
     会妨碍Policy的静态连结特性，会为对象大小带来额外的开销。Policy只规范行为，
     要避免虚析构函数
 
-Q： 虚函数是不是在执行速度上有额外的开销？</rich_text></node></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
+Q： 虚函数是不是在执行速度上有额外的开销？
+
+将class 分解为polices时的准则：
+1. 把你的class内的”设计决定”局部化、命令，分离出来。
+2. 找出正交的policies--也就是彼此之间没有交互作用、可独立更动的polices
+Q: 在设计一个类时，如何拆分出正交的Policies？
+如果必须使用和非正交的Policies，尽可能借着”把policy class 当做引用参数传给其他policy class template function“来降低相依性，这样policy就必须暴露一些实现细节给其他 的Policy 会降低封装性
+Policy机制由template 和多重继承组成   
+Policy-to-Policy 的拷贝方式</rich_text></node></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
 </rich_text></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="" unique_id="8"><rich_text>1. ffmpeg snapshot，一秒二次
 
         ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
