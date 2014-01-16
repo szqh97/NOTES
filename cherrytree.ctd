@@ -228,7 +228,23 @@ Q： 虚函数是不是在执行速度上有额外的开销？
 Q: 在设计一个类时，如何拆分出正交的Policies？
 如果必须使用和非正交的Policies，尽可能借着”把policy class 当做引用参数传给其他policy class template function“来降低相依性，这样policy就必须暴露一些实现细节给其他 的Policy 会降低封装性
 Policy机制由template 和多重继承组成   
-Policy-to-Policy 的拷贝方式</rich_text></node></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
+Policy-to-Policy 的拷贝方式
+
+/////////////////////////////////////////////
+偏特化机制不能用在函数上，不论成员函数还是非成员函数。
+1. 可以全特化 class template 中的成员函数，但是不能偏特化它们
+2. 不能偏特化namespace-level 函数，（函数重载） 
+
+/////////////////////////////////////////////
+local class 不能定义static成员变量，也不能访问non-static局部变量。可以在template 函数中使用。定义template 函数内的local class 可以使用函数的template参数
+任何运用template class的手法，都可以改用&quot;函数外的template class&quot;来完成。
+local class 类似于Java中的final， 外界不能继承一个隐藏于函数内的local class。如果没有local class 要实现java中的final，需要在编译元中加上一个无具名的命名空间。
+//////////////////////////////////////////
+   Mapping Integral Constants to types
+   适用Int2Type的两个条件：
+   1. 有必要根据某个编译期常数调用一个或数个不同的函数
+   2. 有必要在编译期实施&quot;分派&quot;
+   如果在执行是进行分派，只要使用if-else or switch 就好了</rich_text></node></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
 </rich_text></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="" unique_id="8"><rich_text>1. ffmpeg snapshot，一秒二次
 
         ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
