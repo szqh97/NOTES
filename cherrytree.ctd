@@ -190,7 +190,8 @@ void readIntegerFile(const string&amp; fileName, vector&lt;int&gt;&amp; dest) th
 		}
 	}
 	istr.close();
-}</codebox><codebox char_offset="2" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False"></codebox></node><node name="Modern C++ " prog_lang="cpp" readonly="False" tags="" unique_id="50"><rich_text>    基于Policy的Class设计 （Policy-Based Class Design）
+}</codebox><codebox char_offset="2" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False"></codebox></node><node name="Modern C++ " prog_lang="cpp" readonly="False" tags="" unique_id="50"><rich_text>//////////////////////////////////////////////////
+    基于Policy的Class设计 （Policy-Based Class Design）
 
 Q1. 什么是Policy， policy 与纯虚函数有什么异同 什么是符合 policy 的一个类？P9
 Q2. 何为 template template 参数？
@@ -226,11 +227,13 @@ Q： 虚函数是不是在执行速度上有额外的开销？
 1. 把你的class内的”设计决定”局部化、命令，分离出来。
 2. 找出正交的policies--也就是彼此之间没有交互作用、可独立更动的polices
 Q: 在设计一个类时，如何拆分出正交的Policies？
-如果必须使用和非正交的Policies，尽可能借着”把policy class 当做引用参数传给其他policy class template function“来降低相依性，这样policy就必须暴露一些实现细节给其他 的Policy 会降低封装性
+如果必须使用和非正交的Policies，尽可能借着 ” 把policy class 当做引用参数传给其他policy class template function “ 来降低相依性，这样policy就必须暴露一些实现细节给其他 的Policy 会降低封装性
 Policy机制由template 和多重继承组成   
 Policy-to-Policy 的拷贝方式
 
 /////////////////////////////////////////////
+不存在template函数的特化.
+
 偏特化机制不能用在函数上，不论成员函数还是非成员函数。
 1. 可以全特化 class template 中的成员函数，但是不能偏特化它们
 2. 不能偏特化namespace-level 函数，（函数重载） 
