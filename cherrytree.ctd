@@ -244,9 +244,13 @@ local class 类似于Java中的final， 外界不能继承一个隐藏于函数�
    适用Int2Type的两个条件：
    1. 有必要根据某个编译期常数调用一个或数个不同的函数
    2. 有必要在编译期实施&quot;分派&quot;
-   如果在执行是进行分派，只要使用if-else or switch 就好了</rich_text></node><node name="bak" prog_lang="cpp" readonly="False" tags="" unique_id="51"><rich_text>//////////////////////////
+   如果在执行是进行分派，只要使用if-else or switch 就好了
+   //////////////////////////
        编译期间的侦测可转换性和继承性
-可以把sizeof用在任何表达式，不论后者有多复杂，sizeof会直接传回大小，不会等到执行时。这意味着sizeof可以感知重载，模板实例化，转换规则，或任何发生在C++表达式上的机制</rich_text></node></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
+可以把sizeof用在任何表达式，不论后者有多复杂，sizeof会直接传回大小，不会等到执行时。这意味着sizeof可以感知重载，模板实例化，转换规则，或任何发生在C++表达式上的机制
+//////////////////////
+C++不允许reference to reference
+</rich_text></node><node name="bak" prog_lang="cpp" readonly="False" tags="" unique_id="51"><rich_text></rich_text></node></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
 </rich_text></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="" unique_id="8"><rich_text>1. ffmpeg snapshot，一秒二次
 
         ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
