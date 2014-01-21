@@ -250,7 +250,11 @@ local class 类似于Java中的final， 外界不能继承一个隐藏于函数�
 可以把sizeof用在任何表达式，不论后者有多复杂，sizeof会直接传回大小，不会等到执行时。这意味着sizeof可以感知重载，模板实例化，转换规则，或任何发生在C++表达式上的机制
 //////////////////////
 C++不允许reference to reference
-</rich_text></node><node name="bak" prog_lang="cpp" readonly="False" tags="" unique_id="51"><rich_text></rich_text></node></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
+虚函数没有template 版本
+在编译时不能使用迭代，只能用递归，原因：
+Template 更明确的是template specialization ,提供编译期间的if叙述
+在编译期间数值是不可变的，一旦定义了一个整数常数，就不能再改变它
+在编译期间没有一个可变化的东西，在编译期间没法使用迭代，只可以使用递归</rich_text></node><node name="bak" prog_lang="cpp" readonly="False" tags="" unique_id="51"><rich_text></rich_text></node></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
 </rich_text></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="" unique_id="8"><rich_text>1. ffmpeg snapshot，一秒二次
 
         ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
