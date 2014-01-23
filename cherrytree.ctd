@@ -1090,7 +1090,7 @@ Ctrl+a d ：退出当前终端，返回加载screen前的shell命令状态
 </rich_text><rich_text weight="heavy">:r !ls 会把执行的命令导入到vim中</rich_text><rich_text>
 
 
-</rich_text></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="34"><rich_text></rich_text></node></node><node name="sed" prog_lang="sh" readonly="False" tags="sed" unique_id="43"><rich_text>sed 的一些命令
+</rich_text></node></node><node name="sed" prog_lang="sh" readonly="False" tags="sed" unique_id="43"><rich_text>sed 的一些命令
 
 + :：:label，标志一个label，用于b/t的跳转
 + =：[address]= 打印出行号
