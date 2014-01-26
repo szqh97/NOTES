@@ -588,7 +588,7 @@ sshfs root@livedev:/opt tmp
 
 </rich_text><rich_text justification="left"></rich_text><rich_text>
 
-
+查看目前进程正在实际被使用的内存，是used-(buffers+cache)，也可以认为如果swap没有大量使用，mem还是够用的，只有mem被当前进程实际占用完（没有了buffers和cache），才会使用到swap的。
 
 
 
