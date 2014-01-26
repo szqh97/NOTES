@@ -586,14 +586,25 @@ chip@example.unicom.com:/home/chip umounted
  
 sshfs root@livedev:/opt tmp
 
+查看 Linux版本 cat /etc/issue
+
 </rich_text><rich_text justification="left"></rich_text><rich_text>
 
+进程内存
 查看目前进程正在实际被使用的内存，是used-(buffers+cache)，也可以认为如果swap没有大量使用，mem还是够用的，只有mem被当前进程实际占用完（没有了buffers和cache），才会使用到swap的。
 
+在清空缓存前我们需要在linux系统中执行一下sync命令，将缓存中的未被写入磁盘的内容写到磁盘上
+释放方法有三种（系统默认值是0，释放之后你可以再改回0值）：
+To free pagecache:  echo 1 &gt; /proc/sys/vm/drop_caches
+To free dentries and inodes:  echo 2 &gt; /proc/sys/vm/drop_caches
+To free pagecache, dentries and inodes:  echo 3 &gt; /proc/sys/vm/drop_caches
+ 
 
 
 
-</rich_text><codebox char_offset="2963" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
+
+
+</rich_text><codebox char_offset="2990" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
 
 + :：:label，标志一个label，用于b/t的跳转
 + =：[address]= 打印出行号
