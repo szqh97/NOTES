@@ -85,7 +85,8 @@ std::vector&lt;T&gt;(v).swap(v);的作用相当于：    
     
   这样写的作用是：把v的容量缩小到最佳值
 
-该例中执行这句时，capacity收缩到500</rich_text></node><node name="FAQ" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="6"><rich_text>how to use </rich_text><rich_text foreground="#ff0000">delete this</rich_text><rich_text>
+该例中执行这句时，capacity收缩到500
+LD_PRELOAD环境变量加载一些库,覆盖原有的方法,</rich_text></node><node name="FAQ" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="6"><rich_text>how to use </rich_text><rich_text foreground="#ff0000">delete this</rich_text><rich_text>
 As long as you're careful, it's OK for an object to commit suicide (delete this).
 Here's how I define &quot;careful&quot;:
 1. You must be absolutely 100% positively sure that this object was allocated via new (not by new[], nor by </rich_text><rich_text link="webs http://www.parashift.com/c++-faq-lite/placement-new.html">placementnew</rich_text><rich_text>, nor a local object on the stack, nor a global, nor a member of another object; but by plain ordinary new).
