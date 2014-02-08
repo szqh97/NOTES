@@ -317,19 +317,57 @@ python 多线程
 
 python xml dom 
 </rich_text><rich_text link="webs http://www.w3schools.com/dom/dom_nodes_set.asp">http://www.w3schools.com/dom/dom_nodes_set.asp</rich_text><rich_text> 
-</rich_text></node><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="13"><rich_text>1. python 生成 随机字符串:
+</rich_text></node><node name="collections" prog_lang="python" readonly="False" tags="" unique_id="44"><rich_text>1. python 生成 随机字符串:
 import random
 import string
 salt = ''.join(random.sample(string.ascii_letters+string.digits, 8))
 2. unix get disk space info
-</rich_text><rich_text justification="left"></rich_text><rich_text>
+import os
+from collections
+import namedtuple 
+_ntuple_diskusage = namedtuple('usage','total used free') 
+def disk_usage(path):    
+    &quot;&quot;&quot;Return disk usage statistics about the given path.        
+    Returned valus is a named tuple with attributes 'total', 'used' and            
+    'free', which are the amount of total, used and free space, in bytes.        
+    &quot;&quot;&quot;       
+    st=os.statvfs(path)       
+    free=st.f_bavail*st.f_frsize        
+    total=st.f_blocks*st.f_frsize        
+    used=(st.f_blocks-st.f_bfree)*st.f_frsize        
+return _ntuple_diskusage(total,used,free)
 
 3. dict and list 
 Python  中的字典使用了hast，因此，在查找中需要遍历整个list的情况，最好把list转为dict
-</rich_text><rich_text justification="left"></rich_text><rich_text>
-4.使用set求交集
-</rich_text><rich_text justification="left"></rich_text><rich_text>
-5.对循环的优化
+
+from time import time
+t=time()
+list=['a','b','is','python','jason','hello','hill','with','phone','test',
+'dfdf','apple','pddf','ind','basic','none','baecr','var','bana','dd','wrd']
+ #list = dict.fromkeys(list,True)
+printlist
+filter=[]
+ foriinrange(1000000):
+     forfindin['is','hat','new','list','old','.']:
+         iffindnotinlist:
+             filter.append(find)
+ print&quot;total run time:&quot;
+ printtime()-t
+ 
+ 
+ 4.使用set求交集
+ 
+ fromtimeimporttime
+ t=time()
+ lista=[1,2,3,4,5,6,7,8,9,13,34,53,42,44]
+ listb=[2,4,6,9,23]
+ intersection=[]
+ foriinrange(1000000):
+     list(set(lista)&amp;set(listb))
+ print&quot;total run time:&quot;
+ printtime()-t
+ 
+ 5.对循环的优化
 尽量把循环中的计算放到上一层中，用xrange代替range
 
 7.充分利用 Lazy if-evaluation 的特性
@@ -348,28 +386,7 @@ out=&quot;%s%s%s%s&quot;%(head, prologue, query, tail)
 
 9,使用列表解析和生成器表达式
 a=[i for i in list]   g = (i for i in list)
-10 if done is not None 比语句 if done != None 更快
-</rich_text><codebox char_offset="145" frame_height="100" frame_width="700" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="python" width_in_pixels="True">import os from collections import namedtuple _ntuple_diskusage = namedtuple('usage','total used free') def disk_usage(path):    &quot;&quot;&quot;Return disk usage statistics about the given path.        Returned valus is a named tuple with attributes 'total', 'used' and        'free', which are the amount of total, used and free space, in bytes.        &quot;&quot;&quot;       st=os.statvfs(path)       free=st.f_bavail*st.f_frsize        total=st.f_blocks*st.f_frsize        used=(st.f_blocks-st.f_bfree)*st.f_frsize        return _ntuple_diskusage(total,used,free)</codebox><codebox char_offset="221" frame_height="500" frame_width="150" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="python" width_in_pixels="False">fromtimeimporttime
-t=time()
-list=['a','b','is','python','jason','hello','hill','with','phone','test',
-'dfdf','apple','pddf','ind','basic','none','baecr','var','bana','dd','wrd']
- #list = dict.fromkeys(list,True)
-printlist
-filter=[]
- foriinrange(1000000):
-     forfindin['is','hat','new','list','old','.']:
-         iffindnotinlist:
-             filter.append(find)
- print&quot;total run time:&quot;
- printtime()-t</codebox><codebox char_offset="222" frame_height="500" frame_width="150" highlight_brackets="True" show_line_numbers="True" syntax_highlighting="python" width_in_pixels="False"></codebox><codebox char_offset="235" frame_height="100" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="python" width_in_pixels="False">fromtimeimporttime
- t=time()
- lista=[1,2,3,4,5,6,7,8,9,13,34,53,42,44]
- listb=[2,4,6,9,23]
- intersection=[]
- foriinrange(1000000):
-     list(set(lista)&amp;set(listb))
- print&quot;total run time:&quot;
- printtime()-t</codebox></node><node name="kenel" prog_lang="custom-colors" readonly="False" tags="" unique_id="44"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
+10 if done is not None 比语句 if done != None 更快</rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
 find -mmin -60 -exec ls -l {} \;
 
 redirect io to null 
