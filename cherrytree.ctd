@@ -153,7 +153,10 @@ ioctl, select, poll, epolll这些的用法 
 </rich_text><rich_text link="webs http://blog.csdn.net/pongba/article/details/90643">http://blog.csdn.net/pongba/article/details/90643</rich_text><rich_text>
 
 C++ Policy 
-</rich_text><rich_text link="webs http://blog.csdn.net/happylife1527/article/details/8204734">http://blog.csdn.net/happylife1527/article/details/8204734</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
+</rich_text><rich_text link="webs http://blog.csdn.net/happylife1527/article/details/8204734">http://blog.csdn.net/happylife1527/article/details/8204734</rich_text><rich_text>
+
+C++ design pattern &amp; others
+</rich_text><rich_text link="webs http://sourcemaking.com/design_patterns">http://sourcemaking.com/design_patterns</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
 </rich_text><rich_text style="italic">voa     mms://a1905.l211052072.c2110.g.lm.akamaistream.net/D/1905/2110/v0001/reflector:52072</rich_text><rich_text>
 
 voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="29"><rich_text>TVADS 发送job
