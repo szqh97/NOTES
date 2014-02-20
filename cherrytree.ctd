@@ -1292,7 +1292,21 @@ http://blog.xupeng.me/2011/12/14/migrate-to-octopress/
 voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822
 
 
-grep &quot;Internal*&quot; -B1 tg|grep -v &quot;\-\-&quot;|sed '/xml\ stream/d'|sed 's/^.*\ post\ data\ is:\ //g'</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="41"><rich_text>vobile 常用
+grep &quot;Internal*&quot; -B1 tg|grep -v &quot;\-\-&quot;|sed '/xml\ stream/d'|sed 's/^.*\ post\ data\ is:\ //g'</rich_text><node name="t" prog_lang="sql" readonly="False" tags="" unique_id="55"><rich_text>drop table if exists qvod_tasks;
+create table qvod_tasks
+(
+    id              int(10) unsigned  not null AUTO_INCREMENT,
+    qvod_url        varchar(1024) not null,
+    hash_code       varchar(512) not null,
+    created_at      timestamp not null default '0000-00-00 00:00:00',
+    updated_at      timestamp not null default '0000-00-00 00:00:00',
+    download_url    varchar(1024),
+    filename        varchar(1024),
+    status          enum('initialized', 'error', 'processing', 'succeed') not null default 'initialized',
+    primary key (id)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
+</rich_text></node></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="41"><rich_text>vobile 常用
 
 </rich_text><rich_text weight="heavy">
 1.vdna monitor sequence:</rich_text><rich_text>
