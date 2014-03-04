@@ -686,17 +686,7 @@ vim -&gt; 其他程序
 &quot;*y
 
 其他程序-&gt;gvim
-“*p </codebox></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="22"><rich_text>Linux 剪裁
-</rich_text><rich_text link="webs http://blog.csdn.net/jinsen/article/details/4890922">http://blog.csdn.net/jinsen/article/details/4890922</rich_text><rich_text>
-2. Linux 破解wifi密码
-</rich_text><rich_text link="webs http://linux.cn/thread/12013/1/1/">http://linux.cn/thread/12013/1/1/</rich_text><rich_text>
-3. Linux Grep 算法
-
-</rich_text><rich_text link="webs http://www.cnblogs.com/lanxuezaipiao/p/3452579.html">http://www.cnblogs.com/lanxuezaipiao/p/3452579.html</rich_text><rich_text>
-4.Linux 技巧
-</rich_text><rich_text link="webs http://linux.cn/article-2389-1.html">http://linux.cn/article-2389-1.html</rich_text><rich_text>
-
-</rich_text></node><node name="screen" prog_lang="custom-colors" readonly="False" tags="screen" unique_id="36"><rich_text style="italic">screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]
+“*p </codebox></node><node name="screen" prog_lang="custom-colors" readonly="False" tags="screen" unique_id="36"><rich_text style="italic">screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]
 Screen命令参数：</rich_text><rich_text>
 -A -[r|R]          将所有的视窗都调整为目前终端机的大小。
 -c filename        用指定的filename文件替代screen的配置文件’.screenrc’.
@@ -1156,22 +1146,7 @@ http://blog.xupeng.me/2011/12/14/migrate-to-octopress/
 voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822
 
 
-grep &quot;Internal*&quot; -B1 tg|grep -v &quot;\-\-&quot;|sed '/xml\ stream/d'|sed 's/^.*\ post\ data\ is:\ //g'</rich_text><node name="t" prog_lang="sql" readonly="False" tags="" unique_id="55"><rich_text>drop table if exists qvod_tasks;
-create table qvod_tasks
-(
-    id              int(10) unsigned  not null AUTO_INCREMENT,
-    qvod_url        varchar(1024) not null,
-    hash_code       varchar(128) not null,
-    created_at      timestamp not null default '0000-00-00 00:00:00',
-    updated_at      timestamp not null default '0000-00-00 00:00:00',
-    download_url    varchar(1024),
-    filename        varchar(1024),
-    status          enum('initialized', 'error', 'processing', 'succeed') not null default 'initialized',
-    primary key (id),
-    unique key hash_id(hash_code)
-)
-ENGINE=InnoDB DEFAULT CHARSET=utf8;
-</rich_text></node></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="41"><rich_text>vobile 常用
+grep &quot;Internal*&quot; -B1 tg|grep -v &quot;\-\-&quot;|sed '/xml\ stream/d'|sed 's/^.*\ post\ data\ is:\ //g'</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="41"><rich_text>vobile 常用
 
 </rich_text><rich_text weight="heavy">
 1.vdna monitor sequence:</rich_text><rich_text>
@@ -1304,4 +1279,15 @@ gnuplot&gt; set ylabel &quot;sin(angle)&quot;
 gnuplot&gt; plot sin(x)
 gnuplot&gt; set output &quot;test.png&quot;
 gnuplot&gt; plot sin(x)
+</rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="22"><rich_text>Linux 剪裁
+</rich_text><rich_text link="webs http://blog.csdn.net/jinsen/article/details/4890922">http://blog.csdn.net/jinsen/article/details/4890922</rich_text><rich_text>
+2. Linux 破解wifi密码
+</rich_text><rich_text link="webs http://linux.cn/thread/12013/1/1/">http://linux.cn/thread/12013/1/1/</rich_text><rich_text>
+3. Linux Grep 算法
+
+</rich_text><rich_text link="webs http://www.cnblogs.com/lanxuezaipiao/p/3452579.html">http://www.cnblogs.com/lanxuezaipiao/p/3452579.html</rich_text><rich_text>
+4.Linux 技巧
+</rich_text><rich_text link="webs http://linux.cn/article-2389-1.html">http://linux.cn/article-2389-1.html</rich_text><rich_text>
+
+python yield generator coroutine &amp;&amp; these in C++
 </rich_text></node></cherrytree>
