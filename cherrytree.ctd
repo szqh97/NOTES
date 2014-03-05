@@ -394,7 +394,12 @@ out=&quot;%s%s%s%s&quot;%(head, prologue, query, tail)
 
 9,使用列表解析和生成器表达式
 a=[i for i in list]   g = (i for i in list)
-10 if done is not None 比语句 if done != None 更快</rich_text></node><node name="gnuplot" prog_lang="python" readonly="False" tags="" unique_id="52"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
+10 if done is not None 比语句 if done != None 更快
+
+
+
+[i for i in enumerate(l)]
+ [(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd')]</rich_text></node><node name="gnuplot" prog_lang="python" readonly="False" tags="" unique_id="52"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
 find -mmin -60 -exec ls -l {} \;
 
 redirect io to null 
