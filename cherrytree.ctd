@@ -399,7 +399,7 @@ a=[i for i in list]   g = (i for i in list)
 
 
 [i for i in enumerate(l)]
- [(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd')]</rich_text></node><node name="gnuplot" prog_lang="python" readonly="False" tags="" unique_id="52"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
+ [(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd')]</rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
 find -mmin -60 -exec ls -l {} \;
 
 redirect io to null 
@@ -1151,7 +1151,11 @@ http://blog.xupeng.me/2011/12/14/migrate-to-octopress/
 voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822
 
 
-grep &quot;Internal*&quot; -B1 tg|grep -v &quot;\-\-&quot;|sed '/xml\ stream/d'|sed 's/^.*\ post\ data\ is:\ //g'</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="41"><rich_text>vobile 常用
+grep &quot;Internal*&quot; -B1 tg|grep -v &quot;\-\-&quot;|sed '/xml\ stream/d'|sed 's/^.*\ post\ data\ is:\ //g'
+
+find . -iname &quot;16.*.mp4&quot; -or -iname &quot;1.*.mp4&quot; -or -iname &quot;4.*.mp4&quot; | sed 's/\.\///g'|while read a; do r=`grep $a t`; if [ $r != 0 ] then echo $a &gt;&gt;t0306; fi; done
+
+find . -iname &quot;16.*.mp4&quot; -or -iname &quot;1.*.mp4&quot; -or -iname &quot;4.*.mp4&quot; | sed 's/\.\///g'| while read a; do  grep $a t; if [ $? != 0 ]; then echo $a &gt;&gt; t0306; fi; done</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="41"><rich_text>vobile 常用
 
 </rich_text><rich_text weight="heavy">
 1.vdna monitor sequence:</rich_text><rich_text>
