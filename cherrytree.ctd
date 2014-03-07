@@ -497,7 +497,7 @@ main $*
 
 #!/bin/bash# check_xu.sh# 0 * * * * /home/check_xu.sh DAT=&quot;`date +%Y%m%d`&quot;HOUR=&quot;`date +%H`&quot;DIR=&quot;/home/oslog/host_${DAT}/${HOUR}&quot;DELAY=60COUNT=60# whether the responsible directory existif ! test -d ${DIR}then        /bin/mkdir -p ${DIR}fi# general checkexport TERM=linux/usr/bin/top -b -d ${DELAY} -n ${COUNT} &gt; ${DIR}/top_${DAT}.log 2&gt;&amp;1 &amp;# cpu check/usr/bin/sar -u ${DELAY} ${COUNT} &gt; ${DIR}/cpu_${DAT}.log 2&gt;&amp;1 &amp;#/usr/bin/mpstat -P 0 ${DELAY} ${COUNT} &gt; ${DIR}/cpu_0_${DAT}.log 2&gt;&amp;1 &amp;#/usr/bin/mpstat -P 1 ${DELAY} ${COUNT} &gt; ${DIR}/cpu_1_${DAT}.log 2&gt;&amp;1 &amp;# memory check/usr/bin/vmstat ${DELAY} ${COUNT} &gt; ${DIR}/vmstat_${DAT}.log 2&gt;&amp;1 &amp;# I/O check/usr/bin/iostat ${DELAY} ${COUNT} &gt; ${DIR}/iostat_${DAT}.log 2&gt;&amp;1 &amp;# network check/usr/bin/sar -n DEV ${DELAY} ${COUNT} &gt; ${DIR}/net_${DAT}.log 2&gt;&amp;1 &amp;#/usr/bin/sar -n EDEV ${DELAY} ${COUNT} &gt; ${DIR}/net_edev_${DAT}.log 2&gt;&amp;1 &amp;</rich_text></node></node><node name="collections" prog_lang="custom-colors" readonly="False" tags="" unique_id="21"><rich_text>Linux
 
-
+Linux下用jq来格式化json，相当NB
 使用vimdiff作为svn diff的查看代码工具
 
 </rich_text><rich_text link="webs http://color/#3465A4">http://www.cnblogs.com/xuxm2007/archive/2012/05/11/2496243.html</rich_text><rich_text>
@@ -635,7 +635,7 @@ To free pagecache, dentries and inodes:  echo 3 &gt; /proc/sys/vm/drop_caches
 
 
 
-</rich_text><codebox char_offset="2990" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
+</rich_text><codebox char_offset="3012" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
 
 + :：:label，标志一个label，用于b/t的跳转
 + =：[address]= 打印出行号
