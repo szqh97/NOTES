@@ -1043,8 +1043,8 @@ taobao code 据说有不少的C++
 wiki plantUML 
 
 </rich_text><rich_text link="webs http://blog.csdn.net/ciaos/article/details/8501446">http://blog.csdn.net/ciaos/article/details/8501446</rich_text><rich_text>
-
-</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
+golang wiki
+</rich_text><rich_text link="webs http://code.google.com/p/golang-china/wiki/go_tutorial">http://code.google.com/p/golang-china/wiki/go_tutorial</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
 :set rnu 相对行号
 
 
