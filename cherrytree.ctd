@@ -475,27 +475,7 @@ main $*
 　　${varible:n1:n2}:截取变量varible从n1到n2之间的字符串。
 可以根据特定字符偏移和长度，使用另一种形式的变量扩展，来选择特定子字符串。试着在 bash 中输入以下行： $ EXCLAIM=cowabunga $ echo ${EXCLAIM:0:3} cow $ echo ${EXCLAIM:3:7} abunga
 这种形式的字符串截断非常简便，只需用冒号分开来指定起始字符和子字符串长度。
-三、按照指定要求分割： 比如获取后缀名 ls -al | cut -d “.” -f2</codebox><node name="常用脚本" prog_lang="custom-colors" readonly="False" tags="" unique_id="10"><rich_text>1、查看主机网卡流量#!/bin/bash
-#!/bin/bash#network#Mike.Xuwhile : ; do      time='date +%m&quot;-&quot;%d&quot; &quot;%k&quot;:&quot;%M'      day='date +%m&quot;-&quot;%d'      rx_before='ifconfig eth0|sed -n &quot;8&quot;p|awk '{print $2}'|cut -c7-'      tx_before='ifconfig eth0|sed -n &quot;8&quot;p|awk '{print $6}'|cut -c7-'      sleep 2      rx_after='ifconfig eth0|sed -n &quot;8&quot;p|awk '{print $2}'|cut -c7-'      tx_after='ifconfig eth0|sed -n &quot;8&quot;p|awk '{print $6}'|cut -c7-'      rx_result=$[(rx_after-rx_before)/256]      tx_result=$[(tx_after-tx_before)/256]      echo &quot;$time Now_In_Speed: &quot;$rx_result&quot;kbps Now_OUt_Speed: &quot;$tx_result&quot;kbps&quot;      sleep 2donedone2、系统状况监控#!/bin/sh#systemstat.sh#Mike.XuIP=192.168.1.227top -n 2| grep &quot;Cpu&quot; &gt;&gt;./temp/cpu.txtfree -m | grep &quot;Mem&quot; &gt;&gt; ./temp/mem.txtdf -k | grep &quot;sda1&quot; &gt;&gt; ./temp/drive_sda1.txt#df -k | grep sda2 &gt;&gt; ./temp/drive_sda2.txtdf -k | grep &quot;/mnt/storage_0&quot; &gt;&gt; ./temp/mnt_storage_0.txtdf -k | grep &quot;/mnt/storage_pic&quot; &gt;&gt; ./temp/mnt_storage_pic.txttime=`date +%m&quot;.&quot;%d&quot; &quot;%k&quot;:&quot;%M`connect=`netstat -na | grep &quot;219.238.148.30:80&quot; | wc -l`echo &quot;$time  $connect&quot; &gt;&gt; ./temp/connect_count.txt
-
-
-
-3、监控主机的磁盘空间，当使用空间超过90％就通过发mail来发警告
-
-
-#!/bin/bash#monitor available disk spaceSPACE='df | sed -n '/ \ / $ / p' | gawk '{print $5}' | sed  's/%//'if [ $SPACE -ge 90 ]thenfty89@163.comfi
-
-
-4、 监控CPU和内存的使用情况
-
-
-#!/bin/bash#script  to capture system statisticsOUTFILE=/home/xu/capstats.csvDATE='date +%m/%d/%Y'TIME='date +%k:%m:%s'TIMEOUT='uptime'VMOUT='vmstat 1 2' USERS='echo $TIMEOUT | gawk '{print $4}' 'LOAD='echo $TIMEOUT | gawk '{print $9}' | sed &quot;s/,//' 'FREE='echo $VMOUT | sed -n '/[0-9]/p' | sed -n '2p' | gawk '{print $4} ' 'IDLE='echo  $VMOUT | sed -n '/[0-9]/p' | sed -n '2p' |gawk '{print $15}' 'echo &quot;$DATE,$TIME,$USERS,$LOAD,$FREE,$IDLE&quot; &gt;&gt; $OUTFILE
-
-
-5、全方位监控主机
-
-
-#!/bin/bash# check_xu.sh# 0 * * * * /home/check_xu.sh DAT=&quot;`date +%Y%m%d`&quot;HOUR=&quot;`date +%H`&quot;DIR=&quot;/home/oslog/host_${DAT}/${HOUR}&quot;DELAY=60COUNT=60# whether the responsible directory existif ! test -d ${DIR}then        /bin/mkdir -p ${DIR}fi# general checkexport TERM=linux/usr/bin/top -b -d ${DELAY} -n ${COUNT} &gt; ${DIR}/top_${DAT}.log 2&gt;&amp;1 &amp;# cpu check/usr/bin/sar -u ${DELAY} ${COUNT} &gt; ${DIR}/cpu_${DAT}.log 2&gt;&amp;1 &amp;#/usr/bin/mpstat -P 0 ${DELAY} ${COUNT} &gt; ${DIR}/cpu_0_${DAT}.log 2&gt;&amp;1 &amp;#/usr/bin/mpstat -P 1 ${DELAY} ${COUNT} &gt; ${DIR}/cpu_1_${DAT}.log 2&gt;&amp;1 &amp;# memory check/usr/bin/vmstat ${DELAY} ${COUNT} &gt; ${DIR}/vmstat_${DAT}.log 2&gt;&amp;1 &amp;# I/O check/usr/bin/iostat ${DELAY} ${COUNT} &gt; ${DIR}/iostat_${DAT}.log 2&gt;&amp;1 &amp;# network check/usr/bin/sar -n DEV ${DELAY} ${COUNT} &gt; ${DIR}/net_${DAT}.log 2&gt;&amp;1 &amp;#/usr/bin/sar -n EDEV ${DELAY} ${COUNT} &gt; ${DIR}/net_edev_${DAT}.log 2&gt;&amp;1 &amp;</rich_text></node></node><node name="collections" prog_lang="custom-colors" readonly="False" tags="" unique_id="21"><rich_text>Linux
+三、按照指定要求分割： 比如获取后缀名 ls -al | cut -d “.” -f2</codebox></node><node name="collections" prog_lang="custom-colors" readonly="False" tags="" unique_id="21"><rich_text>Linux
 
 Linux下用jq来格式化json，相当NB
 使用vimdiff作为svn diff的查看代码工具
@@ -621,7 +601,7 @@ sshfs root@livedev:/opt tmp
 
 </rich_text><rich_text justification="left"></rich_text><rich_text>
 
-进程内存
+</rich_text><rich_text weight="heavy">进程内存</rich_text><rich_text>
 查看目前进程正在实际被使用的内存，是used-(buffers+cache)，也可以认为如果swap没有大量使用，mem还是够用的，只有mem被当前进程实际占用完（没有了buffers和cache），才会使用到swap的。
 
 在清空缓存前我们需要在linux系统中执行一下sync命令，将缓存中的未被写入磁盘的内容写到磁盘上
@@ -632,9 +612,15 @@ To free pagecache, dentries and inodes:  echo 3 &gt; /proc/sys/vm/drop_caches
  
 
 
+</rich_text><rich_text justification="left"></rich_text><rich_text>
 
-
-</rich_text><codebox char_offset="3012" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
+Debian的</rich_text><rich_text weight="heavy">update-rc.d</rich_text><rich_text>与RH的chkconfig工具相类似。然而chkconfig是一个二进制程序，而update-rc.d是一个Perl脚本。这些工具有不同的命
+令行选项，但是却执行类似的功能。下表列出了update-rc.d的一些用法。如果要查看完整的信息，我们可以查阅相关的和册页。
+命令                           功能
+update-rc.d -f &lt;service&gt;remove        从所有的运行级别配置目录中是删除指定的服务
+update-rc.d &lt;service&gt; start&lt;order&gt;&lt;runlevels&gt;   配置服务在运行级别列表中按指定的顺序启动
+update-rc.d &lt;service&gt; stop&lt;order&gt;&lt;runlevels&gt;   配置服务在运行级别列表中指定的顺序停止
+update-rc.d与RH的chkconfig之间最大的不同就在于update-rc.d是要设置所以指向/etc/init.d目录下服务脚本的运行级别链接</rich_text><codebox char_offset="3012" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
 
 + :：:label，标志一个label，用于b/t的跳转
 + =：[address]= 打印出行号
