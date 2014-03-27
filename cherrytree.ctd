@@ -399,19 +399,7 @@ a=[i for i in list]   g = (i for i in list)
 
 
 [i for i in enumerate(l)]
- [(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd')]</rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="git" prog_lang="custom-colors" readonly="False" tags="" unique_id="55"><rich_text>Git创建Develop分支的命令：
-　　git checkout -b develop master
-将Develop分支发布到Master分支的命令：
-　　# 切换到Master分支
- 　　git checkout master
-　　# 对Develop分支进行合并
- 　　git merge --no-ff develop
-
-</rich_text><rich_text link="webs http://www.ruanyifeng.com/blog/2012/07/git.html">http://www.ruanyifeng.com/blog/2012/07/git.html</rich_text><rich_text>
-
- git reset --hard HEAD~3
-会将最新的3次提交全部重置，就像没有提交过一样。
-</rich_text></node><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
+ [(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd')]</rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
 find -mmin -60 -exec ls -l {} \;
 
 redirect io to null 
@@ -1166,7 +1154,20 @@ s</rich_text><rich_text foreground="#ff0000">hell&gt; </rich_text><rich_text for
  
 </rich_text><rich_text foreground="#ff0000">恢复/转移到另一台的命令如下:</rich_text><rich_text>
 </rich_text><rich_text foreground="#ff0000">shell&gt; </rich_text><rich_text foreground="#ff0000" weight="heavy">gunzip &lt; </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name.contents</rich_text><rich_text foreground="#ff0000" weight="heavy">.gz | mysql </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name</rich_text><rich_text foreground="#ff0000">以上命令,适用于*nix 操作系统的机器</rich_text><rich_text>
-</rich_text></node><node name="git" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="4"><rich_text>touch README.md
+</rich_text></node><node name="git" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="4"><rich_text>Git创建Develop分支的命令：
+　　git checkout -b develop master
+将Develop分支发布到Master分支的命令：
+　　# 切换到Master分支
+ 　　git checkout master
+　　# 对Develop分支进行合并
+ 　　git merge --no-ff develop
+
+</rich_text><rich_text link="webs http://www.ruanyifeng.com/blog/2012/07/git.html">http://www.ruanyifeng.com/blog/2012/07/git.html</rich_text><rich_text>
+
+ git reset --hard HEAD~3
+会将最新的3次提交全部重置，就像没有提交过一样。
+
+touch README.md
  git init
  git commit -m &quot;first commit&quot; 
  git remote add origingit@github.com:szqh97/test.git
