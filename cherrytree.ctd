@@ -292,7 +292,45 @@ ffmpeg SDK </rich_text><rich_text link="webs http://ffmpeg.org/doxygen/trunk/ind
  void av_register_all(void);</codebox><codebox char_offset="68" frame_height="200" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False">/** Open a input stream and readn the header.The codecs are not opened. 
  * NOTE: options is not NULL if the file is   videofile 
  */
-int avformat_open_input(AVFormatContext **ps, const char *filename, AVInputFormat *fmt, AVDictionary **options);  </codebox></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
+int avformat_open_input(AVFormatContext **ps, const char *filename, AVInputFormat *fmt, AVDictionary **options);  </codebox></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="27"><rich_text>ffmpeg -i tt.mp4 -vn -strict -2 audio.mp4
+
+1. ffmpeg snapshot，一秒二次
+
+        ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
+ffmpeg -pix_fmt uyvy422 -s 720x576 -r 25 -i all.yuv -b 20480k -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
+
+ffmpeg -pix_fmt uyvy422 -s 720x480 -r 25 -i all.yuv -b 20480k -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
+
+
+
+ffmpeg -pix_fmt uyvy422 -s 720x480 -r 29.97 -i 1388659600059.yuv -b 20480k -vcodec libx264 t.avi
+
+
+前20 s为空白
+ 1. 提取audio 
+ ffmpeg -y -i test.mpg -vn a.mpg
+ 1. 提取video
+ ffmpeg -y -i test.mpg -an v.mpg
+3.
+3.1 生成 空白音频
+ffmpeg -y -i /dev/zero -ar 44100 -ac 2 empty.mpg
+注：这个过程是很快的， 只要大于20s了就可以停了。 44100, 2分别是a.mpg的bit rate, channels, 可以通过mediainfo a.mpg查看
+3.2 取20s的空白音频 
+ffmpeg -y -i empty.mpg -ss 0 -t 20  -codec copy e.mpg
+
+
+4. concat e.mpg and a.mpg 
+ ffmpeg -y -f concat  -i audio.merg -codec copy a2.mpg
+
+audio.merg is a file like :​
+li_yun@ubuntu:~/24$ 
+cat audio.merg 
+file e.mpg
+file a2.mpg
+5. merge audio and video file :
+6. ffmpeg -i a2.mpg -i v.mpg -codec copy l.mpg 
+l.mpg is file U want, first 20 seconds is silent!
+</rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
 </rich_text><rich_text link="webs http://www.zackgrossbart.com/hackito/search-engine-python/">http://www.zackgrossbart.com/hackito/search-engine-python/</rich_text><rich_text>
 tornado
 </rich_text><rich_text link="webs http://blog.csdn.net/littlethunder/article/details/8930157">http://blog.csdn.net/littlethunder/article/details/8930157</rich_text><rich_text>
@@ -945,59 +983,7 @@ Ctrl+a d ：退出当前终端，返回加载screen前的shell命令状态
    update-alternatives --config editor
 
 
- dd if=1375752413.742425.data bs=32 skip=1 of=1.flac</rich_text></node><node name="vim常用 " prog_lang="custom-colors" readonly="False" tags="vim" unique_id="26"><rich_text weight="heavy">marker折叠方式时，我们需要用标计来标识代码的折叠，系统默认是{{{和}}}• 折叠命令</rich_text><rich_text>
-• 
-• zf　创建折叠，比如在marker方式下：
-•         zf56G，创建从当前行起到56行的代码折叠；
-•         10zf或10zf+或zf10↓，创建从当前行起到后10行的代码折叠。
-•         10zf-或zf10↑，创建从当前行起到之前10行的代码折叠。
-•         在括号处zf%，创建从当前行起到对应的匹配的括号上去（（），{}，[]，&lt;&gt;等）。
-• zd  删除 (delete) 在光标下的折叠。仅当 'foldmethod' 设为 &quot;manual&quot; 或 &quot;marker&quot; 时有效。
-• zD  循环删除 (Delete) 光标下的折叠，即嵌套删除折叠。仅当 'foldmethod' 设为 &quot;manual&quot; 或 &quot;marker&quot; 时有效。
-• zE  除去 (Eliminate) 窗口里“所有”的折叠。仅当 'foldmethod' 设为 &quot;manual&quot; 或 &quot;marker&quot; 时有效。
-
-</rich_text><rich_text weight="heavy">:r !ls 会把执行的命令导入到vim中</rich_text><rich_text>
-
-</rich_text><rich_text link="webs http://ju.outofmemory.cn/entry/49172">http://ju.outofmemory.cn/entry/49172</rich_text><rich_text>
-</rich_text></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="27"><rich_text>ffmpeg -i tt.mp4 -vn -strict -2 audio.mp4
-
-1. ffmpeg snapshot，一秒二次
-
-        ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
-ffmpeg -pix_fmt uyvy422 -s 720x576 -r 25 -i all.yuv -b 20480k -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
-
-ffmpeg -pix_fmt uyvy422 -s 720x480 -r 25 -i all.yuv -b 20480k -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
-
-
-
-ffmpeg -pix_fmt uyvy422 -s 720x480 -r 29.97 -i 1388659600059.yuv -b 20480k -vcodec libx264 t.avi
-
-
-前20 s为空白
- 1. 提取audio 
- ffmpeg -y -i test.mpg -vn a.mpg
- 1. 提取video
- ffmpeg -y -i test.mpg -an v.mpg
-3.
-3.1 生成 空白音频
-ffmpeg -y -i /dev/zero -ar 44100 -ac 2 empty.mpg
-注：这个过程是很快的， 只要大于20s了就可以停了。 44100, 2分别是a.mpg的bit rate, channels, 可以通过mediainfo a.mpg查看
-3.2 取20s的空白音频 
-ffmpeg -y -i empty.mpg -ss 0 -t 20  -codec copy e.mpg
-
-
-4. concat e.mpg and a.mpg 
- ffmpeg -y -f concat  -i audio.merg -codec copy a2.mpg
-
-audio.merg is a file like :​
-li_yun@ubuntu:~/24$ 
-cat audio.merg 
-file e.mpg
-file a2.mpg
-5. merge audio and video file :
-6. ffmpeg -i a2.mpg -i v.mpg -codec copy l.mpg 
-l.mpg is file U want, first 20 seconds is silent!
-</rich_text></node></node><node name="sed" prog_lang="sh" readonly="False" tags="sed" unique_id="43"><rich_text>sed 的一些命令
+ dd if=1375752413.742425.data bs=32 skip=1 of=1.flac</rich_text></node></node><node name="sed" prog_lang="sh" readonly="False" tags="sed" unique_id="43"><rich_text>sed 的一些命令
 
 + :：:label，标志一个label，用于b/t的跳转
 + =：[address]= 打印出行号
@@ -1069,7 +1055,7 @@ golang wiki
 
 
 http://vim.sourceforge.net/scripts/script_search_results.php?order_by=rating
-</rich_text><node name="vim常用 " prog_lang="custom-colors" readonly="False" tags="vim" unique_id="38"><rich_text weight="heavy">marker折叠方式时，我们需要用标计来标识代码的折叠，系统默认是{{{和}}}• 折叠命令</rich_text><rich_text>
+</rich_text><node name="vim常用 " prog_lang="custom-colors" readonly="False" tags="vim" unique_id="26"><rich_text weight="heavy">marker折叠方式时，我们需要用标计来标识代码的折叠，系统默认是{{{和}}}• 折叠命令</rich_text><rich_text>
 • 
 • zf　创建折叠，比如在marker方式下：
 •         zf56G，创建从当前行起到56行的代码折叠；
@@ -1082,164 +1068,11 @@ http://vim.sourceforge.net/scripts/script_search_results.php?order_by=rating
 
 </rich_text><rich_text weight="heavy">:r !ls 会把执行的命令导入到vim中</rich_text><rich_text>
 
-
+</rich_text><rich_text link="webs http://ju.outofmemory.cn/entry/49172">http://ju.outofmemory.cn/entry/49172</rich_text><rich_text>
 </rich_text></node></node><node name="vobile" prog_lang="custom-colors" readonly="False" tags="" unique_id="16"><rich_text>./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i 2.1387533947744.1387534303616.vdna -r t.xml
 ./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i </rich_text><rich_text link="webs http://192.168.1.249/download/2.1388696339843.1388699999970.tgz">2.1388696339843.1388699999970.</rich_text><rich_text>vdna -r x.xml
 
-</rich_text></node><node name="Myself" prog_lang="custom-colors" readonly="False" tags="" unique_id="17"><rich_text></rich_text><node name="TOREAD" prog_lang="custom-colors" readonly="False" tags="" unique_id="18"><rich_text>计算机类:
-       SICP
-      core algorithms deployed
-       </rich_text><rich_text link="webs http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773">http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773</rich_text><rich_text>
-
-
-
-LDD3          Linux Device Driver 3rd
-LKD3          Linux Kernel Development 3rd
-ULK3          Understanding the Linux Kernel 3rd
-PLKA          Professional Linux Kernel Architecture
-UML            User Mode Linux
-
-Intel V3       Intel? 64 and IA-32 Architectures Software Developer’s Manual Volume 3 (3A, 3B &amp; 3C): System Programming Guide
-
-
-
-经济类:
-    国富论
-</rich_text><rich_text link="webs http://wenku.baidu.com/view/38ec644033687e21af45a9ae.html">http://wenku.baidu.com/view/38ec644033687e21af45a9ae.html</rich_text><rich_text>
-
-
-
-
-
-
-文学类:
-    王朔文集
-</rich_text></node><node name="music" prog_lang="custom-colors" readonly="False" tags="" unique_id="19"><rich_text>Sitting Down here - LeneMarlin
-The Game - Lunik
-Chancenlos - Annett Louisan
-Till I see you again - xx
-Somersault - Courtney Jaye
-人质 - 张惠妹
-她来听我的演唱会 - 张学友
-爱笑的眼睛 - 徐若暄
-情歌王 - 古巨基
-如果爱是一场婚礼 - 金巧巧
-三个人的错误 - 王宛之
-哭笑不得 - xx
-阳光下的我们 - 
-别找我麻烦 -
-我在朋友婚礼上唱这首歌 - 徐海星
-良人 - 邓芙茹
-我们好像在哪见过 - 杨综纬
-小狗圆舞曲 - 肖邦
-</rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="20"><rich_text>functional 
-线程安全
-
-
-wirte a script which vim can load tags which the open file is needed and lib script only, it depends file type too
-
-
-寻找业余项目可以尝试从Elance、 oDesk或者Freelancer这些网站开始。
-
-</rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="46"><rich_text></rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text></rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
-1. 处理丢帧的情况, (Osprey 没有这种情况, Black Magic要考虑, )
-2. 
-TVAds tracker 使用python调用 C++的方法,把merge cdna的部分替换</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
-
-2. mysql&gt; show status like '%onn%';
-
-3. SHOW PROCESSLIST
-
-4. SET NAMES 'utf8'    #mysql 设置编码
-
-
-
-mysql&gt; select current_timestamp() ;
-
-s</rich_text><rich_text foreground="#ff0000">hell&gt; </rich_text><rich_text foreground="#ff0000" weight="heavy">mysqldump --quick </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name</rich_text><rich_text foreground="#ff0000" weight="heavy"> | gzip &gt; </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name.contents</rich_text><rich_text foreground="#ff0000" weight="heavy">.gz</rich_text><rich_text foreground="#ff0000">(该例子中创建的文件是压缩格式）。</rich_text><rich_text>
- 
-</rich_text><rich_text foreground="#ff0000">恢复/转移到另一台的命令如下:</rich_text><rich_text>
-</rich_text><rich_text foreground="#ff0000">shell&gt; </rich_text><rich_text foreground="#ff0000" weight="heavy">gunzip &lt; </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name.contents</rich_text><rich_text foreground="#ff0000" weight="heavy">.gz | mysql </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name</rich_text><rich_text foreground="#ff0000">以上命令,适用于*nix 操作系统的机器</rich_text><rich_text>
-</rich_text></node><node name="git" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="4"><rich_text>Git创建Develop分支的命令：
-　　git checkout -b develop master
-将Develop分支发布到Master分支的命令：
-　　# 切换到Master分支
- 　　git checkout master
-　　# 对Develop分支进行合并
- 　　git merge --no-ff develop
-
-</rich_text><rich_text link="webs http://www.ruanyifeng.com/blog/2012/07/git.html">http://www.ruanyifeng.com/blog/2012/07/git.html</rich_text><rich_text>
-
- git reset --hard HEAD~3
-会将最新的3次提交全部重置，就像没有提交过一样。
-
-touch README.md
- git init
- git commit -m &quot;first commit&quot; 
- git remote add origingit@github.com:szqh97/test.git
- git push -u origin master
-
-1. git 恢复删除的文件 
-
-        git checkout filename
-
-
-
-http://blog.xupeng.me/2011/12/14/migrate-to-octopress/
-
-github fork项目后，代码更新
-协助约定
- 
-每个人都可以fork一份自己的repo，所有的修改都在自己私有的repo上进行；
-修改完成，测试通过后通过给主repo发pull request请求合并；
-主repo（Johnqing/n.js）的管理团队收到pull request请求后，review代码，合并进来；
-个人的repo需及时和主repo保持同步；
-第1步：fork一份自己的repo
- 
-打开Johnqing/n.js在Github上的主页（</rich_text><rich_text link="webs https://github.com/Johnqing/n.js)，在右上角点击“fork”就可以fork一份自己的repo，现在我们就有了一份自己的repo，接下里我们的操&gt;作都是基于自己的repo">https://github.com/Johnqing/n.js)，在右上角点击“fork”就可以fork一份自己的repo，现在我们就有了一份自己的repo，接下里我们的操&gt;作都是基于自己的repo</rich_text><rich_text>
-第2步：clone自己的repo
- 
-上面我们fork了自己的repo，接着就可以clone下来了，先到自己的repo主页（</rich_text><rich_text link="webs https://github.com/ispxin/n.js），找到repo的git地址，诸如这样">https://github.com/ispxin/n.js），找到repo的git地址，诸如这样</rich_text><rich_text> </rich_text><rich_text link="webs https://github.com/ispxin/n.js.git,然后clone到本地">https://github.com/ispxin/n.js.git,然后clone到本地</rich_text><rich_text>
-git clone </rich_text><rich_text link="webs https://github.com/ispxin/n.js.git">https://github.com/ispxin/n.js.git</rich_text><rich_text>
-第3步：查看和添加远程分支
- 
-我们接着cd到项目里，看下当前的git远程仓库，如下
-cd n.js
-git remote -v
- 
-好了，到这里仓库就添加完成了，为了保持和主仓库的代码一致，我们接着需要获取下主仓库的最新代码。
-第4步：获取主仓库最新代码
-git fetch Johnqing
-第5步：合并到自己的分支里
-git merge Johnqing/master
-第6步：本地修改代码，提交到自己的repo
- 
-修改完后
-git add .
-git commit -m &quot;本次修改描述&quot; 
- 
-最后我把本次修改提交到自己的远程仓库（ispxin/n.js）中，操作如下
-git push origin master
-第7步：给主repo发pull request
- 
-提交到自己repo后，就可以给主repo发一个请求合并的pull request，操作步骤是这样的: 
- 
-打开</rich_text><rich_text link="webs https://github.com/ispxin/n.js，点击“pull">https://github.com/ispxin/n.js，点击“pull</rich_text><rich_text> request”的界面，添加详细的描述信息后
-第8步：主repo收到pull request后，可以merge进来
- 
-这个可以review修改，如果没问题就可以直接“Merge pull requst”，merge后就可以在主仓库看到了
-分类: 杂七杂八
-</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="40"><rich_text weight="heavy">VOA</rich_text><rich_text>
-</rich_text><rich_text style="italic">voa     mms://a1905.l211052072.c2110.g.lm.akamaistream.net/D/1905/2110/v0001/reflector:52072</rich_text><rich_text>
-
-voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822
-
-
-grep &quot;Internal*&quot; -B1 tg|grep -v &quot;\-\-&quot;|sed '/xml\ stream/d'|sed 's/^.*\ post\ data\ is:\ //g'
-
-find . -iname &quot;16.*.mp4&quot; -or -iname &quot;1.*.mp4&quot; -or -iname &quot;4.*.mp4&quot; | sed 's/\.\///g'|while read a; do r=`grep $a t`; if [ $r != 0 ] then echo $a &gt;&gt;t0306; fi; done
-
-find . -iname &quot;16.*.mp4&quot; -or -iname &quot;1.*.mp4&quot; -or -iname &quot;4.*.mp4&quot; | sed 's/\.\///g'| while read a; do  grep $a t; if [ $? != 0 ]; then echo $a &gt;&gt; t0306; fi; done</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="41"><rich_text>vobile 常用
+</rich_text><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="41"><rich_text>vobile 常用
 
 </rich_text><rich_text weight="heavy">
 1.vdna monitor sequence:</rich_text><rich_text>
@@ -1346,7 +1179,163 @@ e here.
  * 说明在详细设计阶段, 尚未解决而在系统完成之前必须解决的问题.
  * 说明本详细设计引入的风险, 以及可以实现而没有实现的解决方案.
  * 说明详细设计缺陷, 以及可能的解决方案.
-</rich_text></node><node name="gnuplot" prog_lang="sh" readonly="False" tags="" unique_id="54"><rich_text>1. 显示图片
+</rich_text></node></node><node name="Myself" prog_lang="custom-colors" readonly="False" tags="" unique_id="17"><rich_text></rich_text><node name="TOREAD" prog_lang="custom-colors" readonly="False" tags="" unique_id="18"><rich_text>计算机类:
+       SICP
+      core algorithms deployed
+       </rich_text><rich_text link="webs http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773">http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773</rich_text><rich_text>
+
+
+
+LDD3          Linux Device Driver 3rd
+LKD3          Linux Kernel Development 3rd
+ULK3          Understanding the Linux Kernel 3rd
+PLKA          Professional Linux Kernel Architecture
+UML            User Mode Linux
+
+Intel V3       Intel? 64 and IA-32 Architectures Software Developer’s Manual Volume 3 (3A, 3B &amp; 3C): System Programming Guide
+
+
+
+经济类:
+    国富论
+</rich_text><rich_text link="webs http://wenku.baidu.com/view/38ec644033687e21af45a9ae.html">http://wenku.baidu.com/view/38ec644033687e21af45a9ae.html</rich_text><rich_text>
+
+
+
+
+
+
+文学类:
+    王朔文集
+</rich_text></node><node name="music" prog_lang="custom-colors" readonly="False" tags="" unique_id="19"><rich_text>Sitting Down here - LeneMarlin
+The Game - Lunik
+Chancenlos - Annett Louisan
+Till I see you again - xx
+Somersault - Courtney Jaye
+人质 - 张惠妹
+她来听我的演唱会 - 张学友
+爱笑的眼睛 - 徐若暄
+情歌王 - 古巨基
+如果爱是一场婚礼 - 金巧巧
+三个人的错误 - 王宛之
+哭笑不得 - xx
+阳光下的我们 - 
+别找我麻烦 -
+我在朋友婚礼上唱这首歌 - 徐海星
+良人 - 邓芙茹
+我们好像在哪见过 - 杨综纬
+小狗圆舞曲 - 肖邦
+</rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="20"><rich_text>functional 
+线程安全
+
+
+wirte a script which vim can load tags which the open file is needed and lib script only, it depends file type too
+
+
+寻找业余项目可以尝试从Elance、 oDesk或者Freelancer这些网站开始。
+
+</rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="46"><rich_text></rich_text></node><node name="HZ" prog_lang="custom-colors" readonly="False" tags="" unique_id="55"><rich_text>漠尔阁zi （一下子想不起来，莫名奇妙）
+lege (难弄，难对付,挑三捡四）niannong
+燥（sao）语（wo），废话
+zhongdeibuzhun: 脑子进水，不靠谱</rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text></rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
+1. 处理丢帧的情况, (Osprey 没有这种情况, Black Magic要考虑, )
+2. 
+TVAds tracker 使用python调用 C++的方法,把merge cdna的部分替换</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+
+2. mysql&gt; show status like '%onn%';
+
+3. SHOW PROCESSLIST
+
+4. SET NAMES 'utf8'    #mysql 设置编码
+
+
+
+mysql&gt; select current_timestamp() ;
+
+s</rich_text><rich_text foreground="#ff0000">hell&gt; </rich_text><rich_text foreground="#ff0000" weight="heavy">mysqldump --quick </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name</rich_text><rich_text foreground="#ff0000" weight="heavy"> | gzip &gt; </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name.contents</rich_text><rich_text foreground="#ff0000" weight="heavy">.gz</rich_text><rich_text foreground="#ff0000">(该例子中创建的文件是压缩格式）。</rich_text><rich_text>
+ 
+</rich_text><rich_text foreground="#ff0000">恢复/转移到另一台的命令如下:</rich_text><rich_text>
+</rich_text><rich_text foreground="#ff0000">shell&gt; </rich_text><rich_text foreground="#ff0000" weight="heavy">gunzip &lt; </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name.contents</rich_text><rich_text foreground="#ff0000" weight="heavy">.gz | mysql </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name</rich_text><rich_text foreground="#ff0000">以上命令,适用于*nix 操作系统的机器</rich_text><rich_text>
+</rich_text></node><node name="git" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="4"><rich_text>Git创建Develop分支的命令：
+　　git checkout -b develop master
+将Develop分支发布到Master分支的命令：
+　　# 切换到Master分支
+ 　　git checkout master
+　　# 对Develop分支进行合并
+ 　　git merge --no-ff develop
+
+</rich_text><rich_text link="webs http://www.ruanyifeng.com/blog/2012/07/git.html">http://www.ruanyifeng.com/blog/2012/07/git.html</rich_text><rich_text>
+
+ git reset --hard HEAD~3
+会将最新的3次提交全部重置，就像没有提交过一样。
+
+touch README.md
+ git init
+ git commit -m &quot;first commit&quot; 
+ git remote add origingit@github.com:szqh97/test.git
+ git push -u origin master
+
+1. git 恢复删除的文件 
+
+        git checkout filename
+
+
+
+http://blog.xupeng.me/2011/12/14/migrate-to-octopress/
+
+github fork项目后，代码更新
+协助约定
+ 
+每个人都可以fork一份自己的repo，所有的修改都在自己私有的repo上进行；
+修改完成，测试通过后通过给主repo发pull request请求合并；
+主repo（Johnqing/n.js）的管理团队收到pull request请求后，review代码，合并进来；
+个人的repo需及时和主repo保持同步；
+第1步：fork一份自己的repo
+ 
+打开Johnqing/n.js在Github上的主页（</rich_text><rich_text link="webs https://github.com/Johnqing/n.js)，在右上角点击“fork”就可以fork一份自己的repo，现在我们就有了一份自己的repo，接下里我们的操&gt;作都是基于自己的repo">https://github.com/Johnqing/n.js)，在右上角点击“fork”就可以fork一份自己的repo，现在我们就有了一份自己的repo，接下里我们的操&gt;作都是基于自己的repo</rich_text><rich_text>
+第2步：clone自己的repo
+ 
+上面我们fork了自己的repo，接着就可以clone下来了，先到自己的repo主页（</rich_text><rich_text link="webs https://github.com/ispxin/n.js），找到repo的git地址，诸如这样">https://github.com/ispxin/n.js），找到repo的git地址，诸如这样</rich_text><rich_text> </rich_text><rich_text link="webs https://github.com/ispxin/n.js.git,然后clone到本地">https://github.com/ispxin/n.js.git,然后clone到本地</rich_text><rich_text>
+git clone </rich_text><rich_text link="webs https://github.com/ispxin/n.js.git">https://github.com/ispxin/n.js.git</rich_text><rich_text>
+第3步：查看和添加远程分支
+ 
+我们接着cd到项目里，看下当前的git远程仓库，如下
+cd n.js
+git remote -v
+ 
+好了，到这里仓库就添加完成了，为了保持和主仓库的代码一致，我们接着需要获取下主仓库的最新代码。
+第4步：获取主仓库最新代码
+git fetch Johnqing
+第5步：合并到自己的分支里
+git merge Johnqing/master
+第6步：本地修改代码，提交到自己的repo
+ 
+修改完后
+git add .
+git commit -m &quot;本次修改描述&quot; 
+ 
+最后我把本次修改提交到自己的远程仓库（ispxin/n.js）中，操作如下
+git push origin master
+第7步：给主repo发pull request
+ 
+提交到自己repo后，就可以给主repo发一个请求合并的pull request，操作步骤是这样的: 
+ 
+打开</rich_text><rich_text link="webs https://github.com/ispxin/n.js，点击“pull">https://github.com/ispxin/n.js，点击“pull</rich_text><rich_text> request”的界面，添加详细的描述信息后
+第8步：主repo收到pull request后，可以merge进来
+ 
+这个可以review修改，如果没问题就可以直接“Merge pull requst”，merge后就可以在主仓库看到了
+分类: 杂七杂八
+</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="40"><rich_text weight="heavy">VOA</rich_text><rich_text>
+</rich_text><rich_text style="italic">voa     mms://a1905.l211052072.c2110.g.lm.akamaistream.net/D/1905/2110/v0001/reflector:52072</rich_text><rich_text>
+
+voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822
+
+
+grep &quot;Internal*&quot; -B1 tg|grep -v &quot;\-\-&quot;|sed '/xml\ stream/d'|sed 's/^.*\ post\ data\ is:\ //g'
+
+find . -iname &quot;16.*.mp4&quot; -or -iname &quot;1.*.mp4&quot; -or -iname &quot;4.*.mp4&quot; | sed 's/\.\///g'|while read a; do r=`grep $a t`; if [ $r != 0 ] then echo $a &gt;&gt;t0306; fi; done
+
+find . -iname &quot;16.*.mp4&quot; -or -iname &quot;1.*.mp4&quot; -or -iname &quot;4.*.mp4&quot; | sed 's/\.\///g'| while read a; do  grep $a t; if [ $? != 0 ]; then echo $a &gt;&gt; t0306; fi; done</rich_text></node><node name="gnuplot" prog_lang="sh" readonly="False" tags="" unique_id="54"><rich_text>1. 显示图片
         set term gif
         set output &quot;abc.png&quot;
         plot sin(x)
