@@ -266,7 +266,14 @@ C++不允许reference to reference
 在编译时不能使用迭代，只能用递归，原因：
 Template 更明确的是template specialization ,提供编译期间的if叙述
 在编译期间数值是不可变的，一旦定义了一个整数常数，就不能再改变它
-在编译期间没有一个可变化的东西，在编译期间没法使用迭代，只可以使用递归</rich_text></node><node name="bak" prog_lang="cpp" readonly="False" tags="" unique_id="51"><rich_text></rich_text></node></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
+在编译期间没有一个可变化的东西，在编译期间没法使用迭代，只可以使用递归</rich_text></node><node name="bak" prog_lang="cpp" readonly="False" tags="" unique_id="51"><rich_text></rich_text></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
+</rich_text><rich_text scale="h1">使用npm install XXX 时出现“failed to fetch from regi...</rich_text><rich_text>
+设置http_proxy 环境变量，比如
+ export http_proxy=&quot;http://10.123.74.137:808&quot;
+ 添加npm配置项： 
+ npm config set registry </rich_text><rich_text foreground="#333333">http://registry.npmjs.org</rich_text><rich_text>
+ </rich_text><rich_text foreground="#333333">问题解决</rich_text><rich_text>
+</rich_text></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
 </rich_text></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="" unique_id="8"><rich_text>1. ffmpeg snapshot，一秒二次
 
         ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
@@ -1048,9 +1055,9 @@ golang wiki
 
 
 </rich_text><rich_text scale="h1">Genymotion            Andriod模拟器
-
-     </rich_text><rich_text>
-</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
+</rich_text><rich_text>
+cleaver ppt工具支持markdown
+jq Linux 下的json解析工具，</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
 :set rnu 相对行号
 
 
