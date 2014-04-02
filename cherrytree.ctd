@@ -1244,7 +1244,10 @@ wirte a script which vim can load tags which the open file is needed and lib scr
 </rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="46"><rich_text></rich_text></node><node name="HZ" prog_lang="custom-colors" readonly="False" tags="" unique_id="55"><rich_text>漠尔阁zi （一下子想不起来，莫名奇妙）
 lege (难弄，难对付,挑三捡四）niannong
 燥（sao）语（wo），废话
-zhongdeibuzhun: 脑子进水，不靠谱</rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text></rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
+zhongdeibuzhun: 脑子进水，不靠谱
+kang 藏起来，不能藏人
+gang 放起来
+gu 锅子</rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text></rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
 1. 处理丢帧的情况, (Osprey 没有这种情况, Black Magic要考虑, )
 2. 
 TVAds tracker 使用python调用 C++的方法,把merge cdna的部分替换</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
