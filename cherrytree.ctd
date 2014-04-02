@@ -1058,7 +1058,12 @@ wiki plantUML 
 golang wiki
 </rich_text><rich_text link="webs http://code.google.com/p/golang-china/wiki/go_tutorial">http://code.google.com/p/golang-china/wiki/go_tutorial</rich_text><rich_text>
 </rich_text><rich_text link="webs http://w771.51qiangzuo.com/">http://w771.51qiangzuo.com/</rich_text><rich_text>
-</rich_text><rich_text link="webs http://go-tour-zh.appsp0t.com/#23">http://go-tour-zh.appsp0t.com/#23</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
+</rich_text><rich_text link="webs http://go-tour-zh.appsp0t.com/#23">http://go-tour-zh.appsp0t.com/#23</rich_text><rich_text>
+
+
+</rich_text><rich_text scale="h1">Genymotion            Andriod模拟器
+     </rich_text><rich_text>
+</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
 :set rnu 相对行号
 
 
@@ -1180,6 +1185,49 @@ touch README.md
 
 
 http://blog.xupeng.me/2011/12/14/migrate-to-octopress/
+
+github fork项目后，代码更新
+协助约定
+ 
+每个人都可以fork一份自己的repo，所有的修改都在自己私有的repo上进行；
+修改完成，测试通过后通过给主repo发pull request请求合并；
+主repo（Johnqing/n.js）的管理团队收到pull request请求后，review代码，合并进来；
+个人的repo需及时和主repo保持同步；
+第1步：fork一份自己的repo
+ 
+打开Johnqing/n.js在Github上的主页（</rich_text><rich_text link="webs https://github.com/Johnqing/n.js)，在右上角点击“fork”就可以fork一份自己的repo，现在我们就有了一份自己的repo，接下里我们的操&gt;作都是基于自己的repo">https://github.com/Johnqing/n.js)，在右上角点击“fork”就可以fork一份自己的repo，现在我们就有了一份自己的repo，接下里我们的操&gt;作都是基于自己的repo</rich_text><rich_text>
+第2步：clone自己的repo
+ 
+上面我们fork了自己的repo，接着就可以clone下来了，先到自己的repo主页（</rich_text><rich_text link="webs https://github.com/ispxin/n.js），找到repo的git地址，诸如这样">https://github.com/ispxin/n.js），找到repo的git地址，诸如这样</rich_text><rich_text> </rich_text><rich_text link="webs https://github.com/ispxin/n.js.git,然后clone到本地">https://github.com/ispxin/n.js.git,然后clone到本地</rich_text><rich_text>
+git clone </rich_text><rich_text link="webs https://github.com/ispxin/n.js.git">https://github.com/ispxin/n.js.git</rich_text><rich_text>
+第3步：查看和添加远程分支
+ 
+我们接着cd到项目里，看下当前的git远程仓库，如下
+cd n.js
+git remote -v
+ 
+好了，到这里仓库就添加完成了，为了保持和主仓库的代码一致，我们接着需要获取下主仓库的最新代码。
+第4步：获取主仓库最新代码
+git fetch Johnqing
+第5步：合并到自己的分支里
+git merge Johnqing/master
+第6步：本地修改代码，提交到自己的repo
+ 
+修改完后
+git add .
+git commit -m &quot;本次修改描述&quot; 
+ 
+最后我把本次修改提交到自己的远程仓库（ispxin/n.js）中，操作如下
+git push origin master
+第7步：给主repo发pull request
+ 
+提交到自己repo后，就可以给主repo发一个请求合并的pull request，操作步骤是这样的: 
+ 
+打开</rich_text><rich_text link="webs https://github.com/ispxin/n.js，点击“pull">https://github.com/ispxin/n.js，点击“pull</rich_text><rich_text> request”的界面，添加详细的描述信息后
+第8步：主repo收到pull request后，可以merge进来
+ 
+这个可以review修改，如果没问题就可以直接“Merge pull requst”，merge后就可以在主仓库看到了
+分类: 杂七杂八
 </rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="40"><rich_text weight="heavy">VOA</rich_text><rich_text>
 </rich_text><rich_text style="italic">voa     mms://a1905.l211052072.c2110.g.lm.akamaistream.net/D/1905/2110/v0001/reflector:52072</rich_text><rich_text>
 
@@ -1334,4 +1382,6 @@ gnuplot&gt; plot sin(x)
 </rich_text><rich_text link="webs http://linux.cn/article-2389-1.html">http://linux.cn/article-2389-1.html</rich_text><rich_text>
 
 python yield generator coroutine &amp;&amp; these in C++
-</rich_text></node></cherrytree>
+
+基于OpenCV的匀速模糊图像复原与算法分析
+</rich_text><rich_text link="webs http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9">http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9</rich_text></node></cherrytree>
