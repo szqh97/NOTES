@@ -1248,7 +1248,10 @@ zhongdeibuzhun: 脑子进水，不靠谱
 kang 藏起来，不能藏人
 gang 放起来
 gu 锅子
-menmenzang 忍受噪音？</rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text></rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
+menmenzang 忍受噪音？
+wu 湖
+nixing 
+aozidewei 难以言语的郁闷，无奈的感觉</rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text></rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
 1. 处理丢帧的情况, (Osprey 没有这种情况, Black Magic要考虑, )
 2. 
 TVAds tracker 使用python调用 C++的方法,把merge cdna的部分替换</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
