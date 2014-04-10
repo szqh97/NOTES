@@ -1059,7 +1059,7 @@ how to install opencv on ubuntu, configure and build
 </rich_text><rich_text scale="h1">Genymotion            Andriod模拟器
 </rich_text><rich_text>
 cleaver ppt工具支持markdown
-jq Linux 下的json解析工具，</rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="57"><rich_text>ls -F|grep /$|while read a ; do cd $a; ^Cr f in *.bmp; do nf=${f%%.*}.jpg; convert $f $nf;convert $nf -crop 355x85+100+250 c_$nf; echo c_$nf; done; cd ..; done
+jq Linux 下的json解析工具，</rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="57"><rich_text>ls -F|grep /$|while read a ; do cd $a; ^Cr f in *.bmp; do nf=${f%%.*}.jpg; convert $f $nf;convert $nf -crop 355x90+100+245 c_$nf; echo c_$nf; done; cd ..; done
 </rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
 :set rnu 相对行号
 
