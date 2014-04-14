@@ -1266,7 +1266,8 @@ aiaijiao 碰巧刚好
 laowei ??? 舒服？双？
 dilur 丢人
 sikuaodier 十拿九稳
-xiaoxiaohong  火红</rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text>03/13/2014 08:29:18 60</rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
+xiaoxiaohong  火红
+jiangweilao 身体虚弱</rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text>03/13/2014 08:29:18 60</rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
 1. 处理丢帧的情况, (Osprey 没有这种情况, Black Magic要考虑, )
 2. 
 TVAds tracker 使用python调用 C++的方法,把merge cdna的部分替换</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
