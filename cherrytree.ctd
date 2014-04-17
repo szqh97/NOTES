@@ -1271,7 +1271,13 @@ jiangweilao 身体虚弱
  teche 赶不上？
  taiyuyulai 慢慢来
  jinggaizai 花很漂亮
- zai 卖相好</rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text>03/13/2014 08:29:18 60</rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
+ zai 卖相好</rich_text></node></node><node name="opencv" prog_lang="custom-colors" readonly="False" tags="" unique_id="59"><rich_text>基于OpenCV的匀速模糊图像复原与算法分析
+</rich_text><rich_text link="webs http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9">http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9</rich_text><rich_text>
+opencv 的一些例子
+</rich_text><rich_text link="webs http://zwmin.com/?cat=1">http://zwmin.com/?cat=1</rich_text><rich_text>
+
+opencv_tutorials
+</rich_text><rich_text link="webs http://blog.sina.com.cn/s/articlelist_2632294837_10_1.html">http://blog.sina.com.cn/s/articlelist_2632294837_10_1.html</rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text>03/13/2014 08:29:18 60</rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
 1. 处理丢帧的情况, (Osprey 没有这种情况, Black Magic要考虑, )
 2. 
 TVAds tracker 使用python调用 C++的方法,把merge cdna的部分替换
@@ -1426,7 +1432,5 @@ gnuplot&gt; plot sin(x)
 
 python yield generator coroutine &amp;&amp; these in C++
 
-基于OpenCV的匀速模糊图像复原与算法分析
-</rich_text><rich_text link="webs http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9">http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9</rich_text><rich_text>
 
 </rich_text><rich_text link="webs https://helloworldopen.com/techspec">https://helloworldopen.com/techspec</rich_text></node></cherrytree>
