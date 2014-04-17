@@ -1283,7 +1283,11 @@ unicharset_extractor chi.sansserif.exp3.box
 mftraining -F font_properties -U unicharset -O chi.unicharset chi.sansserif.exp3.tr
 cntraining chi.sansserif.exp3.tr
 mv  inttemp normproto pffmtable shapetable chi3/
-rm chi.unicharset unicharset</rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+rm chi.unicharset unicharset
+
+unicharset_extractor chi.sansserif.exp0.box chi.sansserif.exp1.box chi.sansserif.exp2.box chi.sansserif.exp3.box 
+mftraining -F font_properties -U unicharset -O chi.unicharset chi.sansserif.exp0.tr chi.sansserif.exp1.tr chi.sansserif.exp2.tr chi.sansserif.exp3.tr 
+</rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
 2. mysql&gt; show status like '%onn%';
 
