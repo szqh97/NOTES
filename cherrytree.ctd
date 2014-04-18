@@ -1300,7 +1300,10 @@ mftraining -F font_properties -U unicharset -O chi.unicharset chi.sansserif.exp0
 </rich_text><rich_text link="webs http://thunder://QUFodHRwOi8vNTEuZHVvdGUub3JnL29mZmljZTIwMDdwcm8uemlwWlo=">thunder://QUFodHRwOi8vNTEuZHVvdGUub3JnL29mZmljZTIwMDdwcm8uemlwWlo=</rich_text><rich_text>
 </rich_text><rich_text link="webs http://thunder://QUFodHRwOi8vNTMuZHVvdGUub3JnL29mZmljZTIwMDdwcm8uemlwWlo=">thunder://QUFodHRwOi8vNTMuZHVvdGUub3JnL29mZmljZTIwMDdwcm8uemlwWlo=</rich_text><rich_text>
 
-　　产品序列号：KGFVY-7733B-8WCK9-KTG64-BC7D8</rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+　　产品序列号：KGFVY-7733B-8WCK9-KTG64-BC7D8</rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文
+
+ocr文字识别调研：
+</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
 2. mysql&gt; show status like '%onn%';
 
