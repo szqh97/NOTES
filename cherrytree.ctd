@@ -1272,7 +1272,8 @@ jiangweilao 身体虚弱
  taiyuyulai 慢慢来
  jinggaizai 花很漂亮
  zai 卖相好
- gawudila 糊涂</rich_text></node></node><node name="opencv" prog_lang="custom-colors" readonly="False" tags="" unique_id="59"><rich_text>基于OpenCV的匀速模糊图像复原与算法分析
+ gawudila 糊涂
+ medou 笨蛋</rich_text></node></node><node name="opencv" prog_lang="custom-colors" readonly="False" tags="" unique_id="59"><rich_text>基于OpenCV的匀速模糊图像复原与算法分析
 </rich_text><rich_text link="webs http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9">http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9</rich_text><rich_text>
 opencv 的一些例子
 </rich_text><rich_text link="webs http://zwmin.com/?cat=1">http://zwmin.com/?cat=1</rich_text><rich_text>
@@ -1306,9 +1307,10 @@ ocr文字识别调研：
 </rich_text><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> |开源|python |Linux| 不支持英文，
 </rich_text><rich_text link="webs http://www.oschina.net/p/tesseract-ocr">Tesseract</rich_text><rich_text> |开源|C/C++等|Linux，windows| 支持中文等多种语言，英文的识别率很高，
 </rich_text><rich_text link="webs http://www.oschina.net/p/gocr">GOCR</rich_text><rich_text>|开源||Linux|要使用tesseract 的语言库
-YAGF|开源| Linux|使用tesseract语言库
-ABBYY|闭源|windows|测试的版本Tesseract 网站上提供的简体中文数据不太适用，识别率极低
-tesseract 自带的主席</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+YAGF|开源|| Linux|使用tesseract语言库
+ABBYY|闭源||windows|测试的版本ABBY FinReader 12, 识别率95%以上，对识别的图片没有太大的要求
+
+后面主要工作是调研 Tesseract， 安装版本3.02, （最新的3.03版本编译不过）。Tesseract 网站上提供的简体中文数据不太适用，识别率极低。用sans， 48字体，常用3500字重新生成字库， 如果字体</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
 2. mysql&gt; show status like '%onn%';
 
