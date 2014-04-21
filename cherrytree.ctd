@@ -370,6 +370,9 @@ python 多线程
 
 python xml dom 
 </rich_text><rich_text link="webs http://www.w3schools.com/dom/dom_nodes_set.asp">http://www.w3schools.com/dom/dom_nodes_set.asp</rich_text><rich_text> 
+
+python 中的高级数据结构
+</rich_text><rich_text link="webs http://blog.jobbole.com/65218/">http://blog.jobbole.com/65218/</rich_text><rich_text>
 </rich_text></node><node name="collections" prog_lang="python" readonly="False" tags="" unique_id="44"><rich_text>1. python 生成 随机字符串:
 import random
 import string
@@ -444,7 +447,34 @@ a=[i for i in list]   g = (i for i in list)
 
 
 [i for i in enumerate(l)]
- [(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd')]</rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
+ [(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd')]
+ 
+ 
+ from collections import Counter
+ 
+li = [&quot;Dog&quot;, &quot;Cat&quot;, &quot;Mouse&quot;,&quot;Dog&quot;,&quot;Cat&quot;, &quot;Dog&quot;]
+a = Counter(li)
+ 
+print a # Counter({'Dog': 3, 'Cat': 2, 'Mouse': 1})
+ 
+print &quot;{0} : {1}&quot;.format(a.values(),a.keys())  # [1, 3, 2] : ['Mouse', 'Dog', 'Cat']
+ 
+print(a.most_common(3)) # [('Dog', 3), ('Cat', 2), ('Mouse', 1)]
+
+
+from collections import defaultdict
+ 
+s = &quot;the quick brown fox jumps over the lazy dog&quot;
+ 
+words = s.split()
+location = defaultdict(list)
+for m, n in enumerate(words):
+    location[n].append(m)
+ 
+print location
+ 
+# defaultdict(&lt;type 'list'&gt;, {'brown': [2], 'lazy': [7], 'over': [5], 'fox': [3],
+# 'dog': [8], 'quick': [1], 'the': [0, 6], 'jumps': [4]})</rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
 find -mmin -60 -exec ls -l {} \;
 
 redirect io to null 
