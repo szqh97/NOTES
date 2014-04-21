@@ -1309,7 +1309,9 @@ opencv 的一些例子
 </rich_text><rich_text link="webs http://zwmin.com/?cat=1">http://zwmin.com/?cat=1</rich_text><rich_text>
 
 opencv_tutorials
-</rich_text><rich_text link="webs http://blog.sina.com.cn/s/articlelist_2632294837_10_1.html">http://blog.sina.com.cn/s/articlelist_2632294837_10_1.html</rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text>03/13/2014 08:29:18 60</rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
+</rich_text><rich_text link="webs http://blog.sina.com.cn/s/articlelist_2632294837_10_1.html">http://blog.sina.com.cn/s/articlelist_2632294837_10_1.html</rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text>03/13/2014 08:29:18 60
+for f in *.mp4; do edge=`./dnagen/dna_gen.sh -i $f -v /dev/null 2&gt;&amp;1 |grep &quot;vfp gen&quot; |sed 's/vfp gen //g'`; echo ${f%%.*} $edge &gt;&gt; info;  done
+</rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
 1. 处理丢帧的情况, (Osprey 没有这种情况, Black Magic要考虑, )
 2. 
 TVAds tracker 使用python调用 C++的方法,把merge cdna的部分替换
