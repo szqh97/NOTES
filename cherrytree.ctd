@@ -1326,6 +1326,8 @@ for f in *.mp4; do edge=`./dnagen/dna_gen.sh -i $f -v /dev/null 2&gt;&amp;1 |gre
 
 1399
 1452
+2630ca54-ab7c-11e3-8346-22000ac69225
+021af21a-a64b-11e3-9ac5-22000ac69225
 </rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
 1. 处理丢帧的情况, (Osprey 没有这种情况, Black Magic要考虑, )
 2. 
