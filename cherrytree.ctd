@@ -1394,7 +1394,11 @@ Mat image =imread(imageurl);Â
 //缩放 
 Size dsize = Size(image.cols*scale,image.rows*scale);
 Mat image2 = Mat(dsize,CV_32S);
-resize(image, image2,dsize);</rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text>03/13/2014 08:29:18 60
+resize(image, image2,dsize);
+
+
+
+ffmpeg -y -i </rich_text><rich_text link="webs http://122.192.67.86:8088/ts100">http://122.192.67.86:8088/ts100</rich_text><rich_text> -strict -2 ts100.2.mp4</rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text>03/13/2014 08:29:18 60
 for f in *.mp4; do edge=`./dnagen/dna_gen.sh -i $f -v /dev/null 2&gt;&amp;1 |grep &quot;vfp gen&quot; |sed 's/vfp gen //g'`; echo ${f%%.*} $edge &gt;&gt; info;  done
 
 2742
