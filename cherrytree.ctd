@@ -1387,7 +1387,13 @@ cvSetData(img,data,step);
 //首先由cvCreateImageHeader()创建IplImage图像头，制定图像的尺寸，深度和通道数；
 //然后由cvSetData()根据BYTE*图像数据指针设置IplImage图像头的数据数据，
 //其中step指定该IplImage图像每行占的字节数，对于1通道的IPL_DEPTH_8U图像，step可以等于width。
-</rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text>03/13/2014 08:29:18 60
+</rich_text></node><node name="resize" prog_lang="custom-colors" readonly="False" tags="" unique_id="61"><rich_text>double scale=0.5; //设置缩放倍数
+string imageurl = &quot;F:/opencv/samples/cpp/baboon.jpg&quot;;
+Mat image =imread(imageurl);Â 
+//缩放 
+Size dsize = Size(image.cols*scale,image.rows*scale);
+Mat image2 = Mat(dsize,CV_32S);
+resize(image, image2,dsize);</rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text>03/13/2014 08:29:18 60
 for f in *.mp4; do edge=`./dnagen/dna_gen.sh -i $f -v /dev/null 2&gt;&amp;1 |grep &quot;vfp gen&quot; |sed 's/vfp gen //g'`; echo ${f%%.*} $edge &gt;&gt; info;  done
 
 2742
