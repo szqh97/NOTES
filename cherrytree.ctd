@@ -1068,7 +1068,77 @@ sed -e '1!G;h;$!d' t #倒置所有的行
 
 sed -n '1!G;h;$p' t #倒置所有的行
 
-sed  -e ':a;$q;N;11,$D;ba' t #只显示最后的10行</rich_text></node></node><node name="tools" prog_lang="custom-colors" readonly="False" tags="" unique_id="14"><rich_text>taskwarrior 
+sed  -e ':a;$q;N;11,$D;ba' t #只显示最后的10行</rich_text></node></node><node name="gdb" prog_lang="custom-colors" readonly="False" tags="" unique_id="62"><rich_text>原文：</rich_text><rich_text link="webs http://www.cnblogs.com/soniclq/articles/1932741.html">http://www.cnblogs.com/soniclq/articles/1932741.html</rich_text><rich_text>
+ 
+~/.gdbinit  :
+按 Ctrl+C 复制代码按 Ctrl+C 复制代码 
+</rich_text><rich_text link="webs http://www.yolinux.com/TUTORIALS/src/dbinit_stl_views-1.03.txt">在http://www.yolinux.com/TUTORIALS/src/dbinit_stl_views-1.03.txt</rich_text><rich_text>下载这个文件保存为~/.gdbinit  就可以使用它提供的方法方便调试容器
+gdb在启动的时候，会在当前目录下查找&quot;.gdbinit&quot;这个文件，并把它的内容作为gdb命令进行解释。
+举些例子：
+#
+# std::string
+#
+
+define pstring
+    if $argc == 0
+        help pstring
+    else
+        printf &quot;String \t\t\t= \&quot;%s\&quot;\n&quot;, $arg0._M_data()
+        printf &quot;String size/length \t= %u\n&quot;, $arg0._M_rep()._M_length
+        printf &quot;String capacity \t= %u\n&quot;, $arg0._M_rep()._M_capacity
+        printf &quot;String ref-count \t= %d\n&quot;, $arg0._M_rep()._M_refcount
+    end
+end
+
+document pstring
+    Prints std::string information.
+    Syntax: pstring &lt;string&gt;
+    Example:
+    pstring s - Prints content, size/length, capacity and ref-count of string s
+end 
+
+#
+# std::wstring
+#
+
+define pwstring
+    if $argc == 0
+        help pwstring
+    else
+        call printf(&quot;WString \t\t= \&quot;%ls\&quot;\n&quot;, $arg0._M_data())
+        printf &quot;WString size/length \t= %u\n&quot;, $arg0._M_rep()._M_length
+        printf &quot;WString capacity \t= %u\n&quot;, $arg0._M_rep()._M_capacity
+        printf &quot;WString ref-count \t= %d\n&quot;, $arg0._M_rep()._M_refcount
+    end
+end
+
+document pwstring
+    Prints std::wstring information.
+    Syntax: pwstring &lt;wstring&gt;
+    Example:
+    pwstring s - Prints content, size/length, capacity and ref-count of wstring s
+end 
+
+#
+# C++ related beautifiers (optional)
+#
+
+set print pretty on
+set print object on
+set print static-members on
+set print vtbl on
+set print demangle on
+set demangle-style gnu-v3
+set print sevenbit-strings off
+
+一些常用内置的命令
+
+
+Data type   GDB command 
+  std::vector&lt;T&gt;  
+    pvector stl_variable   
+    std::list&lt;T&gt;  plist stl_variable T   std::map&lt;T,T&gt; pmap stl_variable   std::multimap&lt;T,T&gt;    pmap stl_variable   std::set&lt;T&gt;   pset stl_variable T   std::multiset&lt;T&gt;  pset stl_variable   std::deque&lt;T&gt; pdequeue stl_variable   std::stack&lt;T&gt; pstack stl_variable   std::queue&lt;T&gt; pqueue stl_variable   std::priority_queue&lt;T&gt;    ppqueue stl_variable   std::bitset&lt;n&gt;td&gt;  pbitset stl_variable   std::string pstring stl_variable   std::widestring pwstring stl_variable  
+</rich_text></node><node name="tools" prog_lang="custom-colors" readonly="False" tags="" unique_id="14"><rich_text>taskwarrior 
 </rich_text><rich_text link="webs http://taskwarrior.org/projects/show/taskwarrior">http://taskwarrior.org/projects/show/taskwarrior</rich_text><rich_text>
 javascript x86
 </rich_text><rich_text link="webs http://bellard.org/jslinux/">http://bellard.org/jslinux/</rich_text><rich_text>
