@@ -42,6 +42,8 @@ std::vector&lt;T&gt;(v).swap(v);的作用相当于：    
   这样写的作用是：把v的容量缩小到最佳值
 
 该例中执行这句时，capacity收缩到500
+
+vector 在遍历时插入数据时要小心，可能会益处
 </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="5"><rich_text>1.
         u.lmsg.content =
             (content_t*) malloc (sizeof (content_t) + size_);
