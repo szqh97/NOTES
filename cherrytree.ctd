@@ -1420,7 +1420,9 @@ opencv_tutorials
 articlelist_2632294837_10_1.html</rich_text><rich_text>
 
 CvArr、Mat、CvMat、IplImage、BYTE转换  
-</rich_text><rich_text link="webs http://cncncv.blog.163.com/blog/static/2061810262012316527760/">http://cncncv.blog.163.com/blog/static/2061810262012316527760/</rich_text><node name="CvArr、Mat、CvMat、IplImage、BYTE转换  " prog_lang="custom-colors" readonly="False" tags="" unique_id="60"><rich_text>一、Mat类型：矩阵类型，Matrix。
+</rich_text><rich_text link="webs http://cncncv.blog.163.com/blog/static/2061810262012316527760/">http://cncncv.blog.163.com/blog/static/2061810262012316527760/</rich_text><rich_text>
+
+</rich_text><node name="CvArr、Mat、CvMat、IplImage、BYTE转换  " prog_lang="custom-colors" readonly="False" tags="" unique_id="60"><rich_text>一、Mat类型：矩阵类型，Matrix。
     在openCV中，Mat是一个多维的密集数据数组。可以用来处理向量和矩阵、图像、直方图等等常见的多维数据。
     Mat有3个重要的方法：
          1、Mat mat = imread(const String* filename);            读取图像
