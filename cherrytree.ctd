@@ -1291,7 +1291,28 @@ e here.
  * 说明在详细设计阶段, 尚未解决而在系统完成之前必须解决的问题.
  * 说明本详细设计引入的风险, 以及可以实现而没有实现的解决方案.
  * 说明详细设计缺陷, 以及可能的解决方案.
-</rich_text></node></node><node name="Myself" prog_lang="custom-colors" readonly="False" tags="" unique_id="17"><rich_text></rich_text><node name="TOREAD" prog_lang="custom-colors" readonly="False" tags="" unique_id="18"><rich_text>计算机类:
+</rich_text></node></node><node name="Myself" prog_lang="custom-colors" readonly="False" tags="" unique_id="17"><rich_text>
+
+root@EQX-200:/vobiledata/rtfpdownload/tasks/16193/1/tmp# for f in  *.*.tgz ; do echo $f; tar xvzf $f; done;
+1.1399139879988.1399143599607.tgz
+1.1399140000008.1399143600000.inf
+1.1399139879988.1399143599607.vdna
+1.1399143479584.1399147199704.tgz
+1.1399143599604.1399147200000.inf
+1.1399143479584.1399147199704.vdna
+1.1399147079681.1399150799801.tgz
+1.1399147199701.1399150800000.inf
+1.1399147079681.1399150799801.vdna
+1.1399154279640.1399157999760.tgz
+1.1399154399660.1399158000000.inf
+1.1399154279640.1399157999760.vdna
+1.1399157879737.1399161599857.tgz
+1.1399157999757.1399161600000.inf
+1.1399157879737.1399161599857.vdna
+1.1399161479834.1399165199954.tgz
+1.1399161599854.1399165200000.inf
+1.1399161479834.1399165199954.vdna
+</rich_text><node name="TOREAD" prog_lang="custom-colors" readonly="False" tags="" unique_id="18"><rich_text>计算机类:
        SICP
       core algorithms deployed
        </rich_text><rich_text link="webs http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773">http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773</rich_text><rich_text>
