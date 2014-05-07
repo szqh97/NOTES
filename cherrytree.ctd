@@ -488,7 +488,7 @@ command &gt; /dev/null 1&gt;2&amp;
 </rich_text><rich_text justification="left"></rich_text><rich_text>
 
 
-
+  $! 是一个进程的pid
 
 防止脚本重复运行方法
 
