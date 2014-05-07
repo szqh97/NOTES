@@ -375,6 +375,11 @@ python xml dom 
 
 python 中的高级数据结构
 </rich_text><rich_text link="webs http://blog.jobbole.com/65218/">http://blog.jobbole.com/65218/</rich_text><rich_text>
+
+
+</rich_text><rich_text scale="h1">A collection of not-so-obvious Python stuff you should know!</rich_text><rich_text>
+
+</rich_text><rich_text link="webs http://nbviewer.ipython.org/github/rasbt/python_reference/blob/master/not_so_obvious_python_stuff.ipynb">http://nbviewer.ipython.org/github/rasbt/python_reference/blob/master/not_so_obvious_python_stuff.ipynb</rich_text><rich_text>
 </rich_text></node><node name="collections" prog_lang="python" readonly="False" tags="" unique_id="44"><rich_text>1. python 生成 随机字符串:
 import random
 import string
