@@ -1165,7 +1165,7 @@ how to install opencv on ubuntu, configure and build
 工作机器上编译 g++ -ggdb `pkg-config --cflags opencv` t.cpp `pkg-config --libs opencv`
 </rich_text><rich_text scale="h1">Genymotion            Andriod模拟器
 </rich_text><rich_text>
-cleaver ppt工具支持markdown
+cleaver ppt工具支持markdown 
 jq Linux 下的json解析工具，</rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="57"><rich_text>ls -F|grep /$|while read a ; do cd $a; ^Cr f in *.bmp; do nf=${f%%.*}.jpg; convert $f $nf;convert $nf -crop 355x90+100+245 c_$nf; echo c_$nf; done; cd ..; done
 for f in c_*.jpg; do ./a.out $f 50 5 3 &gt;&gt;t; done</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
 :set rnu 相对行号
@@ -1547,7 +1547,14 @@ ocr文字识别调研：
 YAGF|开源|| Linux|使用tesseract语言库
 ABBYY|闭源||windows|测试的版本ABBY FinReader 12, 识别率95%以上，对识别的图片没有太大的要求
 
-后面主要工作是调研 Tesseract， 安装版本3.02, （最新的3.03版本编译不过）。Tesseract 网站上提供的简体中文数据不太适用，识别率极低。用sans， 48字体，常用3500字重新生成字库， 如果字体</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+后面主要工作是调研 Tesseract， 安装版本3.02, （最新的3.03版本编译不过）。Tesseract 网站上提供的简体中文数据不太适用，识别率极低。用sans， 48字体，常用3500字重新生成字库， 如果字体
+
+
+tesseract 训练流程：
+  1. 生成box文件使用jTessBoxEditor（下载地址：http://sourceforge.net/projects/vietocr/files/jTessBoxEditor/）， java -jar jTessBoxEditor.jar, 
+    TiFF/Box Generator -&gt; Input 导入常用字集(txt格式即可)，
+    注意选择字体和调整字间距，字间距对OCR识别有很大影响
+  2</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
 2. mysql&gt; show status like '%onn%';
 
