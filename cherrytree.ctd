@@ -1573,10 +1573,13 @@ font 0 0 0 0 0  
         mv normproto num.normproto  
         mv inttemp num.inttemp  
         mv pffmtable num.pffmtable  
-• rename shapetable num.shapetable   
-•   
-• echo Create Tessdata..  
-• combine_tessdata.exe num.  
+
+        combine_tessdata.exe num.  
+        
+        
+ 参见： 
+       </rich_text><rich_text link="webs http://blog.csdn.net/firehood_/article/details/8433077">http://blog.csdn.net/firehood_/article/details/8433077</rich_text><rich_text>
+       
 
          </rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
