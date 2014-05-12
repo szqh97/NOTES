@@ -1554,7 +1554,31 @@ tesseract 训练流程：
   1. 生成box文件使用jTessBoxEditor（下载地址：http://sourceforge.net/projects/vietocr/files/jTessBoxEditor/）， java -jar jTessBoxEditor.jar, 
     TiFF/Box Generator -&gt; Input 导入常用字集(txt格式即可)，
     注意选择字体和调整字间距，字间距对OCR识别有很大影响
-  2</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+  2. 定义字体特征文件 font_properties,  文件内容格式如下：
+  &lt;fontname&gt; &lt;italic&gt; &lt;bold&gt; &lt;fixed&gt; &lt;serif&gt; &lt;fraktur&gt;  
+  其中fontname为字体名称，必须与[lang]. [fontname].exp[num].box中的名称保持一致。&lt;italic&gt; 、&lt;bold&gt;  、&lt;fixed&gt; 、&lt;serif&gt;、 &lt;fraktur&gt;的取值为1或0，表示字体是否具有这些属性。
+这里在样本图片所在目录下创建一个名称为font_properties的文件:
+font 0 0 0 0 0  
+  3. 生成语言文件：
+        以num.font为例， num.font.tif 为jTessBoxEditor在1中生成：
+        tesseract num.font.exp0.tif num.font.exp0 nobatch box.train  
+        
+        unicharset_extractor num.font.exp0.box  
+        mftraining -F font_properties -U unicharset -O num.unicharset num.font.exp0.tr  
+ 
+ 
+        cntraining   num.font.exp0.tr  
+   
+
+        mv normproto num.normproto  
+        mv inttemp num.inttemp  
+        mv pffmtable num.pffmtable  
+• rename shapetable num.shapetable   
+•   
+• echo Create Tessdata..  
+• combine_tessdata.exe num.  
+
+         </rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
 2. mysql&gt; show status like '%onn%';
 
