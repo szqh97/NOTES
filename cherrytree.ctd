@@ -1539,7 +1539,14 @@ mftraining -F font_properties -U unicharset -O chi.unicharset chi.sansserif.exp0
 </rich_text><rich_text link="webs http://thunder://QUFodHRwOi8vNTEuZHVvdGUub3JnL29mZmljZTIwMDdwcm8uemlwWlo=">thunder://QUFodHRwOi8vNTEuZHVvdGUub3JnL29mZmljZTIwMDdwcm8uemlwWlo=</rich_text><rich_text>
 </rich_text><rich_text link="webs http://thunder://QUFodHRwOi8vNTMuZHVvdGUub3JnL29mZmljZTIwMDdwcm8uemlwWlo=">thunder://QUFodHRwOi8vNTMuZHVvdGUub3JnL29mZmljZTIwMDdwcm8uemlwWlo=</rich_text><rich_text>
 
-　　产品序列号：KGFVY-7733B-8WCK9-KTG64-BC7D8</rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文
+　　产品序列号：KGFVY-7733B-8WCK9-KTG64-BC7D8
+　　
+　　
+　write_dna_control_block(VIDEO_DNA, sizeof(buffer), info-&gt;begin_time.tv_sec * 1000 + info-&gt;begin_time.tv_usec / 1000, m_cfp_file);
+    //write_dna_control_block(VIDEO_DNA, sizeof(buffer), m_current_task_begin_time.tv_sec * 1000 + first_frame_time_offset, m_cfp_file);
+    fwrite(buffer, sizeof(buffer), 1, m_cfp_file);
+    fflush(m_cfp_file);
+</rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文
 
 ocr文字识别调研：
 </rich_text><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> |开源|python |Linux| 不支持英文，
