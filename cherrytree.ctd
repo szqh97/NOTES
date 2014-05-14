@@ -1522,7 +1522,8 @@ for f in *.mp4; do edge=`./dnagen/dna_gen.sh -i $f -v /dev/null 2&gt;&amp;1 |gre
 2. 
 TVAds tracker 使用python调用 C++的方法,把merge cdna的部分替换
 
-
+curl -d '@t' &quot;http://192.168.1.50:8080/jobTracker/task/submit&quot; -H&quot;Content-Type:application/json&quot;
+curl -d '@t' &quot;http://54.193.192.104/jobTracker/task/submit&quot; -H&quot;Content-Type:application/json&quot;
 
 tesseract chi.sansserif.exp3.tif chi.sansserif.exp3 nobatch box.train
 unicharset_extractor chi.sansserif.exp3.box
