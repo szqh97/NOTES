@@ -1547,11 +1547,9 @@ mftraining -F font_properties -U unicharset -O chi.unicharset chi.sansserif.exp0
     fwrite(buffer, sizeof(buffer), 1, m_cfp_file);
     fflush(m_cfp_file);
 
-           channel_uuid: e764fa42-da4d-11e3-b202-00219b97a4f7
-         epg_channel_id: NULL
-                    dma: United States
-                network: Discovery Channel
-                channel name: Discovery Channel test
+R610:/vobiledata/fake_test# bin/taskGenerator.py:188: DeprecationWarning: struct integer overflow masking is deprecated
+  media_len = struct.pack('I', media_len)
+
 </rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文
 
 ocr文字识别调研：
