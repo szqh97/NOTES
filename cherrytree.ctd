@@ -380,6 +380,9 @@ python 中的高级数据结构
 </rich_text><rich_text scale="h1">A collection of not-so-obvious Python stuff you should know!</rich_text><rich_text>
 
 </rich_text><rich_text link="webs http://nbviewer.ipython.org/github/rasbt/python_reference/blob/master/not_so_obvious_python_stuff.ipynb">http://nbviewer.ipython.org/github/rasbt/python_reference/blob/master/not_so_obvious_python_stuff.ipynb</rich_text><rich_text>
+
+Python修饰器的函数式编程
+</rich_text><rich_text link="webs http://coolshell.cn/articles/11265.html">http://coolshell.cn/articles/11265.html</rich_text><rich_text>
 </rich_text></node><node name="collections" prog_lang="python" readonly="False" tags="" unique_id="44"><rich_text>1. python 生成 随机字符串:
 import random
 import string
@@ -1164,7 +1167,15 @@ how to install opencv on ubuntu, configure and build
 </rich_text><rich_text link="webs http://www.samontab.com/web/2010/04/installing-opencv-2-1-in-ubuntu/">http://www.samontab.com/web/2010/04/installing-opencv-2-1-in-ubuntu/</rich_text><rich_text>
 工作机器上编译 g++ -ggdb `pkg-config --cflags opencv` t.cpp `pkg-config --libs opencv`
 </rich_text><rich_text scale="h1">Genymotion            Andriod模拟器
+
 </rich_text><rich_text>
+wikidpad 
+wget -q -O - http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
+sudo sh -c 'echo &quot;deb http://archive.getdeb.net/ubuntu precise-getdeb apps&quot; &gt;&gt; /etc/apt/sources.list.d/getdeb.list'
+sudo apt-get update
+sudo apt-get install wikidpad
+
+
 cleaver ppt工具支持markdown 
 jq Linux 下的json解析工具，</rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="57"><rich_text>ls -F|grep /$|while read a ; do cd $a; ^Cr f in *.bmp; do nf=${f%%.*}.jpg; convert $f $nf;convert $nf -crop 355x90+100+245 c_$nf; echo c_$nf; done; cd ..; done
 for f in c_*.jpg; do ./a.out $f 50 5 3 &gt;&gt;t; done</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
