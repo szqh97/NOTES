@@ -1431,6 +1431,7 @@ jiangweilao 身体虚弱
  sahuadeilar 什么东西
  saguar 小气，扣门
  yezi  鞋子
+ 
  </rich_text></node></node><node name="opencv" prog_lang="custom-colors" readonly="False" tags="" unique_id="59"><rich_text>基于OpenCV的匀速模糊图像复原与算法分析
 </rich_text><rich_text link="webs http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9">http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9</rich_text><rich_text>
 opencv 的一些例子
