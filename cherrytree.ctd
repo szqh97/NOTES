@@ -1078,7 +1078,9 @@ sed -e '1!G;h;$!d' t #倒置所有的行
 
 sed -n '1!G;h;$p' t #倒置所有的行
 
-sed  -e ':a;$q;N;11,$D;ba' t #只显示最后的10行</rich_text></node></node><node name="gdb" prog_lang="custom-colors" readonly="False" tags="" unique_id="62"><rich_text>原文：</rich_text><rich_text link="webs http://www.cnblogs.com/soniclq/articles/1932741.html">http://www.cnblogs.com/soniclq/articles/1932741.html</rich_text><rich_text>
+sed  -e ':a;$q;N;11,$D;ba' t #只显示最后的10
+# sed 合并多行
+http://yjever.blog.163.com/blog/static/28335550201011250559729/</rich_text></node></node><node name="gdb" prog_lang="custom-colors" readonly="False" tags="" unique_id="62"><rich_text>原文：</rich_text><rich_text link="webs http://www.cnblogs.com/soniclq/articles/1932741.html">http://www.cnblogs.com/soniclq/articles/1932741.html</rich_text><rich_text>
  
 ~/.gdbinit  :
 按 Ctrl+C 复制代码按 Ctrl+C 复制代码 
