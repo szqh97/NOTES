@@ -339,6 +339,28 @@ file a2.mpg
 5. merge audio and video file :
 6. ffmpeg -i a2.mpg -i v.mpg -codec copy l.mpg 
 l.mpg is file U want, first 20 seconds is silent!
+
+
+
+
+凤凰卫视资讯台
+ mms://112.230.192.196/zb12    凤凰资讯台高速高清
+辽宁卫视
+mms://112.230.192.196/zb17
+厦门卫视
+mms://mediasrv2.iptv.xmg.com.cn/tvhaixia 
+厦门影视
+mms://mediasrv2.iptv.xmg.com.cn/tvyingshi
+北京卫视
+mms://112.230.192.196/zb11
+CCTV5高清高速
+mms://112.230.192.196/zb10
+ 好消息一台 
+mms://live.jdjys.net/tv1 
+好消息二台 强烈推荐
+mms://live.jdjys.net/tv2 
+天空新闻台 强烈推荐
+ mms://live1.wm.skynews.servecast.net/skynews_wmlz_live300k 
 </rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
 </rich_text><rich_text link="webs http://www.zackgrossbart.com/hackito/search-engine-python/">http://www.zackgrossbart.com/hackito/search-engine-python/</rich_text><rich_text>
 tornado
@@ -1079,7 +1101,7 @@ sed -e '1!G;h;$!d' t #倒置所有的行
 sed -n '1!G;h;$p' t #倒置所有的行
 
 sed  -e ':a;$q;N;11,$D;ba' t #只显示最后的10
-# sed 合并多行
+# sed:合并行，交换行  
 http://yjever.blog.163.com/blog/static/28335550201011250559729/</rich_text></node></node><node name="gdb" prog_lang="custom-colors" readonly="False" tags="" unique_id="62"><rich_text>原文：</rich_text><rich_text link="webs http://www.cnblogs.com/soniclq/articles/1932741.html">http://www.cnblogs.com/soniclq/articles/1932741.html</rich_text><rich_text>
  
 ~/.gdbinit  :
