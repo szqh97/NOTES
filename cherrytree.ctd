@@ -406,7 +406,7 @@ python 中的高级数据结构
 Python修饰器的函数式编程
 </rich_text><rich_text link="webs http://coolshell.cn/articles/11265.html">http://coolshell.cn/articles/11265.html</rich_text><rich_text>
 
-</rich_text><rich_text link="webs https://ep2013.europython.eu/media/conference/slides/python-design-patterns.pdf">https://ep2013.europython.eu/media/conference/slides/python-design-patterns.pdf</rich_text><rich_text>
+</rich_text><rich_text link="webs http://cdn2.filepi.com/g/fFMs1u8/1400663399/32f12cd3c0ca68d5a55c208e9b832048">http://cdn2.filepi.com/g/fFMs1u8/1400663399/32f12cd3c0ca68d5a55c208e9b832048</rich_text><rich_text>
 </rich_text></node><node name="collections" prog_lang="python" readonly="False" tags="" unique_id="44"><rich_text>1. python 生成 随机字符串:
 import random
 import string
