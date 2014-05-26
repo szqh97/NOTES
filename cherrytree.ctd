@@ -362,7 +362,7 @@ mms://live.jdjys.net/tv2 
 天空新闻台 强烈推荐
  mms://live1.wm.skynews.servecast.net/skynews_wmlz_live300k 
 </rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
-    pynotify.init(&quot;eye-guard&quot;)    msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    msg.show()</rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
+    pynotify.init(&quot;eye-guard&quot;)    msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    msg.show() </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
 </rich_text><rich_text link="webs http://www.zackgrossbart.com/hackito/search-engine-python/">http://www.zackgrossbart.com/hackito/search-engine-python/</rich_text><rich_text>
 tornado
 </rich_text><rich_text link="webs http://blog.csdn.net/littlethunder/article/details/8930157">http://blog.csdn.net/littlethunder/article/details/8930157</rich_text><rich_text>
@@ -406,17 +406,9 @@ python 中的高级数据结构
 
 Python修饰器的函数式编程
 </rich_text><rich_text link="webs http://coolshell.cn/articles/11265.html">http://coolshell.cn/articles/11265.html</rich_text><rich_text>
-<<<<<<< HEAD
 
 </rich_text><rich_text link="webs http://cdn2.filepi.com/g/fFMs1u8/1400663399/32f12cd3c0ca68d5a55c208e9b832048">http://cdn2.filepi.com/g/fFMs1u8/1400663399/32f12cd3c0ca68d5a55c208e9b832048</rich_text><rich_text>
 </rich_text></node><node name="collections" prog_lang="python" readonly="False" tags="" unique_id="44"><rich_text>1. python 生成 随机字符串:
-=======
-Design patterns in Python
-</rich_text><rich_text link="webs http://pythonkit.com/Design-Patterns-in-Python-pdf-e194.html">http://pythonkit.com/Design-Patterns-in-Python-pdf-e194.html</rich_text><rich_text>
-
-python jinja2 template 
-</rich_text><rich_text link="webs http://jinja.pocoo.org/">http://jinja.pocoo.org/</rich_text></node><node name="collections" prog_lang="python" readonly="False" tags="" unique_id="44"><rich_text>1. python 生成 随机字符串:
->>>>>>> 74564e8ef5e92d5ea0b8dd481ddc82a331e48aa4
 import random
 import string
 salt = ''.join(random.sample(string.ascii_letters+string.digits, 8))
