@@ -362,7 +362,9 @@ mms://live.jdjys.net/tv2 
 天空新闻台 强烈推荐
  mms://live1.wm.skynews.servecast.net/skynews_wmlz_live300k 
 </rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
-    pynotify.init(&quot;eye-guard&quot;)    msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    msg.show() </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
+    pynotify.init(&quot;eye-guard&quot;)    
+    msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
+    msg.show() </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
 </rich_text><rich_text link="webs http://www.zackgrossbart.com/hackito/search-engine-python/">http://www.zackgrossbart.com/hackito/search-engine-python/</rich_text><rich_text>
 tornado
 </rich_text><rich_text link="webs http://blog.csdn.net/littlethunder/article/details/8930157">http://blog.csdn.net/littlethunder/article/details/8930157</rich_text><rich_text>
@@ -1775,4 +1777,6 @@ python yield generator coroutine &amp;&amp; these in C++
 
 linux deepin 
 </rich_text><rich_text link="webs https://github.com/linuxdeepin">https://github.com/linuxdeepin</rich_text><rich_text>
-</rich_text></node></cherrytree>
+
+
+awk -F':|,' 'BEGIN{print &quot;&lt;shots&gt;&quot;}{if($1 == &quot;shot&quot;) {if (NR != 1){print &quot;&lt;/shot&gt;&quot;} print &quot;&lt;shot&gt;&lt;start&gt;&quot;, $2, &quot;&lt;/start&gt;&lt;end&gt;&quot;, $3,&quot;&lt;/end&gt;&lt;start_frame_type&gt;&quot;, $4, &quot;&lt;/start_frame_type&gt;&lt;end_frame_type&gt;&quot;, $5, &quot;&lt;/end_frame_type&gt;&quot;} else if ($1 == &quot; mid-boundary&quot;) {print &quot;&lt;mid-boundary&gt;&lt;prev_ts&gt;&quot;, $2, &quot;&lt;/prev_ts&gt;&lt;cut&gt;&quot;, $3, &quot;&lt;/cut&gt;&lt;/mid-boundary&gt;&quot;} }END{print &quot;&lt;/shot&gt;&lt;/shots&gt;&quot;}' 1.log </rich_text></node></cherrytree>
