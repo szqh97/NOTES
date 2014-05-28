@@ -1779,5 +1779,6 @@ python yield generator coroutine &amp;&amp; these in C++
 linux deepin 
 </rich_text><rich_text link="webs https://github.com/linuxdeepin">https://github.com/linuxdeepin</rich_text><rich_text>
 
+修改下guake 源码， 把gnome-term的一些快捷键另进去
 
 awk -F':|,' 'BEGIN{print &quot;&lt;shots&gt;&quot;}{if($1 == &quot;shot&quot;) {if (NR != 1){print &quot;&lt;/shot&gt;&quot;} print &quot;&lt;shot&gt;&lt;start&gt;&quot;, $2, &quot;&lt;/start&gt;&lt;end&gt;&quot;, $3,&quot;&lt;/end&gt;&lt;start_frame_type&gt;&quot;, $4, &quot;&lt;/start_frame_type&gt;&lt;end_frame_type&gt;&quot;, $5, &quot;&lt;/end_frame_type&gt;&quot;} else if ($1 == &quot; mid-boundary&quot;) {print &quot;&lt;mid-boundary&gt;&lt;prev_ts&gt;&quot;, $2, &quot;&lt;/prev_ts&gt;&lt;cut&gt;&quot;, $3, &quot;&lt;/cut&gt;&lt;/mid-boundary&gt;&quot;} }END{print &quot;&lt;/shot&gt;&lt;/shots&gt;&quot;}' 1.log </rich_text></node></cherrytree>
