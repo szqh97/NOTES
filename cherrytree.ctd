@@ -282,7 +282,9 @@ Template 更明确的是template specialization ,提供编译期间的if叙述
 ffmpeg -pix_fmt uyvy422 -s 720x576 -r 25 -i all.yuv -b </rich_text><rich_text background="#000000000000">20480k</rich_text><rich_text> -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
 
 ffmpeg -pix_fmt uyvy422 -s 720x480 -r 25 -i all.yuv -b 20480k -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
-</rich_text><node name="ffmpeg SDK" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="39"><rich_text>
+
+
+</rich_text><rich_text link="webs http://paulrouget.com/e/converttohtml5video/">http://paulrouget.com/e/converttohtml5video/</rich_text><node name="ffmpeg SDK" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="39"><rich_text>
 ffmpeg SDK </rich_text><rich_text link="webs http://ffmpeg.org/doxygen/trunk/index.html">http://ffmpeg.org/doxygen/trunk/index.html</rich_text><rich_text>
 1.
 </rich_text><rich_text justification="left"></rich_text><rich_text>/**
