@@ -412,6 +412,11 @@ Python修饰器的函数式编程
 
 web.py example 
 </rich_text><rich_text link="webs http://simple-is-better.com/news/309">http://simple-is-better.com/news/309</rich_text><rich_text>
+
+ipython reload moudle
+</rich_text><rich_text link="webs http://pythontip.sinaapp.com/blog/post/6962/">http://pythontip.sinaapp.com/blog/post/6962/</rich_text><rich_text> 
+代理
+</rich_text><rich_text link="webs http://www.samair.ru/proxy-by-country/China-01.htm">http://www.samair.ru/proxy-by-country/China-01.htm</rich_text><rich_text> 
 </rich_text></node><node name="collections" prog_lang="python" readonly="False" tags="" unique_id="44"><rich_text>1. python 生成 随机字符串:
 import random
 import string
