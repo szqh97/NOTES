@@ -286,7 +286,9 @@ ffmpeg -pix_fmt uyvy422 -s 720x480 -r 25 -i all.yuv -b 20480k -f s16le -ar 48000
 
 </rich_text><rich_text link="webs http://paulrouget.com/e/converttohtml5video/">http://paulrouget.com/e/converttohtml5video/</rich_text><rich_text>
 </rich_text><rich_text link="webs http://paulrouget.com/e/converttohtml5video/">http://paulrouget.com/e/converttohtml5video/</rich_text><rich_text>
-</rich_text><rich_text link="webs https://thethemefoundry.com/blog/convert-mp4-to-webm/">https://thethemefoundry.com/blog/convert-mp4-to-webm/</rich_text><node name="ffmpeg SDK" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="39"><rich_text>
+</rich_text><rich_text link="webs https://thethemefoundry.com/blog/convert-mp4-to-webm/">https://thethemefoundry.com/blog/convert-mp4-to-webm/</rich_text><rich_text>
+
+</rich_text><rich_text link="webs http://paulrouget.com/e/converttohtml5video/">http://paulrouget.com/e/converttohtml5video/</rich_text><node name="ffmpeg SDK" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="39"><rich_text>
 ffmpeg SDK </rich_text><rich_text link="webs http://ffmpeg.org/doxygen/trunk/index.html">http://ffmpeg.org/doxygen/trunk/index.html</rich_text><rich_text>
 1.
 </rich_text><rich_text justification="left"></rich_text><rich_text>/**
@@ -1472,7 +1474,7 @@ jiangweilao 身体虚弱
  wulideler 糊，糊状
  ade 打嗝
  chuwuhua 发霉
- </rich_text></node></node><node name="opencv" prog_lang="custom-colors" readonly="False" tags="" unique_id="59"><rich_text>基于OpenCV的匀速模糊图像复原与算法分析
+ renyangwudao  胡闹，（对小孩子说）调皮 </rich_text></node></node><node name="opencv" prog_lang="custom-colors" readonly="False" tags="" unique_id="59"><rich_text>基于OpenCV的匀速模糊图像复原与算法分析
 </rich_text><rich_text link="webs http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9">http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9</rich_text><rich_text>
 opencv 的一些例子
 </rich_text><rich_text link="webs http://zwmin.com/?cat=1">http://zwmin.com/?cat=1</rich_text><rich_text>
