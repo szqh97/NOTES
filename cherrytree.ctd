@@ -282,7 +282,13 @@ Template 更明确的是template specialization ,提供编译期间的if叙述
 ffmpeg -pix_fmt uyvy422 -s 720x576 -r 25 -i all.yuv -b </rich_text><rich_text background="#000000000000">20480k</rich_text><rich_text> -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
 
 ffmpeg -pix_fmt uyvy422 -s 720x480 -r 25 -i all.yuv -b 20480k -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
-</rich_text><node name="ffmpeg SDK" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="39"><rich_text>
+
+
+</rich_text><rich_text link="webs http://paulrouget.com/e/converttohtml5video/">http://paulrouget.com/e/converttohtml5video/</rich_text><rich_text>
+</rich_text><rich_text link="webs http://paulrouget.com/e/converttohtml5video/">http://paulrouget.com/e/converttohtml5video/</rich_text><rich_text>
+</rich_text><rich_text link="webs https://thethemefoundry.com/blog/convert-mp4-to-webm/">https://thethemefoundry.com/blog/convert-mp4-to-webm/</rich_text><rich_text>
+
+</rich_text><rich_text link="webs http://paulrouget.com/e/converttohtml5video/">http://paulrouget.com/e/converttohtml5video/</rich_text><node name="ffmpeg SDK" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="39"><rich_text>
 ffmpeg SDK </rich_text><rich_text link="webs http://ffmpeg.org/doxygen/trunk/index.html">http://ffmpeg.org/doxygen/trunk/index.html</rich_text><rich_text>
 1.
 </rich_text><rich_text justification="left"></rich_text><rich_text>/**
@@ -362,7 +368,9 @@ mms://live.jdjys.net/tv2 
 天空新闻台 强烈推荐
  mms://live1.wm.skynews.servecast.net/skynews_wmlz_live300k 
 </rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
-    pynotify.init(&quot;eye-guard&quot;)    msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    msg.show() </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
+    pynotify.init(&quot;eye-guard&quot;)    
+    msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
+    msg.show() </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
 </rich_text><rich_text link="webs http://www.zackgrossbart.com/hackito/search-engine-python/">http://www.zackgrossbart.com/hackito/search-engine-python/</rich_text><rich_text>
 tornado
 </rich_text><rich_text link="webs http://blog.csdn.net/littlethunder/article/details/8930157">http://blog.csdn.net/littlethunder/article/details/8930157</rich_text><rich_text>
@@ -1472,7 +1480,10 @@ jiangweilao 身体虚弱
  saguar 小气，扣门
  yezi  鞋子
  jekoudei 膝盖
- wulideler 糊，糊状</rich_text></node></node><node name="opencv" prog_lang="custom-colors" readonly="False" tags="" unique_id="59"><rich_text>基于OpenCV的匀速模糊图像复原与算法分析
+ wulideler 糊，糊状
+ ade 打嗝
+ chuwuhua 发霉
+ renyangwudao  胡闹，（对小孩子说）调皮 </rich_text></node></node><node name="opencv" prog_lang="custom-colors" readonly="False" tags="" unique_id="59"><rich_text>基于OpenCV的匀速模糊图像复原与算法分析
 </rich_text><rich_text link="webs http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9">http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9</rich_text><rich_text>
 opencv 的一些例子
 </rich_text><rich_text link="webs http://zwmin.com/?cat=1">http://zwmin.com/?cat=1</rich_text><rich_text>
@@ -1784,4 +1795,7 @@ python yield generator coroutine &amp;&amp; these in C++
 
 linux deepin 
 </rich_text><rich_text link="webs https://github.com/linuxdeepin">https://github.com/linuxdeepin</rich_text><rich_text>
-</rich_text></node></cherrytree>
+
+修改下guake 源码， 把gnome-term的一些快捷键另进去
+
+awk -F':|,' 'BEGIN{print &quot;&lt;shots&gt;&quot;}{if($1 == &quot;shot&quot;) {if (NR != 1){print &quot;&lt;/shot&gt;&quot;} print &quot;&lt;shot&gt;&lt;start&gt;&quot;, $2, &quot;&lt;/start&gt;&lt;end&gt;&quot;, $3,&quot;&lt;/end&gt;&lt;start_frame_type&gt;&quot;, $4, &quot;&lt;/start_frame_type&gt;&lt;end_frame_type&gt;&quot;, $5, &quot;&lt;/end_frame_type&gt;&quot;} else if ($1 == &quot; mid-boundary&quot;) {print &quot;&lt;mid-boundary&gt;&lt;prev_ts&gt;&quot;, $2, &quot;&lt;/prev_ts&gt;&lt;cut&gt;&quot;, $3, &quot;&lt;/cut&gt;&lt;/mid-boundary&gt;&quot;} }END{print &quot;&lt;/shot&gt;&lt;/shots&gt;&quot;}' 1.log </rich_text></node></cherrytree>
