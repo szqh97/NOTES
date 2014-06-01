@@ -1658,7 +1658,10 @@ font 0 0 0 0 0  
        </rich_text><rich_text link="webs http://blog.csdn.net/firehood_/article/details/8433077">http://blog.csdn.net/firehood_/article/details/8433077</rich_text><rich_text>
        
 
-         </rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+         </rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="64"><rich_text>1. 在 videoCapture 截图服务中， 使用的是os.mkstemp() 来创建 合并音频的临时文件， 要用tempfile 中的mkstempfile来代替
+2. 修改taskgenerator中dna 合并的部分，先把audio / video dna extract first, then merge them
+3. audio time is earlier than viedo while netstream capture recording videos
+4. </rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
 2. mysql&gt; show status like '%onn%';
 
@@ -1799,4 +1802,4 @@ linux deepin
 
 修改下guake 源码， 把gnome-term的一些快捷键另进去
 
-awk -F':|,' 'BEGIN{print &quot;&lt;shots&gt;&quot;}{if($1 == &quot;shot&quot;) {if (NR != 1){print &quot;&lt;/shot&gt;&quot;} print &quot;&lt;shot&gt;&lt;start&gt;&quot;, $2, &quot;&lt;/start&gt;&lt;end&gt;&quot;, $3,&quot;&lt;/end&gt;&lt;start_frame_type&gt;&quot;, $4, &quot;&lt;/start_frame_type&gt;&lt;end_frame_type&gt;&quot;, $5, &quot;&lt;/end_frame_type&gt;&quot;} else if ($1 == &quot; mid-boundary&quot;) {print &quot;&lt;mid-boundary&gt;&lt;prev_ts&gt;&quot;, $2, &quot;&lt;/prev_ts&gt;&lt;cut&gt;&quot;, $3, &quot;&lt;/cut&gt;&lt;/mid-boundary&gt;&quot;} }END{print &quot;&lt;/shot&gt;&lt;/shots&gt;&quot;}' 1.log </rich_text></node></cherrytree>
+</rich_text></node></cherrytree>
