@@ -1604,6 +1604,7 @@ mftraining -F font_properties -U unicharset -O chi.unicharset chi.sansserif.exp0
 
 R610:/vobiledata/fake_test# bin/taskGenerator.py:188: DeprecationWarning: struct integer overflow masking is deprecated
   media_len = struct.pack('I', media_len)
+                   path: </rich_text><rich_text link="webs http://vapptime1.cntv.cloudcdn.net:8000/cache/259_/seg0/index.m3u8?AUTH=mzOnaiK35MMeLBl9HWG6P/01FkXeoiAvFkVputWbv4YpdVWoxZu1/icILzsZ5RsTud1rnhOR/IJEyxz0alNxzw==">http://vapptime1.cntv.cloudcdn.net:8000/cache/259_/seg0/index.m3u8?AUTH=mzOnaiK35MMeLBl9HWG6P/01FkXeoiAvFkVputWbv4YpdVWoxZu1/icILzsZ5RsTud1rnhOR/IJEyxz0alNxzw==</rich_text><rich_text>
 
 </rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文
 
