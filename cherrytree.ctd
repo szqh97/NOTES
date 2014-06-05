@@ -367,6 +367,20 @@ mms://live.jdjys.net/tv1 
 mms://live.jdjys.net/tv2 
 天空新闻台 强烈推荐
  mms://live1.wm.skynews.servecast.net/skynews_wmlz_live300k 
+
+
+使用DarwinStreamingServer搭建网络流：
+首先下载源文件，http://dss.macosforge.org/选previous-releases，选Linux installer(v5.5.5)下面的</rich_text><rich_text link="webs http://dss.macosforge.org/downloads/DarwinStreamingSrvr5.5.5-Linux.tar.gz">Streaming  Server。</rich_text><rich_text>
+ 下载的是个压缩文件，解压出文件夹，夹里有个Install文件，在命令行下先chmod +xInstall，然后执行./Install,很快安装完成，提示输入用户名和密码，这个随便写啦～
+ 之后在浏览器地址栏里输入http://127.0.0.1:1220,然后要求输入用户名，密码，和上面设置好的一样，然后有 SetupAssistant MP3 broadcast  Password,我仍然采用同样的密码，下一步ssl据说可以不用管，直接下一步添加媒体文件目录，/usr/local/movies，下一步设端口 没有动，直接finish。
+ 搭好了，可以用电影播放器来播放流媒体文件，比如
+ 
+rtsp://127.0.0.1/sample_100kbit.mp4 ，顺利播放～
+
+启动 Darwin Streaming Server 
+sudo /usr/local/sbin/DarwinStreamingServer启动 Web 管理介面 (tcp port 1220)
+sudo /usr/local/sbin/streamingadminserver.pl
+PS：以上在安装好的时候会自动启动。
 </rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
     pynotify.init(&quot;eye-guard&quot;)    
     msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
