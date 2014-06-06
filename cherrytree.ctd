@@ -367,6 +367,20 @@ mms://live.jdjys.net/tv1 
 mms://live.jdjys.net/tv2 
 天空新闻台 强烈推荐
  mms://live1.wm.skynews.servecast.net/skynews_wmlz_live300k 
+
+
+使用DarwinStreamingServer搭建网络流：
+首先下载源文件，http://dss.macosforge.org/选previous-releases，选Linux installer(v5.5.5)下面的</rich_text><rich_text link="webs http://dss.macosforge.org/downloads/DarwinStreamingSrvr5.5.5-Linux.tar.gz">Streaming  Server。</rich_text><rich_text>
+ 下载的是个压缩文件，解压出文件夹，夹里有个Install文件，在命令行下先chmod +xInstall，然后执行./Install,很快安装完成，提示输入用户名和密码，这个随便写啦～
+ 之后在浏览器地址栏里输入http://127.0.0.1:1220,然后要求输入用户名，密码，和上面设置好的一样，然后有 SetupAssistant MP3 broadcast  Password,我仍然采用同样的密码，下一步ssl据说可以不用管，直接下一步添加媒体文件目录，/usr/local/movies，下一步设端口 没有动，直接finish。
+ 搭好了，可以用电影播放器来播放流媒体文件，比如
+ 
+rtsp://127.0.0.1/sample_100kbit.mp4 ，顺利播放～
+
+启动 Darwin Streaming Server 
+sudo /usr/local/sbin/DarwinStreamingServer启动 Web 管理介面 (tcp port 1220)
+sudo /usr/local/sbin/streamingadminserver.pl
+PS：以上在安装好的时候会自动启动。
 </rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
     pynotify.init(&quot;eye-guard&quot;)    
     msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
@@ -673,7 +687,7 @@ sudo ntpdate cn.pool.ntp.org
 </rich_text><rich_text scale="h1">解压deb包</rich_text><rich_text>
 
 dpkg-deb -x xxxx.deb di
-
+dpkg-deb --fsys-tarfile xx.dbe|tar xv???
 
 
 curl 
@@ -748,7 +762,7 @@ Debian的</rich_text><rich_text weight="heavy">update-rc.d</rich_text><rich_text
 update-rc.d -f &lt;service&gt;remove        从所有的运行级别配置目录中是删除指定的服务
 update-rc.d &lt;service&gt; start&lt;order&gt;&lt;runlevels&gt;   配置服务在运行级别列表中按指定的顺序启动
 update-rc.d &lt;service&gt; stop&lt;order&gt;&lt;runlevels&gt;   配置服务在运行级别列表中指定的顺序停止
-update-rc.d与RH的chkconfig之间最大的不同就在于update-rc.d是要设置所以指向/etc/init.d目录下服务脚本的运行级别链接</rich_text><codebox char_offset="3012" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
+update-rc.d与RH的chkconfig之间最大的不同就在于update-rc.d是要设置所以指向/etc/init.d目录下服务脚本的运行级别链接</rich_text><codebox char_offset="3052" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
 
 + :：:label，标志一个label，用于b/t的跳转
 + =：[address]= 打印出行号
@@ -804,7 +818,7 @@ vim -&gt; 其他程序
 &quot;*y
 
 其他程序-&gt;gvim
-“*p </codebox><codebox char_offset="3411" frame_height="100" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="custom-colors" width_in_pixels="False">表 1 /proc 目录中的主要文件的说明
+“*p </codebox><codebox char_offset="3451" frame_height="100" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="custom-colors" width_in_pixels="False">表 1 /proc 目录中的主要文件的说明
 
 文件或目录名称 	描 述
 apm 	高级电源管理信息
@@ -1616,6 +1630,18 @@ R610:/vobiledata/fake_test# bin/taskGenerator.py:188: DeprecationWarning: struct
   media_len = struct.pack('I', media_len)
                    path: </rich_text><rich_text link="webs http://vapptime1.cntv.cloudcdn.net:8000/cache/259_/seg0/index.m3u8?AUTH=mzOnaiK35MMeLBl9HWG6P/01FkXeoiAvFkVputWbv4YpdVWoxZu1/icILzsZ5RsTud1rnhOR/IJEyxz0alNxzw==">http://vapptime1.cntv.cloudcdn.net:8000/cache/259_/seg0/index.m3u8?AUTH=mzOnaiK35MMeLBl9HWG6P/01FkXeoiAvFkVputWbv4YpdVWoxZu1/icILzsZ5RsTud1rnhOR/IJEyxz0alNxzw==</rich_text><rich_text>
 
+eyerestdaemon 会占cpu到100% ,fix it
+
+ gpac 依赖于 libavcodec-extra-53 (&gt;= 4:0.8-1~)；然而：
+  未安装软件包 libavcodec-extra-53。
+ gpac 依赖于 libavutil-extra-51 (&gt;= 4:0.8-1~)；然而：
+  未安装软件包 libavutil-extra-51。
+ gpac 依赖于 libdirectfb-1.2-0；然而：
+  未安装软件包 libdirectfb-1.2-0。
+ gpac 依赖于 libmozjs185-1.0 (&gt;= 1.8.5-1.0.0)；然而：
+  未安装软件包 libmozjs185-1.0。
+ gpac 依赖于 libopenjpeg2；然而：
+  未安装软件包 libopenjpeg2。
 </rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文
 
 ocr文字识别调研：
