@@ -687,7 +687,7 @@ sudo ntpdate cn.pool.ntp.org
 </rich_text><rich_text scale="h1">解压deb包</rich_text><rich_text>
 
 dpkg-deb -x xxxx.deb di
-
+dpkg-deb --fsys-tarfile xx.dbe|tar xv???
 
 
 curl 
@@ -762,7 +762,7 @@ Debian的</rich_text><rich_text weight="heavy">update-rc.d</rich_text><rich_text
 update-rc.d -f &lt;service&gt;remove        从所有的运行级别配置目录中是删除指定的服务
 update-rc.d &lt;service&gt; start&lt;order&gt;&lt;runlevels&gt;   配置服务在运行级别列表中按指定的顺序启动
 update-rc.d &lt;service&gt; stop&lt;order&gt;&lt;runlevels&gt;   配置服务在运行级别列表中指定的顺序停止
-update-rc.d与RH的chkconfig之间最大的不同就在于update-rc.d是要设置所以指向/etc/init.d目录下服务脚本的运行级别链接</rich_text><codebox char_offset="3012" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
+update-rc.d与RH的chkconfig之间最大的不同就在于update-rc.d是要设置所以指向/etc/init.d目录下服务脚本的运行级别链接</rich_text><codebox char_offset="3052" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
 
 + :：:label，标志一个label，用于b/t的跳转
 + =：[address]= 打印出行号
@@ -818,7 +818,7 @@ vim -&gt; 其他程序
 &quot;*y
 
 其他程序-&gt;gvim
-“*p </codebox><codebox char_offset="3411" frame_height="100" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="custom-colors" width_in_pixels="False">表 1 /proc 目录中的主要文件的说明
+“*p </codebox><codebox char_offset="3451" frame_height="100" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="custom-colors" width_in_pixels="False">表 1 /proc 目录中的主要文件的说明
 
 文件或目录名称 	描 述
 apm 	高级电源管理信息
