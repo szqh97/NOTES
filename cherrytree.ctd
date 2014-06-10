@@ -1227,6 +1227,8 @@ how to install opencv on ubuntu, configure and build
 工作机器上编译 g++ -ggdb `pkg-config --cflags opencv` t.cpp `pkg-config --libs opencv`
 </rich_text><rich_text scale="h1">Genymotion            Andriod模拟器
 
+糖果主机
+</rich_text><rich_text link="webs http://www.sugarhosts.com/zh-cn/hosting/shared-web-hosting/" scale="h1">http://www.sugarhosts.com/zh-cn/hosting/shared-web-hosting/</rich_text><rich_text scale="h1">
 </rich_text><rich_text>
 wikidpad 
 wget -q -O - http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
