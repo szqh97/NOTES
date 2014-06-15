@@ -1137,7 +1137,12 @@ sed -n '1!G;h;$p' t #倒置所有的行
 
 sed  -e ':a;$q;N;11,$D;ba' t #只显示最后的10
 # sed:合并行，交换行  
-http://yjever.blog.163.com/blog/static/28335550201011250559729/</rich_text></node></node><node name="gdb" prog_lang="custom-colors" readonly="False" tags="" unique_id="62"><rich_text>原文：</rich_text><rich_text link="webs http://www.cnblogs.com/soniclq/articles/1932741.html">http://www.cnblogs.com/soniclq/articles/1932741.html</rich_text><rich_text>
+http://yjever.blog.163.com/blog/static/28335550201011250559729/</rich_text></node><node name="ssh" prog_lang="custom-colors" readonly="False" tags="" unique_id="67"><rich_text>
+</rich_text><rich_text link="webs http://josephjiang.com/entry.php?id=312">http://josephjiang.com/entry.php?id=312</rich_text><rich_text>
+build a linux ssh tunnel:
+autossh -M 5678 -fNR  1234:localhost:22 root@DNA624 -p22
+
+</rich_text></node></node><node name="gdb" prog_lang="custom-colors" readonly="False" tags="" unique_id="62"><rich_text>原文：</rich_text><rich_text link="webs http://www.cnblogs.com/soniclq/articles/1932741.html">http://www.cnblogs.com/soniclq/articles/1932741.html</rich_text><rich_text>
  
 ~/.gdbinit  :
 按 Ctrl+C 复制代码按 Ctrl+C 复制代码 
