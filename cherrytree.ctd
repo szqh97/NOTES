@@ -268,7 +268,82 @@ C++不允许reference to reference
 在编译时不能使用迭代，只能用递归，原因：
 Template 更明确的是template specialization ,提供编译期间的if叙述
 在编译期间数值是不可变的，一旦定义了一个整数常数，就不能再改变它
+<<<<<<< HEAD
 在编译期间没有一个可变化的东西，在编译期间没法使用迭代，只可以使用递归</rich_text></node><node name="bak" prog_lang="cpp" readonly="False" tags="" unique_id="51"><rich_text></rich_text></node></node><node name="go" prog_lang="custom-colors" readonly="False" tags="" unique_id="65"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="66"><rich_text link="webs http://www.oschina.net/translate/day-22-a-journey-into-nsq">http://www.oschina.net/translate/day-22-a-journey-into-nsq</rich_text></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
+=======
+在编译期间没有一个可变化的东西，在编译期间没法使用迭代，只可以使用递归</rich_text></node><node name="bak" prog_lang="cpp" readonly="False" tags="" unique_id="51"><rich_text>string trim(const string&amp; str)
+{
+    string::size_type pos = str.find_first_not_of(' ');
+    if (pos == string::npos)
+    {
+        return str;
+    }
+    string::size_type pos2 = str.find_last_not_of(' ');
+    if (pos2 != string::npos)
+    {
+        return str.substr(pos, pos2 - pos + 1);
+    }
+    return str.substr(pos);
+}
+// split for string
+int split(const string&amp; str, vector&lt;string&gt;&amp; ret_, string sep = &quot;,&quot;)
+{
+    if (str.empty())
+    {
+        return 0;
+    }
+
+    string tmp;
+    string::size_type pos_begin = str.find_first_not_of(sep);
+    string::size_type comma_pos = 0;
+
+    while (pos_begin != string::npos)
+    {
+        comma_pos = str.find(sep, pos_begin);
+        if (comma_pos != string::npos)
+        {
+            tmp = str.substr(pos_begin, comma_pos - pos_begin);
+            pos_begin = comma_pos + sep.length();
+        }
+        else
+        {
+            tmp = str.substr(pos_begin);
+            pos_begin = comma_pos;
+        }
+
+        if (!tmp.empty())
+        {
+            ret_.push_back(tmp);
+            tmp.clear();
+        }
+    }
+    return 0;
+}
+
+string replace(const string&amp; str, const string&amp; src, const string&amp; dest)
+{
+    string ret;
+
+    string::size_type pos_begin = 0;
+    string::size_type pos       = str.find(src);
+    while (pos != string::npos)
+    {
+        cout &lt;&lt;&quot;replacexxx:&quot; &lt;&lt; pos_begin &lt;&lt;&quot; &quot; &lt;&lt; pos &lt;&lt;&quot;\n&quot;;
+        ret.append(str.data() + pos_begin, pos - pos_begin);
+        ret += dest;
+        pos_begin = pos + 1;
+        pos       = str.find(src, pos_begin);
+    }
+    if (pos_begin &lt; str.length())
+    {
+        ret.append(str.begin() + pos_begin, str.end());
+    }
+    return ret;
+}
+
+}</rich_text></node></node><node name="go" prog_lang="custom-colors" readonly="False" tags="" unique_id="65"><rich_text>
+</rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="66"><rich_text></rich_text></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
+>>>>>>> c2d30f35c73d25cd8adff08dfac2af7167890644
 </rich_text><rich_text scale="h1">使用npm install XXX 时出现“failed to fetch from regi...</rich_text><rich_text>
 设置http_proxy 环境变量，比如
  export http_proxy=&quot;http://10.123.74.137:808&quot;
@@ -981,7 +1056,12 @@ Ctrl+a d ：退出当前终端，返回加载screen前的shell命令状态
 
 do date -d &quot;$a&quot; +%s;
 
-atop -r xxx to view  atop log  t or shit_t can move forward/backward</rich_text><node name="screen" prog_lang="custom-colors" readonly="False" tags="screen" unique_id="24"><rich_text style="italic">screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]
+atop -r xxx to view  atop log  t or shit_t can move forward/backward
+
+
+
+</rich_text><rich_text scale="h1">使用 Ttyutils 截获 UNIX/Linux 终端 </rich_text><rich_text>
+</rich_text><rich_text link="webs http://www.ibm.com/developerworks/cn/aix/library/0809_wuxh_tty/index.html">http://www.ibm.com/developerworks/cn/aix/library/0809_wuxh_tty/index.html</rich_text><node name="screen" prog_lang="custom-colors" readonly="False" tags="screen" unique_id="24"><rich_text style="italic">screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]
 Screen命令参数：</rich_text><rich_text>
 -A -[r|R]          将所有的视窗都调整为目前终端机的大小。
 -c filename        用指定的filename文件替代screen的配置文件’.screenrc’.
@@ -1243,7 +1323,10 @@ sudo apt-get install wikidpad
 
 
 cleaver ppt工具支持markdown 
-jq Linux 下的json解析工具，</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
+jq Linux 下的json解析工具，
+
+html5 超炫的网页
+</rich_text><rich_text link="webs http://dreamsky.github.io/main/blog/crazy-tentacles/">http://dreamsky.github.io/main/blog/crazy-tentacles/</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
 :set rnu 相对行号
 
 
@@ -1507,7 +1590,12 @@ jiangweilao 身体虚弱
  chuwuhua 发霉
  renyangwudao  胡闹，（对小孩子说）调皮 
  hangbulangdang 全部加起来
- yibaohuar 很近</rich_text></node></node><node name="opencv" prog_lang="custom-colors" readonly="False" tags="" unique_id="59"><rich_text>基于OpenCV的匀速模糊图像复原与算法分析
+ yibaohuar 很近
+ dengdei 倔强，不听劝
+ cixuer 找不痛快， 脾气不好
+ zaxice 尿床
+ xidepair 尿布
+ hucilangdang 粗枝大叶，</rich_text></node></node><node name="opencv" prog_lang="custom-colors" readonly="False" tags="" unique_id="59"><rich_text>基于OpenCV的匀速模糊图像复原与算法分析
 </rich_text><rich_text link="webs http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9">http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9</rich_text><rich_text>
 opencv 的一些例子
 </rich_text><rich_text link="webs http://zwmin.com/?cat=1">http://zwmin.com/?cat=1</rich_text><rich_text>
