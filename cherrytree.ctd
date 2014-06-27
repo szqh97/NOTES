@@ -1781,7 +1781,19 @@ font 0 0 0 0 0  
          </rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="64"><rich_text>1. 在 videoCapture 截图服务中， 使用的是os.mkstemp() 来创建 合并音频的临时文件， 要用tempfile 中的mkstempfile来代替
 2. 修改taskgenerator中dna 合并的部分，先把audio / video dna extract first, then merge them
 3. audio time is earlier than viedo while netstream capture recording videos
-4. </rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+4. </rich_text></node><node name="sql" prog_lang="sql" readonly="False" tags="" unique_id="10"><rich_text>
+create table VideoSource
+(
+    id              int(10) unsigned        not null AUTO_INCREMENT,
+    channel_uuid    char(36)                not null,
+    channel_name    char(50)                DEFAULT NULL,
+    network         char(50)                DEFAULT NULL,
+    dma             char(50)                DEFAULT NULL,
+    status          enum(&quot;idle&quot;, &quot;error&quot;, &quot;printing&quot;) NOT NULL default &quot;idle&quot;,
+    update_at       timestamp               not null DEFAULT '0000-00-00 00:00:00',
+    primary key (id)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8;</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
 2. mysql&gt; show status like '%onn%';
 
