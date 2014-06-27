@@ -1793,6 +1793,19 @@ create table VideoSource
     update_at       timestamp               not null DEFAULT '0000-00-00 00:00:00',
     primary key (id)
 )
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+create table vodProgram
+(
+    id              int(10) unsigned        not null AUTO_INCREMENT,
+    channel_id      int(10) unsigned        not null,
+    vod_name        varchar(255)            not null,
+    md5             char(36)                not null,
+    start_ts        int(13) unsigned,
+    end_ts          int(13) unsigned,
+    program_status  enum(&quot;succeed&quot;, &quot;initialized&quot;, &quot;processing&quot;) not null default &quot;initialized&quot;,
+    primary key (id)
+)
 ENGINE=InnoDB DEFAULT CHARSET=utf8;</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
 2. mysql&gt; show status like '%onn%';
