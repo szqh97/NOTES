@@ -847,6 +847,9 @@ update-rc.d与RH的chkconfig之间最大的不同就在于update-rc.d是要设�
 
 </rich_text><rich_text scale="h2" weight="heavy">rsync </rich_text><rich_text>
 </rich_text><rich_text link="webs http://blog.sina.com.cn/s/blog_5eda2dda01015fcs.html">http://blog.sina.com.cn/s/blog_5eda2dda01015fcs.html</rich_text><rich_text>
+
+</rich_text><rich_text scale="h1">strace </rich_text><rich_text>
+strace -f -ff -o xxxxxxxx cmd   输出每一个进程的文件
 </rich_text><codebox char_offset="3052" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
 
 + :：:label，标志一个label，用于b/t的跳转
