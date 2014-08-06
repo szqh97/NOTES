@@ -458,6 +458,26 @@ PS：以上在安装好的时候会自动启动。
 
 /opt/ffmpeg/ffmpeg -y -rtmp_swfurl </rich_text><rich_text link="webs http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=DUCMEKOG679DD4E32B47AF6CF70A425282ACFE73839">http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=DUCMEKOG679DD4E32B47AF6CF70A425282ACFE73839</rich_text><rich_text> -i rtmp://lv9.ustvnow.com/dvrtest/ERR22WHP0USTVNOW2 -acodec copy -vcodec copy -map 0:v -map 0:a -bsf:v h264_mp4toannexb -f segment -segment_format mpegts -segment_time 1800 /opt/vobile/recorder/var/work/cbs/%d.ts
 
+
+
+
+
+
+</rich_text><rich_text scale="h2">x264 – Recommended General Options</rich_text><rich_text>
+For  all rate control methods you will probably want libx264 to select the  number of threads to use to maximise its performance on your CPU(s):
+-threads 0
+
+
+</rich_text><rich_text scale="h2">Two-Pass Example</rich_text><rich_text>
+So if you wanted to encode using two-pass VBR, the command line would be something like:
+ffmpeg -i INPUT -an -pass 1 -vcodec libx264 -vpre slow_firstpass -b BIT_RATE -bt BIT_RATE -threads 0 OUTPUT.mp4
+Note: We don’t encode the audio in the first pass because we will not be using the data that was output.
+ffmpeg -i INPUT -acodec libfaac -ab 128k -pass 2 -vcodec libx264 -vpre slow -b BIT_RATE -bt BIT_RATE -threads 0 OUTPUT.mp4
+
+</rich_text><rich_text scale="h2">Single-Pass Constant Rate Factor (CRF) Example</rich_text><rich_text>
+Or for a single pass CRF encode:
+ffmpeg -i INFILE -acodec libfaac -ab 96k -vcodec libx264 -vpre slow -crf 22 -threads 0 OUTPUT.mp4
+
 </rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
     pynotify.init(&quot;eye-guard&quot;)    
     msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
