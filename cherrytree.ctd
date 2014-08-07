@@ -456,6 +456,32 @@ rtsp://127.0.0.1/sample_100kbit.mp4 ，顺利播放～
 sudo /usr/local/sbin/DarwinStreamingServer启动 Web 管理介面 (tcp port 1220)
 sudo /usr/local/sbin/streamingadminserver.pl
 PS：以上在安装好的时候会自动启动。
+
+1. ffmpeg convert aac to mp3
+
+
+/opt/ffmpeg/ffmpeg -y -rtmp_swfurl </rich_text><rich_text link="webs http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=DUCMEKOG679DD4E32B47AF6CF70A425282ACFE73839">http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=DUCMEKOG679DD4E32B47AF6CF70A425282ACFE73839</rich_text><rich_text> -i rtmp://lv9.ustvnow.com/dvrtest/ERR22WHP0USTVNOW2 -acodec copy -vcodec copy -map 0:v -map 0:a -bsf:v h264_mp4toannexb -f segment -segment_format mpegts -segment_time 1800 /opt/vobile/recorder/var/work/cbs/%d.ts
+
+
+
+
+
+
+</rich_text><rich_text scale="h2">x264 – Recommended General Options</rich_text><rich_text>
+For  all rate control methods you will probably want libx264 to select the  number of threads to use to maximise its performance on your CPU(s):
+-threads 0
+
+
+</rich_text><rich_text scale="h2">Two-Pass Example</rich_text><rich_text>
+So if you wanted to encode using two-pass VBR, the command line would be something like:
+ffmpeg -i INPUT -an -pass 1 -vcodec libx264 -vpre slow_firstpass -b BIT_RATE -bt BIT_RATE -threads 0 OUTPUT.mp4
+Note: We don’t encode the audio in the first pass because we will not be using the data that was output.
+ffmpeg -i INPUT -acodec libfaac -ab 128k -pass 2 -vcodec libx264 -vpre slow -b BIT_RATE -bt BIT_RATE -threads 0 OUTPUT.mp4
+
+</rich_text><rich_text scale="h2">Single-Pass Constant Rate Factor (CRF) Example</rich_text><rich_text>
+Or for a single pass CRF encode:
+ffmpeg -i INFILE -acodec libfaac -ab 96k -vcodec libx264 -vpre slow -crf 22 -threads 0 OUTPUT.mp4
+
 </rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
     pynotify.init(&quot;eye-guard&quot;)    
     msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
@@ -514,6 +540,9 @@ ipython reload moudle
 </rich_text><rich_text link="webs http://pythontip.sinaapp.com/blog/post/6962/">http://pythontip.sinaapp.com/blog/post/6962/</rich_text><rich_text> 
 代理
 </rich_text><rich_text link="webs http://www.samair.ru/proxy-by-country/China-01.htm">http://www.samair.ru/proxy-by-country/China-01.htm</rich_text><rich_text> 
+
+python adventure
+</rich_text><rich_text link="webs http://pythonadventures.wordpress.com">http://pythonadventures.wordpress.com</rich_text><rich_text>
 </rich_text></node><node name="collections" prog_lang="python" readonly="False" tags="" unique_id="44"><rich_text>1. python 生成 随机字符串:
 import random
 import string
@@ -837,7 +866,20 @@ Debian的</rich_text><rich_text weight="heavy">update-rc.d</rich_text><rich_text
 update-rc.d -f &lt;service&gt;remove        从所有的运行级别配置目录中是删除指定的服务
 update-rc.d &lt;service&gt; start&lt;order&gt;&lt;runlevels&gt;   配置服务在运行级别列表中按指定的顺序启动
 update-rc.d &lt;service&gt; stop&lt;order&gt;&lt;runlevels&gt;   配置服务在运行级别列表中指定的顺序停止
-update-rc.d与RH的chkconfig之间最大的不同就在于update-rc.d是要设置所以指向/etc/init.d目录下服务脚本的运行级别链接</rich_text><codebox char_offset="3052" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
+update-rc.d与RH的chkconfig之间最大的不同就在于update-rc.d是要设置所以指向/etc/init.d目录下服务脚本的运行级别链接
+
+
+</rich_text><rich_text scale="h2" weight="heavy">rsync </rich_text><rich_text>
+</rich_text><rich_text link="webs http://blog.sina.com.cn/s/blog_5eda2dda01015fcs.html">http://blog.sina.com.cn/s/blog_5eda2dda01015fcs.html</rich_text><rich_text>
+
+</rich_text><rich_text scale="h1">strace </rich_text><rich_text>
+strace -f -ff -o xxxxxxxx cmd   输出每一个进程的文件
+
+
+dpkg --add-architecture 386
+aptitude update
+aptitude install ia32-libs
+</rich_text><codebox char_offset="3052" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
 
 + :：:label，标志一个label，用于b/t的跳转
 + =：[address]= 打印出行号
@@ -1216,6 +1258,8 @@ sed -e '1!G;h;$!d' t #倒置所有的行
 sed -n '1!G;h;$p' t #倒置所有的行
 
 sed  -e ':a;$q;N;11,$D;ba' t #只显示最后的10
+
+sed -e 's/\s*//g' #去掉空格
 # sed:合并行，交换行  
 http://yjever.blog.163.com/blog/static/28335550201011250559729/</rich_text></node><node name="ssh" prog_lang="custom-colors" readonly="False" tags="" unique_id="67"><rich_text>
 </rich_text><rich_text link="webs http://josephjiang.com/entry.php?id=312">http://josephjiang.com/entry.php?id=312</rich_text><rich_text>
@@ -1326,7 +1370,10 @@ cleaver ppt工具支持markdown
 jq Linux 下的json解析工具，
 
 html5 超炫的网页
-</rich_text><rich_text link="webs http://dreamsky.github.io/main/blog/crazy-tentacles/">http://dreamsky.github.io/main/blog/crazy-tentacles/</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
+</rich_text><rich_text link="webs http://dreamsky.github.io/main/blog/crazy-tentacles/">http://dreamsky.github.io/main/blog/crazy-tentacles/</rich_text><rich_text>
+
+vpn
+</rich_text><rich_text link="webs https://www.grjsq.me/xianlu.html">https://www.grjsq.me/xianlu.html</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
 :set rnu 相对行号
 
 
@@ -1595,7 +1642,8 @@ jiangweilao 身体虚弱
  cixuer 找不痛快， 脾气不好
  zaxice 尿床
  xidepair 尿布
- hucilangdang 粗枝大叶，</rich_text></node></node><node name="opencv" prog_lang="custom-colors" readonly="False" tags="" unique_id="59"><rich_text>基于OpenCV的匀速模糊图像复原与算法分析
+ hucilangdang 粗枝大叶，
+ daomen 好</rich_text></node></node><node name="opencv" prog_lang="custom-colors" readonly="False" tags="" unique_id="59"><rich_text>基于OpenCV的匀速模糊图像复原与算法分析
 </rich_text><rich_text link="webs http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9">http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9</rich_text><rich_text>
 opencv 的一些例子
 </rich_text><rich_text link="webs http://zwmin.com/?cat=1">http://zwmin.com/?cat=1</rich_text><rich_text>
@@ -1739,7 +1787,11 @@ eyerestdaemon 会占cpu到100% ,fix it
   未安装软件包 libmozjs185-1.0。
  gpac 依赖于 libopenjpeg2；然而：
   未安装软件包 libopenjpeg2。
-</rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文
+
+
+hackergame robot runaway reference </rich_text><rich_text link="webs http://www.redblobgames.com/pathfinding/a-star/introduction.html">http://www.redblobgames.com/pathfinding/a-star/introduction.html</rich_text><rich_text>
+</rich_text><rich_text link="webs http://www.redblobgames.com/pathfinding/a-star/introduction.html">http://www.redblobgames.com/pathfinding/a-star/introduction.html</rich_text><rich_text>
+A* maze </rich_text><rich_text link="webs http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html">http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html</rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文
 
 ocr文字识别调研：
 </rich_text><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> |开源|python |Linux| 不支持英文，
@@ -1785,7 +1837,43 @@ font 0 0 0 0 0  
          </rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="64"><rich_text>1. 在 videoCapture 截图服务中， 使用的是os.mkstemp() 来创建 合并音频的临时文件， 要用tempfile 中的mkstempfile来代替
 2. 修改taskgenerator中dna 合并的部分，先把audio / video dna extract first, then merge them
 3. audio time is earlier than viedo while netstream capture recording videos
-4. </rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+4. </rich_text></node><node name="sql" prog_lang="sql" readonly="False" tags="" unique_id="10"><rich_text>
+create table VideoSource
+(
+    id              int(10) unsigned        not null AUTO_INCREMENT,
+    channel_uuid    char(36)                not null,
+    channel_name    char(50)                DEFAULT NULL,
+    network         char(50)                DEFAULT NULL,
+    dma             char(50)                DEFAULT NULL,
+    status          enum(&quot;idle&quot;, &quot;error&quot;, &quot;printing&quot;) NOT NULL default &quot;idle&quot;,
+    update_at       timestamp               not null DEFAULT '0000-00-00 00:00:00',
+    primary key (id)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+create table vodProgram
+(
+    id              int(10) unsigned        not null AUTO_INCREMENT,
+    channel_id      int(10) unsigned        not null,
+    program_uuid    char(36)                not null,
+    vod_name        varchar(255)            not null,
+    md5             char(36)                DEFAULT null,
+    start_ts        int(13) unsigned,
+    end_ts          int(13) unsigned,
+    program_status  enum(&quot;succeed&quot;, &quot;initialized&quot;, &quot;processing&quot;) not null default &quot;initialized&quot;,
+    primary key (id)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+            id: 1
+    channel_id: 1
+      vod_name: Mystery_Diners_Day1.mp4
+           md5: 04d55e6215b666f5e04ef2aa5082f6e7
+      start_ts: 0
+        end_ts: 1787798
+program_status: initialized
+1 row in set (0.00 sec)
+</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
 2. mysql&gt; show status like '%onn%';
 
