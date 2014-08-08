@@ -539,6 +539,9 @@ ipython reload moudle
 
 python adventure
 </rich_text><rich_text link="webs http://pythonadventures.wordpress.com">http://pythonadventures.wordpress.com</rich_text><rich_text>
+
+python 数据结构 
+</rich_text><rich_text link="webs http://blog.segmentfault.com/hujiaweibujidao/1190000000596978">http://blog.segmentfault.com/hujiaweibujidao/1190000000596978</rich_text><rich_text>
 </rich_text></node><node name="collections" prog_lang="python" readonly="False" tags="" unique_id="44"><rich_text>1. python 生成 随机字符串:
 import random
 import string
