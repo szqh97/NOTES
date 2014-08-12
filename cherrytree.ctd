@@ -478,6 +478,10 @@ ffmpeg -i INPUT -acodec libfaac -ab 128k -pass 2 -vcodec libx264 -vpre slow -b B
 Or for a single pass CRF encode:
 ffmpeg -i INFILE -acodec libfaac -ab 96k -vcodec libx264 -vpre slow -crf 22 -threads 0 OUTPUT.mp4
 
+
+test:
+ffmpeg -y -i 1900.mp4  -vcodec h264  -pass 1 -refs 1 -g 2 -bf 0  t.mp4 | cpu 310% real	2m18.687s|user	7m18.128s|sys	0m4.560s
+
 </rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
     pynotify.init(&quot;eye-guard&quot;)    
     msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
