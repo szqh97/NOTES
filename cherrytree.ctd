@@ -466,6 +466,7 @@ PS：以上在安装好的时候会自动启动。
 </rich_text><rich_text scale="h2">x264 – Recommended General Options</rich_text><rich_text>
 For  all rate control methods you will probably want libx264 to select the  number of threads to use to maximise its performance on your CPU(s):
 -threads 0
+./configure --enable-static --enabled-shared
 
 
 </rich_text><rich_text scale="h2">Two-Pass Example</rich_text><rich_text>
@@ -481,6 +482,11 @@ ffmpeg -i INFILE -acodec libfaac -ab 96k -vcodec libx264 -vpre slow -crf 22 -thr
 
 test:
 ffmpeg -y -i 1900.mp4  -vcodec h264  -pass 1 -refs 1 -g 2 -bf 0  t.mp4 | cpu 310% real	2m18.687s|user	7m18.128s|sys	0m4.560s
+
+个人建议用MP3.0，帧率25，参考帧1, ONEPASS，B帧2，关键帧间隔2，码率CBR并注意大小
+给个ffmpeg例子：
+
+ ffmpeg -i input.mp4 -vcodec h264 -pass 1 -s 720x576 -b 1500k -minrate 1500k -maxrate 1500k -refs 1 -bf 2 -g 2 -acodec mp2 -ar 48k -b:a 128k -vbsf h264_mp4toannexb  out.mp4
 
 </rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
     pynotify.init(&quot;eye-guard&quot;)    
