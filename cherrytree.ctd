@@ -482,6 +482,8 @@ ffmpeg -i INFILE -acodec libfaac -ab 96k -vcodec libx264 -vpre slow -crf 22 -thr
 
 test:
 ffmpeg -y -i 1900.mp4  -vcodec h264  -pass 1 -refs 1 -g 2 -bf 0  t.mp4 | cpu 310% real	2m18.687s|user	7m18.128s|sys	0m4.560s
+time ffmpeg -y -i 0230.mp4 -vcodec h264 -pass 1 -refs 1 -bf 1 -g 3   t.mp4|cpu 310% |real	2m21.721s|user	7m25.224s|sys	0m4.952s
+time ffmpeg -y -i 0230.mp4 -vcodec h264 -pass 1 -refs 1 -bf 0 -g 5   t.mp4|cpu 330% |real	2m21.439s|user	6m20.300s|
 
 个人建议用MP3.0，帧率25，参考帧1, ONEPASS，B帧2，关键帧间隔2，码率CBR并注意大小
 给个ffmpeg例子：
