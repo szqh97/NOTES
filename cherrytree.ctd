@@ -492,6 +492,64 @@ time ffmpeg -y -i 0230.mp4 -vcodec h264 -pass 1 -refs 1 -bf 0 -g 5   t.mp4|cpu 3
  
  ./ffmpeg -threads 4 -s 352x240 -i all.yuv -vcodec libx264  -flags +loop -cmp +chroma -deblockalpha 0 -deblockbeta 0 -crf 24 -bt 256k -refs 1 -coder 0  -me_range 16 -subq 5 -partitions +parti4x4+parti8x8+partp8x8 -g 250 -keyint_min 25 -level 30 -qmin 10 -qmax 51 -trellis 2 -sc_threshold 40 -i_qfactor 0.71  -ab 128k -ar 48000 -ac 2 all.h264
 
+
+
+
+FFmpeg option x264 option 
+-g &lt;frames&gt; –keyint 
+-b &lt;bits per second&gt; –bitrate 
+-bufsize &lt;bits&gt; –vbv-bufsize 
+-maxrate &lt;bits&gt; –vbv-maxrate 
+-pass &lt;1,2,3&gt; –pass 
+-crf &lt;float&gt; –crf 
+-cqp &lt;int&gt; –qp 
+-bf &lt;int&gt; –bframes 
+-coder &lt;0,1&gt; –no-cabac 
+-bframebias &lt;int&gt; –b-bias 
+-keyint_min &lt;int&gt; –min-keyint 
+-sc_threshold &lt;int&gt; –scenecut 
+-deblockalpha &lt;int&gt;-deblockbeta &lt;int&gt; –deblock 
+-qmin &lt;int&gt; –qpmin 
+-qmax &lt;int&gt; –qpmax 
+-qdiff &lt;int&gt; –qpstep 
+-qcomp &lt;float&gt; –qcomp 
+-qblur &lt;float&gt; –qblur 
+-complexityblur &lt;float&gt; –cplxblur 
+-refs &lt;int&gt; –ref 
+-directpred &lt;int&gt; –direct 
+-me_method &lt;epzs,hex,umh,full&gt; –me 
+-me_range &lt;int&gt; –merange 
+-subq &lt;int&gt; –subme 
+-bidir_refine &lt;0,1&gt; –bime 
+-trellis &lt;0,1,2&gt; –trellis 
+-nr &lt;int&gt; –nr 
+-level &lt;int&gt; –level 
+-bt &lt;bits&gt; –ratetol = -bt / -b 
+-rc_init_occupancy &lt;bits&gt; –vbv-init = -rc_init_occupancy / -bufsize 
+-i_qfactor &lt;float&gt; –ipratio = 1 / -i_qfactor 
+-b_qfactor &lt;float&gt; –pbratio 
+-chromaoffset &lt;int&gt; –chroma-qp-offset 
+-rc_eq &lt;string&gt; –rc_eq 
+-threads &lt;int&gt; –threads 
+-cmp &lt;-chroma/+chroma&gt; –no-chroma-me 
+-partitions –partitions 
++parti8×8 i8×8 
++parti4×4 i4×4 
++partp8×8 p8×8 
++partp4×4 p4×4 
++partb8×8 b8×8 
+-flags 
+-loop/+loop –no-deblock/–deblock 
+-psnr/+psnr –no-psnr/nothing 
+-flags2 
++bpyramid –b-pyramid 
++wpred –weightb 
++brdo –b-rdo 我这里的ffmpeg已经不能用这个了 
++mixed_refs –mixed-refs 
++dct8×8 –8×8dct 
+-fastpskip/+fastpskip –no-fast-pskip 
++aud –aud 
+
 </rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
     pynotify.init(&quot;eye-guard&quot;)    
     msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
