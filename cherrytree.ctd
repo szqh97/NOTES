@@ -487,6 +487,8 @@ ffmpeg -y -i 1900.mp4  -vcodec h264  -pass 1 -refs 1 -g 2 -bf 0  t.mp4 | cpu 310
 给个ffmpeg例子：
 
  ffmpeg -i input.mp4 -vcodec h264 -pass 1 -s 720x576 -b 1500k -minrate 1500k -maxrate 1500k -refs 1 -bf 2 -g 2 -acodec mp2 -ar 48k -b:a 128k -vbsf h264_mp4toannexb  out.mp4
+ 
+ ./ffmpeg -threads 4 -s 352x240 -i all.yuv -vcodec libx264  -flags +loop -cmp +chroma -deblockalpha 0 -deblockbeta 0 -crf 24 -bt 256k -refs 1 -coder 0  -me_range 16 -subq 5 -partitions +parti4x4+parti8x8+partp8x8 -g 250 -keyint_min 25 -level 30 -qmin 10 -qmax 51 -trellis 2 -sc_threshold 40 -i_qfactor 0.71  -ab 128k -ar 48000 -ac 2 all.h264
 
 </rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
     pynotify.init(&quot;eye-guard&quot;)    
