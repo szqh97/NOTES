@@ -1,10 +1,10 @@
 <?xml version="1.0" ?><cherrytree><node name="C++" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="1"><rich_text>1.
-        u.lmsg.content =
-            (content_t*) malloc (sizeof (content_t) + size_);
-        if (!u.lmsg.content) {
-            errno = ENOMEM;
-            return -1;
-        }
+        u.lmsg.content =
+            (content_t*) malloc (sizeof (content_t) + size_);
+        if (!u.lmsg.content) {
+            errno = ENOMEM;
+            return -1;
+        }
 if the lmsg.content memory malloc failed, set errno to ENONMEM
 2.</rich_text><rich_text foreground="#ff0000">placement new</rich_text><rich_text>in zeromq in content_t::refcnt
 msg.hpp 103
@@ -18,39 +18,39 @@ msg.hpp 103
 
 第三种办法 最简单的使用swap,清除元素并回收内存
 
-1.     vector &lt;int&gt;().swap(vecInt);  //清除容器并最小化它的容量，
+1.     vector &lt;int&gt;().swap(vecInt);  //清除容器并最小化它的容量，
 
 2. 
 
 
-3.     j= vecInt.capacity();       //j=0  
+3.     j= vecInt.capacity();       //j=0  
 
-4.     i = vecInt.size();          //i=0       
+4.     i = vecInt.size();          //i=0       
 
 
-该语句是由vector &lt;int&gt;(vecInt).swap(vecInt)的变体而来，一下解释引自csdn：
+该语句是由vector &lt;int&gt;(vecInt).swap(vecInt)的变体而来，一下解释引自csdn：
 
-std::vector&lt;T&gt;(v).swap(v);的作用相当于：    
-  {  
-  std::vector&lt;T&gt;   temp(v);//1  
-  temp.swap(v);//2  
-  }  
-  第一句产生一个和v内容一模一样的vector，只不过temp的容量是恰好满足其大小的  
-  第二句把v和temp交换  
-  然后temp就自动解析掉了  
-    
-  这样写的作用是：把v的容量缩小到最佳值
+std::vector&lt;T&gt;(v).swap(v);的作用相当于：    
+  {  
+  std::vector&lt;T&gt;   temp(v);//1  
+  temp.swap(v);//2  
+  }  
+  第一句产生一个和v内容一模一样的vector，只不过temp的容量是恰好满足其大小的  
+  第二句把v和temp交换  
+  然后temp就自动解析掉了  
+    
+  这样写的作用是：把v的容量缩小到最佳值
 
 该例中执行这句时，capacity收缩到500
 
 vector 在遍历时插入数据时要小心，可能会益处
 </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="5"><rich_text>1.
-        u.lmsg.content =
-            (content_t*) malloc (sizeof (content_t) + size_);
-        if (!u.lmsg.content) {
-            errno = ENOMEM;
-            return -1;
-        }
+        u.lmsg.content =
+            (content_t*) malloc (sizeof (content_t) + size_);
+        if (!u.lmsg.content) {
+            errno = ENOMEM;
+            return -1;
+        }
 if the lmsg.content memory malloc failed, set errno to ENONMEM
 2.</rich_text><rich_text foreground="#ff0000">placement new</rich_text><rich_text>in zeromq in content_t::refcnt
 msg.hpp 103
@@ -64,42 +64,42 @@ msg.hpp 103
 
 第三种办法 最简单的使用swap,清除元素并回收内存
 
-1.     vector &lt;int&gt;().swap(vecInt);  //清除容器并最小化它的容量，
+1.     vector &lt;int&gt;().swap(vecInt);  //清除容器并最小化它的容量，
 
 2. 
 
 
-3.     j= vecInt.capacity();       //j=0  
+3.     j= vecInt.capacity();       //j=0  
 
-4.     i = vecInt.size();          //i=0       
+4.     i = vecInt.size();          //i=0       
 
 
-该语句是由vector &lt;int&gt;(vecInt).swap(vecInt)的变体而来，一下解释引自csdn：
+该语句是由vector &lt;int&gt;(vecInt).swap(vecInt)的变体而来，一下解释引自csdn：
 
-std::vector&lt;T&gt;(v).swap(v);的作用相当于：    
-  {  
-  std::vector&lt;T&gt;   temp(v);//1  
-  temp.swap(v);//2  
-  }  
-  第一句产生一个和v内容一模一样的vector，只不过temp的容量是恰好满足其大小的  
-  第二句把v和temp交换  
-  然后temp就自动解析掉了  
-    
-  这样写的作用是：把v的容量缩小到最佳值
+std::vector&lt;T&gt;(v).swap(v);的作用相当于：    
+  {  
+  std::vector&lt;T&gt;   temp(v);//1  
+  temp.swap(v);//2  
+  }  
+  第一句产生一个和v内容一模一样的vector，只不过temp的容量是恰好满足其大小的  
+  第二句把v和temp交换  
+  然后temp就自动解析掉了  
+    
+  这样写的作用是：把v的容量缩小到最佳值
 
 该例中执行这句时，capacity收缩到500
-LD_PRELOAD环境变量加载一些库,覆盖原有的方法,</rich_text></node><node name="FAQ" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="6"><rich_text>how to use </rich_text><rich_text foreground="#ff0000">delete this</rich_text><rich_text>
-As long as you're careful, it's OK for an object to commit suicide (delete this).
+LD_PRELOAD环境变量加载一些库,覆盖原有的方法,</rich_text></node><node name="FAQ" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="6"><rich_text>how to use </rich_text><rich_text foreground="#ff0000">delete this</rich_text><rich_text>
+As long as you're careful, it's OK for an object to commit suicide (delete this).
 Here's how I define &quot;careful&quot;:
-1. You must be absolutely 100% positively sure that this object was allocated via new (not by new[], nor by </rich_text><rich_text link="webs http://www.parashift.com/c++-faq-lite/placement-new.html">placementnew</rich_text><rich_text>, nor a local object on the stack, nor a global, nor a member of another object; but by plain ordinary new).
+1. You must be absolutely 100% positively sure that this object was allocated via new (not by new[], nor by </rich_text><rich_text link="webs http://www.parashift.com/c++-faq-lite/placement-new.html">placementnew</rich_text><rich_text>, nor a local object on the stack, nor a global, nor a member of another object; but by plain ordinary new).
 
-2. You must be absolutely 100% positively sure that your member function will be the last member function invoked on this object.
+2. You must be absolutely 100% positively sure that your member function will be the last member function invoked on this object.
 
-3. You must be absolutely 100% positively sure that the rest of your member function (after the delete this line) doesn't touch any piece ofthis object (including calling any other member functions or touching any data members).
+3. You must be absolutely 100% positively sure that the rest of your member function (after the delete this line) doesn't touch any piece ofthis object (including calling any other member functions or touching any data members).
 
-4. You must be absolutely 100% positively sure that no one even touches the this pointer itself after the delete this line.  In other words, you must not examine it, compare it with another pointer, compare it with NULL, print it, cast it, do anything with it.
+4. You must be absolutely 100% positively sure that no one even touches the this pointer itself after the delete this line.  In other words, you must not examine it, compare it with another pointer, compare it with NULL, print it, cast it, do anything with it.
 
-Naturally the usual caveats apply in cases where your this pointer is a pointer to a base class when you don't have a </rich_text><rich_text link="webs http://www.parashift.com/c++-faq-lite/virtual-dtors.html">virtual destructor</rich_text><rich_text>.             
+Naturally the usual caveats apply in cases where your this pointer is a pointer to a base class when you don't have a </rich_text><rich_text link="webs http://www.parashift.com/c++-faq-lite/virtual-dtors.html">virtual destructor</rich_text><rich_text>.             
 
 
 正确释放vector的内存
@@ -108,22 +108,22 @@ Naturally the usual caveats apply in cases where your this pointer is a pointe
 vector&lt;type&gt;(v).swap(v);
 
 当然，上面这种方法虽然释放了内存，但是同时也增加了拷贝数据的时间消耗。 不过一般需要重新调整容量的情况都是 vector本身元素较少的情况，所以 时间消耗可以忽略不计。
-因此建议以后大家都将调用 clear() 改为 swap() 吧。
-之所以大多数程序的“入口”是 main，是因为连接器缺省会连接一个叫 crt0.o 或 者 crt0.lib 之类的库，这个库才是一个程序真正的入口，这个真正的入口作了一段初始化之后将控制权交给 main。大多数情况下用户程序不会自 己初始化这些东西，所以缺省连接这个库。
+因此建议以后大家都将调用 clear() 改为 swap() 吧。
+之所以大多数程序的“入口”是 main，是因为连接器缺省会连接一个叫 crt0.o 或 者 crt0.lib 之类的库，这个库才是一个程序真正的入口，这个真正的入口作了一段初始化之后将控制权交给 main。大多数情况下用户程序不会自 己初始化这些东西，所以缺省连接这个库。
 
-如果你自己完成这部分初始化，完全可以抛弃 main。
+如果你自己完成这部分初始化，完全可以抛弃 main。
 
-main 不是程序的入口，只不过是一个普通的符号而已。
+main 不是程序的入口，只不过是一个普通的符号而已。
 
 
-gcc -g -nostartfiles -e myentry myentry.c 
+gcc -g -nostartfiles -e myentry myentry.c 
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 int myentry(int argc, char *argv[])
 {
-    printf(&quot;Start from myentry\n&quot;);
-    //return 0;
-    exit(0);
+    printf(&quot;Start from myentry\n&quot;);
+    //return 0;
+    exit(0);
 }
 
 LD_PRELOAD环境变量加载一些库,覆盖原有的方法,
@@ -132,8 +132,8 @@ LD_PRELOAD环境变量加载一些库,覆盖原有的方法,
 Documentation
 </rich_text><rich_text link="webs http://loki-lib.sourceforge.net/html/modules.html">http://loki-lib.sourceforge.net/html/modules.html</rich_text><rich_text>
 2. zmq里有一个mutex_t的类,封装了pthread_mutex_xxx的操作
-3. Linux poll&amp;Epoll </rich_text><rich_text link="webs http://bbs.chinaunix.net/it/linuxpoll.shtml">http://bbs.chinaunix.net/it/linuxpoll.shtml</rich_text><rich_text>
-ioctl, select, poll, epolll这些的用法 
+3. Linux poll&amp;Epoll </rich_text><rich_text link="webs http://bbs.chinaunix.net/it/linuxpoll.shtml">http://bbs.chinaunix.net/it/linuxpoll.shtml</rich_text><rich_text>
+ioctl, select, poll, epolll这些的用法 
 4. YUV转avi
 </rich_text><rich_text link="webs http://lihaoyan.blog.sohu.com/146539049.html">http://lihaoyan.blog.sohu.com/146539049.html</rich_text><rich_text>
 5.shell
@@ -339,18 +339,27 @@ string replace(const string&amp; str, const string&amp; src, const string&amp; d
 }
 
 }</rich_text></node></node><node name="go" prog_lang="custom-colors" readonly="False" tags="" unique_id="65"><rich_text>
-</rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="66"><rich_text></rich_text></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
->>>>>>> c2d30f35c73d25cd8adff08dfac2af7167890644
+</rich_text><node name="nsq-notes" prog_lang="custom-colors" readonly="False" tags="" unique_id="66"><rich_text scale="h3">1</rich_text><rich_text> go daemon 框架
+</rich_text><rich_text justification="left"></rich_text><codebox char_offset="15" frame_height="200" frame_width="1000" highlight_brackets="True" show_line_numbers="True" syntax_highlighting="cpp" width_in_pixels="True">exitChan := make(chan int)
+signalChan := make(chan os.Signal, 1)
+go func() {
+   &lt;-signalChan
+   exitChan &lt;- 1
+}()
+signal.Notify(signalChan, syscall.SIGINT, syscall.SIGTERM)
+....
+&lt;-exitChan
+nsqd.Exit()</codebox></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
 </rich_text><rich_text scale="h1">使用npm install XXX 时出现“failed to fetch from regi...</rich_text><rich_text>
 设置http_proxy 环境变量，比如
  export http_proxy=&quot;http://10.123.74.137:808&quot;
- 添加npm配置项： 
- npm config set registry </rich_text><rich_text foreground="#333333">http://registry.npmjs.org</rich_text><rich_text>
+ 添加npm配置项： 
+ npm config set registry </rich_text><rich_text foreground="#333333">http://registry.npmjs.org</rich_text><rich_text>
  </rich_text><rich_text foreground="#333333">问题解决</rich_text><rich_text>
 </rich_text></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
 </rich_text></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="" unique_id="8"><rich_text>1. ffmpeg snapshot，一秒二次
 
-        ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
+        ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
 ffmpeg -pix_fmt uyvy422 -s 720x576 -r 25 -i all.yuv -b </rich_text><rich_text background="#000000000000">20480k</rich_text><rich_text> -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
 
 ffmpeg -pix_fmt uyvy422 -s 720x480 -r 25 -i all.yuv -b 20480k -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
@@ -383,7 +392,7 @@ int avformat_open_input(AVFormatContext **ps, const char *filename, AVInputForma
 
 1. ffmpeg snapshot，一秒二次
 
-        ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
+        ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
 ffmpeg -pix_fmt uyvy422 -s 720x576 -r 25 -i all.yuv -b 20480k -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
 
 ffmpeg -pix_fmt uyvy422 -s 720x480 -r 25 -i all.yuv -b 20480k -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
@@ -394,51 +403,51 @@ ffmpeg -pix_fmt uyvy422 -s 720x480 -r 29.97 -i 1388659600059.yuv -b 20480k -vcod
 
 
 前20 s为空白
- 1. 提取audio 
- ffmpeg -y -i test.mpg -vn a.mpg
- 1. 提取video
- ffmpeg -y -i test.mpg -an v.mpg
+ 1. 提取audio 
+ ffmpeg -y -i test.mpg -vn a.mpg
+ 1. 提取video
+ ffmpeg -y -i test.mpg -an v.mpg
 3.
 3.1 生成 空白音频
 ffmpeg -y -i /dev/zero -ar 44100 -ac 2 empty.mpg
-注：这个过程是很快的， 只要大于20s了就可以停了。 44100, 2分别是a.mpg的bit rate, channels, 可以通过mediainfo a.mpg查看
-3.2 取20s的空白音频 
-ffmpeg -y -i empty.mpg -ss 0 -t 20  -codec copy e.mpg
+注：这个过程是很快的， 只要大于20s了就可以停了。 44100, 2分别是a.mpg的bit rate, channels, 可以通过mediainfo a.mpg查看
+3.2 取20s的空白音频 
+ffmpeg -y -i empty.mpg -ss 0 -t 20  -codec copy e.mpg
 
 
-4. concat e.mpg and a.mpg 
- ffmpeg -y -f concat  -i audio.merg -codec copy a2.mpg
+4. concat e.mpg and a.mpg 
+ ffmpeg -y -f concat  -i audio.merg -codec copy a2.mpg
 
 audio.merg is a file like :​
 li_yun@ubuntu:~/24$ 
-cat audio.merg 
+cat audio.merg 
 file e.mpg
 file a2.mpg
 5. merge audio and video file :
-6. ffmpeg -i a2.mpg -i v.mpg -codec copy l.mpg 
+6. ffmpeg -i a2.mpg -i v.mpg -codec copy l.mpg 
 l.mpg is file U want, first 20 seconds is silent!
 
 
 
 
 凤凰卫视资讯台
- mms://112.230.192.196/zb12    凤凰资讯台高速高清
+ mms://112.230.192.196/zb12    凤凰资讯台高速高清
 辽宁卫视
 mms://112.230.192.196/zb17
 厦门卫视
-mms://mediasrv2.iptv.xmg.com.cn/tvhaixia 
+mms://mediasrv2.iptv.xmg.com.cn/tvhaixia 
 厦门影视
 mms://mediasrv2.iptv.xmg.com.cn/tvyingshi
 北京卫视
 mms://112.230.192.196/zb11
 CCTV5高清高速
 mms://112.230.192.196/zb10
- 好消息一台 
-mms://live.jdjys.net/tv1 
-好消息二台 强烈推荐
-mms://live.jdjys.net/tv2 
-天空新闻台 强烈推荐
- mms://live1.wm.skynews.servecast.net/skynews_wmlz_live300k 
+ 好消息一台 
+mms://live.jdjys.net/tv1 
+好消息二台 强烈推荐
+mms://live.jdjys.net/tv2 
+天空新闻台 强烈推荐
+ mms://live1.wm.skynews.servecast.net/skynews_wmlz_live300k 
 
 
 使用DarwinStreamingServer搭建网络流：
@@ -467,6 +476,7 @@ PS：以上在安装好的时候会自动启动。
 </rich_text><rich_text scale="h2">x264 – Recommended General Options</rich_text><rich_text>
 For  all rate control methods you will probably want libx264 to select the  number of threads to use to maximise its performance on your CPU(s):
 -threads 0
+./configure --enable-static --enabled-shared
 
 
 </rich_text><rich_text scale="h2">Two-Pass Example</rich_text><rich_text>
@@ -479,10 +489,117 @@ ffmpeg -i INPUT -acodec libfaac -ab 128k -pass 2 -vcodec libx264 -vpre slow -b B
 Or for a single pass CRF encode:
 ffmpeg -i INFILE -acodec libfaac -ab 96k -vcodec libx264 -vpre slow -crf 22 -threads 0 OUTPUT.mp4
 
+
+test:
+ffmpeg -y -i 1900.mp4  -vcodec h264  -pass 1 -refs 1 -g 2 -bf 0  t.mp4 | cpu 310% real	2m18.687s|user	7m18.128s|sys	0m4.560s
+time ffmpeg -y -i 0230.mp4 -vcodec h264 -pass 1 -refs 1 -bf 1 -g 3   t.mp4|cpu 310% |real	2m21.721s|user	7m25.224s|sys	0m4.952s
+time ffmpeg -y -i 0230.mp4 -vcodec h264 -pass 1 -refs 1 -bf 0 -g 5   t.mp4|cpu 330% |real	2m21.439s|user	6m20.300s|
+time ffmpeg -y -i 0230.mp4 -vcodec h264 -pass 1 -refs 1 -bf 0 -g 75 -keyint_min 25 -coder 0 -me_method hex t.mp4|cpu 250~310%|real	2m9.074s|user	6m22.896s|sys	0m5.584s|
+
+
+-vcodec libx264 -refs 1 -g 75 -bf 0 |CPU 100%~150%
+-vcodec libx264 -refs 1 -g 5 -bf 0 |CPU 90%~120%
+
+
+个人建议用MP3.0，帧率25，参考帧1, ONEPASS，B帧2，关键帧间隔2，码率CBR并注意大小
+给个ffmpeg例子：
+
+ ffmpeg -i input.mp4 -vcodec h264 -pass 1 -s 720x576 -b 1500k -minrate 1500k -maxrate 1500k -refs 1 -bf 2 -g 2 -acodec mp2 -ar 48k -b:a 128k -vbsf h264_mp4toannexb  out.mp4
+ 
+ ./ffmpeg -threads 4 -s 352x240 -i all.yuv -vcodec libx264  -flags +loop -cmp +chroma -deblockalpha 0 -deblockbeta 0 -crf 24 -bt 256k -refs 1 -coder 0  -me_range 16 -subq 5 -partitions +parti4x4+parti8x8+partp8x8 -g 250 -keyint_min 25 -level 30 -qmin 10 -qmax 51 -trellis 2 -sc_threshold 40 -i_qfactor 0.71  -ab 128k -ar 48000 -ac 2 all.h264
+
+
+参考文章：Video Codecs Analysis and Tuning ，文档下载地址：http://www.yuvsoft.com/pdf/x264_parameters_comparison.pdf
+ 文章中详细比较了48种不同x264参数组合，比较得到如下6类最优的x264编译参数，我将文章中的x264参数转化为ffmpge命令参数如下：
+1）fastest preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264  -me_method dia -directpred 1 -me_range 16 -subq 1 -b_qfactor 1.5 -bf 1  -acodec libfaac sample_fastest.mp4
+2）fast preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -subq 1 -acodec libfaac sample_fast.mp4
+3）tradeoff preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -subq 3 -acodec libfaac sample_tradeoff.mp4
+4）good preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -bf 3  -bframebias 5 -flags2 +dct8x8+wpred+bpyramid -trellis 1 -acodec libfaac  sample_good.mp4
+5）best preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -bf 4  -flags2 +dct8x8+wpred+bpyramid -trellis 1 -refs 10 -directpred 3  -me_method umh -subq 7 -acodec libfaac sample_best.mp4
+6）extra quality preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -bf 4  -flags2 +dct8x8+wpred+bpyramid -refs 8 -directpred 3 -me_method umh  -subq 7 -pass 1 -acodec libfaac &gt; dev&amp;null
+ffmpeg -i  NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -bf 4 -flags2  +dct8x8+wpred+bpyramid -refs 8 -directpred 3 -me_method umh -subq 7  -pass 2 -acodec libfaac sample_extra.mp4
+下面表格显示在默认参数情况下编码速度以及平均码率相对百分比：
+ Preset Name Speed, % Average bitrate, %
+ Fastest            47                 114
+ Fast                 56                 109
+ Tradeoff          70                  102
+ Good              121                   89
+ Best                369                   77
+ Extra Quality   710                   72
+我测试分辨率1280 x  720，20帧的赛车视频，视频原始大小100442K，视频使用Sorenson Video 3编码，音频使用 MPEG-1 Layer  3编码，使用上诉5种参数分别编码得到53897K、59303K、60251K、63670K、55405K、55405K。我个人比较倾向于best  preset参数。
+在使用使用如下best参数编码的h264视频，播放时最高CPU利用率不超过4%，但效果明显比FLV效果高
+ffmpeg -i  NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -bf 4 -flags2  +bpyramid+wpred+8x8dct -trellis 1 -refs 10 -directpred 3 -me_method umh  -subq 7 -s 352*288 -r 7.5 -aspect 16:9 -acodec libfaac -ab 32k  sample_best_352_288_7.mp4
+ 
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f flv -vcodec flv -acodec libmp3lame sample_352_288.flv
+ 
+ 视频大小分别为4212K（x264）、4816K(Flash/Sorenson)
+
+
+FFmpeg option x264 option 
+-g &lt;frames&gt; –keyint 
+-b &lt;bits per second&gt; –bitrate 
+-bufsize &lt;bits&gt; –vbv-bufsize 
+-maxrate &lt;bits&gt; –vbv-maxrate 
+-pass &lt;1,2,3&gt; –pass 
+-crf &lt;float&gt; –crf 
+-cqp &lt;int&gt; –qp 
+-bf &lt;int&gt; –bframes 
+-coder &lt;0,1&gt; –no-cabac 
+-bframebias &lt;int&gt; –b-bias 
+-keyint_min &lt;int&gt; –min-keyint 
+-sc_threshold &lt;int&gt; –scenecut 
+-deblockalpha &lt;int&gt;-deblockbeta &lt;int&gt; –deblock 
+-qmin &lt;int&gt; –qpmin 
+-qmax &lt;int&gt; –qpmax 
+-qdiff &lt;int&gt; –qpstep 
+-qcomp &lt;float&gt; –qcomp 
+-qblur &lt;float&gt; –qblur 
+-complexityblur &lt;float&gt; –cplxblur 
+-refs &lt;int&gt; –ref 
+-directpred &lt;int&gt; –direct 
+-me_method &lt;epzs,hex,umh,full&gt; –me 
+-me_range &lt;int&gt; –merange 
+-subq &lt;int&gt; –subme 
+-bidir_refine &lt;0,1&gt; –bime 
+-trellis &lt;0,1,2&gt; –trellis 
+-nr &lt;int&gt; –nr 
+-level &lt;int&gt; –level 
+-bt &lt;bits&gt; –ratetol = -bt / -b 
+-rc_init_occupancy &lt;bits&gt; –vbv-init = -rc_init_occupancy / -bufsize 
+-i_qfactor &lt;float&gt; –ipratio = 1 / -i_qfactor 
+-b_qfactor &lt;float&gt; –pbratio 
+-chromaoffset &lt;int&gt; –chroma-qp-offset 
+-rc_eq &lt;string&gt; –rc_eq 
+-threads &lt;int&gt; –threads 
+-cmp &lt;-chroma/+chroma&gt; –no-chroma-me 
+-partitions –partitions 
++parti8×8 i8×8 
++parti4×4 i4×4 
++partp8×8 p8×8 
++partp4×4 p4×4 
++partb8×8 b8×8 
+-flags 
+-loop/+loop –no-deblock/–deblock 
+-psnr/+psnr –no-psnr/nothing 
+-flags2 
++bpyramid –b-pyramid 
++wpred –weightb 
++brdo –b-rdo 我这里的ffmpeg已经不能用这个了 
++mixed_refs –mixed-refs 
++dct8×8 –8×8dct 
+-fastpskip/+fastpskip –no-fast-pskip 
++aud –aud 
+
 </rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
-    pynotify.init(&quot;eye-guard&quot;)    
-    msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
-    msg.show() </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
+    pynotify.init(&quot;eye-guard&quot;)    
+    msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
+    msg.show() </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
 </rich_text><rich_text link="webs http://www.zackgrossbart.com/hackito/search-engine-python/">http://www.zackgrossbart.com/hackito/search-engine-python/</rich_text><rich_text>
 tornado
 </rich_text><rich_text link="webs http://blog.csdn.net/littlethunder/article/details/8930157">http://blog.csdn.net/littlethunder/article/details/8930157</rich_text><rich_text>
@@ -510,11 +627,11 @@ python 文章
 </rich_text><rich_text link="webs http://django-china.cn/topic/173/">http://django-china.cn/topic/173/</rich_text><rich_text>
 
 python 多线程
-</rich_text><rich_text link="webs http://blog.jobbole.com/52060/">http://blog.jobbole.com/52060/</rich_text><rich_text> 
+</rich_text><rich_text link="webs http://blog.jobbole.com/52060/">http://blog.jobbole.com/52060/</rich_text><rich_text> 
 
 
-python xml dom 
-</rich_text><rich_text link="webs http://www.w3schools.com/dom/dom_nodes_set.asp">http://www.w3schools.com/dom/dom_nodes_set.asp</rich_text><rich_text> 
+python xml dom 
+</rich_text><rich_text link="webs http://www.w3schools.com/dom/dom_nodes_set.asp">http://www.w3schools.com/dom/dom_nodes_set.asp</rich_text><rich_text> 
 
 python 中的高级数据结构
 </rich_text><rich_text link="webs http://blog.jobbole.com/65218/">http://blog.jobbole.com/65218/</rich_text><rich_text>
@@ -540,6 +657,9 @@ ipython reload moudle
 
 python adventure
 </rich_text><rich_text link="webs http://pythonadventures.wordpress.com">http://pythonadventures.wordpress.com</rich_text><rich_text>
+
+python 数据结构 
+</rich_text><rich_text link="webs http://blog.segmentfault.com/hujiaweibujidao/1190000000596978">http://blog.segmentfault.com/hujiaweibujidao/1190000000596978</rich_text><rich_text>
 </rich_text></node><node name="collections" prog_lang="python" readonly="False" tags="" unique_id="44"><rich_text>1. python 生成 随机字符串:
 import random
 import string
@@ -560,8 +680,8 @@ def disk_usage(path):
     used=(st.f_blocks-st.f_bfree)*st.f_frsize        
 return _ntuple_diskusage(total,used,free)
 
-3. dict and list 
-Python  中的字典使用了hast，因此，在查找中需要遍历整个list的情况，最好把list转为dict
+3. dict and list 
+Python  中的字典使用了hast，因此，在查找中需要遍历整个list的情况，最好把list转为dict
 
 from time import time
 t=time()
@@ -596,10 +716,10 @@ filter=[]
 7.充分利用 Lazy if-evaluation 的特性
 8.字符串的优化
 a。字符串的连接尽量使用join而不是‘+’，
-     同时尽量使用  
-        slit = [func(e) for e in elist]
+     同时尽量使用  
+        slit = [func(e) for e in elist]
 
-        x = &quot;&quot;.join(slit)
+        x = &quot;&quot;.join(slit)
 当对字符串可以使用正则表达式或者内置函数来处理的时候，选择内置函数。如 str.isalpha()，str.isdigit()，str.startswith((‘x’, ‘yz’))，str.endswith((‘x’, ‘yz’))
 
 对字符进行格式化比直接串联读取要快，因此要使用
@@ -608,7 +728,7 @@ out=&quot;%s%s%s%s&quot;%(head, prologue, query, tail)
 
 
 9,使用列表解析和生成器表达式
-a=[i for i in list]   g = (i for i in list)
+a=[i for i in list]   g = (i for i in list)
 10 if done is not None 比语句 if done != None 更快
 
 
@@ -645,10 +765,10 @@ print location
 filter(lambda x: not [x%i for i in range(2,x) if x%i==0], range(2,101))</rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
 find -mmin -60 -exec ls -l {} \;
 
-redirect io to null 
+redirect io to null 
 command &gt; /dev/null 1&gt;2&amp;
 
-1.   set -u，当你使用未初始化的变量时，让bash自动退出。你也可以使用可读性更强一点的set -o nounset
+1.   set -u，当你使用未初始化的变量时，让bash自动退出。你也可以使用可读性更强一点的set -o nounset
 
 2. 
 </rich_text><rich_text justification="left"></rich_text><rich_text>
@@ -663,32 +783,32 @@ command &gt; /dev/null 1&gt;2&amp;
 main(){
 selfPID=&quot;$$&quot;
 scriptFile=&quot;$0&quot;
- 
+ 
 typeset existingPid
 existingPid=`getExistingPIDs $selfPID &quot;$scriptFile&quot;`
- 
+ 
 if [ ! -z &quot;$existingPid&quot; ]; then
-  echo &quot;The script already running, exiting...&quot;
-  exit -1
+  echo &quot;The script already running, exiting...&quot;
+  exit -1
 fi
- 
+ 
 doItsTask
- 
+ 
 }
- 
+ 
 #获取除本身进程以外其它运行当前脚本的进程的 PID
 getExistingPIDs(){
 selfPID=&quot;$1&quot;
 scriptFile=&quot;$2&quot;
- 
+ 
 ps -ef | grep &quot;/usr/bin/ksh ${scriptFile}&quot; | grep -v &quot;grep&quot; | awk &quot;{ if(\$2!=$selfPID) print \$2 }&quot;
 }
- 
+ 
 doItsTask(){
 echo &quot;Task is now being executed...&quot;
-sleep 20  #睡眠 20s，以模拟脚本在执行需要长时间完成的任务
+sleep 20  #睡眠 20s，以模拟脚本在执行需要长时间完成的任务
 }
- 
+ 
 main $*
 
 
@@ -730,38 +850,38 @@ Linux下用jq来格式化json，相当NB
 linux下默认是不产生core文件的，要用ulimit -c unlimited放开
 1、开启系统的Core Dump功能
 
-   ulimit -c core_file_size_in_kb
+   ulimit -c core_file_size_in_kb
 
-   如果要关闭该功能core_file_size_in_kb为0就行了。
+   如果要关闭该功能core_file_size_in_kb为0就行了。
 
 2、设置Core Dump的核心转储文件目录和命名规则
 
-   文件的命名规则放在
+   文件的命名规则放在
 
-   </rich_text><rich_text link="webs http://color/#3465A4">/proc/sys/kernel/core_name_format文件中</rich_text><rich_text>
+   </rich_text><rich_text link="webs http://color/#3465A4">/proc/sys/kernel/core_name_format文件中</rich_text><rich_text>
 
-   使用sysctl -w &quot;kernel.core_name_format=/coredump/%n.core&quot;
+   使用sysctl -w &quot;kernel.core_name_format=/coredump/%n.core&quot;
 
-   上例的core文件放在/coredump目录下，文件名是进程名+.core
+   上例的core文件放在/coredump目录下，文件名是进程名+.core
 
-   以下是一些命名的格式说明
+   以下是一些命名的格式说明
 
-   %P   The Process ID (current-&gt;pid)
-   %U   The UID of the process (current-&gt;uid)
-   %N   The command name of the process (current-&gt;comm)
-   %H   The nodename of the system (system_utsname.nodename)
-   %%   A &quot;%&quot;
+   %P   The Process ID (current-&gt;pid)
+   %U   The UID of the process (current-&gt;uid)
+   %N   The command name of the process (current-&gt;comm)
+   %H   The nodename of the system (system_utsname.nodename)
+   %%   A &quot;%&quot;
 
 
 
 |/usr/share/apport/apport %p %s %c
 
 </rich_text><rich_text weight="heavy">设置默认编辑器</rich_text><rich_text>
-  update-alternatives --config editor
+  update-alternatives --config editor
 
 
 dd if=1375752413.742425.data bs=32 skip=1 of=1.flac
-</rich_text><rich_text link="webs http://blog.csdn.net/androidyue/article/details/9295505">Ubuntu 12.04 如何修改背景色         http://blog.csdn.net/androidyue/article/details/9295505</rich_text><rich_text>sshfs
+</rich_text><rich_text link="webs http://blog.csdn.net/androidyue/article/details/9295505">Ubuntu 12.04 如何修改背景色         http://blog.csdn.net/androidyue/article/details/9295505</rich_text><rich_text>sshfs
 sshfs root@livedev:/opt tmp
 
 
@@ -771,7 +891,7 @@ find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
 find -mmin -60 -exec ls -l {} \;
 
 重定向
-redirect io to null 
+redirect io to null 
 command &gt; /dev/null 2&gt;&amp;1
 
 
@@ -791,14 +911,14 @@ dpkg-deb -x xxxx.deb di
 dpkg-deb --fsys-tarfile xx.dbe|tar xv???
 
 
-curl 
-curl --data-binary '@post_data.txt' </rich_text><rich_text link="webs http://192.168.100.228:8080/sendTasks">http://192.168.100.228:8080/sendTasks</rich_text><rich_text>
+curl 
+curl --data-binary '@post_data.txt' </rich_text><rich_text link="webs http://192.168.100.228:8080/sendTasks">http://192.168.100.228:8080/sendTasks</rich_text><rich_text>
 
 Linux 修改键盘配置
-xev    xmdom -pke
+xev    xmdom -pke
 
 
- xmodmap -e &quot;keycode 180 = Escape NoSymbol Escape&quot;
+ xmodmap -e &quot;keycode 180 = Escape NoSymbol Escape&quot;
 
 
 curl
@@ -807,37 +927,37 @@ curl -d '@task' &quot;http://192.168.1.50:8080/jobTracker/task/submit&quot; -H&q
 Linux 修改 crontab 编辑器
 update-alternatives --config editor
 
-1. 查看一个系统可以打开的文件的个数        cat /proc/sys/fs/file-max
+1. 查看一个系统可以打开的文件的个数        cat /proc/sys/fs/file-max
 
 
 
 
 
-sshfs is an easy way to provide file access to a remote system with ssh. On Ubuntu, all you need to install it (on the remote client, nothing to do on the server if it already runs ssh) is run:
+sshfs is an easy way to provide file access to a remote system with ssh. On Ubuntu, all you need to install it (on the remote client, nothing to do on the server if it already runs ssh) is run:
 sudo apt-get install sshfs
-To make things easier, you can make an /etc/fstab entry with the settings to mount a remote directory:
+To make things easier, you can make an /etc/fstab entry with the settings to mount a remote directory:
 sshfs#chip@example.unicom.com:/home/chip /home/chip/Remote-Home fuse umask=0,defaults,noauto,user 0 0
 Now, to mount the directory I just type (from my home directory):
-$ </rich_text><rich_text weight="heavy">mount Remote-Home</rich_text><rich_text>
+$ </rich_text><rich_text weight="heavy">mount Remote-Home</rich_text><rich_text>
 The problem is that if I try to unmount the directory it fails:
-$ </rich_text><rich_text weight="heavy">umount Remote-Home</rich_text><rich_text>
+$ </rich_text><rich_text weight="heavy">umount Remote-Home</rich_text><rich_text>
 umount: /home/chip/Remote-Home mount disagrees with the fstab
 The command you have to use is:
-$ </rich_text><rich_text weight="heavy">fusermount -u Remote-Home
-</rich_text><rich_text>But you can make umount work with two simple steps.
+$ </rich_text><rich_text weight="heavy">fusermount -u Remote-Home
+</rich_text><rich_text>But you can make umount work with two simple steps.
 First (this is the trick), run:
-$ </rich_text><rich_text weight="heavy">sudo ln -s mount.fuse mount.fuse.sshfs</rich_text><rich_text>
-Then, make two changes to the fstab file. First, change the filesystem type (column three) from fuse to fuse.sshfs. Then, remove &quot;sshfs#&quot; from the first field. Now, it will look something like:
-chip@example.unicom.com:/home/chip /home/chip/Remote-Home fuse.sshfs umask=0,defaults,noauto,user 0 0
+$ </rich_text><rich_text weight="heavy">sudo ln -s mount.fuse mount.fuse.sshfs</rich_text><rich_text>
+Then, make two changes to the fstab file. First, change the filesystem type (column three) from fuse to fuse.sshfs. Then, remove &quot;sshfs#&quot; from the first field. Now, it will look something like:
+chip@example.unicom.com:/home/chip /home/chip/Remote-Home fuse.sshfs umask=0,defaults,noauto,user 0 0
 Now, everything will work as desired.
-$ </rich_text><rich_text weight="heavy">mount Remote-Home</rich_text><rich_text>
- .
- .
- .
-$ </rich_text><rich_text weight="heavy">umount -v Remote-Home</rich_text><rich_text>
+$ </rich_text><rich_text weight="heavy">mount Remote-Home</rich_text><rich_text>
+ .
+ .
+ .
+$ </rich_text><rich_text weight="heavy">umount -v Remote-Home</rich_text><rich_text>
 chip@example.unicom.com:/home/chip umounted
- 
- 
+ 
+ 
 sshfs root@livedev:/opt tmp
 
 查看 Linux版本 cat /etc/issue
@@ -849,20 +969,20 @@ sshfs root@livedev:/opt tmp
 
 在清空缓存前我们需要在linux系统中执行一下sync命令，将缓存中的未被写入磁盘的内容写到磁盘上
 释放方法有三种（系统默认值是0，释放之后你可以再改回0值）：
-To free pagecache:  echo 1 &gt; /proc/sys/vm/drop_caches
-To free dentries and inodes:  echo 2 &gt; /proc/sys/vm/drop_caches
-To free pagecache, dentries and inodes:  echo 3 &gt; /proc/sys/vm/drop_caches
- 
+To free pagecache:  echo 1 &gt; /proc/sys/vm/drop_caches
+To free dentries and inodes:  echo 2 &gt; /proc/sys/vm/drop_caches
+To free pagecache, dentries and inodes:  echo 3 &gt; /proc/sys/vm/drop_caches
+ 
 
 
 </rich_text><rich_text justification="left"></rich_text><rich_text>
 
 Debian的</rich_text><rich_text weight="heavy">update-rc.d</rich_text><rich_text>与RH的chkconfig工具相类似。然而chkconfig是一个二进制程序，而update-rc.d是一个Perl脚本。这些工具有不同的命
 令行选项，但是却执行类似的功能。下表列出了update-rc.d的一些用法。如果要查看完整的信息，我们可以查阅相关的和册页。
-命令                           功能
-update-rc.d -f &lt;service&gt;remove        从所有的运行级别配置目录中是删除指定的服务
-update-rc.d &lt;service&gt; start&lt;order&gt;&lt;runlevels&gt;   配置服务在运行级别列表中按指定的顺序启动
-update-rc.d &lt;service&gt; stop&lt;order&gt;&lt;runlevels&gt;   配置服务在运行级别列表中指定的顺序停止
+命令                           功能
+update-rc.d -f &lt;service&gt;remove        从所有的运行级别配置目录中是删除指定的服务
+update-rc.d &lt;service&gt; start&lt;order&gt;&lt;runlevels&gt;   配置服务在运行级别列表中按指定的顺序启动
+update-rc.d &lt;service&gt; stop&lt;order&gt;&lt;runlevels&gt;   配置服务在运行级别列表中指定的顺序停止
 update-rc.d与RH的chkconfig之间最大的不同就在于update-rc.d是要设置所以指向/etc/init.d目录下服务脚本的运行级别链接
 
 
@@ -1258,16 +1378,11 @@ sed  -e ':a;$q;N;11,$D;ba' t #只显示最后的10
 
 sed -e 's/\s*//g' #去掉空格
 # sed:合并行，交换行  
-http://yjever.blog.163.com/blog/static/28335550201011250559729/</rich_text></node><node name="ssh" prog_lang="custom-colors" readonly="False" tags="" unique_id="67"><rich_text>
-</rich_text><rich_text link="webs http://josephjiang.com/entry.php?id=312">http://josephjiang.com/entry.php?id=312</rich_text><rich_text>
-build a linux ssh tunnel:
-autossh -M 5678 -fNR  1234:localhost:22 root@DNA624 -p22
-
-</rich_text></node></node><node name="gdb" prog_lang="custom-colors" readonly="False" tags="" unique_id="62"><rich_text>原文：</rich_text><rich_text link="webs http://www.cnblogs.com/soniclq/articles/1932741.html">http://www.cnblogs.com/soniclq/articles/1932741.html</rich_text><rich_text>
- 
-~/.gdbinit  :
-按 Ctrl+C 复制代码按 Ctrl+C 复制代码 
-</rich_text><rich_text link="webs http://www.yolinux.com/TUTORIALS/src/dbinit_stl_views-1.03.txt">在http://www.yolinux.com/TUTORIALS/src/dbinit_stl_views-1.03.txt</rich_text><rich_text>下载这个文件保存为~/.gdbinit  就可以使用它提供的方法方便调试容器
+http://yjever.blog.163.com/blog/static/28335550201011250559729/</rich_text></node></node><node name="gdb" prog_lang="custom-colors" readonly="False" tags="" unique_id="62"><rich_text>原文：</rich_text><rich_text link="webs http://www.cnblogs.com/soniclq/articles/1932741.html">http://www.cnblogs.com/soniclq/articles/1932741.html</rich_text><rich_text>
+ 
+~/.gdbinit  :
+按 Ctrl+C 复制代码按 Ctrl+C 复制代码 
+</rich_text><rich_text link="webs http://www.yolinux.com/TUTORIALS/src/dbinit_stl_views-1.03.txt">在http://www.yolinux.com/TUTORIALS/src/dbinit_stl_views-1.03.txt</rich_text><rich_text>下载这个文件保存为~/.gdbinit  就可以使用它提供的方法方便调试容器
 gdb在启动的时候，会在当前目录下查找&quot;.gdbinit&quot;这个文件，并把它的内容作为gdb命令进行解释。
 举些例子：
 #
@@ -1329,17 +1444,17 @@ set print sevenbit-strings off
 一些常用内置的命令
 
 
-Data type   GDB command 
-  std::vector&lt;T&gt;  
-    pvector stl_variable   
-    std::list&lt;T&gt;  plist stl_variable T   std::map&lt;T,T&gt; pmap stl_variable   std::multimap&lt;T,T&gt;    pmap stl_variable   std::set&lt;T&gt;   pset stl_variable T   std::multiset&lt;T&gt;  pset stl_variable   std::deque&lt;T&gt; pdequeue stl_variable   std::stack&lt;T&gt; pstack stl_variable   std::queue&lt;T&gt; pqueue stl_variable   std::priority_queue&lt;T&gt;    ppqueue stl_variable   std::bitset&lt;n&gt;td&gt;  pbitset stl_variable   std::string pstring stl_variable   std::widestring pwstring stl_variable  
-</rich_text></node><node name="tools" prog_lang="custom-colors" readonly="False" tags="" unique_id="14"><rich_text>taskwarrior 
+Data type   GDB command 
+  std::vector&lt;T&gt;  
+    pvector stl_variable   
+    std::list&lt;T&gt;  plist stl_variable T   std::map&lt;T,T&gt; pmap stl_variable   std::multimap&lt;T,T&gt;    pmap stl_variable   std::set&lt;T&gt;   pset stl_variable T   std::multiset&lt;T&gt;  pset stl_variable   std::deque&lt;T&gt; pdequeue stl_variable   std::stack&lt;T&gt; pstack stl_variable   std::queue&lt;T&gt; pqueue stl_variable   std::priority_queue&lt;T&gt;    ppqueue stl_variable   std::bitset&lt;n&gt;td&gt;  pbitset stl_variable   std::string pstring stl_variable   std::widestring pwstring stl_variable  
+</rich_text></node><node name="tools" prog_lang="custom-colors" readonly="False" tags="" unique_id="14"><rich_text>taskwarrior 
 </rich_text><rich_text link="webs http://taskwarrior.org/projects/show/taskwarrior">http://taskwarrior.org/projects/show/taskwarrior</rich_text><rich_text>
 javascript x86
 </rich_text><rich_text link="webs http://bellard.org/jslinux/">http://bellard.org/jslinux/</rich_text><rich_text>
 taobao code 据说有不少的C++
 </rich_text><rich_text link="webs http://code.taobao.org/">http://code.taobao.org/</rich_text><rich_text>
-wiki plantUML 
+wiki plantUML 
 
 </rich_text><rich_text link="webs http://blog.csdn.net/ciaos/article/details/8501446">http://blog.csdn.net/ciaos/article/details/8501446</rich_text><rich_text>
 
@@ -1389,8 +1504,8 @@ http://vim.sourceforge.net/scripts/script_search_results.php?order_by=rating
 </rich_text><rich_text weight="heavy">:r !ls 会把执行的命令导入到vim中</rich_text><rich_text>
 
 </rich_text><rich_text link="webs http://ju.outofmemory.cn/entry/49172">http://ju.outofmemory.cn/entry/49172</rich_text><rich_text>
-</rich_text></node></node><node name="vobile" prog_lang="custom-colors" readonly="False" tags="" unique_id="16"><rich_text>./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i 2.1387533947744.1387534303616.vdna -r t.xml
-./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i </rich_text><rich_text link="webs http://192.168.1.249/download/2.1388696339843.1388699999970.tgz">2.1388696339843.1388699999970.</rich_text><rich_text>vdna -r x.xml
+</rich_text></node></node><node name="vobile" prog_lang="custom-colors" readonly="False" tags="" unique_id="16"><rich_text>./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i 2.1387533947744.1387534303616.vdna -r t.xml
+./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i </rich_text><rich_text link="webs http://192.168.1.249/download/2.1388696339843.1388699999970.tgz">2.1388696339843.1388699999970.</rich_text><rich_text>vdna -r x.xml
 
 </rich_text><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="41"><rich_text>vobile 常用
 
@@ -1526,24 +1641,24 @@ root@EQX-200:/vobiledata/rtfpdownload/tasks/16193/1/tmp# for f in  *.*.tgz ; do 
 1.1399161599854.1399165200000.inf
 1.1399161479834.1399165199954.vdna
 </rich_text><node name="TOREAD" prog_lang="custom-colors" readonly="False" tags="" unique_id="18"><rich_text>计算机类:
-       SICP
-      core algorithms deployed
-       </rich_text><rich_text link="webs http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773">http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773</rich_text><rich_text>
+       SICP
+      core algorithms deployed
+       </rich_text><rich_text link="webs http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773">http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773</rich_text><rich_text>
 
 
 
-LDD3          Linux Device Driver 3rd
-LKD3          Linux Kernel Development 3rd
-ULK3          Understanding the Linux Kernel 3rd
-PLKA          Professional Linux Kernel Architecture
-UML            User Mode Linux
+LDD3          Linux Device Driver 3rd
+LKD3          Linux Kernel Development 3rd
+ULK3          Understanding the Linux Kernel 3rd
+PLKA          Professional Linux Kernel Architecture
+UML            User Mode Linux
 
-Intel V3       Intel? 64 and IA-32 Architectures Software Developer’s Manual Volume 3 (3A, 3B &amp; 3C): System Programming Guide
+Intel V3       Intel? 64 and IA-32 Architectures Software Developer’s Manual Volume 3 (3A, 3B &amp; 3C): System Programming Guide
 
 
 
 经济类:
-    国富论
+    国富论
 </rich_text><rich_text link="webs http://wenku.baidu.com/view/38ec644033687e21af45a9ae.html">http://wenku.baidu.com/view/38ec644033687e21af45a9ae.html</rich_text><rich_text>
 
 
@@ -1552,7 +1667,7 @@ Intel V3       Intel? 64 and IA-32 Architectures Software Developer’s Manu
 
 
 文学类:
-    王朔文集
+    王朔文集
 </rich_text></node><node name="music" prog_lang="custom-colors" readonly="False" tags="" unique_id="19"><rich_text>Sitting Down here - LeneMarlin
 The Game - Lunik
 Chancenlos - Annett Louisan
@@ -1565,13 +1680,13 @@ Somersault - Courtney Jaye
 如果爱是一场婚礼 - 金巧巧
 三个人的错误 - 王宛之
 哭笑不得 - xx
-阳光下的我们 - 
+阳光下的我们 - 
 别找我麻烦 -
 我在朋友婚礼上唱这首歌 - 徐海星
 良人 - 邓芙茹
 我们好像在哪见过 - 杨综纬
 小狗圆舞曲 - 肖邦
-</rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="20"><rich_text>functional 
+</rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="20"><rich_text>functional 
 线程安全
 
 
@@ -1649,70 +1764,70 @@ opencv_tutorials
 </rich_text><rich_text link="webs http://blog.sina.com.cn/s/articlelist_2632294837_10_1.html">http://blog.sina.com.cn/s/
 articlelist_2632294837_10_1.html</rich_text><rich_text>
 
-CvArr、Mat、CvMat、IplImage、BYTE转换  
+CvArr、Mat、CvMat、IplImage、BYTE转换  
 </rich_text><rich_text link="webs http://cncncv.blog.163.com/blog/static/2061810262012316527760/">http://cncncv.blog.163.com/blog/static/2061810262012316527760/</rich_text><rich_text>
 
 </rich_text><node name="CvArr、Mat、CvMat、IplImage、BYTE转换  " prog_lang="custom-colors" readonly="False" tags="" unique_id="60"><rich_text>一、Mat类型：矩阵类型，Matrix。
-    在openCV中，Mat是一个多维的密集数据数组。可以用来处理向量和矩阵、图像、直方图等等常见的多维数据。
-    Mat有3个重要的方法：
-         1、Mat mat = imread(const String* filename);            读取图像
-         2、imshow(const string frameName, InputArray mat);      显示图像
-         3、imwrite (const string&amp; filename, InputArray img);    储存图像
-    Mat类型较CvMat与IplImage类型来说，有更强的矩阵运算能力，支持常见的矩阵运算。在计算密集型的应用当中，将CvMat与IplImage类型转化为Mat类型将大大减少计算时间花费。
-A.Mat -&gt; IplImage
+    在openCV中，Mat是一个多维的密集数据数组。可以用来处理向量和矩阵、图像、直方图等等常见的多维数据。
+    Mat有3个重要的方法：
+         1、Mat mat = imread(const String* filename);            读取图像
+         2、imshow(const string frameName, InputArray mat);      显示图像
+         3、imwrite (const string&amp; filename, InputArray img);    储存图像
+    Mat类型较CvMat与IplImage类型来说，有更强的矩阵运算能力，支持常见的矩阵运算。在计算密集型的应用当中，将CvMat与IplImage类型转化为Mat类型将大大减少计算时间花费。
+A.Mat -&gt; IplImage
 同样只是创建图像头，而没有复制数据。
-例： // 假设Mat类型的imgMat图像数据存在
-IplImage pImg= IplImage(imgMat); 
-B.Mat -&gt; CvMat
+例： // 假设Mat类型的imgMat图像数据存在
+IplImage pImg= IplImage(imgMat); 
+B.Mat -&gt; CvMat
 与IplImage的转换类似，不复制数据，只创建矩阵头。
-例： // 假设Mat类型的imgMat图像数据存在
-     CvMat cvMat = imgMat;
- 
+例： // 假设Mat类型的imgMat图像数据存在
+     CvMat cvMat = imgMat;
+ 
 二、CvMat类型与IplImage类型：“图像”类型
-       在 openCV中，Mat类型与CvMat和IplImage类型都可以代表和显示图像，但是，Mat类型侧重于计算，数学性较高，openCV对Mat类 型的计算也进行了优化。而CvMat和IplImage类型更侧重于“图像”，openCV对其中的图像操作（缩放、单通道提取、图像阈值操作等）进行了 优化。
-补充：IplImage由CvMat派生，而CvMat由CvArr派生即CvArr -&gt; CvMat -&gt; IplImage
-            CvArr用作函数的参数，无论传入的是CvMat或IplImage，内部都是按CvMat处理。
+       在 openCV中，Mat类型与CvMat和IplImage类型都可以代表和显示图像，但是，Mat类型侧重于计算，数学性较高，openCV对Mat类 型的计算也进行了优化。而CvMat和IplImage类型更侧重于“图像”，openCV对其中的图像操作（缩放、单通道提取、图像阈值操作等）进行了 优化。
+补充：IplImage由CvMat派生，而CvMat由CvArr派生即CvArr -&gt; CvMat -&gt; IplImage
+            CvArr用作函数的参数，无论传入的是CvMat或IplImage，内部都是按CvMat处理。
 1.CvMat
-A.CvMat-&gt; IplImage
-IplImage* img = cvCreateImage(cvGetSize(mat),8,1);
+A.CvMat-&gt; IplImage
+IplImage* img = cvCreateImage(cvGetSize(mat),8,1);
 cvGetImage(matI,img);
 cvSaveImage(&quot;rice1.bmp&quot;,img);
 B.CvMat-&gt;Mat
 与IplImage的转换类似，可以选择是否复制数据。
-Mat::Mat(const CvMat* m, bool copyData=false);
+Mat::Mat(const CvMat* m, bool copyData=false);
 在openCV中，没有向量（vector）的数据结构。任何时候，但我们要表示向量时，用矩阵数据表示即可。
 但是，CvMat类型与我们在线性代数课程上学的向量概念相比，更抽象，比如CvMat的元素数据类型并不仅限于基础数据类型，比如，下面创建一个二维数据矩阵：
-              CvMat* cvCreatMat(int rows ,int cols , int type);
+              CvMat* cvCreatMat(int rows ,int cols , int type);
 这里的type可以是任意的预定义数据类型，比如RGB或者别的多通道数据。这样我们便可以在一个CvMat矩阵上表示丰富多彩的图像了。
- 
+ 
 2.IplImage
 在类型关系上，我们可以说IplImage类型继承自CvMat类型，当然还包括其他的变量将之解析成图像数据。
 IplImage 类型较之CvMat多了很多参数，比如depth和nChannels。在普通的矩阵类型当中，通常深度和通道数被同时表示，如用32位表示 RGB+Alpha.但是，在图像处理中，我们往往将深度与通道数分开处理，这样做是OpenCV对图像表示的一种优化方案。
 IplImage 的对图像的另一种优化是变量origin----原点。在计算机视觉处理上，一个重要的不便是对原点的定义不清楚，图像来源，编码格式，甚至操作系统都会 对原地的选取产生影响。为了弥补这一点，openCV允许用户定义自己的原点设置。取值0表示原点位于图片左上角，1表示左下角。
 dataOrder参数定义数据的格式。有IPL_DATA_ORDER_PIXEL和IPL_DATA_ORDER_PLANE两种取值，前者便是对于像素，不同的通道的数据交叉排列，后者表示所有通道按顺序平行排列。
 IplImage类型的所有额外变量都是对“图像”的表示与计算能力的优化。
-A.IplImage -&gt; Mat
-IplImage* pImg = cvLoadImage(&quot;lena.jpg&quot;);
-Mat img(pImg,0); // 0是不複製影像，也就是pImg與img的data共用同個記憶體位置，header各自有
-B.IplImage -&gt; CvMat
-法1：CvMat mathdr, *mat = cvGetMat( img, &amp;mathdr );
-法2：CvMat *mat = cvCreateMat( img-&gt;height, img-&gt;width, CV_64FC3 );
-  cvConvert( img, mat );
-C.IplImage*-&gt; BYTE*
-BYTE* data= img-&gt;imageData;
- 
+A.IplImage -&gt; Mat
+IplImage* pImg = cvLoadImage(&quot;lena.jpg&quot;);
+Mat img(pImg,0); // 0是不複製影像，也就是pImg與img的data共用同個記憶體位置，header各自有
+B.IplImage -&gt; CvMat
+法1：CvMat mathdr, *mat = cvGetMat( img, &amp;mathdr );
+法2：CvMat *mat = cvCreateMat( img-&gt;height, img-&gt;width, CV_64FC3 );
+  cvConvert( img, mat );
+C.IplImage*-&gt; BYTE*
+BYTE* data= img-&gt;imageData;
+ 
 CvMat和IplImage创建时的一个小区别：
 1、建立矩阵时，第一个参数为行数，第二个参数为列数。
-CvMat* cvCreateMat( int rows, int cols, int type );
+CvMat* cvCreateMat( int rows, int cols, int type );
 2、建立图像时，CvSize第一个参数为宽度，即列数；第二个参数为高度，即行数。这 个和CvMat矩阵正好相反。
-IplImage* cvCreateImage(CvSize size, int depth, int channels );
-CvSize cvSize( int width, int height );
- 
+IplImage* cvCreateImage(CvSize size, int depth, int channels );
+CvSize cvSize( int width, int height );
+ 
 IplImage内部buffer每行是按4字节对齐的，CvMat没有这个限制
- 
+ 
 补充：
-A.BYTE*-&gt; IplImage*
-img= cvCreateImageHeader(cvSize(width,height),depth,channels);
+A.BYTE*-&gt; IplImage*
+img= cvCreateImageHeader(cvSize(width,height),depth,channels);
 cvSetData(img,data,step);
 //首先由cvCreateImageHeader()创建IplImage图像头，制定图像的尺寸，深度和通道数；
 //然后由cvSetData()根据BYTE*图像数据指针设置IplImage图像头的数据数据，
@@ -1788,7 +1903,9 @@ eyerestdaemon 会占cpu到100% ,fix it
 
 hackergame robot runaway reference </rich_text><rich_text link="webs http://www.redblobgames.com/pathfinding/a-star/introduction.html">http://www.redblobgames.com/pathfinding/a-star/introduction.html</rich_text><rich_text>
 </rich_text><rich_text link="webs http://www.redblobgames.com/pathfinding/a-star/introduction.html">http://www.redblobgames.com/pathfinding/a-star/introduction.html</rich_text><rich_text>
-A* maze </rich_text><rich_text link="webs http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html">http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html</rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文
+A* maze </rich_text><rich_text link="webs http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html">http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html</rich_text><rich_text>
+算法可视化
+</rich_text><rich_text link="webs http://bindog.github.io/%E7%90%86%E8%AE%BA/2014/08/09/visualizing-algorithms/">http://bindog.github.io/%E7%90%86%E8%AE%BA/2014/08/09/visualizing-algorithms/</rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文
 
 ocr文字识别调研：
 </rich_text><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> |开源|python |Linux| 不支持英文，
@@ -1805,26 +1922,26 @@ tesseract 训练流程：
     TiFF/Box Generator -&gt; Input 导入常用字集(txt格式即可)，
     注意选择字体和调整字间距，字间距对OCR识别有很大影响
   2. 定义字体特征文件 font_properties,  文件内容格式如下：
-  &lt;fontname&gt; &lt;italic&gt; &lt;bold&gt; &lt;fixed&gt; &lt;serif&gt; &lt;fraktur&gt;  
+  &lt;fontname&gt; &lt;italic&gt; &lt;bold&gt; &lt;fixed&gt; &lt;serif&gt; &lt;fraktur&gt;  
   其中fontname为字体名称，必须与[lang]. [fontname].exp[num].box中的名称保持一致。&lt;italic&gt; 、&lt;bold&gt;  、&lt;fixed&gt; 、&lt;serif&gt;、 &lt;fraktur&gt;的取值为1或0，表示字体是否具有这些属性。
 这里在样本图片所在目录下创建一个名称为font_properties的文件:
-font 0 0 0 0 0  
+font 0 0 0 0 0  
   3. 生成语言文件：
         以num.font为例， num.font.tif 为jTessBoxEditor在1中生成：
-        tesseract num.font.exp0.tif num.font.exp0 nobatch box.train  
+        tesseract num.font.exp0.tif num.font.exp0 nobatch box.train  
         
-        unicharset_extractor num.font.exp0.box  
-        mftraining -F font_properties -U unicharset -O num.unicharset num.font.exp0.tr  
- 
+        unicharset_extractor num.font.exp0.box  
+        mftraining -F font_properties -U unicharset -O num.unicharset num.font.exp0.tr  
  
-        cntraining   num.font.exp0.tr  
-   
+ 
+        cntraining   num.font.exp0.tr  
+   
 
-        mv normproto num.normproto  
-        mv inttemp num.inttemp  
-        mv pffmtable num.pffmtable  
+        mv normproto num.normproto  
+        mv inttemp num.inttemp  
+        mv pffmtable num.pffmtable  
 
-        combine_tessdata.exe num.  
+        combine_tessdata.exe num.  
         
         
  参见： 
@@ -1870,20 +1987,20 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
         end_ts: 1787798
 program_status: initialized
 1 row in set (0.00 sec)
-</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
-2. mysql&gt; show status like '%onn%';
+2. mysql&gt; show status like '%onn%';
 
-3. SHOW PROCESSLIST
+3. SHOW PROCESSLIST
 
-4. SET NAMES 'utf8'    #mysql 设置编码
+4. SET NAMES 'utf8'    #mysql 设置编码
 
 
 
 mysql&gt; select current_timestamp() ;
 
 s</rich_text><rich_text foreground="#ff0000">hell&gt; </rich_text><rich_text foreground="#ff0000" weight="heavy">mysqldump --quick </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name</rich_text><rich_text foreground="#ff0000" weight="heavy"> | gzip &gt; </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name.contents</rich_text><rich_text foreground="#ff0000" weight="heavy">.gz</rich_text><rich_text foreground="#ff0000">(该例子中创建的文件是压缩格式）。</rich_text><rich_text>
- 
+ 
 </rich_text><rich_text foreground="#ff0000">恢复/转移到另一台的命令如下:</rich_text><rich_text>
 </rich_text><rich_text foreground="#ff0000">shell&gt; </rich_text><rich_text foreground="#ff0000" weight="heavy">gunzip &lt; </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name.contents</rich_text><rich_text foreground="#ff0000" weight="heavy">.gz | mysql </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name</rich_text><rich_text foreground="#ff0000">以上命令,适用于*nix 操作系统的机器</rich_text><rich_text>
 </rich_text></node><node name="git" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="4"><rich_text>Git创建Develop分支的命令：
@@ -1896,18 +2013,18 @@ s</rich_text><rich_text foreground="#ff0000">hell&gt; </rich_text><rich_text for
 
 </rich_text><rich_text link="webs http://www.ruanyifeng.com/blog/2012/07/git.html">http://www.ruanyifeng.com/blog/2012/07/git.html</rich_text><rich_text>
 
- git reset --hard HEAD~3
+ git reset --hard HEAD~3
 会将最新的3次提交全部重置，就像没有提交过一样。
 
-touch README.md
- git init
- git commit -m &quot;first commit&quot; 
- git remote add origingit@github.com:szqh97/test.git
- git push -u origin master
+touch README.md
+ git init
+ git commit -m &quot;first commit&quot; 
+ git remote add origingit@github.com:szqh97/test.git
+ git push -u origin master
 
-1. git 恢复删除的文件 
+1. git 恢复删除的文件 
 
-        git checkout filename
+        git checkout filename
 
 
 
