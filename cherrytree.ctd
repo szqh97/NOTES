@@ -339,7 +339,7 @@ string replace(const string&amp; str, const string&amp; src, const string&amp; d
 }
 
 }</rich_text></node></node><node name="go" prog_lang="custom-colors" readonly="False" tags="" unique_id="65"><rich_text>
-</rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="66"><rich_text></rich_text></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
+</rich_text><node name="nsq-notes" prog_lang="custom-colors" readonly="False" tags="" unique_id="66"><rich_text></rich_text></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
 </rich_text><rich_text scale="h1">使用npm install XXX 时出现“failed to fetch from regi...</rich_text><rich_text>
 设置http_proxy 环境变量，比如
  export http_proxy=&quot;http://10.123.74.137:808&quot;
@@ -499,6 +499,36 @@ time ffmpeg -y -i 0230.mp4 -vcodec h264 -pass 1 -refs 1 -bf 0 -g 75 -keyint_min 
  ./ffmpeg -threads 4 -s 352x240 -i all.yuv -vcodec libx264  -flags +loop -cmp +chroma -deblockalpha 0 -deblockbeta 0 -crf 24 -bt 256k -refs 1 -coder 0  -me_range 16 -subq 5 -partitions +parti4x4+parti8x8+partp8x8 -g 250 -keyint_min 25 -level 30 -qmin 10 -qmax 51 -trellis 2 -sc_threshold 40 -i_qfactor 0.71  -ab 128k -ar 48000 -ac 2 all.h264
 
 
+参考文章：Video Codecs Analysis and Tuning ，文档下载地址：http://www.yuvsoft.com/pdf/x264_parameters_comparison.pdf
+ 文章中详细比较了48种不同x264参数组合，比较得到如下6类最优的x264编译参数，我将文章中的x264参数转化为ffmpge命令参数如下：
+1）fastest preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264  -me_method dia -directpred 1 -me_range 16 -subq 1 -b_qfactor 1.5 -bf 1  -acodec libfaac sample_fastest.mp4
+2）fast preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -subq 1 -acodec libfaac sample_fast.mp4
+3）tradeoff preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -subq 3 -acodec libfaac sample_tradeoff.mp4
+4）good preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -bf 3  -bframebias 5 -flags2 +dct8x8+wpred+bpyramid -trellis 1 -acodec libfaac  sample_good.mp4
+5）best preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -bf 4  -flags2 +dct8x8+wpred+bpyramid -trellis 1 -refs 10 -directpred 3  -me_method umh -subq 7 -acodec libfaac sample_best.mp4
+6）extra quality preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -bf 4  -flags2 +dct8x8+wpred+bpyramid -refs 8 -directpred 3 -me_method umh  -subq 7 -pass 1 -acodec libfaac &gt; dev&amp;null
+ffmpeg -i  NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -bf 4 -flags2  +dct8x8+wpred+bpyramid -refs 8 -directpred 3 -me_method umh -subq 7  -pass 2 -acodec libfaac sample_extra.mp4
+下面表格显示在默认参数情况下编码速度以及平均码率相对百分比：
+ Preset Name Speed, % Average bitrate, %
+ Fastest            47                 114
+ Fast                 56                 109
+ Tradeoff          70                  102
+ Good              121                   89
+ Best                369                   77
+ Extra Quality   710                   72
+我测试分辨率1280 x  720，20帧的赛车视频，视频原始大小100442K，视频使用Sorenson Video 3编码，音频使用 MPEG-1 Layer  3编码，使用上诉5种参数分别编码得到53897K、59303K、60251K、63670K、55405K、55405K。我个人比较倾向于best  preset参数。
+在使用使用如下best参数编码的h264视频，播放时最高CPU利用率不超过4%，但效果明显比FLV效果高
+ffmpeg -i  NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -bf 4 -flags2  +bpyramid+wpred+8x8dct -trellis 1 -refs 10 -directpred 3 -me_method umh  -subq 7 -s 352*288 -r 7.5 -aspect 16:9 -acodec libfaac -ab 32k  sample_best_352_288_7.mp4
+ 
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f flv -vcodec flv -acodec libmp3lame sample_352_288.flv
+ 
+ 视频大小分别为4212K（x264）、4816K(Flash/Sorenson)
 
 
 FFmpeg option x264 option 
