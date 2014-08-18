@@ -339,7 +339,17 @@ string replace(const string&amp; str, const string&amp; src, const string&amp; d
 }
 
 }</rich_text></node></node><node name="go" prog_lang="custom-colors" readonly="False" tags="" unique_id="65"><rich_text>
-</rich_text><node name="nsq-notes" prog_lang="custom-colors" readonly="False" tags="" unique_id="66"><rich_text></rich_text></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
+</rich_text><node name="nsq-notes" prog_lang="custom-colors" readonly="False" tags="" unique_id="66"><rich_text scale="h3">1</rich_text><rich_text> go daemon 框架
+</rich_text><rich_text justification="left"></rich_text><codebox char_offset="15" frame_height="200" frame_width="1000" highlight_brackets="True" show_line_numbers="True" syntax_highlighting="cpp" width_in_pixels="True">exitChan := make(chan int)
+signalChan := make(chan os.Signal, 1)
+go func() {
+   &lt;-signalChan
+   exitChan &lt;- 1
+}()
+signal.Notify(signalChan, syscall.SIGINT, syscall.SIGTERM)
+....
+&lt;-exitChan
+nsqd.Exit()</codebox></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
 </rich_text><rich_text scale="h1">使用npm install XXX 时出现“failed to fetch from regi...</rich_text><rich_text>
 设置http_proxy 环境变量，比如
  export http_proxy=&quot;http://10.123.74.137:808&quot;
