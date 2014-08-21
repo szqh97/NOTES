@@ -349,7 +349,7 @@ go func() {
 signal.Notify(signalChan, syscall.SIGINT, syscall.SIGTERM)
 ....
 &lt;-exitChan
-nsqd.Exit()</codebox></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
+nsqd.Exit()</codebox></node><node name="go_tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="13"><rich_text>1. func main must have no arguments and no return values results.</rich_text></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
 </rich_text><rich_text scale="h1">使用npm install XXX 时出现“failed to fetch from regi...</rich_text><rich_text>
 设置http_proxy 环境变量，比如
  export http_proxy=&quot;http://10.123.74.137:808&quot;
