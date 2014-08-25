@@ -354,7 +354,19 @@ nsqd.Exit()</codebox></node><node name="go_tips" prog_lang="custom-colors" reado
 3. go switch fallthrough can same as no-break idoms
 4. the lambda function stores and accumulates the values of its variables
 5. the maximum array length is 2 Gb
-6. package sort sorting arry/slice or searching an element in a sorted array</rich_text></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
+6. package sort sorting arry/slice or searching an element in a sorted array
+7. usefull skills for slice and array:
+
+</rich_text><codebox char_offset="501" frame_height="200" frame_width="1000" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="chdr" width_in_pixels="True">Append a slice b to an existing slice a:  a = append(a, b ...)
+copy a slice a to a new existing slice b: b = make ([]t, len(a)) copy(b, a)
+Delete item at index i:                   a = append(a[:i], a[i+1:]...)
+cut from index i till j of slice a:       a = append(a[:i], a[j:]...)
+Extend a with a new slice of j:           a = append(a, make([]T, j)...)
+Insert item x at index i:                 a = append(a[:i], append([]T{x}, a[i
+Insert a new slice of lenght j at index i:a = append(a[:i], append(make([]T, j), a[i:]...)...)
+insert a existing slice b at index i:     a = append(a[:i], append(b, a[:i]...)...)
+Pop highest element from stack:           x, a = a[len(a)-1], a[:len(a)-1]
+Push an element x on a stack :            a = append(a, x)</codebox></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
 </rich_text><rich_text scale="h1">使用npm install XXX 时出现“failed to fetch from regi...</rich_text><rich_text>
 设置http_proxy 环境变量，比如
  export http_proxy=&quot;http://10.123.74.137:808&quot;
