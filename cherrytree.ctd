@@ -352,7 +352,9 @@ signal.Notify(signalChan, syscall.SIGINT, syscall.SIGTERM)
 nsqd.Exit()</codebox></node><node name="go_tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="13"><rich_text>1. func main must have no arguments and no return values results.
 2. Every source file can contain only 1 init()-function. Initialization is always single-threaded and package dependency guarantees correct execution order.
 3. go switch fallthrough can same as no-break idoms
-4. the lambda function stores and accumulates the values of its variables</rich_text></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
+4. the lambda function stores and accumulates the values of its variables
+5. the maximum array length is 2 Gb
+6. package sort sorting arry/slice or searching an element in a sorted array</rich_text></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
 </rich_text><rich_text scale="h1">使用npm install XXX 时出现“failed to fetch from regi...</rich_text><rich_text>
 设置http_proxy 环境变量，比如
  export http_proxy=&quot;http://10.123.74.137:808&quot;
