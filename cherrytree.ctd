@@ -358,7 +358,10 @@ nsqd.Exit()</codebox></node><node name="go_tips" prog_lang="custom-colors" reado
 7. usefull skills for slice and array:
 
 
-8. Don't use new, always use make with maps!!</rich_text><codebox char_offset="501" frame_height="200" frame_width="1000" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="chdr" width_in_pixels="True">Append a slice b to an existing slice a:  a = append(a, b ...)
+8. Don't use new, always use make with maps!!
+9. import _ “./pack1/pack1”
+The package pack1 is imported for its side-effects only, that is: its init functions are executed and
+global variables initialized.</rich_text><codebox char_offset="501" frame_height="200" frame_width="1000" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="chdr" width_in_pixels="True">Append a slice b to an existing slice a:  a = append(a, b ...)
 copy a slice a to a new existing slice b: b = make ([]t, len(a)) copy(b, a)
 Delete item at index i:                   a = append(a[:i], a[i+1:]...)
 cut from index i till j of slice a:       a = append(a[:i], a[j:]...)
