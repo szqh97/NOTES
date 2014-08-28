@@ -361,8 +361,7 @@ nsqd.Exit()</codebox></node><node name="go_tips" prog_lang="custom-colors" reado
 8. Don't use new, always use make with maps!!
 9. import _ “./pack1/pack1”The package pack1 is imported for its side-effects only, that is: its init functions are executed and global variables initialized.
 10. The receiver also cannot be an interface type, since an interface is the abstract definition and a method is the implementation; it cannot to be a poiter type, but it can be a pointer to any of the allowed types.
-11. receiver_type is called the (receiver) base type, this type must be declared within the same package
-as all of its methods.</rich_text><codebox char_offset="501" frame_height="200" frame_width="1000" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="chdr" width_in_pixels="True">Append a slice b to an existing slice a:  a = append(a, b ...)
+</rich_text><codebox char_offset="501" frame_height="200" frame_width="1000" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="chdr" width_in_pixels="True">Append a slice b to an existing slice a:  a = append(a, b ...)
 copy a slice a to a new existing slice b: b = make ([]t, len(a)) copy(b, a)
 Delete item at index i:                   a = append(a[:i], a[i+1:]...)
 cut from index i till j of slice a:       a = append(a[:i], a[j:]...)
@@ -412,6 +411,8 @@ ffmpeg SDK </rich_text><rich_text link="webs http://ffmpeg.org/doxygen/trunk/ind
  */
 int avformat_open_input(AVFormatContext **ps, const char *filename, AVInputFormat *fmt, AVDictionary **options);  </codebox></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="27"><rich_text>ffmpeg -i tt.mp4 -vn -strict -2 audio.mp4
 
+Hi, all:
+</rich_text><rich_text link="webs http://122.192.67.86:8088/ts100">http://122.192.67.86:8088/ts100</rich_text><rich_text>
 1. ffmpeg snapshot，一秒二次
 
         ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
@@ -618,7 +619,7 @@ FFmpeg option x264 option 
 -fastpskip/+fastpskip –no-fast-pskip 
 +aud –aud 
 
-
+/opt/ffmpeg/ffmpeg -y -rtmp_swfurl </rich_text><rich_text link="webs http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=WRAFDIGP67956133A6391A37CE3C3EFEB14BC4F589E">http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=WRAFDIGP67956133A6391A37CE3C3EFEB14BC4F589E</rich_text><rich_text> -i rtmp://lv9.ustvnow.com/dvrtest/8AB2CWGALUSTVNOW2 -acodec copy -vcodec copy -map 0:v -map 0:a -bsf:v h264_mp4toannexb -f segment -segment_format mpegts -segment_time 1800 /opt/vobile/recorder/var/work/nbc/%d.ts
 
 ffmpeg 直接录制v4l2
 ffmpeg  -f video4linux2 -s 720x480 -r 25 -i /dev/video4 out.avi
