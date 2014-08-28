@@ -618,6 +618,10 @@ FFmpeg option x264 option 
 -fastpskip/+fastpskip –no-fast-pskip 
 +aud –aud 
 
+
+
+ffmpeg 直接录制v4l2
+ffmpeg  -f video4linux2 -s 720x480 -r 25 -i /dev/video4 out.avi
 </rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
     pynotify.init(&quot;eye-guard&quot;)    
     msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
