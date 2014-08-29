@@ -362,7 +362,8 @@ nsqd.Exit()</codebox></node><node name="go_tips" prog_lang="custom-colors" reado
 9. import _ “./pack1/pack1”The package pack1 is imported for its side-effects only, that is: its init functions are executed and global variables initialized.
 10. The receiver also cannot be an interface type, since an interface is the abstract definition and a method is the implementation; it cannot to be a poiter type, but it can be a pointer to any of the allowed types.
 11. Pointers to interface value are illegal
-12. </rich_text><codebox char_offset="501" frame_height="200" frame_width="1000" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="chdr" width_in_pixels="True">Append a slice b to an existing slice a:  a = append(a, b ...)
+12.  interface type checking
+</rich_text><codebox char_offset="501" frame_height="200" frame_width="1000" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="chdr" width_in_pixels="True">Append a slice b to an existing slice a:  a = append(a, b ...)
 copy a slice a to a new existing slice b: b = make ([]t, len(a)) copy(b, a)
 Delete item at index i:                   a = append(a[:i], a[i+1:]...)
 cut from index i till j of slice a:       a = append(a[:i], a[j:]...)
@@ -371,7 +372,10 @@ Insert item x at index i:                 a = append(a[:i], append([]T{x}, a[i
 Insert a new slice of lenght j at index i:a = append(a[:i], append(make([]T, j), a[i:]...)...)
 insert a existing slice b at index i:     a = append(a[:i], append(b, a[:i]...)...)
 Pop highest element from stack:           x, a = a[len(a)-1], a[:len(a)-1]
-Push an element x on a stack :            a = append(a, x)</codebox></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
+Push an element x on a stack :            a = append(a, x)</codebox><codebox char_offset="999" frame_height="100" frame_width="1000" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="chdr" width_in_pixels="True">    if v, ok := o.(stockPosition); ok {
+        // o's type is stockPosition
+    }  
+    // o's type is not stockPosition</codebox></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
 </rich_text><rich_text scale="h1">使用npm install XXX 时出现“failed to fetch from regi...</rich_text><rich_text>
 设置http_proxy 环境变量，比如
  export http_proxy=&quot;http://10.123.74.137:808&quot;
