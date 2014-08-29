@@ -1024,6 +1024,26 @@ strace -f -ff -o xxxxxxxx cmd   输出每一个进程的文件
 dpkg --add-architecture 386
 aptitude update
 aptitude install ia32-libs
+
+
+</rich_text><rich_text scale="h1">linux nfs </rich_text><rich_text>
+相关文件 portmap -&gt; rpcbind
+/etc/exports
+    /home/li_yun/tmp_video *(insecure,rw,sync,no_root_squash)
+
+/etc/host.deny
+portmap: ALL
+lockd: ALL
+mountd: ALL
+rquotad: ALL
+statd: ALL
+
+/etc/hosts.allow
+portmap: 192.168.1.
+lockd: 192.168.1.
+mountd: 192.168.1.
+rquotad: 192.168.1.
+statd: 192.168.1.
 </rich_text><codebox char_offset="3052" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
 
 + :：:label，标志一个label，用于b/t的跳转
