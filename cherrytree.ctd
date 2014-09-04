@@ -2040,7 +2040,7 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
         end_ts: 1787798
 program_status: initialized
 1 row in set (0.00 sec)
-</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+</rich_text></node></node><node name="CNTV" prog_lang="custom-colors" readonly="False" tags="" unique_id="32"><rich_text link="webs http://www.giniko.com/watch.php?id=36">http://www.giniko.com/watch.php?id=36</rich_text><rich_text>  ZDF need account</rich_text></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
 2. mysql&gt; show status like '%onn%';
 
