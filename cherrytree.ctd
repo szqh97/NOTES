@@ -1961,7 +1961,10 @@ A* maze </rich_text><rich_text link="webs http://theory.stanford.edu/~amitp/Game
 </rich_text><rich_text link="webs http://bindog.github.io/%E7%90%86%E8%AE%BA/2014/08/09/visualizing-algorithms/">http://bindog.github.io/%E7%90%86%E8%AE%BA/2014/08/09/visualizing-algorithms/</rich_text><rich_text>
 
 
-</rich_text><rich_text link="webs http://www.livenewschat.eu/canada/">http://www.livenewschat.eu/canada/</rich_text><rich_text> cbc</rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文
+</rich_text><rich_text link="webs http://www.livenewschat.eu/canada/">http://www.livenewschat.eu/canada/</rich_text><rich_text> cbc  ffmpeg -y  -rtmp_swfurl </rich_text><rich_text link="webs http://msnbclive.eu/player.swf">http://msnbclive.eu/player.swf</rich_text><rich_text> -i rtmp://d.cdn.newschat.tv/edge/canadas_live -strict -2 x.mp4
+
+
+</rich_text><rich_text link="webs http://www.rtve.es/noticias/directo/canal-24h/">http://www.rtve.es/noticias/directo/canal-24h/</rich_text><rich_text> rtve </rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文
 
 ocr文字识别调研：
 </rich_text><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> |开源|python |Linux| 不支持英文，
