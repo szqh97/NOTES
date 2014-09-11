@@ -626,7 +626,7 @@ FFmpeg option x264 option
 +aud –aud 
 
 /opt/ffmpeg/ffmpeg -y -rtmp_swfurl </rich_text><rich_text link="webs http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=WRAFDIGP67956133A6391A37CE3C3EFEB14BC4F589E">http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=WRAFDIGP67956133A6391A37CE3C3EFEB14BC4F589E</rich_text><rich_text> -i rtmp://lv9.ustvnow.com/dvrtest/8AB2CWGALUSTVNOW2 -acodec copy -vcodec copy -map 0:v -map 0:a -bsf:v h264_mp4toannexb -f segment -segment_format mpegts -segment_time 1800 /opt/vobile/recorder/var/work/nbc/%d.ts
-
+</rich_text><rich_text link="webs http://93.184.221.133/hls-live/20C1A9/bbc_world/ls_satlink/b_828.m3u8">http://93.184.221.133/hls-live/20C1A9/bbc_world/ls_satlink/b_828.m3u8</rich_text><rich_text> bbc_world
 ffmpeg 直接录制v4l2
 ffmpeg  -y -f alsa -i hw:1 -f video4linux2 -s 720x480 -r 25 -i /dev/video1 2.2.mp4
 ffmpeg  -y -f alsa -i hw:6 -f video4linux2 -s 720x480 -r 25 -i /dev/video6 7.2.mp4</rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
