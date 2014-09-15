@@ -1020,6 +1020,8 @@ update-rc.d与RH的chkconfig之间最大的不同就在于update-rc.d是要设�
 
 
 </rich_text><rich_text scale="h2" weight="heavy">rsync </rich_text><rich_text>
+
+</rich_text><rich_text link="webs http://www.howtocn.org/rsync:use_rsync">http://www.howtocn.org/rsync:use_rsync</rich_text><rich_text>
 </rich_text><rich_text link="webs http://blog.sina.com.cn/s/blog_5eda2dda01015fcs.html">http://blog.sina.com.cn/s/blog_5eda2dda01015fcs.html</rich_text><rich_text>
 
 </rich_text><rich_text scale="h1">strace </rich_text><rich_text>
