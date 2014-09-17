@@ -364,7 +364,7 @@ nsqd.Exit()</codebox></node><node name="go_tips" prog_lang="custom-colors" reado
 11. Pointers to interface value are illegal
 12.  interface type checking
 </rich_text><rich_text justification="left"></rich_text><rich_text>
-</rich_text><codebox char_offset="501" frame_height="200" frame_width="1000" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="chdr" width_in_pixels="True">Append a slice b to an existing slice a:  a = append(a, b ...)
+12. flag.Arg(0) is the first real flag, not the name of the program in contrast to os.Args(0)</rich_text><codebox char_offset="501" frame_height="200" frame_width="1000" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="chdr" width_in_pixels="True">Append a slice b to an existing slice a:  a = append(a, b ...)
 copy a slice a to a new existing slice b: b = make ([]t, len(a)) copy(b, a)
 Delete item at index i:                   a = append(a[:i], a[i+1:]...)
 cut from index i till j of slice a:       a = append(a[:i], a[j:]...)
