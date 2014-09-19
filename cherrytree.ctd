@@ -1028,7 +1028,7 @@ update-rc.d与RH的chkconfig之间最大的不同就在于update-rc.d是要设�
 strace -f -ff -o xxxxxxxx cmd   输出每一个进程的文件
 
 
-dpkg --add-architecture 386
+dpkg --add-architecture i386
 aptitude update
 aptitude install ia32-libs
 
