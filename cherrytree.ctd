@@ -670,10 +670,6 @@ python 中的高级数据结构
 </rich_text><rich_text link="webs http://blog.jobbole.com/65218/">http://blog.jobbole.com/65218/</rich_text><rich_text>
 
 
-</rich_text><rich_text scale="h1">A collection of not-so-obvious Python stuff you should know!</rich_text><rich_text>
-
-</rich_text><rich_text link="webs http://nbviewer.ipython.org/github/rasbt/python_reference/blob/master/not_so_obvious_python_stuff.ipynb">http://nbviewer.ipython.org/github/rasbt/python_reference/blob/master/not_so_obvious_python_stuff.ipynb</rich_text><rich_text>
-
 Python修饰器的函数式编程
 </rich_text><rich_text link="webs http://coolshell.cn/articles/11265.html">http://coolshell.cn/articles/11265.html</rich_text><rich_text>
 
@@ -685,14 +681,15 @@ web.py example
 
 ipython reload moudle
 </rich_text><rich_text link="webs http://pythontip.sinaapp.com/blog/post/6962/">http://pythontip.sinaapp.com/blog/post/6962/</rich_text><rich_text> 
-代理
-</rich_text><rich_text link="webs http://www.samair.ru/proxy-by-country/China-01.htm">http://www.samair.ru/proxy-by-country/China-01.htm</rich_text><rich_text> 
 
 python adventure
 </rich_text><rich_text link="webs http://pythonadventures.wordpress.com">http://pythonadventures.wordpress.com</rich_text><rich_text>
 
 python 数据结构 
 </rich_text><rich_text link="webs http://blog.segmentfault.com/hujiaweibujidao/1190000000596978">http://blog.segmentfault.com/hujiaweibujidao/1190000000596978</rich_text><rich_text>
+
+python-BeautifulSoup 
+</rich_text><rich_text link="webs http://www.crummy.com/software/BeautifulSoup/bs3/documentation.zh.html#Improving%20Performance%20by%20Parsing%20Only%20Part%20of%20the%20Document">http://www.crummy.com/software/BeautifulSoup/bs3/documentation.zh.html#Improving%20Performance%20by%20Parsing%20Only%20Part%20of%20the%20Document</rich_text><rich_text>
 </rich_text></node><node name="collections" prog_lang="python" readonly="False" tags="" unique_id="44"><rich_text>1. python 生成 随机字符串:
 import random
 import string
@@ -1540,7 +1537,10 @@ html5 超炫的网页
 </rich_text><rich_text link="webs http://dreamsky.github.io/main/blog/crazy-tentacles/">http://dreamsky.github.io/main/blog/crazy-tentacles/</rich_text><rich_text>
 
 vpn
-</rich_text><rich_text link="webs https://www.grjsq.me/xianlu.html">https://www.grjsq.me/xianlu.html</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
+</rich_text><rich_text link="webs https://www.grjsq.me/xianlu.html">https://www.grjsq.me/xianlu.html</rich_text><rich_text>
+代理
+</rich_text><rich_text link="webs http://www.samair.ru/proxy-by-country/China-01.htm">http://www.samair.ru/proxy-by-country/China-01.htm</rich_text><rich_text> 
+</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
 :set rnu 相对行号
 
 
