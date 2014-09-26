@@ -841,6 +841,9 @@ sleep 20  #睡眠 20s，以模拟脚本在执行需要长时间完成的任务
  
 main $*
 
+shell
+</rich_text><rich_text link="webs http://get.jobdeer.com/1408.get">http://get.jobdeer.com/1408.get</rich_text><rich_text>
+
 
 </rich_text><codebox char_offset="202" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False"> 八进制转十进制：
 
