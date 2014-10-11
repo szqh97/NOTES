@@ -792,7 +792,9 @@ print location
  
 # defaultdict(&lt;type 'list'&gt;, {'brown': [2], 'lazy': [7], 'over': [5], 'fox': [3],
 # 'dog': [8], 'quick': [1], 'the': [0, 6], 'jumps': [4]})</rich_text></node><node name="oneline" prog_lang="custom-colors" readonly="False" tags="" unique_id="63"><rich_text>求100 以内的质数
-filter(lambda x: not [x%i for i in range(2,x) if x%i==0], range(2,101))</rich_text></node></node><node name="Lua" prog_lang="custom-colors" readonly="False" tags="" unique_id="30"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="31"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
+filter(lambda x: not [x%i for i in range(2,x) if x%i==0], range(2,101))</rich_text></node><node name="scrapy" prog_lang="custom-colors" readonly="False" tags="" unique_id="33"><rich_text link="webs http://www.tuicool.com/articles/3y6ba2">http://www.tuicool.com/articles/3y6ba2</rich_text><rich_text>    使用scrapy进行大规模抓取
+
+scrapy 自己写一个linkextractor</rich_text></node></node><node name="Lua" prog_lang="custom-colors" readonly="False" tags="" unique_id="30"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="31"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
 find -mmin -60 -exec ls -l {} \;
 
 redirect io to null 
@@ -1564,7 +1566,9 @@ http://vim.sourceforge.net/scripts/script_search_results.php?order_by=rating
 </rich_text><rich_text link="webs http://ju.outofmemory.cn/entry/49172">http://ju.outofmemory.cn/entry/49172</rich_text><rich_text>
 
 vim ide
-</rich_text><rich_text link="webs http://blog.jobbole.com/72744/">http://blog.jobbole.com/72744/</rich_text></node></node><node name="vobile" prog_lang="custom-colors" readonly="False" tags="" unique_id="16"><rich_text>./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i 2.1387533947744.1387534303616.vdna -r t.xml
+</rich_text><rich_text link="webs http://blog.jobbole.com/72744/">http://blog.jobbole.com/72744/</rich_text><rich_text>
+
+</rich_text></node></node><node name="vobile" prog_lang="custom-colors" readonly="False" tags="" unique_id="16"><rich_text>./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i 2.1387533947744.1387534303616.vdna -r t.xml
 ./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i </rich_text><rich_text link="webs http://192.168.1.249/download/2.1388696339843.1388699999970.tgz">2.1388696339843.1388699999970.</rich_text><rich_text>vdna -r x.xml
 
 </rich_text><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="41"><rich_text>vobile 常用
@@ -1980,7 +1984,15 @@ http://nimplus1.giniko.com/zdftv/zdftv.stream/chunklist_w345141444.m3u8
 
 curl '</rich_text><rich_text link="webs http://nimplus1.giniko.com/tfmtv/tfmtv.stream/playlist.m3u8'">http://nimplus1.giniko.com/tfmtv/tfmtv.stream/playlist.m3u8'</rich_text><rich_text> -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' -H 'Accept-Encoding: gzip, deflate' -H 'Accept-Language: en-US,en;q=0.5' -H 'Connection: keep-alive' -H 'Cookie: __utma=52549950.1896136233.1409734827.1411458890.1411461214.17; __utmz=52549950.1410859242.8.2.utmcsr=billing.giniko.com|utmccn=(referral)|utmcmd=referral|utmcct=/; __utmc=52549950; __utmb=52549950.31.10.1411461214; PHPSESSID=m639bkisnm3e97m5sq726pis65' -H 'Host: nimplus1.giniko.com' -H 'Referer: </rich_text><rich_text link="webs http://www.giniko.com/dvr/jwplayer/jwplayer.flash.swf'">http://www.giniko.com/dvr/jwplayer/jwplayer.flash.swf'</rich_text><rich_text> -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:30.0) Gecko/20100101 Firefox/30.0'
 
-curl '</rich_text><rich_text link="webs http://nimplus1.giniko.com/daserste/daserste.stream/playlist.m3u8'">http://nimplus1.giniko.com/daserste/daserste.stream/playlist.m3u8'</rich_text><rich_text> -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' -H 'Accept-Encoding: gzip, deflate' -H 'Accept-Language: en-US,en;q=0.5' -H 'Connection: keep-alive' -H 'Cookie: __utma=52549950.1896136233.1409734827.1411461214.1411523305.18; __utmz=52549950.1410859242.8.2.utmcsr=billing.giniko.com|utmccn=(referral)|utmcmd=referral|utmcct=/; __utmc=52549950; PHPSESSID=5gp32iqk2brtju1s61hk13mvf2; __utmb=52549950.3.10.1411523305' -H 'Host: nimplus1.giniko.com' -H 'Referer: </rich_text><rich_text link="webs http://www.giniko.com/dvr/jwplayer/jwplayer.flash.swf'">http://www.giniko.com/dvr/jwplayer/jwplayer.flash.swf'</rich_text><rich_text> -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:30.0) Gecko/20100101 Firefox/30.0'</rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文
+curl '</rich_text><rich_text link="webs http://nimplus1.giniko.com/daserste/daserste.stream/playlist.m3u8'">http://nimplus1.giniko.com/daserste/daserste.stream/playlist.m3u8'</rich_text><rich_text> -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' -H 'Accept-Encoding: gzip, deflate' -H 'Accept-Language: en-US,en;q=0.5' -H 'Connection: keep-alive' -H 'Cookie: __utma=52549950.1896136233.1409734827.1411461214.1411523305.18; __utmz=52549950.1410859242.8.2.utmcsr=billing.giniko.com|utmccn=(referral)|utmcmd=referral|utmcct=/; __utmc=52549950; PHPSESSID=5gp32iqk2brtju1s61hk13mvf2; __utmb=52549950.3.10.1411523305' -H 'Host: nimplus1.giniko.com' -H 'Referer: </rich_text><rich_text link="webs http://www.giniko.com/dvr/jwplayer/jwplayer.flash.swf'">http://www.giniko.com/dvr/jwplayer/jwplayer.flash.swf'</rich_text><rich_text> -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:30.0) Gecko/20100101 Firefox/30.0'
+
+
+bbc: </rich_text><rich_text link="webs http://www.bbc.co.uk">http://www.bbc.co.uk</rich_text><rich_text>
+cbc: </rich_text><rich_text link="webs http://www.livenewschat.eu/canada/">http://www.livenewschat.eu/canada/</rich_text><rich_text>
+zdf: </rich_text><rich_text link="webs http://nimplus1.giniko.com">http://nimplus1.giniko.com</rich_text><rich_text>
+ard: </rich_text><rich_text link="webs http://nimplus1.giniko.com">http://nimplus1.giniko.com</rich_text><rich_text>
+sky: </rich_text><rich_text link="webs http://www.streamago.tv/">http://www.streamago.tv/</rich_text><rich_text>
+</rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文
 
 ocr文字识别调研：
 </rich_text><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> |开源|python |Linux| 不支持英文，
