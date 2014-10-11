@@ -794,7 +794,9 @@ print location
 # 'dog': [8], 'quick': [1], 'the': [0, 6], 'jumps': [4]})</rich_text></node><node name="oneline" prog_lang="custom-colors" readonly="False" tags="" unique_id="63"><rich_text>求100 以内的质数
 filter(lambda x: not [x%i for i in range(2,x) if x%i==0], range(2,101))</rich_text></node><node name="scrapy" prog_lang="custom-colors" readonly="False" tags="" unique_id="33"><rich_text link="webs http://www.tuicool.com/articles/3y6ba2">http://www.tuicool.com/articles/3y6ba2</rich_text><rich_text>    使用scrapy进行大规模抓取
 
-scrapy 自己写一个linkextractor</rich_text></node></node><node name="Lua" prog_lang="custom-colors" readonly="False" tags="" unique_id="30"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="31"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
+scrapy 自己写一个linkextractor
+</rich_text><rich_text link="webs http://www.kankanews.com/ICkengine/archives/94817.shtml">http://www.kankanews.com/ICkengine/archives/94817.shtml</rich_text><rich_text>   使用python，scrapy写（定制）爬虫的经验，资料，杂。
+</rich_text></node></node><node name="Lua" prog_lang="custom-colors" readonly="False" tags="" unique_id="30"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="31"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
 find -mmin -60 -exec ls -l {} \;
 
 redirect io to null 
