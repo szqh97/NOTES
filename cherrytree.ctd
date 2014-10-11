@@ -1562,7 +1562,9 @@ http://vim.sourceforge.net/scripts/script_search_results.php?order_by=rating
 </rich_text><rich_text weight="heavy">:r !ls 会把执行的命令导入到vim中</rich_text><rich_text>
 
 </rich_text><rich_text link="webs http://ju.outofmemory.cn/entry/49172">http://ju.outofmemory.cn/entry/49172</rich_text><rich_text>
-</rich_text></node></node><node name="vobile" prog_lang="custom-colors" readonly="False" tags="" unique_id="16"><rich_text>./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i 2.1387533947744.1387534303616.vdna -r t.xml
+
+vim ide
+</rich_text><rich_text link="webs http://blog.jobbole.com/72744/">http://blog.jobbole.com/72744/</rich_text></node></node><node name="vobile" prog_lang="custom-colors" readonly="False" tags="" unique_id="16"><rich_text>./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i 2.1387533947744.1387534303616.vdna -r t.xml
 ./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i </rich_text><rich_text link="webs http://192.168.1.249/download/2.1388696339843.1388699999970.tgz">2.1388696339843.1388699999970.</rich_text><rich_text>vdna -r x.xml
 
 </rich_text><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="41"><rich_text>vobile 常用
