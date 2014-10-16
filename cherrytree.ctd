@@ -799,7 +799,12 @@ scrapy 自己写一个linkextractor
 
 </rich_text><rich_text link="webs http://my.oschina.net/zhangdapeng89/blog/69870">http://my.oschina.net/zhangdapeng89/blog/69870</rich_text><rich_text>
 scrapy xpath 
-</rich_text><rich_text link="webs http://yangchao.me/2014/03/scrapy-xpath/">http://yangchao.me/2014/03/scrapy-xpath/</rich_text></node></node><node name="Lua" prog_lang="custom-colors" readonly="False" tags="" unique_id="30"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="31"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
+</rich_text><rich_text link="webs http://yangchao.me/2014/03/scrapy-xpath/">http://yangchao.me/2014/03/scrapy-xpath/</rich_text><rich_text>
+
+pywebkit
+</rich_text><rich_text link="webs http://blog.motane.lu/2009/07/07/downloading-a-pages-content-with-python-and-webkit/">http://blog.motane.lu/2009/07/07/downloading-a-pages-content-with-python-and-webkit/</rich_text><rich_text>
+</rich_text></node></node><node name="Lua" prog_lang="custom-colors" readonly="False" tags="" unique_id="30"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="31"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text>
+</rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
 find -mmin -60 -exec ls -l {} \;
 
 redirect io to null 
