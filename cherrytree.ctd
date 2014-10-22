@@ -376,7 +376,8 @@ Pop highest element from stack:           x, a = a[len(a)-1], a[:len(a)-1]
 Push an element x on a stack :            a = append(a, x)</codebox><codebox char_offset="999" frame_height="100" frame_width="1000" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="chdr" width_in_pixels="True">    if v, ok := o.(stockPosition); ok {
         // o's type is stockPosition
     }  
-    // o's type is not stockPosition</codebox></node></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
+    // o's type is not stockPosition</codebox></node></node><node name="GFW" prog_lang="custom-colors" readonly="False" tags="" unique_id="34"><rich_text link="webs http://blog.sina.com.cn/s/blog_6fa5aa4a01010wel.html">http://blog.sina.com.cn/s/blog_6fa5aa4a01010wel.html</rich_text><rich_text>
+</rich_text></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
 </rich_text><rich_text scale="h1">使用npm install XXX 时出现“failed to fetch from regi...</rich_text><rich_text>
 设置http_proxy 环境变量，比如
  export http_proxy=&quot;http://10.123.74.137:808&quot;
