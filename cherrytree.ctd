@@ -1064,6 +1064,11 @@ lockd: 192.168.1.
 mountd: 192.168.1.
 rquotad: 192.168.1.
 statd: 192.168.1.
+
+</rich_text><rich_text style="italic">
+</rich_text><rich_text scale="h3" style="italic">sleep 3 &amp;
+echo ${!} # print pid of background process</rich_text><rich_text style="italic">
+</rich_text><rich_text>
 </rich_text><codebox char_offset="3052" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
 
 + :：:label，标志一个label，用于b/t的跳转
