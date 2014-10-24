@@ -127,7 +127,9 @@ int myentry(int argc, char *argv[])
 }
 
 LD_PRELOAD环境变量加载一些库,覆盖原有的方法,
-</rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="7"><rich_text foreground="#000000">1. Loki 封装设计模式的一个类库，有时间看一下</rich_text><rich_text>
+
+C++ 通用集合
+</rich_text><rich_text link="webs http://blog.jobbole.com/78901/">http://blog.jobbole.com/78901/</rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="7"><rich_text foreground="#000000">1. Loki 封装设计模式的一个类库，有时间看一下</rich_text><rich_text>
 </rich_text><rich_text link="webs http://loki-lib.sourceforge.net/index.php?n=Main.HomePage">http://loki-lib.sourceforge.net/index.php?n=Main.HomePage</rich_text><rich_text>
 Documentation
 </rich_text><rich_text link="webs http://loki-lib.sourceforge.net/html/modules.html">http://loki-lib.sourceforge.net/html/modules.html</rich_text><rich_text>
