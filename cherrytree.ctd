@@ -632,7 +632,26 @@ FFmpeg option x264 option
 </rich_text><rich_text link="webs http://93.184.221.133/hls-live/20C1A9/bbc_world/ls_satlink/b_828.m3u8">http://93.184.221.133/hls-live/20C1A9/bbc_world/ls_satlink/b_828.m3u8</rich_text><rich_text> bbc_world
 ffmpeg 直接录制v4l2
 ffmpeg  -y -f alsa -i hw:1 -f video4linux2 -s 720x480 -r 25 -i /dev/video1 2.2.mp4
-ffmpeg  -y -f alsa -i hw:6 -f video4linux2 -s 720x480 -r 25 -i /dev/video6 7.2.mp4</rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
+ffmpeg  -y -f alsa -i hw:6 -f video4linux2 -s 720x480 -r 25 -i /dev/video6 7.2.mp4</rich_text></node></node><node name="spider" prog_lang="custom-colors" readonly="False" tags="" unique_id="33"><rich_text link="webs http://www.tuicool.com/articles/3y6ba2">http://www.tuicool.com/articles/3y6ba2</rich_text><rich_text>    使用scrapy进行大规模抓取
+
+scrapy 自己写一个linkextractor
+</rich_text><rich_text link="webs http://www.kankanews.com/ICkengine/archives/94817.shtml">http://www.kankanews.com/ICkengine/archives/94817.shtml</rich_text><rich_text>   使用python，scrapy写（定制）爬虫的经验，资料，杂。
+
+</rich_text><rich_text link="webs http://my.oschina.net/zhangdapeng89/blog/69870">http://my.oschina.net/zhangdapeng89/blog/69870</rich_text><rich_text>
+scrapy xpath 
+</rich_text><rich_text link="webs http://yangchao.me/2014/03/scrapy-xpath/">http://yangchao.me/2014/03/scrapy-xpath/</rich_text><rich_text>
+
+pywebkit
+</rich_text><rich_text link="webs http://blog.motane.lu/2009/07/07/downloading-a-pages-content-with-python-and-webkit/">http://blog.motane.lu/2009/07/07/downloading-a-pages-content-with-python-and-webkit/</rich_text><rich_text>
+
+
+
+</rich_text><rich_text link="webs http://www.cnblogs.com/lixiuran/p/3328334.html">社会化海量数据采集爬虫框架搭建</rich_text><rich_text>
+</rich_text><rich_text link="webs http://www.cnblogs.com/lixiuran/p/3328334.html">http://www.cnblogs.com/lixiuran/p/3328334.html</rich_text><rich_text>
+
+
+</rich_text><rich_text link="webs http://www.cnblogs.com/lixiuran/p/3328332.html">nutch 存储到数据库</rich_text><rich_text>
+</rich_text><rich_text link="webs http://www.cnblogs.com/lixiuran/p/3328332.html">http://www.cnblogs.com/lixiuran/p/3328332.html</rich_text></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
     pynotify.init(&quot;eye-guard&quot;)    
     msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
     msg.show() </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
@@ -795,18 +814,7 @@ print location
  
 # defaultdict(&lt;type 'list'&gt;, {'brown': [2], 'lazy': [7], 'over': [5], 'fox': [3],
 # 'dog': [8], 'quick': [1], 'the': [0, 6], 'jumps': [4]})</rich_text></node><node name="oneline" prog_lang="custom-colors" readonly="False" tags="" unique_id="63"><rich_text>求100 以内的质数
-filter(lambda x: not [x%i for i in range(2,x) if x%i==0], range(2,101))</rich_text></node><node name="scrapy" prog_lang="custom-colors" readonly="False" tags="" unique_id="33"><rich_text link="webs http://www.tuicool.com/articles/3y6ba2">http://www.tuicool.com/articles/3y6ba2</rich_text><rich_text>    使用scrapy进行大规模抓取
-
-scrapy 自己写一个linkextractor
-</rich_text><rich_text link="webs http://www.kankanews.com/ICkengine/archives/94817.shtml">http://www.kankanews.com/ICkengine/archives/94817.shtml</rich_text><rich_text>   使用python，scrapy写（定制）爬虫的经验，资料，杂。
-
-</rich_text><rich_text link="webs http://my.oschina.net/zhangdapeng89/blog/69870">http://my.oschina.net/zhangdapeng89/blog/69870</rich_text><rich_text>
-scrapy xpath 
-</rich_text><rich_text link="webs http://yangchao.me/2014/03/scrapy-xpath/">http://yangchao.me/2014/03/scrapy-xpath/</rich_text><rich_text>
-
-pywebkit
-</rich_text><rich_text link="webs http://blog.motane.lu/2009/07/07/downloading-a-pages-content-with-python-and-webkit/">http://blog.motane.lu/2009/07/07/downloading-a-pages-content-with-python-and-webkit/</rich_text><rich_text>
-</rich_text></node></node><node name="Lua" prog_lang="custom-colors" readonly="False" tags="" unique_id="30"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="31"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text>
+filter(lambda x: not [x%i for i in range(2,x) if x%i==0], range(2,101))</rich_text></node></node><node name="Lua" prog_lang="custom-colors" readonly="False" tags="" unique_id="30"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="31"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text>
 </rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
 find -mmin -60 -exec ls -l {} \;
 
