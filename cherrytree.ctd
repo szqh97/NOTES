@@ -698,7 +698,9 @@ XPath checker
 2.  写一个 scrapy 的 下载handler，这是scrapy支持的插件，并且不影响其他框架功能的运行，下载器的开发我会在下一篇讲一下
 
 网络爬虫
-</rich_text><rich_text link="webs http://www.hopez.org/blog/9">http://www.hopez.org/blog/9</rich_text></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
+</rich_text><rich_text link="webs http://www.hopez.org/blog/9">http://www.hopez.org/blog/9</rich_text><node name="notes" prog_lang="custom-colors" readonly="False" tags="" unique_id="35"><rich_text>1.  运行 </rich_text><rich_text style="italic">scrapy list</rich_text><rich_text> 查看当前有的蜘蛛
+2.  运行 </rich_text><rich_text style="italic">scrapy crawl -t json -o result.json doubanBook</rich_text><rich_text> 输出爬取的结果到 json 格式的结果文件
+</rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
     pynotify.init(&quot;eye-guard&quot;)    
     msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
     msg.show() </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
