@@ -679,7 +679,18 @@ webkitdownloader
 
 
 </rich_text><rich_text link="webs http://www.dandingla.com/?p=222" scale="h1">scrapy采集痛点</rich_text><rich_text>
-</rich_text><rich_text link="webs http://www.dandingla.com/?p=222">http://www.dandingla.com/?p=222</rich_text></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
+</rich_text><rich_text link="webs http://www.dandingla.com/?p=222">http://www.dandingla.com/?p=222</rich_text><rich_text>
+
+
+XPath checker
+
+
+</rich_text><rich_text scale="h2">scrapy框架的使用</rich_text><rich_text>（模拟浏览器）
+</rich_text><rich_text link="webs http://blog.sina.com.cn/s/blog_131312cdc0102uxxl.html">http://blog.sina.com.cn/s/blog_131312cdc0102uxxl.html</rich_text><rich_text>
+
+
+</rich_text><rich_text scale="h2">用python爬虫时， 如何处理网页中有javascript动态增加的部分？</rich_text><rich_text>
+</rich_text><rich_text link="webs http://www.zhihu.com/question/19972109">http://www.zhihu.com/question/19972109</rich_text></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
     pynotify.init(&quot;eye-guard&quot;)    
     msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
     msg.show() </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
@@ -1611,7 +1622,8 @@ vpn
 代理
 </rich_text><rich_text link="webs http://www.samair.ru/proxy-by-country/China-01.htm">http://www.samair.ru/proxy-by-country/China-01.htm</rich_text><rich_text> 
 论文
-</rich_text><rich_text link="webs http://buptcnc.cn/Lab_Paper/">http://buptcnc.cn/Lab_Paper/</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
+</rich_text><rich_text link="webs http://buptcnc.cn/Lab_Paper/">http://buptcnc.cn/Lab_Paper/</rich_text><rich_text>
+</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
 :set rnu 相对行号
 
 
