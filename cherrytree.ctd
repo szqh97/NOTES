@@ -651,7 +651,10 @@ pywebkit
 
 
 </rich_text><rich_text link="webs http://www.cnblogs.com/lixiuran/p/3328332.html">nutch 存储到数据库</rich_text><rich_text>
-</rich_text><rich_text link="webs http://www.cnblogs.com/lixiuran/p/3328332.html">http://www.cnblogs.com/lixiuran/p/3328332.html</rich_text></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
+</rich_text><rich_text link="webs http://www.cnblogs.com/lixiuran/p/3328332.html">http://www.cnblogs.com/lixiuran/p/3328332.html</rich_text><rich_text>
+
+scrapy
+</rich_text><rich_text link="webs http://blog.csdn.net/column/details/younghz-scrapy.html">http://blog.csdn.net/column/details/younghz-scrapy.html</rich_text></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
     pynotify.init(&quot;eye-guard&quot;)    
     msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
     msg.show() </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
