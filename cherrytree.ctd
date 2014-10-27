@@ -675,7 +675,11 @@ webkitdownloader
 </rich_text><rich_text link="webs http://hackerxu.com/2014/09/07/scrapy-jd.html">http://hackerxu.com/2014/09/07/scrapy-jd.html</rich_text><rich_text>
 
 抓包
-抓包发现scrapy发出的http请求是1.0的，改成了1.1就好了，不明所以...没时间找原因了，- -赶快做毕设去。。</rich_text></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
+抓包发现scrapy发出的http请求是1.0的，改成了1.1就好了，不明所以...没时间找原因了，- -赶快做毕设去。。
+
+
+</rich_text><rich_text link="webs http://www.dandingla.com/?p=222" scale="h1">scrapy采集痛点</rich_text><rich_text>
+</rich_text><rich_text link="webs http://www.dandingla.com/?p=222">http://www.dandingla.com/?p=222</rich_text></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
     pynotify.init(&quot;eye-guard&quot;)    
     msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
     msg.show() </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
@@ -1606,7 +1610,8 @@ vpn
 </rich_text><rich_text link="webs https://www.grjsq.me/xianlu.html">https://www.grjsq.me/xianlu.html</rich_text><rich_text>
 代理
 </rich_text><rich_text link="webs http://www.samair.ru/proxy-by-country/China-01.htm">http://www.samair.ru/proxy-by-country/China-01.htm</rich_text><rich_text> 
-</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
+论文
+</rich_text><rich_text link="webs http://buptcnc.cn/Lab_Paper/">http://buptcnc.cn/Lab_Paper/</rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
 :set rnu 相对行号
 
 
