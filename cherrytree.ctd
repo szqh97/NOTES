@@ -697,8 +697,13 @@ XPath checker
 1.  casperjs,phantomjs 无界面浏览器（headless browser）
 2.  写一个 scrapy 的 下载handler，这是scrapy支持的插件，并且不影响其他框架功能的运行，下载器的开发我会在下一篇讲一下
 
+</rich_text><rich_text scale="h1">PhantomJS </rich_text><rich_text>
+
+</rich_text><rich_text link="webs http://javascript.ruanyifeng.com/tool/phantomjs.html">http://javascript.ruanyifeng.com/tool/phantomjs.html</rich_text><rich_text>
 网络爬虫
-</rich_text><rich_text link="webs http://www.hopez.org/blog/9">http://www.hopez.org/blog/9</rich_text><node name="notes" prog_lang="custom-colors" readonly="False" tags="" unique_id="35"><rich_text>1.  运行 </rich_text><rich_text style="italic">scrapy list</rich_text><rich_text> 查看当前有的蜘蛛
+</rich_text><rich_text link="webs http://www.hopez.org/blog/9">http://www.hopez.org/blog/9</rich_text><rich_text>
+
+</rich_text><node name="notes" prog_lang="custom-colors" readonly="False" tags="" unique_id="35"><rich_text>1.  运行 </rich_text><rich_text style="italic">scrapy list</rich_text><rich_text> 查看当前有的蜘蛛
 2.  运行 </rich_text><rich_text style="italic">scrapy crawl -t json -o result.json doubanBook</rich_text><rich_text> 输出爬取的结果到 json 格式的结果文件
 
  
