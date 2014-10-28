@@ -700,6 +700,12 @@ XPath checker
 网络爬虫
 </rich_text><rich_text link="webs http://www.hopez.org/blog/9">http://www.hopez.org/blog/9</rich_text><node name="notes" prog_lang="custom-colors" readonly="False" tags="" unique_id="35"><rich_text>1.  运行 </rich_text><rich_text style="italic">scrapy list</rich_text><rich_text> 查看当前有的蜘蛛
 2.  运行 </rich_text><rich_text style="italic">scrapy crawl -t json -o result.json doubanBook</rich_text><rich_text> 输出爬取的结果到 json 格式的结果文件
+
+ 
+
+</rich_text><rich_text scale="h2">技术点</rich_text><rich_text>
+1.  页面的分析主要采用 xpath/css选择器/dom解析/正则表达式 等方式处理（上面演示了2种方法）
+2.  解析函数被调用的方式是基于异步回调，不要在解析函数内调用长时间阻塞的函数，要尽快把控制权返回给引擎
 </rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
     pynotify.init(&quot;eye-guard&quot;)    
     msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
