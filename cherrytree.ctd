@@ -2173,7 +2173,87 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
         end_ts: 1787798
 program_status: initialized
 1 row in set (0.00 sec)
-</rich_text></node></node><node name="CNTV" prog_lang="custom-colors" readonly="False" tags="" unique_id="32"><rich_text link="webs http://www.giniko.com/watch.php?id=36">http://www.giniko.com/watch.php?id=36</rich_text><rich_text>  ZDF need account</rich_text></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+</rich_text></node><node name="VTWeb API" prog_lang="custom-colors" readonly="False" tags="" unique_id="38"><rich_text>1. 登陆
+  接口: https://vobileVT/VTWeb/login
+  方法: POST
+  参数:
+            username
+            password
+   response:
+            ErrorCode
+            ErrorMsg
+            
+2. 入库：
+    接口: http://vobileVT/VTWeb/ingest
+    方法: POST
+    参数：
+            dnadata
+            keyword
+    response:
+            ErrorCode
+            ErrorMsg
+            instance_uuid
+            meta_uuid
+         
+3. 母本管理
+    接口：http://vobileVT/VTWeb/reference/{uuid}
+    方法：GET, PUT
+    参数：
+            GET: N/A
+            PUT:
+                meta_uuid
+                instance_uuid
+    response:
+        GET:
+              ErrorCode
+              ErrorMsg
+              instance_uuid
+              meta_uuid
+              keyworld
+              duration
+              
+         PUT:
+             ErrorCode
+             ErrorMsg
+    
+ 4. Keyword管理
+    接口：http://vobileVT/VTWeb/keyworld/{keyword}
+    方法: DELETE, PUT
+    参数:
+        DELETE: N/A
+        PUT: 
+            instance_uuid
+            meta_uuid
+    response:
+        DELETE:
+            ErrorCode, ErrorMsg
+        PUT:
+            ErrorCode, ErrorMsg, taskId
+            
+ 5. 开启监测
+    接口: http://vobileVT/VTWeb/startmonitor
+    方法: POST
+    参数:
+        taskId
+     response:  
+        ErrorCod, ErrorMsg
+        
+ 6.Match
+    接口: http://vobileVT/VTWeb/getMatchList/{taskId}
+    方法: GET
+    参数: N/A
+    response:
+        ErrorCode, ErrorMsg, matchedMediaList, 
+        mediaId, matchedDuration, mediaUrl, notifiedStatus, claimedStatus
+        
+ 7. 发送邮件/claim
+    接口: http://vobileVT/VTWeb/notification
+    方法: POST
+    参数:
+        matchedMediaList, mediaId, type, notifiedStatus, claimedStatus
+    response:
+       ErrorCode, ErrorMsg
+        </rich_text></node></node><node name="CNTV" prog_lang="custom-colors" readonly="False" tags="" unique_id="32"><rich_text link="webs http://www.giniko.com/watch.php?id=36">http://www.giniko.com/watch.php?id=36</rich_text><rich_text>  ZDF need account</rich_text></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
 2. mysql&gt; show status like '%onn%';
 
@@ -2318,4 +2398,6 @@ intresting code
 </rich_text><rich_text link="webs http://www.keithschwarz.com/interesting/">http://www.keithschwarz.com/interesting/</rich_text><rich_text>
 
 hack fan
-</rich_text><rich_text link="webs http://fediafedia.com/neo/">http://fediafedia.com/neo/</rich_text><rich_text>  </rich_text></node></cherrytree>
+</rich_text><rich_text link="webs http://fediafedia.com/neo/">http://fediafedia.com/neo/</rich_text><rich_text>  
+
+</rich_text></node></cherrytree>
