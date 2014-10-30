@@ -2380,6 +2380,7 @@ Authorization: &quot;TOKEN&quot;
  * api_token
  * dna_data
 === Response ===
+Normal:
 {
   &quot;code&quot;: 0,
   &quot;body&quot;: [
@@ -2420,6 +2421,9 @@ Authorization: &quot;TOKEN&quot;
   ],
   &quot;msg&quot;: &quot;Successful&quot;
 }
+
+Error:
+
 
 == Meta Management ==
 == Get Meta ==
