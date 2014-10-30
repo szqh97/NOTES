@@ -2255,7 +2255,7 @@ program_status: initialized
         matchedMediaList, mediaId, type, notifiedStatus, claimedStatus
     response:
        ErrorCode, ErrorMsg
-        </rich_text></node></node><node name="CNTV" prog_lang="custom-colors" readonly="False" tags="" unique_id="32"><rich_text link="webs http://www.giniko.com/watch.php?id=36">http://www.giniko.com/watch.php?id=36</rich_text><rich_text>  ZDF need account</rich_text></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+        </rich_text></node></node><node name="CNTV" prog_lang="custom-colors" readonly="False" tags="" unique_id="32"><rich_text link="webs http://www.giniko.com/watch.php?id=36">http://www.giniko.com/watch.php?id=36</rich_text><rich_text>  ZDF need account</rich_text></node><node name="javascripts" prog_lang="custom-colors" readonly="False" tags="" unique_id="48"><rich_text link="webs http://javascript.ruanyifeng.com/">http://javascript.ruanyifeng.com/</rich_text></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
 2. mysql&gt; show status like '%onn%';
 
