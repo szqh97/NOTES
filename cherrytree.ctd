@@ -1518,7 +1518,7 @@ sed -i &quot;s#([0-9]{1,3}.){3}[0-9]{1,3}:([0-9]){1,4}#${IPPORT}#g&quot; &quot;$
 sed -e &quot;/^[A-Za-z_][A-Za-z0-9_]* [A-Za-z_][A-Za-z0-9_]*::[A-Za-z_][A-Za-z0-9_]*(/=&quot; tttt #在tttt中查找类似UINT32 MyClass::setMyClass所在的行号
 
 sed -e ':K;N;s/\n/ /;bK' t #合并所有行，使用的label
-sed -e 'N;s/n/ /g' t #合并两行,多行类似
+sed -e 'N;s/\n/ /g' t #合并两行,多行类似
 
 sed -e '3{h;d}; 5{G}' t #交换3，5行， h,d,G
 
@@ -1858,7 +1858,7 @@ wirte a script which vim can load tags which the open file is needed and lib scr
 
 寻找业余项目可以尝试从Elance、 oDesk或者Freelancer这些网站开始。
 
-</rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="46"><rich_text></rich_text></node><node name="HZ" prog_lang="custom-colors" readonly="False" tags="" unique_id="55"><rich_text>漠尔阁zi （一下子想不起来，莫名奇妙）
+</rich_text></node><node name="HZ" prog_lang="custom-colors" readonly="False" tags="" unique_id="55"><rich_text>漠尔阁zi （一下子想不起来，莫名奇妙）
 lege (难弄，难对付,挑三捡四）niannong
 燥（sao）语（wo），废话
 zhongdeibuzhun: 脑子进水，不靠谱
@@ -1921,7 +1921,7 @@ jiangweilao 身体虚弱
  daomen 好
  gualeyigao 摔了一跤
  jiepang 腿
- dei4 抖</rich_text></node></node><node name="opencv" prog_lang="custom-colors" readonly="False" tags="" unique_id="59"><rich_text>基于OpenCV的匀速模糊图像复原与算法分析
+ dei4 抖</rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="46"><rich_text></rich_text></node></node><node name="opencv" prog_lang="custom-colors" readonly="False" tags="" unique_id="59"><rich_text>基于OpenCV的匀速模糊图像复原与算法分析
 </rich_text><rich_text link="webs http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9">http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9</rich_text><rich_text>
 opencv 的一些例子
 </rich_text><rich_text link="webs http://zwmin.com/?cat=1">http://zwmin.com/?cat=1</rich_text><rich_text>
