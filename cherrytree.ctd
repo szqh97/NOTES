@@ -2255,7 +2255,417 @@ program_status: initialized
         matchedMediaList, mediaId, type, notifiedStatus, claimedStatus
     response:
        ErrorCode, ErrorMsg
-        </rich_text></node></node><node name="CNTV" prog_lang="custom-colors" readonly="False" tags="" unique_id="32"><rich_text link="webs http://www.giniko.com/watch.php?id=36">http://www.giniko.com/watch.php?id=36</rich_text><rich_text>  ZDF need account</rich_text></node><node name="javascripts" prog_lang="custom-colors" readonly="False" tags="" unique_id="48"><rich_text link="webs http://javascript.ruanyifeng.com/">http://javascript.ruanyifeng.com/</rich_text></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+        </rich_text></node><node name="api" prog_lang="custom-colors" readonly="False" tags="" unique_id="52"><rich_text>[[TOC()]]
+
+= Vobile VideoTracking API =
+
+== Introduction ==
+
+Todo
+
+== Audience ==
+Todo
+
+== API Key ==
+
+All developers need to apply for a API Key before getting started. The API Key should not be shared.
+
+== Usage Limits ==
+Todo
+
+== Current Version ==
+By default, all requests receive the v1 version of the API.
+
+== Schema ==
+All API access is over HTTPS, and accessed from the &quot;api.vobile.net&quot; domain. All data is sent and received as JSON.
+
+Blank fields are included as &quot;null&quot; instead of being omitted.
+
+All timestamps are returned in ISO 8601 format:
+
+{{{
+YYYY-MM-DDTHH:MM:SSZ
+}}}
+
+Summary Representations: When you fetch a list of resources, the response includes a subset of the attributes for that resource. The summary representation excludes some attributes. If you want to obtain these attributes, fetch the “detailed” representation.
+
+Detailed Representations: When you fetch an individual resource, the response typically includes all attributes for that resource.
+
+== Parameters ==
+
+Many API methods take optional parameters. For GET requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter.
+
+For POST, PATCH, PUT, and DELETE requests, parameters not included in the URL should be encoded as JSON with a Content-Type of 'application/json'.
+
+== Obtaining Token ==
+A Obtaining Token request takes the following form:
+
+{{{
+Get
+</rich_text><rich_text link="webs https://api.vobile.net/vt/api/token?api_key=API-KEY&amp;client_id=CLIENT-ID">https://api.vobile.net/vt/api/token?api_key=API-KEY&amp;client_id=CLIENT-ID</rich_text><rich_text>
+
+Authorization: null
+Content-Type: application/json
+}}}
+=== Request Parameters ===
+Certain parameters are required while others are optional. As is standard in URLs, all parameters are separated using the ampersand (&amp;) character. The list of parameters and their possible values are enumerated below.
+
+==== Required parameters ====
+
+ * api_key: The API Key you received from Vobile.
+
+==== Optional parameters ====
+
+ * client_id: 
+
+=== Response ===
+By default, the response will take the following form:
+{{{
+HTTP/1.1 200 OK
+
+Authorization: &quot;TOKEN&quot;
+
+{
+  &quot;result&quot;: null,
+  &quot;error&quot;: null,
+  &quot;version&quot;: &quot;v1&quot;
+}
+}}}
+
+==== Response Elements ====
+
+Authorization: 
+
+==== Failed authentication limit ====
+
+Authenticating with invalid API Key will return &quot;401&quot; Unauthorized.
+{{{
+HTTP/1.1 401 Unauthorized
+
+{
+  &quot;result&quot;: null,
+  &quot;error&quot;: {
+    code: &quot;60401&quot;
+    &quot;message&quot;: &quot;Bad API Key&quot;,
+  }  
+  &quot;version&quot;: &quot;v1&quot;
+}
+}}}
+
+After detecting several requests with invalid API Key within a short period, the API will temporarily reject all authentication attempts for that IP address with 403 Forbidden:
+{{{
+HTTP/1.1 403 Forbidden
+
+{
+  &quot;result&quot;: null,
+  &quot;error&quot;: {
+    code: &quot;60403&quot;
+    &quot;message&quot;: &quot;Maximum number of attempts attempts exceeded. Please try again later.&quot;,
+  }  
+  &quot;version&quot;: &quot;v1&quot;
+}
+}}}
+
+== Ingest VDNA ==
+Introduction(Todo)
+{{{
+POST
+
+https://api.vobile.net/vt/api/dnaingest
+
+Authorization: &quot;TOKEN&quot;
+}}}
+=== Request Parameters ===
+==== Required parameters ====
+ * api_token
+ * dna_data
+=== Response ===
+{
+  &quot;code&quot;: 0,
+  &quot;body&quot;: [
+    {
+      &quot;id&quot;: {
+        &quot;value&quot;: &quot;&quot;,
+        &quot;type&quot;: &quot;Other&quot;
+      },
+      &quot;type&quot;: &quot;Movie&quot;,
+      &quot;tag&quot;: &quot;&quot;,
+      &quot;duration&quot;: 11,
+      &quot;updated_at&quot;: &quot;2014-10-30 08:52:20&quot;,
+      &quot;title&quot;: &quot;test_movie&quot;,
+      &quot;studio_owner&quot;: &quot;&quot;,
+      &quot;instances&quot;: [
+        &quot;0f10e926-6012-11e4-9f57-fa163e2f152f&quot;
+      ],
+      &quot;release_date&quot;: &quot;2014-10-30&quot;,
+      &quot;rating&quot;: &quot;&quot;,
+      &quot;company_id&quot;: 1,
+      &quot;right_owner&quot;: &quot;&quot;,
+      &quot;cast&quot;: &quot;&quot;,
+      &quot;is_valid&quot;: &quot;valid&quot;,
+      &quot;genre&quot;: &quot;&quot;,
+      &quot;typed_info&quot;: {
+        &quot;description&quot;: &quot;&quot;,
+        &quot;sub_type&quot;: &quot;Movie&quot;,
+        &quot;metalink&quot;: &quot;&quot;,
+        &quot;country&quot;: &quot;&quot;,
+        &quot;alternate_url&quot;: &quot;&quot;,
+        &quot;track_no&quot;: 0,
+        &quot;alternate_info&quot;: &quot;&quot;,
+        &quot;director&quot;: &quot;&quot;
+      },
+      &quot;created_at&quot;: &quot;2014-10-30 08:52:20&quot;,
+      &quot;meta_uuid&quot;: &quot;0f08c07a-6012-11e4-931d-fa163e2f152f&quot;
+    }
+  ],
+  &quot;msg&quot;: &quot;Successful&quot;
+}
+
+== Meta Management ==
+== Get Meta ==
+Introduction (Todo)
+
+{{{
+GET 
+
+</rich_text><rich_text link="webs https://api.vobile.net/vt/api/meta/json?meta_uuid=META_UUID">https://api.vobile.net/vt/api/meta/json?meta_uuid=META_UUID</rich_text><rich_text>
+
+Authorization: &quot;TOKEN&quot;
+Content-Type: application/json
+
+}}}
+=== Request Parameters ===
+Certain parameters are required while others are optional. As is standard in URLs, all parameters are separated using the ampersand (&amp;) character. The list of parameters and their possible values are enumerated below.
+
+==== Required parameters ====
+ * api_token
+ * meta_uuid
+
+==== Optional parameters ====
+=== Response ===
+{{{
+
+{
+             &quot;id&quot;: &quot;8409&quot;,
+             &quot;company_id&quot;: &quot;116&quot;,
+             &quot;title&quot;: &quot;South Park&quot;,
+             &quot;display_name&quot;: &quot;South Park&quot;,
+             &quot;format_title&quot;: &quot;&quot;,
+             &quot;studio&quot;: &quot;&quot;,
+             &quot;releasedate&quot;: &quot;2012-06-06&quot;,
+             &quot;startdate&quot;: &quot;2012-06-01 01:00:00.0&quot;,
+             &quot;published_time&quot;: &quot;2012-06-01 01:00:00.0&quot;,
+             &quot;created&quot;: &quot;2012-06-06 18:11:35.0&quot;,
+             &quot;tracking_setting_id&quot;: &quot;4&quot;,
+             &quot;duration&quot;: 298,
+             &quot;meta_uuid&quot;: &quot;d2024750-afbf-11e1-99c2-080027cf46d6&quot;,
+             &quot;priority_name&quot;: &quot;1&quot;,
+             &quot;delete_flag&quot;: 0,
+             &quot;updated&quot;: &quot;2013-01-29 23:02:29.0&quot;,
+             &quot;tag&quot;: &quot;&quot;,
+             &quot;contentType&quot;: &quot;Music&quot;,
+             &quot;cast&quot;: &quot;&quot;,
+             &quot;needConfirmFlag&quot;: 0,
+             &quot;vddbDeleted&quot;: true
+ }
+
+}}}
+==== Response Elements ====
+ * id
+ * Todo
+
+### Update Meta ###
+
+#### Introduction ####
+
+{{{
+
+</rich_text><rich_text link="webs http">http</rich_text><rich_text> method: PUT
+
+</rich_text><rich_text link="webs https://api.videotracker.vobile.net/meta/up?api_token=API_TOKEN&amp;meta_uuid=META_UUID">https://api.videotracker.vobile.net/meta/up?api_token=API_TOKEN&amp;meta_uuid=META_UUID</rich_text><rich_text>
+
+{
+     &quot;title&quot;: &quot;South Park&quot;,
+     &quot;display_name&quot;: &quot;South Park&quot;,
+     &quot;release_date&quot;: &quot;2012-06-06&quot;,
+     &quot;published_time&quot;: &quot;2012-06-01 01:00:00.0&quot;,
+     &quot;duration&quot;: 298,
+     &quot;priority_name&quot;: &quot;1&quot;
+}
+
+}}}
+#### Request Parameters ####
+
+##### Required Parameters #####
+
+api_token meta_uuid
+
+##### Optional Parameters #####
+
+display_name release_date published_time  duration priority_name
+
+#### Response ####
+
+Normal:
+
+{{{
+
+{&quot;errcode&quot;:0,&quot;errmsg&quot;:&quot;ok&quot;}
+
+}}}
+Error:
+
+{{{
+
+{&quot;errcode&quot;:9999,&quot;errmsg&quot;:&quot;ok&quot;}
+
+}}}
+## Keyword Managment ##
+
+### Get Keyword ###
+
+#### Introduction ####
+
+{{{
+
+</rich_text><rich_text link="webs http">http</rich_text><rich_text> method: GET
+
+</rich_text><rich_text link="webs https://api.videotracker.vobile.net/keyword/get?api_token=API_TOKEN&amp;meta_uuid=META_UUID">https://api.videotracker.vobile.net/keyword/get?api_token=API_TOKEN&amp;meta_uuid=META_UUID</rich_text><rich_text>
+
+}}}
+#### Request Parameters ####
+
+##### Required Parameters #####
+
+api_token meta_uuid
+
+#### Response ####
+
+{{{
+
+}}}
+#### Example ####
+
+{{{
+
+}}}
+### Update Keyword ###
+
+#### Introduction ####
+
+{{{
+
+</rich_text><rich_text link="webs http">http</rich_text><rich_text> method: PUT
+
+</rich_text><rich_text link="webs https://api.videotracker.vobile.net/keyword/up?api_token=API_TOKEN&amp;meta_uuid=META_UUID">https://api.videotracker.vobile.net/keyword/up?api_token=API_TOKEN&amp;meta_uuid=META_UUID</rich_text><rich_text>
+
+{
+     [{keyword: &quot;KEYWORD&quot;},{keyword: &quot;KEYWORD&quot;}]
+}
+
+}}}
+#### Request Parameters ####
+
+##### Required Parameters #####
+
+api_token meta_uuid
+
+##### Optional Parameters #####
+
+keyword
+
+#### Response ####
+
+Normal:
+
+{{{
+
+{&quot;errcode&quot;:0,&quot;errmsg&quot;:&quot;ok&quot;}
+
+}}}
+Error:
+
+{{{
+
+{&quot;errcode&quot;:9999,&quot;errmsg&quot;:&quot;ok&quot;}
+
+}}}
+#### Example ####
+
+{{{
+
+}}}
+## Meta Tracking ##
+
+### Start Tracking ###
+
+#### Introduction ####
+
+{{{
+
+</rich_text><rich_text link="webs http">http</rich_text><rich_text> method: POST
+
+</rich_text><rich_text link="webs https://api.videotracker.vobile.net/meta/start?api_token=API_TOKEN&amp;meta_uuid=META_UUID">https://api.videotracker.vobile.net/meta/start?api_token=API_TOKEN&amp;meta_uuid=META_UUID</rich_text><rich_text>
+
+{
+    start_date: &quot;START_DATE&quot;,
+    tracking_days: TRACKING_DAYS
+}
+
+}}}
+#### Request Parameters ####
+
+##### Required Parameters #####
+
+api_token meta_uuid
+
+##### Optional Parameters #####
+
+start_date tracking_days
+
+#### Response ####
+
+{{{
+
+}}}
+#### Example ####
+
+{{{
+
+}}}
+## Match Result ##
+
+### Show Result ###
+
+#### Introduction ####
+
+{{{
+
+</rich_text><rich_text link="webs http">http</rich_text><rich_text> method: GET
+
+</rich_text><rich_text link="webs https://api.videotracker.vobile.net/match/get?api_token=API_TOKEN&amp;page=PAGE&amp;meta_uuid=META_UUID">https://api.videotracker.vobile.net/match/get?api_token=API_TOKEN&amp;page=PAGE&amp;meta_uuid=META_UUID</rich_text><rich_text>
+
+}}}
+#### Request Parameters ####
+
+##### Required Parameters #####
+
+api_token
+
+##### Optional Parameters #####
+
+meta_uuid page
+
+#### Response ####
+
+{{{
+
+}}}
+#### Example ####
+
+{{{
+
+}}}</rich_text></node></node><node name="CNTV" prog_lang="custom-colors" readonly="False" tags="" unique_id="32"><rich_text link="webs http://www.giniko.com/watch.php?id=36">http://www.giniko.com/watch.php?id=36</rich_text><rich_text>  ZDF need account</rich_text></node><node name="javascripts" prog_lang="custom-colors" readonly="False" tags="" unique_id="48"><rich_text link="webs http://javascript.ruanyifeng.com/">http://javascript.ruanyifeng.com/</rich_text></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
 
 2. mysql&gt; show status like '%onn%';
 
