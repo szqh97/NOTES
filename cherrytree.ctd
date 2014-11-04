@@ -739,6 +739,8 @@ python tips 一人一python
 reqiest and response object (Django)
 </rich_text><rich_text link="webs https://docs.djangoproject.com/en/1.5//ref/request-response/">https://docs.djangoproject.com/en/1.5//ref/request-response/</rich_text><rich_text>
 
+twisted Document
+</rich_text><rich_text link="webs http://twistedmatrix.com/documents/10.0.0/core/howto/index.html">http://twistedmatrix.com/documents/10.0.0/core/howto/index.html</rich_text><rich_text>
 
 python 文章
 </rich_text><rich_text link="webs http://django-china.cn/topic/173/">http://django-china.cn/topic/173/</rich_text><rich_text>
