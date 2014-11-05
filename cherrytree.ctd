@@ -878,7 +878,8 @@ print location
  
 # defaultdict(&lt;type 'list'&gt;, {'brown': [2], 'lazy': [7], 'over': [5], 'fox': [3],
 # 'dog': [8], 'quick': [1], 'the': [0, 6], 'jumps': [4]})</rich_text></node><node name="oneline" prog_lang="custom-colors" readonly="False" tags="" unique_id="63"><rich_text>求100 以内的质数
-filter(lambda x: not [x%i for i in range(2,x) if x%i==0], range(2,101))</rich_text></node></node><node name="Lua" prog_lang="custom-colors" readonly="False" tags="" unique_id="30"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="31"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text>
+filter(lambda x: not [x%i for i in range(2,x) if x%i==0], range(2,101))</rich_text></node><node name="twisted" prog_lang="custom-colors" readonly="False" tags="" unique_id="53"><rich_text>twisted examples
+</rich_text><rich_text link="webs https://twistedmatrix.com/documents/current/core/examples/">https://twistedmatrix.com/documents/current/core/examples/</rich_text></node></node><node name="Lua" prog_lang="custom-colors" readonly="False" tags="" unique_id="30"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="31"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text>
 </rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
 find -mmin -60 -exec ls -l {} \;
 
