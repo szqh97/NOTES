@@ -708,6 +708,10 @@ XPath checker
 scrapyd 
 </rich_text><rich_text link="webs http://tchen.me/posts/2013-06-10-use-scrapyd-to-serve-scrapy-projects.html">http://tchen.me/posts/2013-06-10-use-scrapyd-to-serve-scrapy-projects.html</rich_text><rich_text>
 </rich_text><rich_text link="webs http://doc.scrapy.org/en/0.14/topics/scrapyd.html">http://doc.scrapy.org/en/0.14/topics/scrapyd.html</rich_text><rich_text>
+
+
+scrapy-jsonrpc
+</rich_text><rich_text link="webs https://github.com/scrapy/scrapy-jsonrpc">https://github.com/scrapy/scrapy-jsonrpc</rich_text><rich_text>
 </rich_text><node name="notes" prog_lang="custom-colors" readonly="False" tags="" unique_id="35"><rich_text>1.  运行 </rich_text><rich_text style="italic">scrapy list</rich_text><rich_text> 查看当前有的蜘蛛
 2.  运行 </rich_text><rich_text style="italic">scrapy crawl -t json -o result.json doubanBook</rich_text><rich_text> 输出爬取的结果到 json 格式的结果文件
 
