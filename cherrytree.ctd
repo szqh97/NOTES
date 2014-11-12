@@ -897,7 +897,73 @@ def create_item_class(class_name, field_list):
     for field_name in field_list:
         field_dict[field_name] = Field()
 
-    return type(class_name, (DictItem,), field_dict)</rich_text></node><node name="oneline" prog_lang="custom-colors" readonly="False" tags="" unique_id="63"><rich_text>求100 以内的质数
+    return type(class_name, (DictItem,), field_dict)
+    
+    
+    
+    
+    
+    
+## 在脚本里运行scrapy spider 
+# This snippet can be used to run scrapy spiders independent of scrapyd or the scrapy command line tool and use it from a script. 
+# 
+# The multiprocessing library is used in order to work around a bug in Twisted, in which you cannot restart an already running reactor or in this case a scrapy instance.
+# 
+# [Here](http://groups.google.com/group/scrapy-users/browse_thread/thread/f332fc5b749d401a) is the mailing-list discussion for this snippet. 
+
+#!/usr/bin/python
+import os
+os.environ.setdefault('SCRAPY_SETTINGS_MODULE', 'project.settings') #Must be at the top before other imports
+
+from scrapy import log, signals, project
+from scrapy.xlib.pydispatch import dispatcher
+from scrapy.conf import settings
+from scrapy.crawler import CrawlerProcess
+from multiprocessing import Process, Queue
+
+class CrawlerScript():
+
+    def __init__(self):
+        self.crawler = CrawlerProcess(settings)
+        if not hasattr(project, 'crawler'):
+            self.crawler.install()
+        self.crawler.configure()
+        self.items = []
+        dispatcher.connect(self._item_passed, signals.item_passed)
+
+    def _item_passed(self, item):
+        self.items.append(item)
+
+    def _crawl(self, queue, spider_name):
+        spider = self.crawler.spiders.create(spider_name)
+        if spider:
+            self.crawler.queue.append_spider(spider)
+        self.crawler.start()
+        self.crawler.stop()
+        queue.put(self.items)
+
+    def crawl(self, spider):
+        queue = Queue()
+        p = Process(target=self._crawl, args=(queue, spider,))
+        p.start()
+        p.join()
+        return queue.get(True)
+
+# Usage
+if __name__ == &quot;__main__&quot;:
+    log.start()
+
+    &quot;&quot;&quot;
+    This example runs spider1 and then spider2 three times. 
+    &quot;&quot;&quot;
+    items = list()
+    crawler = CrawlerScript()
+    items.append(crawler.crawl('spider1'))
+    for i in range(3):
+        items.append(crawler.crawl('spider2'))
+    print items
+
+</rich_text></node><node name="oneline" prog_lang="custom-colors" readonly="False" tags="" unique_id="63"><rich_text>求100 以内的质数
 filter(lambda x: not [x%i for i in range(2,x) if x%i==0], range(2,101))</rich_text></node><node name="twisted" prog_lang="custom-colors" readonly="False" tags="" unique_id="53"><rich_text>twisted examples
 </rich_text><rich_text link="webs https://twistedmatrix.com/documents/current/core/examples/">https://twistedmatrix.com/documents/current/core/examples/</rich_text></node></node><node name="Lua" prog_lang="custom-colors" readonly="False" tags="" unique_id="30"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="31"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text>
 </rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
