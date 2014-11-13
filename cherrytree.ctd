@@ -340,7 +340,47 @@ string replace(const string&amp; str, const string&amp; src, const string&amp; d
     return ret;
 }
 
-}</rich_text></node><node name="select/poll/epoll" prog_lang="custom-colors" readonly="False" tags="" unique_id="67"><rich_text></rich_text></node></node><node name="go" prog_lang="custom-colors" readonly="False" tags="" unique_id="65"><rich_text>
+}</rich_text></node><node name="select/poll/epoll" prog_lang="custom-colors" readonly="False" tags="" unique_id="67"><rich_text link="webs http://www.linuxidc.com/Linux/2012-04/57876.htm">http://www.linuxidc.com/Linux/2012-04/57876.htm</rich_text><rich_text>
+st
+</rich_text><codebox char_offset="48" frame_height="800" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="True">struct epoll_event ev, *events;
+for(;;) 
+{
+   nfds = epoll_wait(kdpfd, events, maxevents, -1);    //等待IO事件
+   for(n = 0; n &lt; nfds; ++n)
+   {
+   //如果是主socket的事件，则表示有新连接进入，需要进行新连接的处理。
+      if(events[n].data.fd == listener)
+      {
+         client = accept(listener, (struct sockaddr *) &amp;local,  &amp;addrlen);
+if(client &lt; 0)
+         {
+            perror(&quot;accept error&quot;);
+            continue;
+         }
+         // 将新连接置于非阻塞模式
+         setnonblocking(client);
+         ev.events = EPOLLIN | EPOLLET; 
+         //注意这里的参数EPOLLIN | EPOLLET并没有设置对写socket的监听，
+         //如果有写操作的话，这个时候epoll是不会返回事件的，
+         //如果要对写操作也监听的话，应该是EPOLLIN | EPOLLOUT | EPOLLET。
+         // 并且将新连接也加入EPOLL的监听队列
+         ev.data.fd = client;
+         // 设置好event之后，将这个新的event通过epoll_ctl
+         if (epoll_ctl(kdpfd, EPOLL_CTL_ADD, client, &amp;ev) &lt; 0)
+         {
+           //加入到epoll的监听队列里，这里用EPOLL_CTL_ADD
+            //来加一个新的 epoll事件。可以通过EPOLL_CTL_DEL来减少
+            //一个epoll事件，通过EPOLL_CTL_MOD来改变一个事件的监听方式。
+            fprintf(stderr, &quot;epoll set insertion error: fd=%d&quot;0, client);
+            return -1;
+         }
+      }
+      else
+      // 如果不是主socket的事件的话，则代表这是一个用户的socket的事件，
+      // 则用来处理这个用户的socket的事情是，比如说read(fd,xxx)之类，或者一些其他的处理。
+         do_use_fd(events[n].data.fd);
+   }
+}</codebox></node></node><node name="go" prog_lang="custom-colors" readonly="False" tags="" unique_id="65"><rich_text>
 </rich_text><node name="nsq-notes" prog_lang="custom-colors" readonly="False" tags="" unique_id="66"><rich_text scale="h3">1</rich_text><rich_text> go daemon 框架
 </rich_text><rich_text justification="left"></rich_text><codebox char_offset="15" frame_height="200" frame_width="1000" highlight_brackets="True" show_line_numbers="True" syntax_highlighting="cpp" width_in_pixels="True">exitChan := make(chan int)
 signalChan := make(chan os.Signal, 1)
