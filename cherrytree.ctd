@@ -380,7 +380,8 @@ for(;;)
       // 则用来处理这个用户的socket的事情是，比如说read(fd,xxx)之类，或者一些其他的处理。
          do_use_fd(events[n].data.fd);
    }
-}</codebox></node></node><node name="go" prog_lang="custom-colors" readonly="False" tags="" unique_id="65"><rich_text>
+}</codebox></node></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
+</rich_text><rich_text link="webs http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/">http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/</rich_text></node><node name="go" prog_lang="custom-colors" readonly="False" tags="" unique_id="65"><rich_text>
 </rich_text><node name="nsq-notes" prog_lang="custom-colors" readonly="False" tags="" unique_id="66"><rich_text scale="h3">1</rich_text><rich_text> go daemon 框架
 </rich_text><rich_text justification="left"></rich_text><codebox char_offset="15" frame_height="200" frame_width="1000" highlight_brackets="True" show_line_numbers="True" syntax_highlighting="cpp" width_in_pixels="True">exitChan := make(chan int)
 signalChan := make(chan os.Signal, 1)
