@@ -403,7 +403,7 @@ Bridge模式：
 1. 优先使用对象组合，而不是类继承
 2. 针对接口进行编程， 而不要针对实现编程
 3. 优先考虑设计中什么是可变的。这种方法与关注引起重新设计的原因刚好相反。它不是考虑什么会迫使设计发生改变，而是考虑什么能够在不引起重新设计的前提下改变。这时主要关注的就是对变化的概念进行封装，这就是许多设计模式的主题。
-4. 
+4. 对象的一个基本原则：对象应该只对自己负责
 </rich_text></node><node name="go" prog_lang="custom-colors" readonly="False" tags="" unique_id="65"><rich_text>
 </rich_text><node name="nsq-notes" prog_lang="custom-colors" readonly="False" tags="" unique_id="66"><rich_text scale="h3">1</rich_text><rich_text> go daemon 框架
 </rich_text><rich_text justification="left"></rich_text><codebox char_offset="15" frame_height="200" frame_width="1000" highlight_brackets="True" show_line_numbers="True" syntax_highlighting="cpp" width_in_pixels="True">exitChan := make(chan int)
