@@ -165,7 +165,12 @@ C++ design pattern &amp; others
 </rich_text><rich_text link="webs http://sourcemaking.com/design_patterns">http://sourcemaking.com/design_patterns</rich_text><rich_text>
 
 C++设计模式
-</rich_text><rich_text link="webs http://c.chinaitlab.com/special/sjms/Index.html">http://c.chinaitlab.com/special/sjms/Index.html</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
+</rich_text><rich_text link="webs http://c.chinaitlab.com/special/sjms/Index.html">http://c.chinaitlab.com/special/sjms/Index.html</rich_text><rich_text>
+
+switch语句本身常常说明问题：（1）需要多态行为;（2）存在职责错放。应该考虑采用一种更通用的方案，比如抽象代替switch或者将职责赋予其他对象
+
+Abstract Factory:
+    为创建一组相关或者相互依赖的对象提供一个接口，而且无需指定它们的具体类型。</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
 </rich_text><rich_text style="italic">voa     mms://a1905.l211052072.c2110.g.lm.akamaistream.net/D/1905/2110/v0001/reflector:52072</rich_text><rich_text>
 
 voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="29"><rich_text>TVADS 发送job
@@ -341,7 +346,7 @@ string replace(const string&amp; str, const string&amp; src, const string&amp; d
 }
 
 }</rich_text></node><node name="select/poll/epoll" prog_lang="custom-colors" readonly="False" tags="" unique_id="67"><rich_text link="webs http://www.linuxidc.com/Linux/2012-04/57876.htm">http://www.linuxidc.com/Linux/2012-04/57876.htm</rich_text><rich_text>
-st
+</rich_text><rich_text justification="left"></rich_text><rich_text>st
 </rich_text><codebox char_offset="48" frame_height="800" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="True">struct epoll_event ev, *events;
 for(;;) 
 {
