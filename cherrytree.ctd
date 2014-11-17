@@ -168,6 +168,31 @@ C++设计模式
 </rich_text><rich_text link="webs http://c.chinaitlab.com/special/sjms/Index.html">http://c.chinaitlab.com/special/sjms/Index.html</rich_text><rich_text>
 
 查找函数指针和委托的资料</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
+开闭原则（OCP):模块、方法和类应该对扩展开放，对修改封闭。也就是说应该软件设计得不对其修改就能扩展功能。
+
+switch语句本身常常说明问题：（1）需要多态行为;（2）存在职责错放。应该考虑采用一种更通用的方案，比如抽象代替switch或者将职责赋予其他对象
+
+    Bridge:
+[Abstraction|operation()]^-[RefinedAbstraction|]
+[note:Imp.OperationImp()]--[Abstraction|operation()]
+[Abstraction|operation()]&lt;&gt;-[Implementor|OperationImp()]
+[Implementor|OperationImp()]^-[ConcreteImplementorA|+OperationImp()]
+[Implementor|OperationImp()]^-[ConcreteImplementorB|+OperationImp()]
+
+Abstract Factory:
+</rich_text><rich_text justification="left"></rich_text><rich_text>
+    为创建一组相关或者相互依赖的对象提供一个接口，而且无需指定它们的具体类型。
+    这个模式被称为Abstract Factory的原因：它创建的东西本身是由抽象定义的。</rich_text><codebox char_offset="1307" frame_height="300" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="xml" width_in_pixels="True">// Cool Class Diagram
+[Client|]-&gt;[AbstractProductA|], 
+[Client|]-&gt;[AbstractFactory|+createProductA();+createProductB()], 
+[AbstractFactory|+createProductA();+createProductB()]^-[ConcreteFactory1|+createProductA();+createProductB()], 
+[AbstractFactory|+createProductA();+createProductB()]^-[ConcreteFactory2|+createProductA();+createProductB()]
+[Client|]-&gt;[AbstractProductB|], 
+[AbstractProductA|]^-[ProductA1|], [AbstractProductA|]^-[ProductA2|], [AbstractProductB|]^-[ProductB1|], [AbstractProductB|]^-[ProductB2|]
+[ConcreteFactory2|+createProductA();+createProductB()]-.-&gt;[ProductA2|], [ConcreteFactory2|+createProductA();+createProductB()]-.-&gt;[ProductB2|],
+[ConcreteFactory1|+createProductA();+createProductB()]-.-&gt;[ProductA1|],
+[ConcreteFactory1|+createProductA();+createProductB()]-.-&gt;[ProductB1|]</codebox></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
+>>>>>>> fb401bfe1b03f1cefc03dc362b7afaf5ad643139
 </rich_text><rich_text style="italic">voa     mms://a1905.l211052072.c2110.g.lm.akamaistream.net/D/1905/2110/v0001/reflector:52072</rich_text><rich_text>
 
 voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="29"><rich_text>TVADS 发送job
@@ -1763,7 +1788,14 @@ Data type   GDB command
 javascript x86
 </rich_text><rich_text link="webs http://bellard.org/jslinux/">http://bellard.org/jslinux/</rich_text><rich_text>
 taobao code 据说有不少的C++
-</rich_text><rich_text link="webs http://code.taobao.org/">http://code.taobao.org/</rich_text><rich_text>
+</rich_text><rich_text link="webs http://code.taobao.org/">http://code.taobao.org/</rich_text><rich_text>、
+在线sequence
+</rich_text><rich_text link="webs https://www.websequencediagrams.com/">https://www.websequencediagrams.com/</rich_text><rich_text>
+
+在线uML
+</rich_text><rich_text link="webs http://yuml.me/diagram/scruffy/class/draw">http://yuml.me/diagram/scruffy/class/draw</rich_text><rich_text>
+</rich_text><rich_text link="webs http://uml.riaoo.com/">http://uml.riaoo.com/</rich_text><rich_text>
+
 wiki plantUML 
 
 </rich_text><rich_text link="webs http://blog.csdn.net/ciaos/article/details/8501446">http://blog.csdn.net/ciaos/article/details/8501446</rich_text><rich_text>
