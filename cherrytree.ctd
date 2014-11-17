@@ -169,11 +169,17 @@ C++设计模式
 
 switch语句本身常常说明问题：（1）需要多态行为;（2）存在职责错放。应该考虑采用一种更通用的方案，比如抽象代替switch或者将职责赋予其他对象
 
-    
+    Bridge:
+[Abstraction|operation()]^-[RefinedAbstraction|]
+[note:Imp.OperationImp()]--[Abstraction|operation()]
+[Abstraction|operation()]&lt;&gt;-[Implementor|OperationImp()]
+[Implementor|OperationImp()]^-[ConcreteImplementorA|+OperationImp()]
+[Implementor|OperationImp()]^-[ConcreteImplementorB|+OperationImp()]
+
 Abstract Factory:
 </rich_text><rich_text justification="left"></rich_text><rich_text>
     为创建一组相关或者相互依赖的对象提供一个接口，而且无需指定它们的具体类型。
-    这个模式被称为Abstract Factory的原因：它创建的东西本身是由抽象定义的。</rich_text><codebox char_offset="946" frame_height="300" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="xml" width_in_pixels="True">// Cool Class Diagram
+    这个模式被称为Abstract Factory的原因：它创建的东西本身是由抽象定义的。</rich_text><codebox char_offset="1251" frame_height="300" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="xml" width_in_pixels="True">// Cool Class Diagram
 [Client|]-&gt;[AbstractProductA|], 
 [Client|]-&gt;[AbstractFactory|+createProductA();+createProductB()], 
 [AbstractFactory|+createProductA();+createProductB()]^-[ConcreteFactory1|+createProductA();+createProductB()], 
