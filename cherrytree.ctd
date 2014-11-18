@@ -407,6 +407,8 @@ for(;;)
 }</codebox></node></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
 </rich_text><rich_text link="webs http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/">http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/</rich_text><rich_text>
 
+UML </rich_text><rich_text link="webs http://yuml.me/diagram/scruffy/class/draw">http://yuml.me/diagram/scruffy/class/draw</rich_text><rich_text>
+
 switch语句本身常常说明问题：（1）需要多态行为;（2）存在职责错放。应该考虑采用一种更通用的方案，比如抽象代替switch或者将职责赋予其他对象
 
 Abstract Factory:
@@ -431,7 +433,7 @@ Bridge模式：
 2. 针对接口进行编程， 而不要针对实现编程
 3. 优先考虑设计中什么是可变的。这种方法与关注引起重新设计的原因刚好相反。它不是考虑什么会迫使设计发生改变，而是考虑什么能够在不引起重新设计的前提下改变。这时主要关注的就是对变化的概念进行封装，这就是许多设计模式的主题。
 4. 对象的一个基本原则：对象应该只对自己负责
-</rich_text><codebox char_offset="282" frame_height="300" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="xml" width_in_pixels="True">// Cool Class Diagram
+</rich_text><codebox char_offset="329" frame_height="300" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="xml" width_in_pixels="True">// Cool Class Diagram
 [Client|]-&gt;[AbstractProductA|], 
 [Client|]-&gt;[AbstractFactory|+createProductA();+createProductB()], 
 [AbstractFactory|+createProductA();+createProductB()]^-[ConcreteFactory1|+createProductA();+createProductB()], 
