@@ -167,9 +167,7 @@ C++ design pattern &amp; others
 C++设计模式
 </rich_text><rich_text link="webs http://c.chinaitlab.com/special/sjms/Index.html">http://c.chinaitlab.com/special/sjms/Index.html</rich_text><rich_text>
 
-<<<<<<< HEAD
 查找函数指针和委托的资料</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
-=======
 switch语句本身常常说明问题：（1）需要多态行为;（2）存在职责错放。应该考虑采用一种更通用的方案，比如抽象代替switch或者将职责赋予其他对象
 
     Bridge:
@@ -180,9 +178,10 @@ switch语句本身常常说明问题：（1）需要多态行为;（2）存在�
 [Implementor|OperationImp()]^-[ConcreteImplementorB|+OperationImp()]
 
 Abstract Factory:
-</rich_text><rich_text justification="left"></rich_text><rich_text>
+
     为创建一组相关或者相互依赖的对象提供一个接口，而且无需指定它们的具体类型。
-    这个模式被称为Abstract Factory的原因：它创建的东西本身是由抽象定义的。</rich_text><codebox char_offset="1251" frame_height="300" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="xml" width_in_pixels="True">// Cool Class Diagram
+    这个模式被称为Abstract Factory的原因：它创建的东西本身是由抽象定义的。</rich_text><rich_text justification="left"></rich_text><rich_text>
+    </rich_text><codebox char_offset="499" frame_height="300" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="xml" width_in_pixels="True">// Cool Class Diagram
 [Client|]-&gt;[AbstractProductA|], 
 [Client|]-&gt;[AbstractFactory|+createProductA();+createProductB()], 
 [AbstractFactory|+createProductA();+createProductB()]^-[ConcreteFactory1|+createProductA();+createProductB()], 
@@ -192,13 +191,8 @@ Abstract Factory:
 [ConcreteFactory2|+createProductA();+createProductB()]-.-&gt;[ProductA2|], [ConcreteFactory2|+createProductA();+createProductB()]-.-&gt;[ProductB2|],
 [ConcreteFactory1|+createProductA();+createProductB()]-.-&gt;[ProductA1|],
 [ConcreteFactory1|+createProductA();+createProductB()]-.-&gt;[ProductB1|]</codebox></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
->>>>>>> parent of fb401bf... update notes
-</rich_text><rich_text style="italic">voa     mms://a1905.l211052072.c2110.g.lm.akamaistream.net/D/1905/2110/v0001/reflector:52072</rich_text><rich_text>
-
-voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
-</rich_text><rich_text style="italic">voa     mms://a1905.l211052072.c2110.g.lm.akamaistream.net/D/1905/2110/v0001/reflector:52072</rich_text><rich_text>
-
-voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="29"><rich_text>TVADS 发送job
+voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822
+</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="29"><rich_text>TVADS 发送job
 </rich_text><rich_text justification="left"></rich_text><codebox char_offset="12" frame_height="80" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">curl -d '@task' &quot;http://192.168.1.50:8080/jobTracker/task/submit&quot; -H&quot;Content-Type:application/json&quot;</codebox></node><node name="snippet" prog_lang="custom-colors" readonly="False" tags="" unique_id="42"><rich_text justification="left"></rich_text><rich_text>
 </rich_text><rich_text justification="left"></rich_text><codebox char_offset="0" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False">/*异常处理，通过流来计算行数 */
 void readIntegerFile(const string&amp; fileName, vector&lt;int&gt;&amp; dest) throw(FileOpenError, FileReadError)
@@ -413,6 +407,12 @@ for(;;)
 }</codebox></node></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
 </rich_text><rich_text link="webs http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/">http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/</rich_text><rich_text>
 
+switch语句本身常常说明问题：（1）需要多态行为;（2）存在职责错放。应该考虑采用一种更通用的方案，比如抽象代替switch或者将职责赋予其他对象
+
+Abstract Factory:
+
+    为创建一组相关或者相互依赖的对象提供一个接口，而且无需指定它们的具体类型。 这个模式被称为Abstract Factory的原因：它创建的东西本身是由抽象定义的。</rich_text><rich_text justification="left"></rich_text><rich_text>
+
 Strategy模式：
    1. 对象都具有职责
    2. 这些职责不同的具体实现是通过多态的使用完成的
@@ -423,12 +423,24 @@ Strategy 的效果：
    3. 必须以相同的方式调用所有的算法
 Strategy的实现：
    让使用算法的类(Context)包含一个抽像类(Strategy)，该抽象类有一个抽象方法指定如何调用算法。每个派生类按需要实现算法。
+
+Bridge模式：
+    将抽象与其实现解耦，使它们可以独立地变化。
+    此处的实现是指抽象类及其派生类用来实现自己的对象（而不是抽象类的派生类，这些派生类被称为具体类）。
 1. 优先使用对象组合，而不是类继承
 2. 针对接口进行编程， 而不要针对实现编程
 3. 优先考虑设计中什么是可变的。这种方法与关注引起重新设计的原因刚好相反。它不是考虑什么会迫使设计发生改变，而是考虑什么能够在不引起重新设计的前提下改变。这时主要关注的就是对变化的概念进行封装，这就是许多设计模式的主题。
 4. 对象的一个基本原则：对象应该只对自己负责
-
-</rich_text></node><node name="go" prog_lang="custom-colors" readonly="False" tags="" unique_id="65"><rich_text>
+</rich_text><codebox char_offset="282" frame_height="300" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="xml" width_in_pixels="True">// Cool Class Diagram
+[Client|]-&gt;[AbstractProductA|], 
+[Client|]-&gt;[AbstractFactory|+createProductA();+createProductB()], 
+[AbstractFactory|+createProductA();+createProductB()]^-[ConcreteFactory1|+createProductA();+createProductB()], 
+[AbstractFactory|+createProductA();+createProductB()]^-[ConcreteFactory2|+createProductA();+createProductB()]
+[Client|]-&gt;[AbstractProductB|], 
+[AbstractProductA|]^-[ProductA1|], [AbstractProductA|]^-[ProductA2|], [AbstractProductB|]^-[ProductB1|], [AbstractProductB|]^-[ProductB2|]
+[ConcreteFactory2|+createProductA();+createProductB()]-.-&gt;[ProductA2|], [ConcreteFactory2|+createProductA();+createProductB()]-.-&gt;[ProductB2|],
+[ConcreteFactory1|+createProductA();+createProductB()]-.-&gt;[ProductA1|],
+[ConcreteFactory1|+createProductA();+createProductB()]-.-&gt;[ProductB1|]</codebox></node><node name="go" prog_lang="custom-colors" readonly="False" tags="" unique_id="65"><rich_text>
 </rich_text><node name="nsq-notes" prog_lang="custom-colors" readonly="False" tags="" unique_id="66"><rich_text scale="h3">1</rich_text><rich_text> go daemon 框架
 </rich_text><rich_text justification="left"></rich_text><codebox char_offset="15" frame_height="200" frame_width="1000" highlight_brackets="True" show_line_numbers="True" syntax_highlighting="cpp" width_in_pixels="True">exitChan := make(chan int)
 signalChan := make(chan os.Signal, 1)
@@ -1787,14 +1799,7 @@ Data type   GDB command
 javascript x86
 </rich_text><rich_text link="webs http://bellard.org/jslinux/">http://bellard.org/jslinux/</rich_text><rich_text>
 taobao code 据说有不少的C++
-</rich_text><rich_text link="webs http://code.taobao.org/">http://code.taobao.org/</rich_text><rich_text>、
-在线sequence
-</rich_text><rich_text link="webs https://www.websequencediagrams.com/">https://www.websequencediagrams.com/</rich_text><rich_text>
-
-在线uML
-</rich_text><rich_text link="webs http://yuml.me/diagram/scruffy/class/draw">http://yuml.me/diagram/scruffy/class/draw</rich_text><rich_text>
-</rich_text><rich_text link="webs http://uml.riaoo.com/">http://uml.riaoo.com/</rich_text><rich_text>
-
+</rich_text><rich_text link="webs http://code.taobao.org/">http://code.taobao.org/</rich_text><rich_text>
 wiki plantUML 
 
 </rich_text><rich_text link="webs http://blog.csdn.net/ciaos/article/details/8501446">http://blog.csdn.net/ciaos/article/details/8501446</rich_text><rich_text>
