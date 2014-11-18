@@ -1,10 +1,10 @@
 <?xml version="1.0" ?><cherrytree><node name="C++" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="1"><rich_text>1.
-        u.lmsg.content =
-            (content_t*) malloc (sizeof (content_t) + size_);
-        if (!u.lmsg.content) {
-            errno = ENOMEM;
-            return -1;
-        }
+        u.lmsg.content =
+            (content_t*) malloc (sizeof (content_t) + size_);
+        if (!u.lmsg.content) {
+            errno = ENOMEM;
+            return -1;
+        }
 if the lmsg.content memory malloc failed, set errno to ENONMEM
 2.</rich_text><rich_text foreground="#ff0000">placement new</rich_text><rich_text>in zeromq in content_t::refcnt
 msg.hpp 103
@@ -18,37 +18,39 @@ msg.hpp 103
 
 第三种办法 最简单的使用swap,清除元素并回收内存
 
-1.     vector &lt;int&gt;().swap(vecInt);  //清除容器并最小化它的容量，
+1.     vector &lt;int&gt;().swap(vecInt);  //清除容器并最小化它的容量，
 
 2. 
 
 
-3.     j= vecInt.capacity();       //j=0  
+3.     j= vecInt.capacity();       //j=0  
 
-4.     i = vecInt.size();          //i=0       
+4.     i = vecInt.size();          //i=0       
 
 
-该语句是由vector &lt;int&gt;(vecInt).swap(vecInt)的变体而来，一下解释引自csdn：
+该语句是由vector &lt;int&gt;(vecInt).swap(vecInt)的变体而来，一下解释引自csdn：
 
-std::vector&lt;T&gt;(v).swap(v);的作用相当于：    
-  {  
-  std::vector&lt;T&gt;   temp(v);//1  
-  temp.swap(v);//2  
-  }  
-  第一句产生一个和v内容一模一样的vector，只不过temp的容量是恰好满足其大小的  
-  第二句把v和temp交换  
-  然后temp就自动解析掉了  
-    
-  这样写的作用是：把v的容量缩小到最佳值
+std::vector&lt;T&gt;(v).swap(v);的作用相当于：    
+  {  
+  std::vector&lt;T&gt;   temp(v);//1  
+  temp.swap(v);//2  
+  }  
+  第一句产生一个和v内容一模一样的vector，只不过temp的容量是恰好满足其大小的  
+  第二句把v和temp交换  
+  然后temp就自动解析掉了  
+    
+  这样写的作用是：把v的容量缩小到最佳值
 
 该例中执行这句时，capacity收缩到500
+
+vector 在遍历时插入数据时要小心，可能会益处
 </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="5"><rich_text>1.
-        u.lmsg.content =
-            (content_t*) malloc (sizeof (content_t) + size_);
-        if (!u.lmsg.content) {
-            errno = ENOMEM;
-            return -1;
-        }
+        u.lmsg.content =
+            (content_t*) malloc (sizeof (content_t) + size_);
+        if (!u.lmsg.content) {
+            errno = ENOMEM;
+            return -1;
+        }
 if the lmsg.content memory malloc failed, set errno to ENONMEM
 2.</rich_text><rich_text foreground="#ff0000">placement new</rich_text><rich_text>in zeromq in content_t::refcnt
 msg.hpp 103
@@ -62,41 +64,42 @@ msg.hpp 103
 
 第三种办法 最简单的使用swap,清除元素并回收内存
 
-1.     vector &lt;int&gt;().swap(vecInt);  //清除容器并最小化它的容量，
+1.     vector &lt;int&gt;().swap(vecInt);  //清除容器并最小化它的容量，
 
 2. 
 
 
-3.     j= vecInt.capacity();       //j=0  
+3.     j= vecInt.capacity();       //j=0  
 
-4.     i = vecInt.size();          //i=0       
+4.     i = vecInt.size();          //i=0       
 
 
-该语句是由vector &lt;int&gt;(vecInt).swap(vecInt)的变体而来，一下解释引自csdn：
+该语句是由vector &lt;int&gt;(vecInt).swap(vecInt)的变体而来，一下解释引自csdn：
 
-std::vector&lt;T&gt;(v).swap(v);的作用相当于：    
-  {  
-  std::vector&lt;T&gt;   temp(v);//1  
-  temp.swap(v);//2  
-  }  
-  第一句产生一个和v内容一模一样的vector，只不过temp的容量是恰好满足其大小的  
-  第二句把v和temp交换  
-  然后temp就自动解析掉了  
-    
-  这样写的作用是：把v的容量缩小到最佳值
+std::vector&lt;T&gt;(v).swap(v);的作用相当于：    
+  {  
+  std::vector&lt;T&gt;   temp(v);//1  
+  temp.swap(v);//2  
+  }  
+  第一句产生一个和v内容一模一样的vector，只不过temp的容量是恰好满足其大小的  
+  第二句把v和temp交换  
+  然后temp就自动解析掉了  
+    
+  这样写的作用是：把v的容量缩小到最佳值
 
-该例中执行这句时，capacity收缩到500</rich_text></node><node name="FAQ" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="6"><rich_text>how to use </rich_text><rich_text foreground="#ff0000">delete this</rich_text><rich_text>
-As long as you're careful, it's OK for an object to commit suicide (delete this).
+该例中执行这句时，capacity收缩到500
+LD_PRELOAD环境变量加载一些库,覆盖原有的方法,</rich_text></node><node name="FAQ" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="6"><rich_text>how to use </rich_text><rich_text foreground="#ff0000">delete this</rich_text><rich_text>
+As long as you're careful, it's OK for an object to commit suicide (delete this).
 Here's how I define &quot;careful&quot;:
-1. You must be absolutely 100% positively sure that this object was allocated via new (not by new[], nor by </rich_text><rich_text link="webs http://www.parashift.com/c++-faq-lite/placement-new.html">placementnew</rich_text><rich_text>, nor a local object on the stack, nor a global, nor a member of another object; but by plain ordinary new).
+1. You must be absolutely 100% positively sure that this object was allocated via new (not by new[], nor by </rich_text><rich_text link="webs http://www.parashift.com/c++-faq-lite/placement-new.html">placementnew</rich_text><rich_text>, nor a local object on the stack, nor a global, nor a member of another object; but by plain ordinary new).
 
-2. You must be absolutely 100% positively sure that your member function will be the last member function invoked on this object.
+2. You must be absolutely 100% positively sure that your member function will be the last member function invoked on this object.
 
-3. You must be absolutely 100% positively sure that the rest of your member function (after the delete this line) doesn't touch any piece ofthis object (including calling any other member functions or touching any data members).
+3. You must be absolutely 100% positively sure that the rest of your member function (after the delete this line) doesn't touch any piece ofthis object (including calling any other member functions or touching any data members).
 
-4. You must be absolutely 100% positively sure that no one even touches the this pointer itself after the delete this line.  In other words, you must not examine it, compare it with another pointer, compare it with NULL, print it, cast it, do anything with it.
+4. You must be absolutely 100% positively sure that no one even touches the this pointer itself after the delete this line.  In other words, you must not examine it, compare it with another pointer, compare it with NULL, print it, cast it, do anything with it.
 
-Naturally the usual caveats apply in cases where your this pointer is a pointer to a base class when you don't have a </rich_text><rich_text link="webs http://www.parashift.com/c++-faq-lite/virtual-dtors.html">virtual destructor</rich_text><rich_text>.             
+Naturally the usual caveats apply in cases where your this pointer is a pointer to a base class when you don't have a </rich_text><rich_text link="webs http://www.parashift.com/c++-faq-lite/virtual-dtors.html">virtual destructor</rich_text><rich_text>.             
 
 
 正确释放vector的内存
@@ -105,32 +108,34 @@ Naturally the usual caveats apply in cases where your this pointer is a pointe
 vector&lt;type&gt;(v).swap(v);
 
 当然，上面这种方法虽然释放了内存，但是同时也增加了拷贝数据的时间消耗。 不过一般需要重新调整容量的情况都是 vector本身元素较少的情况，所以 时间消耗可以忽略不计。
-因此建议以后大家都将调用 clear() 改为 swap() 吧。
-之所以大多数程序的“入口”是 main，是因为连接器缺省会连接一个叫 crt0.o 或 者 crt0.lib 之类的库，这个库才是一个程序真正的入口，这个真正的入口作了一段初始化之后将控制权交给 main。大多数情况下用户程序不会自 己初始化这些东西，所以缺省连接这个库。
+因此建议以后大家都将调用 clear() 改为 swap() 吧。
+之所以大多数程序的“入口”是 main，是因为连接器缺省会连接一个叫 crt0.o 或 者 crt0.lib 之类的库，这个库才是一个程序真正的入口，这个真正的入口作了一段初始化之后将控制权交给 main。大多数情况下用户程序不会自 己初始化这些东西，所以缺省连接这个库。
 
-如果你自己完成这部分初始化，完全可以抛弃 main。
+如果你自己完成这部分初始化，完全可以抛弃 main。
 
-main 不是程序的入口，只不过是一个普通的符号而已。
+main 不是程序的入口，只不过是一个普通的符号而已。
 
 
-gcc -g -nostartfiles -e myentry myentry.c 
+gcc -g -nostartfiles -e myentry myentry.c 
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 int myentry(int argc, char *argv[])
 {
-    printf(&quot;Start from myentry\n&quot;);
-    //return 0;
-    exit(0);
+    printf(&quot;Start from myentry\n&quot;);
+    //return 0;
+    exit(0);
 }
 
 LD_PRELOAD环境变量加载一些库,覆盖原有的方法,
-</rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="7"><rich_text foreground="#000000">1. Loki 封装设计模式的一个类库，有时间看一下</rich_text><rich_text>
+
+C++ 通用集合
+</rich_text><rich_text link="webs http://blog.jobbole.com/78901/">http://blog.jobbole.com/78901/</rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="7"><rich_text foreground="#000000">1. Loki 封装设计模式的一个类库，有时间看一下</rich_text><rich_text>
 </rich_text><rich_text link="webs http://loki-lib.sourceforge.net/index.php?n=Main.HomePage">http://loki-lib.sourceforge.net/index.php?n=Main.HomePage</rich_text><rich_text>
 Documentation
 </rich_text><rich_text link="webs http://loki-lib.sourceforge.net/html/modules.html">http://loki-lib.sourceforge.net/html/modules.html</rich_text><rich_text>
 2. zmq里有一个mutex_t的类,封装了pthread_mutex_xxx的操作
-3. Linux poll&amp;Epoll </rich_text><rich_text link="webs http://bbs.chinaunix.net/it/linuxpoll.shtml">http://bbs.chinaunix.net/it/linuxpoll.shtml</rich_text><rich_text>
-ioctl, select, poll, epolll这些的用法 
+3. Linux poll&amp;Epoll </rich_text><rich_text link="webs http://bbs.chinaunix.net/it/linuxpoll.shtml">http://bbs.chinaunix.net/it/linuxpoll.shtml</rich_text><rich_text>
+ioctl, select, poll, epolll这些的用法 
 4. YUV转avi
 </rich_text><rich_text link="webs http://lihaoyan.blog.sohu.com/146539049.html">http://lihaoyan.blog.sohu.com/146539049.html</rich_text><rich_text>
 5.shell
@@ -143,19 +148,686 @@ ioctl, select, poll, epolll这些的用法 
 
 7. C++的坑真的多吗?
 </rich_text><rich_text link="webs http://coolshell.cn/articles/7992.html">http://coolshell.cn/articles/7992.html</rich_text><rich_text>
-8.微博中有关尾递归和非尾递归的讨论
+8.微博中有关尾递归和非尾递归的讨论q
+9. q
+10. 
 
 
 9. C++ 语言的15个隐晦特性
 </rich_text><rich_text link="webs http://blog.jobbole.com/54140/">http://blog.jobbole.com/54140/</rich_text><rich_text>
+10 刘未鹏 C++
+</rich_text><rich_text link="webs http://blog.csdn.net/pongba/article/details/90643">http://blog.csdn.net/pongba/article/details/90643</rich_text><rich_text>
 
-</rich_text></node></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="" unique_id="8"><rich_text>1. ffmpeg snapshot，一秒二次
+C++ Policy 
+</rich_text><rich_text link="webs http://blog.csdn.net/happylife1527/article/details/8204734">http://blog.csdn.net/happylife1527/article/details/8204734</rich_text><rich_text>
 
-        ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
+C++ design pattern &amp; others
+</rich_text><rich_text link="webs http://sourcemaking.com/design_patterns">http://sourcemaking.com/design_patterns</rich_text><rich_text>
+
+C++设计模式
+</rich_text><rich_text link="webs http://c.chinaitlab.com/special/sjms/Index.html">http://c.chinaitlab.com/special/sjms/Index.html</rich_text><rich_text>
+
+查找函数指针和委托的资料</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
+switch语句本身常常说明问题：（1）需要多态行为;（2）存在职责错放。应该考虑采用一种更通用的方案，比如抽象代替switch或者将职责赋予其他对象
+
+    Bridge:
+[Abstraction|operation()]^-[RefinedAbstraction|]
+[note:Imp.OperationImp()]--[Abstraction|operation()]
+[Abstraction|operation()]&lt;&gt;-[Implementor|OperationImp()]
+[Implementor|OperationImp()]^-[ConcreteImplementorA|+OperationImp()]
+[Implementor|OperationImp()]^-[ConcreteImplementorB|+OperationImp()]
+
+Abstract Factory:
+
+    为创建一组相关或者相互依赖的对象提供一个接口，而且无需指定它们的具体类型。
+    这个模式被称为Abstract Factory的原因：它创建的东西本身是由抽象定义的。</rich_text><rich_text justification="left"></rich_text><rich_text>
+    </rich_text><codebox char_offset="499" frame_height="300" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="xml" width_in_pixels="True">// Cool Class Diagram
+[Client|]-&gt;[AbstractProductA|], 
+[Client|]-&gt;[AbstractFactory|+createProductA();+createProductB()], 
+[AbstractFactory|+createProductA();+createProductB()]^-[ConcreteFactory1|+createProductA();+createProductB()], 
+[AbstractFactory|+createProductA();+createProductB()]^-[ConcreteFactory2|+createProductA();+createProductB()]
+[Client|]-&gt;[AbstractProductB|], 
+[AbstractProductA|]^-[ProductA1|], [AbstractProductA|]^-[ProductA2|], [AbstractProductB|]^-[ProductB1|], [AbstractProductB|]^-[ProductB2|]
+[ConcreteFactory2|+createProductA();+createProductB()]-.-&gt;[ProductA2|], [ConcreteFactory2|+createProductA();+createProductB()]-.-&gt;[ProductB2|],
+[ConcreteFactory1|+createProductA();+createProductB()]-.-&gt;[ProductA1|],
+[ConcreteFactory1|+createProductA();+createProductB()]-.-&gt;[ProductB1|]</codebox></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
+voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822
+</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="29"><rich_text>TVADS 发送job
+</rich_text><rich_text justification="left"></rich_text><codebox char_offset="12" frame_height="80" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">curl -d '@task' &quot;http://192.168.1.50:8080/jobTracker/task/submit&quot; -H&quot;Content-Type:application/json&quot;</codebox></node><node name="snippet" prog_lang="custom-colors" readonly="False" tags="" unique_id="42"><rich_text justification="left"></rich_text><rich_text>
+</rich_text><rich_text justification="left"></rich_text><codebox char_offset="0" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False">/*异常处理，通过流来计算行数 */
+void readIntegerFile(const string&amp; fileName, vector&lt;int&gt;&amp; dest) throw(FileOpenError, FileReadError)
+{
+	ifstream istr;
+	int temp;
+	string line;
+	int lineNumber = 0;
+	istr.open(fileName.c_str());
+	if (istr.fail()) 	
+	{
+		// We failed to open the file: throw an exception.
+		throw FileOpenError(fileName);
+	}
+	while (!istr.eof()) 
+	{
+		// Read one line from the file.
+		getline(istr, line);
+		lineNumber++;
+		// Create a string stream out of the line.
+		istringstream lineStream(line);
+		// Read the integers one by one and add them to the vector.
+		while (lineStream &gt;&gt; temp) 
+		{
+			dest.push_back(temp);
+		}
+		if (!lineStream.eof()) 
+		{
+			// Some other error. Close the file and throw an exception.
+			istr.close();
+			throw FileReadError(fileName, lineNumber);
+		}
+	}
+	istr.close();
+}</codebox><codebox char_offset="2" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False"></codebox></node><node name="Modern C++ " prog_lang="cpp" readonly="False" tags="" unique_id="50"><rich_text>//////////////////////////////////////////////////
+    基于Policy的Class设计 （Policy-Based Class Design）
+
+Q1. 什么是Policy， policy 与纯虚函数有什么异同 什么是符合 policy 的一个类？P9
+Q2. 何为 template template 参数？
+    host class ：如果class使用一个或者多个policies 称其为host class， 它负责把policy
+    的结构和行为组合为一个更复杂的结构和行为。每一个参数代表一个policy
+// Library code
+template &lt;class CreationPolicy&gt;
+class widgetManager: public CreationPolicy
+{ ... };
+
+//Aplication code
+typedef WidgetCreator&lt; OpNewCreator&lt;Widget&gt; &gt; myWidgetMgr;
+
+一般来说，host class 已经知道policy class所需的参数， 或是轻易可推导出来。
+// Library code
+template &lt;template &lt;class Created&gt; class CreationPolicy = OpNewCreator&gt;
+class widgeManager : public CreationPolicy&lt;Widge&gt;
+{ ... };
+
+// Aplication code
+typedef WidgetManager&lt;OpNewCreator&gt; MyWidgetMgr;
+
+Policy 不适用于动态连结和二进位接口（何为二进位接口？），所以本质上Policies和传统的接口并不互相竞争
+
+关于析构的问题：可以将一个host class自动转换为一个Policy class(向上转型）
+并稍后delete 该指针，否则直接delete该指针会出现不可预知的行为;在Policy中定义虚析构函数，
+    会妨碍Policy的静态连结特性，会为对象大小带来额外的开销。Policy只规范行为，
+    要避免虚析构函数
+
+Q： 虚函数是不是在执行速度上有额外的开销？
+
+将class 分解为polices时的准则：
+1. 把你的class内的”设计决定”局部化、命令，分离出来。
+2. 找出正交的policies--也就是彼此之间没有交互作用、可独立更动的polices
+Q: 在设计一个类时，如何拆分出正交的Policies？
+如果必须使用和非正交的Policies，尽可能借着 ” 把policy class 当做引用参数传给其他policy class template function “ 来降低相依性，这样policy就必须暴露一些实现细节给其他 的Policy 会降低封装性
+Policy机制由template 和多重继承组成   
+Policy-to-Policy 的拷贝方式
+
+/////////////////////////////////////////////
+不存在template函数的特化.
+
+偏特化机制不能用在函数上，不论成员函数还是非成员函数。
+1. 可以全特化 class template 中的成员函数，但是不能偏特化它们
+2. 不能偏特化namespace-level 函数，（函数重载） 
+
+/////////////////////////////////////////////
+local class 不能定义static成员变量，也不能访问non-static局部变量。可以在template 函数中使用。定义template 函数内的local class 可以使用函数的template参数
+任何运用template class的手法，都可以改用&quot;函数外的template class&quot;来完成。
+local class 类似于Java中的final， 外界不能继承一个隐藏于函数内的local class。如果没有local class 要实现java中的final，需要在编译元中加上一个无具名的命名空间。
+//////////////////////////////////////////
+   Mapping Integral Constants to types
+   适用Int2Type的两个条件：
+   1. 有必要根据某个编译期常数调用一个或数个不同的函数
+   2. 有必要在编译期实施&quot;分派&quot;
+   如果在执行是进行分派，只要使用if-else or switch 就好了
+   //////////////////////////
+       编译期间的侦测可转换性和继承性
+可以把sizeof用在任何表达式，不论后者有多复杂，sizeof会直接传回大小，不会等到执行时。这意味着sizeof可以感知重载，模板实例化，转换规则，或任何发生在C++表达式上的机制
+//////////////////////
+C++不允许reference to reference
+虚函数没有template 版本
+在编译时不能使用迭代，只能用递归，原因：
+Template 更明确的是template specialization ,提供编译期间的if叙述
+在编译期间数值是不可变的，一旦定义了一个整数常数，就不能再改变它
+在编译期间没有一个可变化的东西，在编译期间没法使用迭代，只可以使用递归</rich_text></node><node name="bak" prog_lang="cpp" readonly="False" tags="" unique_id="51"><rich_text>string trim(const string&amp; str)
+{
+    string::size_type pos = str.find_first_not_of(' ');
+    if (pos == string::npos)
+    {
+        return str;
+    }
+    string::size_type pos2 = str.find_last_not_of(' ');
+    if (pos2 != string::npos)
+    {
+        return str.substr(pos, pos2 - pos + 1);
+    }
+    return str.substr(pos);
+}
+// split for string
+int split(const string&amp; str, vector&lt;string&gt;&amp; ret_, string sep = &quot;,&quot;)
+{
+    if (str.empty())
+    {
+        return 0;
+    }
+
+    string tmp;
+    string::size_type pos_begin = str.find_first_not_of(sep);
+    string::size_type comma_pos = 0;
+
+    while (pos_begin != string::npos)
+    {
+        comma_pos = str.find(sep, pos_begin);
+        if (comma_pos != string::npos)
+        {
+            tmp = str.substr(pos_begin, comma_pos - pos_begin);
+            pos_begin = comma_pos + sep.length();
+        }
+        else
+        {
+            tmp = str.substr(pos_begin);
+            pos_begin = comma_pos;
+        }
+
+        if (!tmp.empty())
+        {
+            ret_.push_back(tmp);
+            tmp.clear();
+        }
+    }
+    return 0;
+}
+
+string replace(const string&amp; str, const string&amp; src, const string&amp; dest)
+{
+    string ret;
+
+    string::size_type pos_begin = 0;
+    string::size_type pos       = str.find(src);
+    while (pos != string::npos)
+    {
+        cout &lt;&lt;&quot;replacexxx:&quot; &lt;&lt; pos_begin &lt;&lt;&quot; &quot; &lt;&lt; pos &lt;&lt;&quot;\n&quot;;
+        ret.append(str.data() + pos_begin, pos - pos_begin);
+        ret += dest;
+        pos_begin = pos + 1;
+        pos       = str.find(src, pos_begin);
+    }
+    if (pos_begin &lt; str.length())
+    {
+        ret.append(str.begin() + pos_begin, str.end());
+    }
+    return ret;
+}
+
+}</rich_text></node><node name="select/poll/epoll" prog_lang="custom-colors" readonly="False" tags="" unique_id="67"><rich_text link="webs http://www.linuxidc.com/Linux/2012-04/57876.htm">http://www.linuxidc.com/Linux/2012-04/57876.htm</rich_text><rich_text>
+</rich_text><rich_text justification="left"></rich_text><rich_text>st
+</rich_text><codebox char_offset="48" frame_height="800" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="True">struct epoll_event ev, *events;
+for(;;) 
+{
+   nfds = epoll_wait(kdpfd, events, maxevents, -1);    //   
+   for(n = 0; n &lt; nfds; ++n)
+   {
+   //如果是主socket的事件，则表示有新连接进入，需要进行新连接的处理。
+      if(events[n].data.fd == listener)
+      {
+         client = accept(listener, (struct sockaddr *) &amp;local,  &amp;addrlen);
+         if(client &lt; 0)
+         {
+            perror(&quot;accept error&quot;);
+            continue;
+         }
+         // 将新连接置于非阻塞模式
+         setnonblocking(client);
+         ev.events = EPOLLIN | EPOLLET; 
+         //注意这里的参数EPOLLIN | EPOLLET并没有设置对写socket的监听，
+         //如果有写操作的话，这个时候epoll是不会返回事件的，
+         //如果要对写操作也监听的话，应该是EPOLLIN | EPOLLOUT | EPOLLET。
+         // 并且将新连接也加入EPOLL的监听队列
+         ev.data.fd = client;
+         // 设置好event之后，将这个新的event通过epoll_ctl
+         if (epoll_ctl(kdpfd, EPOLL_CTL_ADD, client, &amp;ev) &lt; 0)
+         {
+           //加入到epoll的监听队列里，这里用EPOLL_CTL_ADD
+            //来加一个新的 epoll事件。可以通过EPOLL_CTL_DEL来减少
+            //一个epoll事件，通过EPOLL_CTL_MOD来改变一个事件的监听方式。
+            fprintf(stderr, &quot;epoll set insertion error: fd=%d&quot;0, client);
+            return -1;
+         }
+      }
+      else
+      // 如果不是主socket的事件的话，则代表这是一个用户的socket的事件，
+      // 则用来处理这个用户的socket的事情是，比如说read(fd,xxx)之类，或者一些其他的处理。
+         do_use_fd(events[n].data.fd);
+   }
+}</codebox></node></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
+</rich_text><rich_text link="webs http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/">http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/</rich_text><rich_text>
+
+switch语句本身常常说明问题：（1）需要多态行为;（2）存在职责错放。应该考虑采用一种更通用的方案，比如抽象代替switch或者将职责赋予其他对象
+
+Abstract Factory:
+
+    为创建一组相关或者相互依赖的对象提供一个接口，而且无需指定它们的具体类型。 这个模式被称为Abstract Factory的原因：它创建的东西本身是由抽象定义的。</rich_text><rich_text justification="left"></rich_text><rich_text>
+
+Strategy模式：
+   1. 对象都具有职责
+   2. 这些职责不同的具体实现是通过多态的使用完成的
+   3. 概念上相同的算法具有多个不同的实现，需要进行管理
+Strategy 的效果：
+   1. 定义了一系列的算法
+   2. 可以不使用switch语句或条件语句
+   3. 必须以相同的方式调用所有的算法
+Strategy的实现：
+   让使用算法的类(Context)包含一个抽像类(Strategy)，该抽象类有一个抽象方法指定如何调用算法。每个派生类按需要实现算法。
+
+Bridge模式：
+    将抽象与其实现解耦，使它们可以独立地变化。
+    此处的实现是指抽象类及其派生类用来实现自己的对象（而不是抽象类的派生类，这些派生类被称为具体类）。
+1. 优先使用对象组合，而不是类继承
+2. 针对接口进行编程， 而不要针对实现编程
+3. 优先考虑设计中什么是可变的。这种方法与关注引起重新设计的原因刚好相反。它不是考虑什么会迫使设计发生改变，而是考虑什么能够在不引起重新设计的前提下改变。这时主要关注的就是对变化的概念进行封装，这就是许多设计模式的主题。
+4. 对象的一个基本原则：对象应该只对自己负责
+</rich_text><codebox char_offset="282" frame_height="300" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="xml" width_in_pixels="True">// Cool Class Diagram
+[Client|]-&gt;[AbstractProductA|], 
+[Client|]-&gt;[AbstractFactory|+createProductA();+createProductB()], 
+[AbstractFactory|+createProductA();+createProductB()]^-[ConcreteFactory1|+createProductA();+createProductB()], 
+[AbstractFactory|+createProductA();+createProductB()]^-[ConcreteFactory2|+createProductA();+createProductB()]
+[Client|]-&gt;[AbstractProductB|], 
+[AbstractProductA|]^-[ProductA1|], [AbstractProductA|]^-[ProductA2|], [AbstractProductB|]^-[ProductB1|], [AbstractProductB|]^-[ProductB2|]
+[ConcreteFactory2|+createProductA();+createProductB()]-.-&gt;[ProductA2|], [ConcreteFactory2|+createProductA();+createProductB()]-.-&gt;[ProductB2|],
+[ConcreteFactory1|+createProductA();+createProductB()]-.-&gt;[ProductA1|],
+[ConcreteFactory1|+createProductA();+createProductB()]-.-&gt;[ProductB1|]</codebox></node><node name="go" prog_lang="custom-colors" readonly="False" tags="" unique_id="65"><rich_text>
+</rich_text><node name="nsq-notes" prog_lang="custom-colors" readonly="False" tags="" unique_id="66"><rich_text scale="h3">1</rich_text><rich_text> go daemon 框架
+</rich_text><rich_text justification="left"></rich_text><codebox char_offset="15" frame_height="200" frame_width="1000" highlight_brackets="True" show_line_numbers="True" syntax_highlighting="cpp" width_in_pixels="True">exitChan := make(chan int)
+signalChan := make(chan os.Signal, 1)
+go func() {
+   &lt;-signalChan
+   exitChan &lt;- 1
+}()
+signal.Notify(signalChan, syscall.SIGINT, syscall.SIGTERM)
+....
+&lt;-exitChan
+nsqd.Exit()</codebox></node><node name="go_tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="13"><rich_text>1. func main must have no arguments and no return values results.
+2. Every source file can contain only 1 init()-function. Initialization is always single-threaded and package dependency guarantees correct execution order.
+3. go switch fallthrough can same as no-break idoms
+4. the lambda function stores and accumulates the values of its variables
+5. the maximum array length is 2 Gb
+6. package sort sorting arry/slice or searching an element in a sorted array
+7. usefull skills for slice and array:
+</rich_text><rich_text justification="left"></rich_text><rich_text>
+
+8. Don't use new, always use make with maps!!
+9. import _ “./pack1/pack1”The package pack1 is imported for its side-effects only, that is: its init functions are executed and global variables initialized.
+10. The receiver also cannot be an interface type, since an interface is the abstract definition and a method is the implementation; it cannot to be a poiter type, but it can be a pointer to any of the allowed types.
+11. Pointers to interface value are illegal
+12.  interface type checking
+</rich_text><rich_text justification="left"></rich_text><rich_text>
+12. flag.Arg(0) is the first real flag, not the name of the program in contrast to os.Args(0)</rich_text><codebox char_offset="501" frame_height="200" frame_width="1000" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="chdr" width_in_pixels="True">Append a slice b to an existing slice a:  a = append(a, b ...)
+copy a slice a to a new existing slice b: b = make ([]t, len(a)) copy(b, a)
+Delete item at index i:                   a = append(a[:i], a[i+1:]...)
+cut from index i till j of slice a:       a = append(a[:i], a[j:]...)
+Extend a with a new slice of j:           a = append(a, make([]T, j)...)
+Insert item x at index i:                 a = append(a[:i], append([]T{x}, a[i
+Insert a new slice of lenght j at index i:a = append(a[:i], append(make([]T, j), a[i:]...)...)
+insert a existing slice b at index i:     a = append(a[:i], append(b, a[:i]...)...)
+Pop highest element from stack:           x, a = a[len(a)-1], a[:len(a)-1]
+Push an element x on a stack :            a = append(a, x)</codebox><codebox char_offset="999" frame_height="100" frame_width="1000" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="chdr" width_in_pixels="True">    if v, ok := o.(stockPosition); ok {
+        // o's type is stockPosition
+    }  
+    // o's type is not stockPosition</codebox></node></node><node name="GFW" prog_lang="custom-colors" readonly="False" tags="" unique_id="34"><rich_text link="webs http://blog.sina.com.cn/s/blog_6fa5aa4a01010wel.html">http://blog.sina.com.cn/s/blog_6fa5aa4a01010wel.html</rich_text><rich_text>
+</rich_text></node><node name="Q&amp;A" prog_lang="custom-colors" readonly="False" tags="" unique_id="56"><rich_text>
+</rich_text><rich_text scale="h1">使用npm install XXX 时出现“failed to fetch from regi...</rich_text><rich_text>
+设置http_proxy 环境变量，比如
+ export http_proxy=&quot;http://10.123.74.137:808&quot;
+ 添加npm配置项： 
+ npm config set registry </rich_text><rich_text foreground="#333333">http://registry.npmjs.org</rich_text><rich_text>
+ </rich_text><rich_text foreground="#333333">问题解决</rich_text><rich_text>
+</rich_text></node><node name="kernel" prog_lang="custom-colors" readonly="False" tags="" unique_id="45"><rich_text link="webs http://blog.jobbole.com/54833/">http://blog.jobbole.com/54833/</rich_text><rich_text>
+</rich_text></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="" unique_id="8"><rich_text>1. ffmpeg snapshot，一秒二次
+
+        ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
 ffmpeg -pix_fmt uyvy422 -s 720x576 -r 25 -i all.yuv -b </rich_text><rich_text background="#000000000000">20480k</rich_text><rich_text> -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
 
 ffmpeg -pix_fmt uyvy422 -s 720x480 -r 25 -i all.yuv -b 20480k -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
-</rich_text></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
+
+
+</rich_text><rich_text link="webs http://paulrouget.com/e/converttohtml5video/">http://paulrouget.com/e/converttohtml5video/</rich_text><rich_text>
+</rich_text><rich_text link="webs http://paulrouget.com/e/converttohtml5video/">http://paulrouget.com/e/converttohtml5video/</rich_text><rich_text>
+</rich_text><rich_text link="webs https://thethemefoundry.com/blog/convert-mp4-to-webm/">https://thethemefoundry.com/blog/convert-mp4-to-webm/</rich_text><rich_text>
+
+</rich_text><rich_text link="webs http://paulrouget.com/e/converttohtml5video/">http://paulrouget.com/e/converttohtml5video/</rich_text><node name="ffmpeg SDK" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="39"><rich_text>
+ffmpeg SDK </rich_text><rich_text link="webs http://ffmpeg.org/doxygen/trunk/index.html">http://ffmpeg.org/doxygen/trunk/index.html</rich_text><rich_text>
+1.
+</rich_text><rich_text justification="left"></rich_text><rich_text>/**
+
+2. 
+</rich_text><rich_text justification="left"></rich_text><rich_text>
+</rich_text><codebox char_offset="58" frame_height="200" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False">/**
+ * Initialize libavformat and register all the muxers, demuxers and
+ * protocols. If you do not call this function, then you can select
+ * exactly which formats you  want to support.
+ *
+ * @see av_register_input_format()
+ * @see av_register_output_format()
+ *  call in first
+ */
+ void av_register_all(void);</codebox><codebox char_offset="68" frame_height="200" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False">/** Open a input stream and readn the header.The codecs are not opened. 
+ * NOTE: options is not NULL if the file is   videofile 
+ */
+int avformat_open_input(AVFormatContext **ps, const char *filename, AVInputFormat *fmt, AVDictionary **options);  </codebox></node><node name="ffmpeg" prog_lang="custom-colors" readonly="False" tags="ffmpeg" unique_id="27"><rich_text>ffmpeg -i tt.mp4 -vn -strict -2 audio.mp4
+
+Hi, all:
+</rich_text><rich_text link="webs http://122.192.67.86:8088/ts100">http://122.192.67.86:8088/ts100</rich_text><rich_text>
+1. ffmpeg snapshot，一秒二次
+
+        ffmpeg -y -i test.flv -q:v 1 -r 2 -ss 10 -to 50 s%05d.jpg
+ffmpeg -pix_fmt uyvy422 -s 720x576 -r 25 -i all.yuv -b 20480k -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
+
+ffmpeg -pix_fmt uyvy422 -s 720x480 -r 25 -i all.yuv -b 20480k -f s16le -ar 48000 -ac 2 -i all.pcm -vcodec libx264 $d
+
+
+
+ffmpeg -pix_fmt uyvy422 -s 720x480 -r 29.97 -i 1388659600059.yuv -b 20480k -vcodec libx264 t.avi
+
+
+前20 s为空白
+ 1. 提取audio 
+ ffmpeg -y -i test.mpg -vn a.mpg
+ 1. 提取video
+ ffmpeg -y -i test.mpg -an v.mpg
+3.
+3.1 生成 空白音频
+ffmpeg -y -i /dev/zero -ar 44100 -ac 2 empty.mpg
+注：这个过程是很快的， 只要大于20s了就可以停了。 44100, 2分别是a.mpg的bit rate, channels, 可以通过mediainfo a.mpg查看
+3.2 取20s的空白音频 
+ffmpeg -y -i empty.mpg -ss 0 -t 20  -codec copy e.mpg
+
+
+4. concat e.mpg and a.mpg 
+ ffmpeg -y -f concat  -i audio.merg -codec copy a2.mpg
+
+audio.merg is a file like :​
+li_yun@ubuntu:~/24$ 
+cat audio.merg 
+file e.mpg
+file a2.mpg
+5. merge audio and video file :
+6. ffmpeg -i a2.mpg -i v.mpg -codec copy l.mpg 
+l.mpg is file U want, first 20 seconds is silent!
+
+
+
+
+凤凰卫视资讯台
+ mms://112.230.192.196/zb12    凤凰资讯台高速高清
+辽宁卫视
+mms://112.230.192.196/zb17
+厦门卫视
+mms://mediasrv2.iptv.xmg.com.cn/tvhaixia 
+厦门影视
+mms://mediasrv2.iptv.xmg.com.cn/tvyingshi
+北京卫视
+mms://112.230.192.196/zb11
+CCTV5高清高速
+mms://112.230.192.196/zb10
+ 好消息一台 
+mms://live.jdjys.net/tv1 
+好消息二台 强烈推荐
+mms://live.jdjys.net/tv2 
+天空新闻台 强烈推荐
+ mms://live1.wm.skynews.servecast.net/skynews_wmlz_live300k 
+
+
+使用DarwinStreamingServer搭建网络流：
+首先下载源文件，http://dss.macosforge.org/选previous-releases，选Linux installer(v5.5.5)下面的</rich_text><rich_text link="webs http://dss.macosforge.org/downloads/DarwinStreamingSrvr5.5.5-Linux.tar.gz">Streaming  Server。</rich_text><rich_text>
+ 下载的是个压缩文件，解压出文件夹，夹里有个Install文件，在命令行下先chmod +xInstall，然后执行./Install,很快安装完成，提示输入用户名和密码，这个随便写啦～
+ 之后在浏览器地址栏里输入http://127.0.0.1:1220,然后要求输入用户名，密码，和上面设置好的一样，然后有 SetupAssistant MP3 broadcast  Password,我仍然采用同样的密码，下一步ssl据说可以不用管，直接下一步添加媒体文件目录，/usr/local/movies，下一步设端口 没有动，直接finish。
+ 搭好了，可以用电影播放器来播放流媒体文件，比如
+ 
+rtsp://127.0.0.1/sample_100kbit.mp4 ，顺利播放～
+
+启动 Darwin Streaming Server 
+sudo /usr/local/sbin/DarwinStreamingServer启动 Web 管理介面 (tcp port 1220)
+sudo /usr/local/sbin/streamingadminserver.pl
+PS：以上在安装好的时候会自动启动。
+
+1. ffmpeg convert aac to mp3
+
+
+/opt/ffmpeg/ffmpeg -y -rtmp_swfurl </rich_text><rich_text link="webs http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=DUCMEKOG679DD4E32B47AF6CF70A425282ACFE73839">http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=DUCMEKOG679DD4E32B47AF6CF70A425282ACFE73839</rich_text><rich_text> -i rtmp://lv9.ustvnow.com/dvrtest/ERR22WHP0USTVNOW2 -acodec copy -vcodec copy -map 0:v -map 0:a -bsf:v h264_mp4toannexb -f segment -segment_format mpegts -segment_time 1800 /opt/vobile/recorder/var/work/cbs/%d.ts
+
+
+
+
+
+
+</rich_text><rich_text scale="h2">x264 – Recommended General Options</rich_text><rich_text>
+For  all rate control methods you will probably want libx264 to select the  number of threads to use to maximise its performance on your CPU(s):
+-threads 0
+./configure --enable-static --enabled-shared
+
+
+</rich_text><rich_text scale="h2">Two-Pass Example</rich_text><rich_text>
+So if you wanted to encode using two-pass VBR, the command line would be something like:
+ffmpeg -i INPUT -an -pass 1 -vcodec libx264 -vpre slow_firstpass -b BIT_RATE -bt BIT_RATE -threads 0 OUTPUT.mp4
+Note: We don’t encode the audio in the first pass because we will not be using the data that was output.
+ffmpeg -i INPUT -acodec libfaac -ab 128k -pass 2 -vcodec libx264 -vpre slow -b BIT_RATE -bt BIT_RATE -threads 0 OUTPUT.mp4
+
+</rich_text><rich_text scale="h2">Single-Pass Constant Rate Factor (CRF) Example</rich_text><rich_text>
+Or for a single pass CRF encode:
+ffmpeg -i INFILE -acodec libfaac -ab 96k -vcodec libx264 -vpre slow -crf 22 -threads 0 OUTPUT.mp4
+
+
+test:
+ffmpeg -y -i 1900.mp4  -vcodec h264  -pass 1 -refs 1 -g 2 -bf 0  t.mp4 | cpu 310% real	2m18.687s|user	7m18.128s|sys	0m4.560s
+time ffmpeg -y -i 0230.mp4 -vcodec h264 -pass 1 -refs 1 -bf 1 -g 3   t.mp4|cpu 310% |real	2m21.721s|user	7m25.224s|sys	0m4.952s
+time ffmpeg -y -i 0230.mp4 -vcodec h264 -pass 1 -refs 1 -bf 0 -g 5   t.mp4|cpu 330% |real	2m21.439s|user	6m20.300s|
+time ffmpeg -y -i 0230.mp4 -vcodec h264 -pass 1 -refs 1 -bf 0 -g 75 -keyint_min 25 -coder 0 -me_method hex t.mp4|cpu 250~310%|real	2m9.074s|user	6m22.896s|sys	0m5.584s|
+
+
+-vcodec libx264 -refs 1 -g 75 -bf 0 |CPU 100%~150%
+-vcodec libx264 -refs 1 -g 5 -bf 0 |CPU 90%~120%
+
+
+个人建议用MP3.0，帧率25，参考帧1, ONEPASS，B帧2，关键帧间隔2，码率CBR并注意大小
+给个ffmpeg例子：
+
+ ffmpeg -i input.mp4 -vcodec h264 -pass 1 -s 720x576 -b 1500k -minrate 1500k -maxrate 1500k -refs 1 -bf 2 -g 2 -acodec mp2 -ar 48k -b:a 128k -vbsf h264_mp4toannexb  out.mp4
+ 
+ ./ffmpeg -threads 4 -s 352x240 -i all.yuv -vcodec libx264  -flags +loop -cmp +chroma -deblockalpha 0 -deblockbeta 0 -crf 24 -bt 256k -refs 1 -coder 0  -me_range 16 -subq 5 -partitions +parti4x4+parti8x8+partp8x8 -g 250 -keyint_min 25 -level 30 -qmin 10 -qmax 51 -trellis 2 -sc_threshold 40 -i_qfactor 0.71  -ab 128k -ar 48000 -ac 2 all.h264
+
+
+参考文章：Video Codecs Analysis and Tuning ，文档下载地址：http://www.yuvsoft.com/pdf/x264_parameters_comparison.pdf
+ 文章中详细比较了48种不同x264参数组合，比较得到如下6类最优的x264编译参数，我将文章中的x264参数转化为ffmpge命令参数如下：
+1）fastest preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264  -me_method dia -directpred 1 -me_range 16 -subq 1 -b_qfactor 1.5 -bf 1  -acodec libfaac sample_fastest.mp4
+2）fast preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -subq 1 -acodec libfaac sample_fast.mp4
+3）tradeoff preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -subq 3 -acodec libfaac sample_tradeoff.mp4
+4）good preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -bf 3  -bframebias 5 -flags2 +dct8x8+wpred+bpyramid -trellis 1 -acodec libfaac  sample_good.mp4
+5）best preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -bf 4  -flags2 +dct8x8+wpred+bpyramid -trellis 1 -refs 10 -directpred 3  -me_method umh -subq 7 -acodec libfaac sample_best.mp4
+6）extra quality preset
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -bf 4  -flags2 +dct8x8+wpred+bpyramid -refs 8 -directpred 3 -me_method umh  -subq 7 -pass 1 -acodec libfaac &gt; dev&amp;null
+ffmpeg -i  NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -bf 4 -flags2  +dct8x8+wpred+bpyramid -refs 8 -directpred 3 -me_method umh -subq 7  -pass 2 -acodec libfaac sample_extra.mp4
+下面表格显示在默认参数情况下编码速度以及平均码率相对百分比：
+ Preset Name Speed, % Average bitrate, %
+ Fastest            47                 114
+ Fast                 56                 109
+ Tradeoff          70                  102
+ Good              121                   89
+ Best                369                   77
+ Extra Quality   710                   72
+我测试分辨率1280 x  720，20帧的赛车视频，视频原始大小100442K，视频使用Sorenson Video 3编码，音频使用 MPEG-1 Layer  3编码，使用上诉5种参数分别编码得到53897K、59303K、60251K、63670K、55405K、55405K。我个人比较倾向于best  preset参数。
+在使用使用如下best参数编码的h264视频，播放时最高CPU利用率不超过4%，但效果明显比FLV效果高
+ffmpeg -i  NFSCAR_x360_trackDrift_HD720P.mov -f mp4 -vcodec libx264 -bf 4 -flags2  +bpyramid+wpred+8x8dct -trellis 1 -refs 10 -directpred 3 -me_method umh  -subq 7 -s 352*288 -r 7.5 -aspect 16:9 -acodec libfaac -ab 32k  sample_best_352_288_7.mp4
+ 
+ ffmpeg -i NFSCAR_x360_trackDrift_HD720P.mov -f flv -vcodec flv -acodec libmp3lame sample_352_288.flv
+ 
+ 视频大小分别为4212K（x264）、4816K(Flash/Sorenson)
+
+
+FFmpeg option x264 option 
+-g &lt;frames&gt; –keyint 
+-b &lt;bits per second&gt; –bitrate 
+-bufsize &lt;bits&gt; –vbv-bufsize 
+-maxrate &lt;bits&gt; –vbv-maxrate 
+-pass &lt;1,2,3&gt; –pass 
+-crf &lt;float&gt; –crf 
+-cqp &lt;int&gt; –qp 
+-bf &lt;int&gt; –bframes 
+-coder &lt;0,1&gt; –no-cabac 
+-bframebias &lt;int&gt; –b-bias 
+-keyint_min &lt;int&gt; –min-keyint 
+-sc_threshold &lt;int&gt; –scenecut 
+-deblockalpha &lt;int&gt;-deblockbeta &lt;int&gt; –deblock 
+-qmin &lt;int&gt; –qpmin 
+-qmax &lt;int&gt; –qpmax 
+-qdiff &lt;int&gt; –qpstep 
+-qcomp &lt;float&gt; –qcomp 
+-qblur &lt;float&gt; –qblur 
+-complexityblur &lt;float&gt; –cplxblur 
+-refs &lt;int&gt; –ref 
+-directpred &lt;int&gt; –direct 
+-me_method &lt;epzs,hex,umh,full&gt; –me 
+-me_range &lt;int&gt; –merange 
+-subq &lt;int&gt; –subme 
+-bidir_refine &lt;0,1&gt; –bime 
+-trellis &lt;0,1,2&gt; –trellis 
+-nr &lt;int&gt; –nr 
+-level &lt;int&gt; –level 
+-bt &lt;bits&gt; –ratetol = -bt / -b 
+-rc_init_occupancy &lt;bits&gt; –vbv-init = -rc_init_occupancy / -bufsize 
+-i_qfactor &lt;float&gt; –ipratio = 1 / -i_qfactor 
+-b_qfactor &lt;float&gt; –pbratio 
+-chromaoffset &lt;int&gt; –chroma-qp-offset 
+-rc_eq &lt;string&gt; –rc_eq 
+-threads &lt;int&gt; –threads 
+-cmp &lt;-chroma/+chroma&gt; –no-chroma-me 
+-partitions –partitions 
++parti8×8 i8×8 
++parti4×4 i4×4 
++partp8×8 p8×8 
++partp4×4 p4×4 
++partb8×8 b8×8 
+-flags 
+-loop/+loop –no-deblock/–deblock 
+-psnr/+psnr –no-psnr/nothing 
+-flags2 
++bpyramid –b-pyramid 
++wpred –weightb 
++brdo –b-rdo 我这里的ffmpeg已经不能用这个了 
++mixed_refs –mixed-refs 
++dct8×8 –8×8dct 
+-fastpskip/+fastpskip –no-fast-pskip 
++aud –aud 
+
+/opt/ffmpeg/ffmpeg -y -rtmp_swfurl </rich_text><rich_text link="webs http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=WRAFDIGP67956133A6391A37CE3C3EFEB14BC4F589E">http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=WRAFDIGP67956133A6391A37CE3C3EFEB14BC4F589E</rich_text><rich_text> -i rtmp://lv9.ustvnow.com/dvrtest/8AB2CWGALUSTVNOW2 -acodec copy -vcodec copy -map 0:v -map 0:a -bsf:v h264_mp4toannexb -f segment -segment_format mpegts -segment_time 1800 /opt/vobile/recorder/var/work/nbc/%d.ts
+</rich_text><rich_text link="webs http://93.184.221.133/hls-live/20C1A9/bbc_world/ls_satlink/b_828.m3u8">http://93.184.221.133/hls-live/20C1A9/bbc_world/ls_satlink/b_828.m3u8</rich_text><rich_text> bbc_world
+ffmpeg 直接录制v4l2
+ffmpeg  -y -f alsa -i hw:1 -f video4linux2 -s 720x480 -r 25 -i /dev/video1 2.2.mp4
+ffmpeg  -y -f alsa -i hw:6 -f video4linux2 -s 720x480 -r 25 -i /dev/video6 7.2.mp4</rich_text></node></node><node name="spider" prog_lang="custom-colors" readonly="False" tags="" unique_id="33"><rich_text link="webs http://www.tuicool.com/articles/3y6ba2">http://www.tuicool.com/articles/3y6ba2</rich_text><rich_text>    使用scrapy进行大规模抓取
+
+scrapy 自己写一个linkextractor
+</rich_text><rich_text link="webs http://www.kankanews.com/ICkengine/archives/94817.shtml">http://www.kankanews.com/ICkengine/archives/94817.shtml</rich_text><rich_text>   使用python，scrapy写（定制）爬虫的经验，资料，杂。
+
+</rich_text><rich_text link="webs http://my.oschina.net/zhangdapeng89/blog/69870">http://my.oschina.net/zhangdapeng89/blog/69870</rich_text><rich_text>
+scrapy xpath 
+</rich_text><rich_text link="webs http://yangchao.me/2014/03/scrapy-xpath/">http://yangchao.me/2014/03/scrapy-xpath/</rich_text><rich_text>
+
+pywebkit
+</rich_text><rich_text link="webs http://blog.motane.lu/2009/07/07/downloading-a-pages-content-with-python-and-webkit/">http://blog.motane.lu/2009/07/07/downloading-a-pages-content-with-python-and-webkit/</rich_text><rich_text>
+
+
+
+</rich_text><rich_text link="webs http://www.cnblogs.com/lixiuran/p/3328334.html">社会化海量数据采集爬虫框架搭建</rich_text><rich_text>
+</rich_text><rich_text link="webs http://www.cnblogs.com/lixiuran/p/3328334.html">http://www.cnblogs.com/lixiuran/p/3328334.html</rich_text><rich_text>
+
+
+</rich_text><rich_text link="webs http://www.cnblogs.com/lixiuran/p/3328332.html">nutch 存储到数据库</rich_text><rich_text>
+</rich_text><rich_text link="webs http://www.cnblogs.com/lixiuran/p/3328332.html">http://www.cnblogs.com/lixiuran/p/3328332.html</rich_text><rich_text>
+
+scrapy
+</rich_text><rich_text link="webs http://blog.csdn.net/column/details/younghz-scrapy.html">http://blog.csdn.net/column/details/younghz-scrapy.html</rich_text><rich_text>
+
+数据分析
+数据分析
+</rich_text><rich_text link="webs http://blog.csdn.net/u012150179/article/details/38140989">http://blog.csdn.net/u012150179/article/details/38140989</rich_text><rich_text>
+
+
+使用 Node.js 实现的网页抓取  </rich_text><rich_text scale="h1">                   </rich_text><rich_text>
+</rich_text><rich_text link="webs http://www.oschina.net/translate/web-scraping-with-node-js">http://www.oschina.net/translate/web-scraping-with-node-js</rich_text><rich_text>
+spynner
+
+webkitdownloader
+</rich_text><rich_text link="webs http://www.dewen.io/q/10352/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E7%9A%84scrapy%E5%8A%A0%E8%BD%BD%E4%BA%86%E5%A4%84%E7%90%86JS%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%99%A8%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%BE%9D%E7%84%B6%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96JS%E7%94%9F%E6%88%90%E7%9A%84%E9%A1%B5%E9%9D%A2%E5%91%A2%EF%BC%9F">http://www.dewen.io/q/10352/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E7%9A%84scrapy%E5%8A%A0%E8%BD%BD%E4%BA%86%E5%A4%84%E7%90%86JS%E7%9A%84%E4%B8%8B%E8%BD%BD%E5%99%A8%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%BE%9D%E7%84%B6%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96JS%E7%94%9F%E6%88%90%E7%9A%84%E9%A1%B5%E9%9D%A2%E5%91%A2%EF%BC%9F</rich_text><rich_text>
+
+
+
+
+</rich_text><rich_text link="webs http://hackerxu.com/2014/09/07/scrapy-jd.html" scale="h1">基于Scrapy的京东爬虫</rich_text><rich_text>
+</rich_text><rich_text link="webs http://hackerxu.com/2014/09/07/scrapy-jd.html">http://hackerxu.com/2014/09/07/scrapy-jd.html</rich_text><rich_text>
+
+抓包
+抓包发现scrapy发出的http请求是1.0的，改成了1.1就好了，不明所以...没时间找原因了，- -赶快做毕设去。。
+
+
+</rich_text><rich_text link="webs http://www.dandingla.com/?p=222" scale="h1">scrapy采集痛点</rich_text><rich_text>
+</rich_text><rich_text link="webs http://www.dandingla.com/?p=222">http://www.dandingla.com/?p=222</rich_text><rich_text>
+
+
+XPath checker
+
+
+</rich_text><rich_text scale="h2">scrapy框架的使用</rich_text><rich_text>（模拟浏览器）
+</rich_text><rich_text link="webs http://blog.sina.com.cn/s/blog_131312cdc0102uxxl.html">http://blog.sina.com.cn/s/blog_131312cdc0102uxxl.html</rich_text><rich_text>
+
+
+</rich_text><rich_text scale="h2">用python爬虫时， 如何处理网页中有javascript动态增加的部分？</rich_text><rich_text>
+</rich_text><rich_text link="webs http://www.zhihu.com/question/19972109">http://www.zhihu.com/question/19972109</rich_text><rich_text>
+
+
+</rich_text><rich_text scale="h2">目前的方案</rich_text><rich_text>
+1.  casperjs,phantomjs 无界面浏览器（headless browser）
+2.  写一个 scrapy 的 下载handler，这是scrapy支持的插件，并且不影响其他框架功能的运行，下载器的开发我会在下一篇讲一下
+
+</rich_text><rich_text scale="h1">PhantomJS </rich_text><rich_text>
+
+</rich_text><rich_text link="webs http://javascript.ruanyifeng.com/tool/phantomjs.html">http://javascript.ruanyifeng.com/tool/phantomjs.html</rich_text><rich_text>
+
+</rich_text><rich_text link="webs http://www.tuicool.com/topics/11060064?st=1&amp;lang=0&amp;pn=1">http://www.tuicool.com/topics/11060064?st=1&amp;lang=0&amp;pn=1</rich_text><rich_text>
+网络爬虫
+</rich_text><rich_text link="webs http://www.hopez.org/blog/9">http://www.hopez.org/blog/9</rich_text><rich_text>
+
+scrapyd 
+</rich_text><rich_text link="webs http://tchen.me/posts/2013-06-10-use-scrapyd-to-serve-scrapy-projects.html">http://tchen.me/posts/2013-06-10-use-scrapyd-to-serve-scrapy-projects.html</rich_text><rich_text>
+</rich_text><rich_text link="webs http://doc.scrapy.org/en/0.14/topics/scrapyd.html">http://doc.scrapy.org/en/0.14/topics/scrapyd.html</rich_text><rich_text>
+
+
+scrapy-jsonrpc
+</rich_text><rich_text link="webs https://github.com/scrapy/scrapy-jsonrpc">https://github.com/scrapy/scrapy-jsonrpc</rich_text><rich_text>
+scrapy code snipp 代码片断
+</rich_text><rich_text link="webs http://snipplr.com/all/tags/scrapy/">http://snipplr.com/all/tags/scrapy/</rich_text><rich_text>
+Deploy crawler to EC2 with scrapyd
+</rich_text><rich_text link="webs http://bgrva.github.io/blog/2014/04/13/deploy-crawler-to-ec2-with-scrapyd/">http://bgrva.github.io/blog/2014/04/13/deploy-crawler-to-ec2-with-scrapyd/</rich_text><rich_text>
+</rich_text><node name="notes" prog_lang="custom-colors" readonly="False" tags="" unique_id="35"><rich_text>1.  运行 </rich_text><rich_text style="italic">scrapy list</rich_text><rich_text> 查看当前有的蜘蛛
+2.  运行 </rich_text><rich_text style="italic">scrapy crawl -t json -o result.json doubanBook</rich_text><rich_text> 输出爬取的结果到 json 格式的结果文件
+
+ 
+
+</rich_text><rich_text scale="h2">技术点</rich_text><rich_text>
+1.  页面的分析主要采用 xpath/css选择器/dom解析/正则表达式 等方式处理（上面演示了2种方法）
+2.  解析函数被调用的方式是基于异步回调，不要在解析函数内调用长时间阻塞的函数，要尽快把控制权返回给引擎
+</rich_text></node></node><node name="python" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="2"><rich_text>in ubuntu show msg i
+    pynotify.init(&quot;eye-guard&quot;)    
+    msg = pynotify.Notification(&quot;Eye Guard&quot;, &quot;You have been worked for 30 minutes!\n\            Rest for a while!&quot;)    
+    msg.show() </rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="12"><rich_text>python web 
 </rich_text><rich_text link="webs http://www.zackgrossbart.com/hackito/search-engine-python/">http://www.zackgrossbart.com/hackito/search-engine-python/</rich_text><rich_text>
 tornado
 </rich_text><rich_text link="webs http://blog.csdn.net/littlethunder/article/details/8930157">http://blog.csdn.net/littlethunder/article/details/8930157</rich_text><rich_text>
@@ -178,38 +850,103 @@ python tips 一人一python
 reqiest and response object (Django)
 </rich_text><rich_text link="webs https://docs.djangoproject.com/en/1.5//ref/request-response/">https://docs.djangoproject.com/en/1.5//ref/request-response/</rich_text><rich_text>
 
+twisted Document
+</rich_text><rich_text link="webs http://twistedmatrix.com/documents/10.0.0/core/howto/index.html">http://twistedmatrix.com/documents/10.0.0/core/howto/index.html</rich_text><rich_text>
 
 python 文章
 </rich_text><rich_text link="webs http://django-china.cn/topic/173/">http://django-china.cn/topic/173/</rich_text><rich_text>
 
 python 多线程
-</rich_text><rich_text link="webs http://blog.jobbole.com/52060/">http://blog.jobbole.com/52060/</rich_text><rich_text> 
+</rich_text><rich_text link="webs http://blog.jobbole.com/52060/">http://blog.jobbole.com/52060/</rich_text><rich_text> 
 
 
-python xml dom 
-</rich_text><rich_text link="webs http://www.w3schools.com/dom/dom_nodes_set.asp">http://www.w3schools.com/dom/dom_nodes_set.asp</rich_text><rich_text> 
-</rich_text></node><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="13"><rich_text>1. python 生成 随机字符串:
+python xml dom 
+</rich_text><rich_text link="webs http://www.w3schools.com/dom/dom_nodes_set.asp">http://www.w3schools.com/dom/dom_nodes_set.asp</rich_text><rich_text> 
+
+python 中的高级数据结构
+</rich_text><rich_text link="webs http://blog.jobbole.com/65218/">http://blog.jobbole.com/65218/</rich_text><rich_text>
+
+
+Python修饰器的函数式编程
+</rich_text><rich_text link="webs http://coolshell.cn/articles/11265.html">http://coolshell.cn/articles/11265.html</rich_text><rich_text>
+
+</rich_text><rich_text link="webs http://cdn2.filepi.com/g/fFMs1u8/1400663399/32f12cd3c0ca68d5a55c208e9b832048">http://cdn2.filepi.com/g/fFMs1u8/1400663399/32f12cd3c0ca68d5a55c208e9b832048</rich_text><rich_text>
+
+
+web.py example 
+</rich_text><rich_text link="webs http://simple-is-better.com/news/309">http://simple-is-better.com/news/309</rich_text><rich_text>
+
+ipython reload moudle
+</rich_text><rich_text link="webs http://pythontip.sinaapp.com/blog/post/6962/">http://pythontip.sinaapp.com/blog/post/6962/</rich_text><rich_text> 
+
+python adventure
+</rich_text><rich_text link="webs http://pythonadventures.wordpress.com">http://pythonadventures.wordpress.com</rich_text><rich_text>
+
+python 数据结构 
+</rich_text><rich_text link="webs http://blog.segmentfault.com/hujiaweibujidao/1190000000596978">http://blog.segmentfault.com/hujiaweibujidao/1190000000596978</rich_text><rich_text>
+
+python-BeautifulSoup 
+</rich_text><rich_text link="webs http://www.crummy.com/software/BeautifulSoup/bs3/documentation.zh.html#Improving%20Performance%20by%20Parsing%20Only%20Part%20of%20the%20Document">http://www.crummy.com/software/BeautifulSoup/bs3/documentation.zh.html#Improving%20Performance%20by%20Parsing%20Only%20Part%20of%20the%20Document</rich_text><rich_text>
+</rich_text></node><node name="collections" prog_lang="python" readonly="False" tags="" unique_id="44"><rich_text>1. python 生成 随机字符串:
 import random
 import string
 salt = ''.join(random.sample(string.ascii_letters+string.digits, 8))
 2. unix get disk space info
-</rich_text><rich_text justification="left"></rich_text><rich_text>
+import os
+from collections
+import namedtuple 
+_ntuple_diskusage = namedtuple('usage','total used free') 
+def disk_usage(path):    
+    &quot;&quot;&quot;Return disk usage statistics about the given path.        
+    Returned valus is a named tuple with attributes 'total', 'used' and            
+    'free', which are the amount of total, used and free space, in bytes.        
+    &quot;&quot;&quot;       
+    st=os.statvfs(path)       
+    free=st.f_bavail*st.f_frsize        
+    total=st.f_blocks*st.f_frsize        
+    used=(st.f_blocks-st.f_bfree)*st.f_frsize        
+return _ntuple_diskusage(total,used,free)
 
-3. dict and list 
-Python  中的字典使用了hast，因此，在查找中需要遍历整个list的情况，最好把list转为dict
-</rich_text><rich_text justification="left"></rich_text><rich_text>
-4.使用set求交集
-</rich_text><rich_text justification="left"></rich_text><rich_text>
-5.对循环的优化
+3. dict and list 
+Python  中的字典使用了hast，因此，在查找中需要遍历整个list的情况，最好把list转为dict
+
+from time import time
+t=time()
+list=['a','b','is','python','jason','hello','hill','with','phone','test',
+'dfdf','apple','pddf','ind','basic','none','baecr','var','bana','dd','wrd']
+ #list = dict.fromkeys(list,True)
+printlist
+filter=[]
+ foriinrange(1000000):
+     forfindin['is','hat','new','list','old','.']:
+         iffindnotinlist:
+             filter.append(find)
+ print&quot;total run time:&quot;
+ printtime()-t
+ 
+ 
+ 4.使用set求交集
+ 
+ fromtimeimporttime
+ t=time()
+ lista=[1,2,3,4,5,6,7,8,9,13,34,53,42,44]
+ listb=[2,4,6,9,23]
+ intersection=[]
+ foriinrange(1000000):
+     list(set(lista)&amp;set(listb))
+ print&quot;total run time:&quot;
+ printtime()-t
+ 
+ 5.对循环的优化
 尽量把循环中的计算放到上一层中，用xrange代替range
 
 7.充分利用 Lazy if-evaluation 的特性
 8.字符串的优化
 a。字符串的连接尽量使用join而不是‘+’，
-     同时尽量使用  
-        slit = [func(e) for e in elist]
+     同时尽量使用  
+        slit = [func(e) for e in elist]
 
-        x = &quot;&quot;.join(slit)
+        x = &quot;&quot;.join(slit)
 当对字符串可以使用正则表达式或者内置函数来处理的时候，选择内置函数。如 str.isalpha()，str.isdigit()，str.startswith((‘x’, ‘yz’))，str.endswith((‘x’, ‘yz’))
 
 对字符进行格式化比直接串联读取要快，因此要使用
@@ -218,56 +955,131 @@ out=&quot;%s%s%s%s&quot;%(head, prologue, query, tail)
 
 
 9,使用列表解析和生成器表达式
-a=[i for i in list]   g = (i for i in list)
+a=[i for i in list]   g = (i for i in list)
 10 if done is not None 比语句 if done != None 更快
-</rich_text><codebox char_offset="145" frame_height="100" frame_width="700" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="python" width_in_pixels="True">import os from collections import namedtuple _ntuple_diskusage = namedtuple('usage','total used free') def disk_usage(path):    &quot;&quot;&quot;Return disk usage statistics about the given path.        Returned valus is a named tuple with attributes 'total', 'used' and        'free', which are the amount of total, used and free space, in bytes.        &quot;&quot;&quot;       st=os.statvfs(path)       free=st.f_bavail*st.f_frsize        total=st.f_blocks*st.f_frsize        used=(st.f_blocks-st.f_bfree)*st.f_frsize        return _ntuple_diskusage(total,used,free)</codebox><codebox char_offset="221" frame_height="100" frame_width="700" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="python" width_in_pixels="True">fromtimeimporttime
- t=time()
- list=['a','b','is','python','jason','hello','hill','with','phone','test',
-'dfdf','apple','pddf','ind','basic','none','baecr','var','bana','dd','wrd']
- #list = dict.fromkeys(list,True)
- printlist
- filter=[]
- foriinrange(1000000):
-     forfindin['is','hat','new','list','old','.']:
-         iffindnotinlist:
-             filter.append(find)
- print&quot;total run time:&quot;
- printtime()-t</codebox><codebox char_offset="234" frame_height="100" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="python" width_in_pixels="False">fromtimeimporttime
- t=time()
- lista=[1,2,3,4,5,6,7,8,9,13,34,53,42,44]
- listb=[2,4,6,9,23]
- intersection=[]
- foriinrange(1000000):
-     list(set(lista)&amp;set(listb))
- print&quot;total run time:&quot;
- printtime()-t</codebox></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text></rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
+
+
+
+[i for i in enumerate(l)]
+ [(0, 'a'), (1, 'b'), (2, 'c'), (3, 'd')]
+ 
+ 
+ from collections import Counter
+ 
+li = [&quot;Dog&quot;, &quot;Cat&quot;, &quot;Mouse&quot;,&quot;Dog&quot;,&quot;Cat&quot;, &quot;Dog&quot;]
+a = Counter(li)
+ 
+print a # Counter({'Dog': 3, 'Cat': 2, 'Mouse': 1})
+ 
+print &quot;{0} : {1}&quot;.format(a.values(),a.keys())  # [1, 3, 2] : ['Mouse', 'Dog', 'Cat']
+ 
+print(a.most_common(3)) # [('Dog', 3), ('Cat', 2), ('Mouse', 1)]
+
+
+from collections import defaultdict
+ 
+s = &quot;the quick brown fox jumps over the lazy dog&quot;
+ 
+words = s.split()
+location = defaultdict(list)
+for m, n in enumerate(words):
+    location[n].append(m)
+ 
+print location
+ 
+# defaultdict(&lt;type 'list'&gt;, {'brown': [2], 'lazy': [7], 'over': [5], 'fox': [3],
+# 'dog': [8], 'quick': [1], 'the': [0, 6], 'jumps': [4]})
+
+#创建一个动态的Item类
+from scrapy.item import DictItem, Field
+
+def create_item_class(class_name, field_list):
+    field_dict = {}
+    for field_name in field_list:
+        field_dict[field_name] = Field()
+
+    return type(class_name, (DictItem,), field_dict)
+    
+    
+    
+    
+    
+    
+## 在脚本里运行scrapy spider 
+# This snippet can be used to run scrapy spiders independent of scrapyd or the scrapy command line tool and use it from a script. 
+# 
+# The multiprocessing library is used in order to work around a bug in Twisted, in which you cannot restart an already running reactor or in this case a scrapy instance.
+# 
+# [Here](http://groups.google.com/group/scrapy-users/browse_thread/thread/f332fc5b749d401a) is the mailing-list discussion for this snippet. 
+
+#!/usr/bin/python
+import os
+os.environ.setdefault('SCRAPY_SETTINGS_MODULE', 'project.settings') #Must be at the top before other imports
+
+from scrapy import log, signals, project
+from scrapy.xlib.pydispatch import dispatcher
+from scrapy.conf import settings
+from scrapy.crawler import CrawlerProcess
+from multiprocessing import Process, Queue
+
+class CrawlerScript():
+
+    def __init__(self):
+        self.crawler = CrawlerProcess(settings)
+        if not hasattr(project, 'crawler'):
+            self.crawler.install()
+        self.crawler.configure()
+        self.items = []
+        dispatcher.connect(self._item_passed, signals.item_passed)
+
+    def _item_passed(self, item):
+        self.items.append(item)
+
+    def _crawl(self, queue, spider_name):
+        spider = self.crawler.spiders.create(spider_name)
+        if spider:
+            self.crawler.queue.append_spider(spider)
+        self.crawler.start()
+        self.crawler.stop()
+        queue.put(self.items)
+
+    def crawl(self, spider):
+        queue = Queue()
+        p = Process(target=self._crawl, args=(queue, spider,))
+        p.start()
+        p.join()
+        return queue.get(True)
+
+# Usage
+if __name__ == &quot;__main__&quot;:
+    log.start()
+
+    &quot;&quot;&quot;
+    This example runs spider1 and then spider2 three times. 
+    &quot;&quot;&quot;
+    items = list()
+    crawler = CrawlerScript()
+    items.append(crawler.crawl('spider1'))
+    for i in range(3):
+        items.append(crawler.crawl('spider2'))
+    print items
+
+</rich_text></node><node name="oneline" prog_lang="custom-colors" readonly="False" tags="" unique_id="63"><rich_text>求100 以内的质数
+filter(lambda x: not [x%i for i in range(2,x) if x%i==0], range(2,101))</rich_text></node><node name="twisted" prog_lang="custom-colors" readonly="False" tags="" unique_id="53"><rich_text>twisted examples
+</rich_text><rich_text link="webs https://twistedmatrix.com/documents/current/core/examples/">https://twistedmatrix.com/documents/current/core/examples/</rich_text></node></node><node name="Lua" prog_lang="custom-colors" readonly="False" tags="" unique_id="30"><rich_text></rich_text><node name="tips" prog_lang="custom-colors" readonly="False" tags="" unique_id="31"><rich_text></rich_text></node></node><node name="Linux" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="3"><rich_text>
+</rich_text><node name="shell" prog_lang="custom-colors" readonly="False" tags="" unique_id="9"><rich_text>find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
 find -mmin -60 -exec ls -l {} \;
 
-redirect io to null 
+redirect io to null 
 command &gt; /dev/null 1&gt;2&amp;
 
-1.   set -u，当你使用未初始化的变量时，让bash自动退出。你也可以使用可读性更强一点的set -o nounset
+1.   set -u，当你使用未初始化的变量时，让bash自动退出。你也可以使用可读性更强一点的set -o nounset
 
 2. 
+</rich_text><rich_text justification="left"></rich_text><rich_text>
 
 
-
-
-一、Linux shell 截取字符变量的前8位，有方法如下：
-　　1.expr substr “$a” 1 8
-　　2.echo $a|awk ‘{print substr(,1,8)}’
-　　3.echo $a|cut -c1-8
-　　4.expr $a : ‘\(.\\).*’
-　　5.echo $a|dd bs=1 count=8 2&gt;/dev/null
-二、按指定的字符串截取
-　　1、第一种方法: ${varible##*string} 从左向右截取最后一个string后的字符串 ${varible#*string}从左向右截取第一个string后的字符串 ${varible%%string*}从右向左截取最后一个string后的字符串 ${varible%string*}从右向左截取第一个string后的字符串 “*”只是一个通配符可以不要
-例子： $ MYVAR=foodforthought.jpg $ echo ${MYVAR##*fo} rthought.jpg $ echo ${MYVAR#*fo} odforthought.jpg
-　　2、第二种方法：${varible:n1:n2}:截取变量varible从n1到n2之间的字符串。
-可以根据特定字符偏移和长度，使用另一种形式的变量扩展，来选择特定子字符串。试着在 bash 中输入以下行： $ EXCLAIM=cowabunga $ echo ${EXCLAIM:0:3} cow $ echo ${EXCLAIM:3:7} abunga
-这种形式的字符串截断非常简便，只需用冒号分开来指定起始字符和子字符串长度。
-三、按照指定要求分割： 比如获取后缀名 ls -al | cut -d “.” -f2
-
-
+  $! 是一个进程的pid
 
 防止脚本重复运行方法
 
@@ -276,56 +1088,67 @@ command &gt; /dev/null 1&gt;2&amp;
 main(){
 selfPID=&quot;$$&quot;
 scriptFile=&quot;$0&quot;
- 
+ 
 typeset existingPid
 existingPid=`getExistingPIDs $selfPID &quot;$scriptFile&quot;`
- 
+ 
 if [ ! -z &quot;$existingPid&quot; ]; then
-  echo &quot;The script already running, exiting...&quot;
-  exit -1
+  echo &quot;The script already running, exiting...&quot;
+  exit -1
 fi
- 
+ 
 doItsTask
- 
+ 
 }
- 
+ 
 #获取除本身进程以外其它运行当前脚本的进程的 PID
 getExistingPIDs(){
 selfPID=&quot;$1&quot;
 scriptFile=&quot;$2&quot;
- 
+ 
 ps -ef | grep &quot;/usr/bin/ksh ${scriptFile}&quot; | grep -v &quot;grep&quot; | awk &quot;{ if(\$2!=$selfPID) print \$2 }&quot;
 }
- 
+ 
 doItsTask(){
 echo &quot;Task is now being executed...&quot;
-sleep 20  #睡眠 20s，以模拟脚本在执行需要长时间完成的任务
+sleep 20  #睡眠 20s，以模拟脚本在执行需要长时间完成的任务
 }
- 
+ 
 main $*
-</rich_text><node name="常用脚本" prog_lang="custom-colors" readonly="False" tags="" unique_id="10"><rich_text>1、查看主机网卡流量#!/bin/bash
-#!/bin/bash#network#Mike.Xuwhile : ; do      time='date +%m&quot;-&quot;%d&quot; &quot;%k&quot;:&quot;%M'      day='date +%m&quot;-&quot;%d'      rx_before='ifconfig eth0|sed -n &quot;8&quot;p|awk '{print $2}'|cut -c7-'      tx_before='ifconfig eth0|sed -n &quot;8&quot;p|awk '{print $6}'|cut -c7-'      sleep 2      rx_after='ifconfig eth0|sed -n &quot;8&quot;p|awk '{print $2}'|cut -c7-'      tx_after='ifconfig eth0|sed -n &quot;8&quot;p|awk '{print $6}'|cut -c7-'      rx_result=$[(rx_after-rx_before)/256]      tx_result=$[(tx_after-tx_before)/256]      echo &quot;$time Now_In_Speed: &quot;$rx_result&quot;kbps Now_OUt_Speed: &quot;$tx_result&quot;kbps&quot;      sleep 2donedone2、系统状况监控#!/bin/sh#systemstat.sh#Mike.XuIP=192.168.1.227top -n 2| grep &quot;Cpu&quot; &gt;&gt;./temp/cpu.txtfree -m | grep &quot;Mem&quot; &gt;&gt; ./temp/mem.txtdf -k | grep &quot;sda1&quot; &gt;&gt; ./temp/drive_sda1.txt#df -k | grep sda2 &gt;&gt; ./temp/drive_sda2.txtdf -k | grep &quot;/mnt/storage_0&quot; &gt;&gt; ./temp/mnt_storage_0.txtdf -k | grep &quot;/mnt/storage_pic&quot; &gt;&gt; ./temp/mnt_storage_pic.txttime=`date +%m&quot;.&quot;%d&quot; &quot;%k&quot;:&quot;%M`connect=`netstat -na | grep &quot;219.238.148.30:80&quot; | wc -l`echo &quot;$time  $connect&quot; &gt;&gt; ./temp/connect_count.txt
+
+shell
+</rich_text><rich_text link="webs http://get.jobdeer.com/1408.get">http://get.jobdeer.com/1408.get</rich_text><rich_text>
 
 
+</rich_text><codebox char_offset="202" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False"> 八进制转十进制：
 
-3、监控主机的磁盘空间，当使用空间超过90％就通过发mail来发警告
+[chengmo@centos5 ~]$ ((num=0123));
+[chengmo@centos5 ~]$ echo $num;
+83
 
+[chengmo@centos5 ~]$ ((num=8#123));
+[chengmo@centos5 ~]$ echo $num;
+83
+一、Linux shell 截取字符变量的前8位，有方法如下：
+　　1.expr substr “$a” 1 8
+　　2.echo $a|awk ‘{print substr(,1,8)}’
+　　3.echo $a|cut -c1-8
+　　4.expr $a : ‘\(.\\).*’
+　　5.echo $a|dd bs=1 count=8 2&gt;/dev/null
+　　二、按指定的字符串截取
+　　1、第一种方法: 
+　　${varible##*string} 从左向右截取最后一个string后的字符串 
+　　${varible#*string}从左向右截取第一个string后的字符串 
+　　${varible%%string*}从右向左截取最后一个string后的字符串 
+　　${varible%string*}从右向左截取第一个string后的字符串 “*”只是一个通配符可以不要
+例子： $ MYVAR=foodforthought.jpg $ echo ${MYVAR##*fo} rthought.jpg $ echo ${MYVAR#*fo} odforthought.jpg
+　　2、第二种方法：
+　　${varible:n1:n2}:截取变量varible从n1到n2之间的字符串。
+可以根据特定字符偏移和长度，使用另一种形式的变量扩展，来选择特定子字符串。试着在 bash 中输入以下行： $ EXCLAIM=cowabunga $ echo ${EXCLAIM:0:3} cow $ echo ${EXCLAIM:3:7} abunga
+这种形式的字符串截断非常简便，只需用冒号分开来指定起始字符和子字符串长度。
+三、按照指定要求分割： 比如获取后缀名 ls -al | cut -d “.” -f2</codebox></node><node name="collections" prog_lang="custom-colors" readonly="False" tags="" unique_id="21"><rich_text>Linux
 
-#!/bin/bash#monitor available disk spaceSPACE='df | sed -n '/ \ / $ / p' | gawk '{print $5}' | sed  's/%//'if [ $SPACE -ge 90 ]thenfty89@163.comfi
-
-
-4、 监控CPU和内存的使用情况
-
-
-#!/bin/bash#script  to capture system statisticsOUTFILE=/home/xu/capstats.csvDATE='date +%m/%d/%Y'TIME='date +%k:%m:%s'TIMEOUT='uptime'VMOUT='vmstat 1 2' USERS='echo $TIMEOUT | gawk '{print $4}' 'LOAD='echo $TIMEOUT | gawk '{print $9}' | sed &quot;s/,//' 'FREE='echo $VMOUT | sed -n '/[0-9]/p' | sed -n '2p' | gawk '{print $4} ' 'IDLE='echo  $VMOUT | sed -n '/[0-9]/p' | sed -n '2p' |gawk '{print $15}' 'echo &quot;$DATE,$TIME,$USERS,$LOAD,$FREE,$IDLE&quot; &gt;&gt; $OUTFILE
-
-
-5、全方位监控主机
-
-
-#!/bin/bash# check_xu.sh# 0 * * * * /home/check_xu.sh DAT=&quot;`date +%Y%m%d`&quot;HOUR=&quot;`date +%H`&quot;DIR=&quot;/home/oslog/host_${DAT}/${HOUR}&quot;DELAY=60COUNT=60# whether the responsible directory existif ! test -d ${DIR}then        /bin/mkdir -p ${DIR}fi# general checkexport TERM=linux/usr/bin/top -b -d ${DELAY} -n ${COUNT} &gt; ${DIR}/top_${DAT}.log 2&gt;&amp;1 &amp;# cpu check/usr/bin/sar -u ${DELAY} ${COUNT} &gt; ${DIR}/cpu_${DAT}.log 2&gt;&amp;1 &amp;#/usr/bin/mpstat -P 0 ${DELAY} ${COUNT} &gt; ${DIR}/cpu_0_${DAT}.log 2&gt;&amp;1 &amp;#/usr/bin/mpstat -P 1 ${DELAY} ${COUNT} &gt; ${DIR}/cpu_1_${DAT}.log 2&gt;&amp;1 &amp;# memory check/usr/bin/vmstat ${DELAY} ${COUNT} &gt; ${DIR}/vmstat_${DAT}.log 2&gt;&amp;1 &amp;# I/O check/usr/bin/iostat ${DELAY} ${COUNT} &gt; ${DIR}/iostat_${DAT}.log 2&gt;&amp;1 &amp;# network check/usr/bin/sar -n DEV ${DELAY} ${COUNT} &gt; ${DIR}/net_${DAT}.log 2&gt;&amp;1 &amp;#/usr/bin/sar -n EDEV ${DELAY} ${COUNT} &gt; ${DIR}/net_edev_${DAT}.log 2&gt;&amp;1 &amp;</rich_text></node></node><node name="collections" prog_lang="custom-colors" readonly="False" tags="" unique_id="21"><rich_text>Linux
-
-
+Linux下用jq来格式化json，相当NB
 使用vimdiff作为svn diff的查看代码工具
 
 </rich_text><rich_text link="webs http://color/#3465A4">http://www.cnblogs.com/xuxm2007/archive/2012/05/11/2496243.html</rich_text><rich_text>
@@ -335,38 +1158,38 @@ main $*
 linux下默认是不产生core文件的，要用ulimit -c unlimited放开
 1、开启系统的Core Dump功能
 
-   ulimit -c core_file_size_in_kb
+   ulimit -c core_file_size_in_kb
 
-   如果要关闭该功能core_file_size_in_kb为0就行了。
+   如果要关闭该功能core_file_size_in_kb为0就行了。
 
 2、设置Core Dump的核心转储文件目录和命名规则
 
-   文件的命名规则放在
+   文件的命名规则放在
 
-   </rich_text><rich_text link="webs http://color/#3465A4">/proc/sys/kernel/core_name_format文件中</rich_text><rich_text>
+   </rich_text><rich_text link="webs http://color/#3465A4">/proc/sys/kernel/core_name_format文件中</rich_text><rich_text>
 
-   使用sysctl -w &quot;kernel.core_name_format=/coredump/%n.core&quot;
+   使用sysctl -w &quot;kernel.core_name_format=/coredump/%n.core&quot;
 
-   上例的core文件放在/coredump目录下，文件名是进程名+.core
+   上例的core文件放在/coredump目录下，文件名是进程名+.core
 
-   以下是一些命名的格式说明
+   以下是一些命名的格式说明
 
-   %P   The Process ID (current-&gt;pid)
-   %U   The UID of the process (current-&gt;uid)
-   %N   The command name of the process (current-&gt;comm)
-   %H   The nodename of the system (system_utsname.nodename)
-   %%   A &quot;%&quot;
+   %P   The Process ID (current-&gt;pid)
+   %U   The UID of the process (current-&gt;uid)
+   %N   The command name of the process (current-&gt;comm)
+   %H   The nodename of the system (system_utsname.nodename)
+   %%   A &quot;%&quot;
 
 
 
 |/usr/share/apport/apport %p %s %c
 
 </rich_text><rich_text weight="heavy">设置默认编辑器</rich_text><rich_text>
-  update-alternatives --config editor
+  update-alternatives --config editor
 
 
 dd if=1375752413.742425.data bs=32 skip=1 of=1.flac
-</rich_text><rich_text link="webs http://blog.csdn.net/androidyue/article/details/9295505">Ubuntu 12.04 如何修改背景色         http://blog.csdn.net/androidyue/article/details/9295505</rich_text><rich_text>sshfs
+</rich_text><rich_text link="webs http://blog.csdn.net/androidyue/article/details/9295505">Ubuntu 12.04 如何修改背景色         http://blog.csdn.net/androidyue/article/details/9295505</rich_text><rich_text>sshfs
 sshfs root@livedev:/opt tmp
 
 
@@ -376,7 +1199,7 @@ find &lt;CONDITION to Find files&gt; -exec &lt;OPERATION&gt; \;
 find -mmin -60 -exec ls -l {} \;
 
 重定向
-redirect io to null 
+redirect io to null 
 command &gt; /dev/null 2&gt;&amp;1
 
 
@@ -393,17 +1216,17 @@ sudo ntpdate cn.pool.ntp.org
 </rich_text><rich_text scale="h1">解压deb包</rich_text><rich_text>
 
 dpkg-deb -x xxxx.deb di
+dpkg-deb --fsys-tarfile xx.dbe|tar xv???
 
 
-
-curl 
-curl --data-binary '@post_data.txt' </rich_text><rich_text link="webs http://192.168.100.228:8080/sendTasks">http://192.168.100.228:8080/sendTasks</rich_text><rich_text>
+curl 
+curl --data-binary '@post_data.txt' </rich_text><rich_text link="webs http://192.168.100.228:8080/sendTasks">http://192.168.100.228:8080/sendTasks</rich_text><rich_text>
 
 Linux 修改键盘配置
-xev    xmdom -pke
+xev    xmdom -pke
 
 
- xmodmap -e &quot;keycode 180 = Escape NoSymbol Escape&quot;
+ xmodmap -e &quot;keycode 180 = Escape NoSymbol Escape&quot;
 
 
 curl
@@ -412,84 +1235,785 @@ curl -d '@task' &quot;http://192.168.1.50:8080/jobTracker/task/submit&quot; -H&q
 Linux 修改 crontab 编辑器
 update-alternatives --config editor
 
-1. 查看一个系统可以打开的文件的个数        cat /proc/sys/fs/file-max
+1. 查看一个系统可以打开的文件的个数        cat /proc/sys/fs/file-max
 
 
 
 
 
-sshfs is an easy way to provide file access to a remote system with ssh. On Ubuntu, all you need to install it (on the remote client, nothing to do on the server if it already runs ssh) is run:
+sshfs is an easy way to provide file access to a remote system with ssh. On Ubuntu, all you need to install it (on the remote client, nothing to do on the server if it already runs ssh) is run:
 sudo apt-get install sshfs
-To make things easier, you can make an /etc/fstab entry with the settings to mount a remote directory:
+To make things easier, you can make an /etc/fstab entry with the settings to mount a remote directory:
 sshfs#chip@example.unicom.com:/home/chip /home/chip/Remote-Home fuse umask=0,defaults,noauto,user 0 0
 Now, to mount the directory I just type (from my home directory):
-$ </rich_text><rich_text weight="heavy">mount Remote-Home</rich_text><rich_text>
+$ </rich_text><rich_text weight="heavy">mount Remote-Home</rich_text><rich_text>
 The problem is that if I try to unmount the directory it fails:
-$ </rich_text><rich_text weight="heavy">umount Remote-Home</rich_text><rich_text>
+$ </rich_text><rich_text weight="heavy">umount Remote-Home</rich_text><rich_text>
 umount: /home/chip/Remote-Home mount disagrees with the fstab
 The command you have to use is:
-$ </rich_text><rich_text weight="heavy">fusermount -u Remote-Home
-</rich_text><rich_text>But you can make umount work with two simple steps.
+$ </rich_text><rich_text weight="heavy">fusermount -u Remote-Home
+</rich_text><rich_text>But you can make umount work with two simple steps.
 First (this is the trick), run:
-$ </rich_text><rich_text weight="heavy">sudo ln -s mount.fuse mount.fuse.sshfs</rich_text><rich_text>
-Then, make two changes to the fstab file. First, change the filesystem type (column three) from fuse to fuse.sshfs. Then, remove &quot;sshfs#&quot; from the first field. Now, it will look something like:
-chip@example.unicom.com:/home/chip /home/chip/Remote-Home fuse.sshfs umask=0,defaults,noauto,user 0 0
+$ </rich_text><rich_text weight="heavy">sudo ln -s mount.fuse mount.fuse.sshfs</rich_text><rich_text>
+Then, make two changes to the fstab file. First, change the filesystem type (column three) from fuse to fuse.sshfs. Then, remove &quot;sshfs#&quot; from the first field. Now, it will look something like:
+chip@example.unicom.com:/home/chip /home/chip/Remote-Home fuse.sshfs umask=0,defaults,noauto,user 0 0
 Now, everything will work as desired.
-$ </rich_text><rich_text weight="heavy">mount Remote-Home</rich_text><rich_text>
- .
- .
- .
-$ </rich_text><rich_text weight="heavy">umount -v Remote-Home</rich_text><rich_text>
+$ </rich_text><rich_text weight="heavy">mount Remote-Home</rich_text><rich_text>
+ .
+ .
+ .
+$ </rich_text><rich_text weight="heavy">umount -v Remote-Home</rich_text><rich_text>
 chip@example.unicom.com:/home/chip umounted
- 
- 
+ 
+ 
 sshfs root@livedev:/opt tmp
 
+查看 Linux版本 cat /etc/issue
 
-</rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="22"><rich_text>Linux 剪裁
-</rich_text><rich_text link="webs http://blog.csdn.net/jinsen/article/details/4890922">http://blog.csdn.net/jinsen/article/details/4890922</rich_text><rich_text>
-2. Linux 破解wifi密码
-</rich_text><rich_text link="webs http://linux.cn/thread/12013/1/1/">http://linux.cn/thread/12013/1/1/</rich_text><rich_text>
-3. Linux Grep 算法
+</rich_text><rich_text justification="left"></rich_text><rich_text>
 
-</rich_text><rich_text link="webs http://www.cnblogs.com/lanxuezaipiao/p/3452579.html">http://www.cnblogs.com/lanxuezaipiao/p/3452579.html</rich_text><rich_text>
-4.Linux 技巧
-</rich_text><rich_text link="webs http://linux.cn/article-2389-1.html">http://linux.cn/article-2389-1.html</rich_text><rich_text>
+</rich_text><rich_text weight="heavy">进程内存</rich_text><rich_text>
+查看目前进程正在实际被使用的内存，是used-(buffers+cache)，也可以认为如果swap没有大量使用，mem还是够用的，只有mem被当前进程实际占用完（没有了buffers和cache），才会使用到swap的。
 
-</rich_text></node></node><node name="tools" prog_lang="custom-colors" readonly="False" tags="" unique_id="14"><rich_text>taskwarrior 
+在清空缓存前我们需要在linux系统中执行一下sync命令，将缓存中的未被写入磁盘的内容写到磁盘上
+释放方法有三种（系统默认值是0，释放之后你可以再改回0值）：
+To free pagecache:  echo 1 &gt; /proc/sys/vm/drop_caches
+To free dentries and inodes:  echo 2 &gt; /proc/sys/vm/drop_caches
+To free pagecache, dentries and inodes:  echo 3 &gt; /proc/sys/vm/drop_caches
+ 
+
+
+</rich_text><rich_text justification="left"></rich_text><rich_text>
+
+Debian的</rich_text><rich_text weight="heavy">update-rc.d</rich_text><rich_text>与RH的chkconfig工具相类似。然而chkconfig是一个二进制程序，而update-rc.d是一个Perl脚本。这些工具有不同的命
+令行选项，但是却执行类似的功能。下表列出了update-rc.d的一些用法。如果要查看完整的信息，我们可以查阅相关的和册页。
+命令                           功能
+update-rc.d -f &lt;service&gt;remove        从所有的运行级别配置目录中是删除指定的服务
+update-rc.d &lt;service&gt; start&lt;order&gt;&lt;runlevels&gt;   配置服务在运行级别列表中按指定的顺序启动
+update-rc.d &lt;service&gt; stop&lt;order&gt;&lt;runlevels&gt;   配置服务在运行级别列表中指定的顺序停止
+update-rc.d与RH的chkconfig之间最大的不同就在于update-rc.d是要设置所以指向/etc/init.d目录下服务脚本的运行级别链接
+
+
+</rich_text><rich_text scale="h2" weight="heavy">rsync </rich_text><rich_text>
+
+</rich_text><rich_text link="webs http://www.howtocn.org/rsync:use_rsync">http://www.howtocn.org/rsync:use_rsync</rich_text><rich_text>
+</rich_text><rich_text link="webs http://blog.sina.com.cn/s/blog_5eda2dda01015fcs.html">http://blog.sina.com.cn/s/blog_5eda2dda01015fcs.html</rich_text><rich_text>
+
+</rich_text><rich_text scale="h1">strace </rich_text><rich_text>
+strace -f -ff -o xxxxxxxx cmd   输出每一个进程的文件
+
+
+dpkg --add-architecture i386
+aptitude update
+aptitude install ia32-libs
+
+
+</rich_text><rich_text scale="h1">linux nfs </rich_text><rich_text>
+相关文件 portmap -&gt; rpcbind
+/etc/exports
+    /home/li_yun/tmp_video *(insecure,rw,sync,no_root_squash)
+
+/etc/host.deny
+portmap: ALL
+lockd: ALL
+mountd: ALL
+rquotad: ALL
+statd: ALL
+
+/etc/hosts.allow
+portmap: 192.168.1.
+lockd: 192.168.1.
+mountd: 192.168.1.
+rquotad: 192.168.1.
+statd: 192.168.1.
+
+</rich_text><rich_text style="italic">
+</rich_text><rich_text scale="h3" style="italic">sleep 3 &amp;
+echo ${!} # print pid of background process</rich_text><rich_text style="italic">
+
+</rich_text><rich_text scale="h2" style="italic">(flock -x 200; cat test; sleep 10) 200&lt;&gt;/tmp/test.lock
+flock -xn /tmp/test.lock -c &quot;cat test&quot;</rich_text><rich_text style="italic">
+
+(
+flock -x 200
+#command
+flock -u 200
+ ) 200&gt;/tmp/tset.lock
+</rich_text><rich_text>
+</rich_text><codebox char_offset="3052" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
+
++ :：:label，标志一个label，用于b/t的跳转
++ =：[address]= 打印出行号
++ a：[address]a\ append text to this line.
++ b：[address[,address]]b[label] 条件分支语句
++ c：[address[,address]]c\ 替换内容
++ d：[address[,address]]d 删除pattern中的所有行，并读入下一新行到pattern中
++ D：[address[,address]]D 删除multiline pattern中的第一行，不读入下一行
++ g：[address[,address]]g 将hold space中的内容拷贝到pattern space中，原来pattern space里的内容清除
++ G：[address[,address]]G 将hold space中的内容append到pattern space\n后
++ h：[address[,address]]h 将pattern space中的内容拷贝到hold space中，原来的hold space里的内容被清除
++ H：[address[,address]]H 将pattern space中的内容append到hold space\n后
++ i：[address]i\ 在address行的前面插入文字，和a反义
++ l：[address[,address]]l 打印pattern space中的内容，不可打印字符打印出ascii
++ n：[address[,address]]n 输出pattern space中的内容，读入下一新行替换掉原来的行
++ N：[address[,address]]N 读入下一行形成multiline pattern，用于跨行处理
++ p：[address[,address]]p 打印出pattern space中的内容
++ P：[address[,address]]P 打印出multiline pattern space中的第一行
++ q：[address]q 碰到address行时退出sed script
++ r：[address]r file 将文件file的内容append到pattern space后
++ s：[address[,address]]s/pattern/replace/[flag] 将pattern替换成replace.flag:
++ n：替换第n个出现的pattern,默认是第一个出现的pattern
++ g：全部替换pattern
++ p：如果替换成功则打印
++ w file：将替换的行写入到文件里
++ t：[address[,address]]t [label] 如果替换成功则跳转
++ w：[address[,address]]w file 将pattern中的内容追加写到file文件
++ x：[address[,address]]x 交换hold space和pattern space的内容
++ y：[address1[,address2]]y/abc/xyz/ 将abc转换为对应的xyz
+
+
+sed -n '/([0-9]{1,3}.){3}[0-9]{1,3}/p' IP.txt #查找IP
+sed -i &quot;s#([0-9]{1,3}.){3}[0-9]{1,3}:([0-9]){1,4}#${IPPORT}#g&quot; &quot;$FILE&quot;
+
+sed -e &quot;/^[A-Za-z_][A-Za-z0-9_]* [A-Za-z_][A-Za-z0-9_]*::[A-Za-z_][A-Za-z0-9_]*(/=&quot; tttt #在tttt中查找类似UINT32 MyClass::setMyClass所在的行号
+
+sed -e ':K;N;s/n/ /;bK' t #合并所有行，使用的label
+sed -e 'N;s/n/ /g' t #合并两行
+
+sed '3{h;d}; 5{G}' ＃交换3，5行， h,d,G
+top -p 2222 -b &gt;txt&amp; #后台监控2222进程
+
+
+
+strftime 将时间戳转日期
+awk 'BEGIN{print strftime(&quot;%Y-%m-%d&quot;,systime())}'
+
+将日期转为时间戳
+awk 'BEGIN {printf(&quot;%dn&quot;,mktime(2006&quot; &quot;8&quot; &quot;5&quot; &quot;15&quot; &quot;09&quot; &quot;0))}'
+
+awk 'BEGIN {printf(&quot;%dn&quot;,mktime(&quot;2014&quot; &quot;1&quot; &quot;2&quot; &quot;01&quot; &quot;36&quot; &quot;0&quot;))}'
+vim -&gt; 其他程序
+&quot;*y
+
+其他程序-&gt;gvim
+“*p </codebox><codebox char_offset="3451" frame_height="100" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="custom-colors" width_in_pixels="False">表 1 /proc 目录中的主要文件的说明
+
+文件或目录名称 	描 述
+apm 	高级电源管理信息
+cmdline 	这个文件给出了内核启动的命令行
+CPUinfo 	中央处理器信息
+devices 	可以用到的设备（块设备/字符设备）
+dma 	显示当前使用的 DMA 通道
+filesystems 	核心配置的文件系统
+ioports 	当前使用的 I/O 端口
+interrupts 	这个文件的每一行都有一个保留的中断
+kcore 	系统物理内存映像
+kmsg 	核心输出的消息，被送到日志文件
+mdstat 	这个文件包含了由 md 设备驱动程序控制的 RAID 设备信息
+loadavg 	系统平均负载均衡
+meminfo 	存储器使用信息，包括物理内存和交换内存
+modules 	这个文件给出可加载内核模块的信息。lsmod 程序用这些信息显示有关模块的名称，大小，使用数目方面的信息
+net 	网络协议状态信息
+partitions 	系统识别的分区表
+pci 	pci 设备信息
+scsi 	scsi 设备信息
+self 	到查看/proc 程序进程目录的符号连接
+stat 	这个文件包含的信息有 CPU 利用率，磁盘，内存页，内存对换，全部中断，接触开关以及赏赐自举时间
+swaps 	显示的是交换分区的使用情况
+uptime 	这个文件给出自从上次系统自举以来的秒数，以及其中有多少秒处于空闲
+version 	这个文件只有一行内容，说明正在运行的内核版本。可以用标准的编程方法进行分析获得所需的系统信息
+</codebox></node><node name="screen" prog_lang="custom-colors" readonly="False" tags="screen" unique_id="36"><rich_text style="italic">screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]
+Screen命令参数：</rich_text><rich_text>
+-A -[r|R]          将所有的视窗都调整为目前终端机的大小。
+-c filename        用指定的filename文件替代screen的配置文件’.screenrc’.
+-d [pid.tty.host]  断开screen进程(使用该命令时，screen的状态一定要是Attached，也就是说有用户连在screen里)。一般进程的名字是以pid.tty.host这种形式表示(用screen -list命令可以看出状态)。
+-D [pid.tty.host]  与-d命令实现一样的功能，区别就是如果执行成功，会踢掉原来在screen里的用户并让他logout。
+-h &lt;行数&gt; 　       指定视窗的缓冲区行数。
+
+-ls或–list        显示目前所有的screen作业。
+-m                    即使目前已在作业中的screen作业，仍强制建立新的screen作业。
+-p number or name  预先选择一个窗口。
+-r [pid.tty.host]  恢复离线的screen进程，如果有多个断开的进程，需要指定[pid.tty.host]
+-R                      先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业。
+-s shell             指定建立新视窗时，所要执行的shell。
+-S &lt;作业名称&gt;  指定screen作业的名称。(用来替代[pid.tty.host]的命名方式,可以简化操作).
+-v                     显示版本信息。
+-wipe                检查目前所有的screen作业，并删除已经无法使用的screen作业。
+-x                     恢复之前离线的screen作业。
+
+Screen命令的常规用法:
+
+screen -d -r:连接一个screen进程，如果该进程是attached，就先踢掉远端用户再连接。
+
+screen -D -r:连接一个screen进程，如果该进程是attached，就先踢掉远端用户并让他logout再连接
+
+screen -ls或者-list:显示存在的screen进程，常用命令
+
+screen -m:如果在一个Screen进程里，用快捷键crtl+a c或者直接打screen可以创建一个新窗口,screen -m可以新建一个screen进程。
+
+screen -dm:新建一个screen，并默认是detached模式，也就是建好之后不会连上去。
+
+screen -p number or name:预先选择一个窗口。
+
+Screen实现后台运行程序的简单步骤:
+
+1&gt; 要进行某项操作时，先使用命令创建一个Screen:
+[linux@user~]$ screen -S test1
+
+2&gt;接着就可以在里面进行操作了，如果你的任务还没完成就要走开的话，使用命令保留Screen：
+[linux@user~]$ Ctrl+a+d                    #按Ctrl+a，然后再按d即可保留Screen
+[detached]                                 #这时会显示出这个提示，说明已经保留好Screen了
+
+如果你工作完成的话，就直接输入:
+[linux@user~]$ exit                        #这样就表示成功退出了
+[screen is terminating]
+
+3&gt; 如果你上一次保留了Screen，可以使用命令查看：
+[linux@user~]$ screen -ls
+There is a screen on:
+9649.test1   (Detached)
+
+恢复Screen，使用命令：
+[linux@user~]$ screen -r test1 (or 9649)
+
+Screen命令中用到的快捷键
+
+Ctrl+a c ：创建窗口
+
+Ctrl+a w ：窗口列表
+
+Ctrl+a n ：下一个窗口
+
+Ctrl+a p ：上一个窗口
+
+Ctrl+a 0-9 ：在第0个窗口和第9个窗口之间切换
+
+Ctrl+a K(大写) ：关闭当前窗口，并且切换到下一个窗口（当退出最后一个窗口时，该终端自动终止，并且退回到原始shell状态）
+
+exit ：关闭当前窗口，并且切换到下一个窗口（当退出最后一个窗口时，该终端自动终止，并且退回到原始shell状态）
+
+Ctrl+a d ：退出当前终端，返回加载screen前的shell命令状态
+</rich_text></node><node name="core文件设置" prog_lang="custom-colors" readonly="False" tags="core" unique_id="37"><rich_text>Linux
+
+
+使用vimdiff作为svn diff的查看代码工具
+
+</rich_text><rich_text link="webs http://color:#3465A4" weight="heavy">http://www.cnblogs.com/xuxm2007/archive/2012/05/11/2496243.html</rich_text><rich_text weight="heavy">Linux 常用快捷键
+
+core文件设置</rich_text><rich_text>
+ linux下默认是不产生core文件的，要用ulimit -c unlimited放开
+1、开启系统的Core Dump功能
+
+    ulimit -c core_file_size_in_kb
+
+    如果要关闭该功能core_file_size_in_kb为0就行了。
+
+2、设置Core Dump的核心转储文件目录和命名规则
+
+    文件的命名规则放在
+
+    </rich_text><rich_text link="webs http://color:#3465A4">/proc/sys/kernel/core_name_format文件中</rich_text><rich_text>
+
+    使用sysctl -w &quot;kernel.core_name_format=/coredump/%n.core&quot;
+
+    上例的core文件放在/coredump目录下，文件名是进程名+.core
+
+    以下是一些命名的格式说明
+
+    %P   The Process ID (current-&gt;pid)
+    %U   The UID of the process (current-&gt;uid)
+    %N   The command name of the process (current-&gt;comm)
+    %H   The nodename of the system (system_utsname.nodename)
+    %%   A &quot;%&quot;
+
+</rich_text><rich_text weight="heavy">设置默认编辑器</rich_text><rich_text>
+   update-alternatives --config editor
+
+
+ dd if=1375752413.742425.data bs=32 skip=1 of=1.flac</rich_text></node><node name="Linux 常用" prog_lang="custom-colors" readonly="False" tags="快捷键 " unique_id="23"><rich_text>
+• # ctrl + l - 清屏 
+• # ctrl + c - 终止命令
+• # ctrl + d - 退出 shell，好像也可以表示EOF
+• # ctrl + z - 将当前进程置于后台，fg还原。 
+• # ctrl + r - 从命令历史中找 
+• # ctrl + a - 光标移到行首 
+• # ctrl + e - 光标移到行尾
+• # ctrl + u - 清除光标到行首的字符 
+• # ctrl + w - 清除光标之前一个单词 
+• # ctrl + k - 清除光标到行尾的字符
+• # ctrl + t - 交换光标前两个字符 
+• # ctrl + y - 粘贴前一ctrl+u类命令删除的字符
+• # ctrl + p - 上一条命令
+• # ctrl + n - 下一条命令 
+• # ctrl + v - 输入控制字符 如ctrl+v &lt;ENTER&gt; ,会输入^M 
+• # ctrl + f - 光标后移一个字符
+• # ctrl + b - 光标前移一个字符 
+• # ctrl + h - 删除光标前一个字符 
+• # N+&lt;ESC&gt;+f - 光标后移N个单词，N为1时可省略
+• # N+&lt;ESC&gt;+b - 光标前移N个单词，N为1时可省略 
+• # ctrl + s - 挂起当前shell
+• # ctrl + q - 重新启用
+• # &lt;ESC&gt;+d 从光标开始处删除到行尾。挂起的shell 
+• # !! - 上一条命令 
+• # !-n - 倒数第N条历史命令 
+• # !-n:p - 打印上一条命令（不执行） 
+• # !?string？- 最新一条含有“string”的命令 # !-n:gs/str1/str2/ - 将倒数第N条命令的str1替换为str2，并执行（若不加g,则仅替换第一个）
+
+do date -d &quot;$a&quot; +%s;
+
+atop -r xxx to view  atop log  t or shit_t can move forward/backward
+
+
+
+</rich_text><rich_text scale="h1">使用 Ttyutils 截获 UNIX/Linux 终端 </rich_text><rich_text>
+</rich_text><rich_text link="webs http://www.ibm.com/developerworks/cn/aix/library/0809_wuxh_tty/index.html">http://www.ibm.com/developerworks/cn/aix/library/0809_wuxh_tty/index.html</rich_text><node name="screen" prog_lang="custom-colors" readonly="False" tags="screen" unique_id="24"><rich_text style="italic">screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]
+Screen命令参数：</rich_text><rich_text>
+-A -[r|R]          将所有的视窗都调整为目前终端机的大小。
+-c filename        用指定的filename文件替代screen的配置文件’.screenrc’.
+-d [pid.tty.host]  断开screen进程(使用该命令时，screen的状态一定要是Attached，也就是说有用户连在screen里)。一般进程的名字是以pid.tty.host这种形式表示(用screen -list命令可以看出状态)。
+-D [pid.tty.host]  与-d命令实现一样的功能，区别就是如果执行成功，会踢掉原来在screen里的用户并让他logout。
+-h &lt;行数&gt; 　       指定视窗的缓冲区行数。
+
+-ls或–list        显示目前所有的screen作业。
+-m                    即使目前已在作业中的screen作业，仍强制建立新的screen作业。
+-p number or name  预先选择一个窗口。
+-r [pid.tty.host]  恢复离线的screen进程，如果有多个断开的进程，需要指定[pid.tty.host]
+-R                      先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业。
+-s shell             指定建立新视窗时，所要执行的shell。
+-S &lt;作业名称&gt;  指定screen作业的名称。(用来替代[pid.tty.host]的命名方式,可以简化操作).
+-v                     显示版本信息。
+-wipe                检查目前所有的screen作业，并删除已经无法使用的screen作业。
+-x                     恢复之前离线的screen作业。
+
+Screen命令的常规用法:
+
+screen -d -r:连接一个screen进程，如果该进程是attached，就先踢掉远端用户再连接。
+
+screen -D -r:连接一个screen进程，如果该进程是attached，就先踢掉远端用户并让他logout再连接
+
+screen -ls或者-list:显示存在的screen进程，常用命令
+
+screen -m:如果在一个Screen进程里，用快捷键crtl+a c或者直接打screen可以创建一个新窗口,screen -m可以新建一个screen进程。
+
+screen -dm:新建一个screen，并默认是detached模式，也就是建好之后不会连上去。
+
+screen -p number or name:预先选择一个窗口。
+
+Screen实现后台运行程序的简单步骤:
+
+1&gt; 要进行某项操作时，先使用命令创建一个Screen:
+[linux@user~]$ screen -S test1
+
+2&gt;接着就可以在里面进行操作了，如果你的任务还没完成就要走开的话，使用命令保留Screen：
+[linux@user~]$ Ctrl+a+d                    #按Ctrl+a，然后再按d即可保留Screen
+[detached]                                 #这时会显示出这个提示，说明已经保留好Screen了
+
+如果你工作完成的话，就直接输入:
+[linux@user~]$ exit                        #这样就表示成功退出了
+[screen is terminating]
+
+3&gt; 如果你上一次保留了Screen，可以使用命令查看：
+[linux@user~]$ screen -ls
+There is a screen on:
+9649.test1   (Detached)
+
+恢复Screen，使用命令：
+[linux@user~]$ screen -r test1 (or 9649)
+
+Screen命令中用到的快捷键
+
+Ctrl+a c ：创建窗口
+
+Ctrl+a w ：窗口列表
+
+Ctrl+a n ：下一个窗口
+
+Ctrl+a p ：上一个窗口
+
+Ctrl+a 0-9 ：在第0个窗口和第9个窗口之间切换
+
+Ctrl+a K(大写) ：关闭当前窗口，并且切换到下一个窗口（当退出最后一个窗口时，该终端自动终止，并且退回到原始shell状态）
+
+exit ：关闭当前窗口，并且切换到下一个窗口（当退出最后一个窗口时，该终端自动终止，并且退回到原始shell状态）
+
+Ctrl+a d ：退出当前终端，返回加载screen前的shell命令状态
+</rich_text></node><node name="core文件设置" prog_lang="custom-colors" readonly="False" tags="core" unique_id="25"><rich_text>Linux
+
+
+使用vimdiff作为svn diff的查看代码工具
+
+</rich_text><rich_text link="webs http://color:#3465A4" weight="heavy">http://www.cnblogs.com/xuxm2007/archive/2012/05/11/2496243.html</rich_text><rich_text weight="heavy">Linux 常用快捷键core文件设置</rich_text><rich_text>
+ linux下默认是不产生core文件的，要用ulimit -c unlimited放开
+1、开启系统的Core Dump功能
+
+    ulimit -c core_file_size_in_kb
+
+    如果要关闭该功能core_file_size_in_kb为0就行了。
+
+2、设置Core Dump的核心转储文件目录和命名规则
+
+    文件的命名规则放在
+
+    </rich_text><rich_text link="webs http://color:#3465A4">/proc/sys/kernel/core_name_format文件中</rich_text><rich_text>
+
+    使用sysctl -w &quot;kernel.core_name_format=/coredump/%n.core&quot;
+
+    上例的core文件放在/coredump目录下，文件名是进程名+.core
+
+    以下是一些命名的格式说明
+
+    %P   The Process ID (current-&gt;pid)
+    %U   The UID of the process (current-&gt;uid)
+    %N   The command name of the process (current-&gt;comm)
+    %H   The nodename of the system (system_utsname.nodename)
+    %%   A &quot;%&quot;
+
+</rich_text><rich_text weight="heavy">设置默认编辑器</rich_text><rich_text>
+   update-alternatives --config editor
+
+
+ dd if=1375752413.742425.data bs=32 skip=1 of=1.flac</rich_text></node></node><node name="sed" prog_lang="sh" readonly="False" tags="sed" unique_id="43"><rich_text>sed 的一些命令
+
++ :：:label，标志一个label，用于b/t的跳转
++ =：[address]= 打印出行号
++ a：[address]a\ append text to this line.
++ b：[address[,address]]b[label] 条件分支语句
++ c：[address[,address]]c\ 替换内容
++ d：[address[,address]]d 删除pattern中的所有行，并读入下一新行到pattern中
++ D：[address[,address]]D 删除multiline pattern中的第一行，不读入下一行
++ g：[address[,address]]g 将hold space中的内容拷贝到pattern space中，原来pattern space里的内容清除
++ G：[address[,address]]G 将hold space中的内容append到pattern space\n后
++ h：[address[,address]]h 将pattern space中的内容拷贝到hold space中，原来的hold space里的内容被清除
++ H：[address[,address]]H 将pattern space中的内容append到hold space\n后
++ i：[address]i\ 在address行的前面插入文字，和a反义
++ l：[address[,address]]l 打印pattern space中的内容，不可打印字符打印出ascii
++ n：[address[,address]]n 输出pattern space中的内容，读入下一新行替换掉原来的行
++ N：[address[,address]]N 读入下一行形成multiline pattern，用于跨行处理
++ p：[address[,address]]p 打印出pattern space中的内容
++ P：[address[,address]]P 打印出multiline pattern space中的第一行
++ q：[address]q 碰到address行时退出sed script
++ r：[address]r file 将文件file的内容append到pattern space后
++ s：[address[,address]]s/pattern/replace/[flag] 将pattern替换成replace.flag:
++ n：替换第n个出现的pattern,默认是第一个出现的pattern
++ g：全部替换pattern
++ p：如果替换成功则打印
++ w file：将替换的行写入到文件里
++ t：[address[,address]]t [label] 如果替换成功则跳转
++ w：[address[,address]]w file 将pattern中的内容追加写到file文件
++ x：[address[,address]]x 交换hold space和pattern space的内容
++ y：[address1[,address2]]y/abc/xyz/ 将abc转换为对应的xyz
+
+
+sed -n '/([0-9]{1,3}.){3}[0-9]{1,3}/p' IP.txt #查找IP
+sed -i &quot;s#([0-9]{1,3}.){3}[0-9]{1,3}:([0-9]){1,4}#${IPPORT}#g&quot; &quot;$FILE&quot;
+
+sed -e &quot;/^[A-Za-z_][A-Za-z0-9_]* [A-Za-z_][A-Za-z0-9_]*::[A-Za-z_][A-Za-z0-9_]*(/=&quot; tttt #在tttt中查找类似UINT32 MyClass::setMyClass所在的行号
+
+sed -e ':K;N;s/\n/ /;bK' t #合并所有行，使用的label
+sed -e 'N;s/\n/ /g' t #合并两行,多行类似
+
+sed -e '3{h;d}; 5{G}' t #交换3，5行， h,d,G
+
+sed  -e '2~2!d' t #保留偶数行
+
+sed -e '1!G;h;$!d' t #倒置所有的行
+
+sed -n '1!G;h;$p' t #倒置所有的行
+
+sed  -e ':a;$q;N;11,$D;ba' t #只显示最后的10
+
+sed -e 's/\s*//g' #去掉空格
+# sed:合并行，交换行  
+http://yjever.blog.163.com/blog/static/28335550201011250559729/</rich_text></node></node><node name="gdb" prog_lang="custom-colors" readonly="False" tags="" unique_id="62"><rich_text>原文：</rich_text><rich_text link="webs http://www.cnblogs.com/soniclq/articles/1932741.html">http://www.cnblogs.com/soniclq/articles/1932741.html</rich_text><rich_text>
+ 
+~/.gdbinit  :
+按 Ctrl+C 复制代码按 Ctrl+C 复制代码 
+</rich_text><rich_text link="webs http://www.yolinux.com/TUTORIALS/src/dbinit_stl_views-1.03.txt">在http://www.yolinux.com/TUTORIALS/src/dbinit_stl_views-1.03.txt</rich_text><rich_text>下载这个文件保存为~/.gdbinit  就可以使用它提供的方法方便调试容器
+gdb在启动的时候，会在当前目录下查找&quot;.gdbinit&quot;这个文件，并把它的内容作为gdb命令进行解释。
+举些例子：
+#
+# std::string
+#
+
+define pstring
+    if $argc == 0
+        help pstring
+    else
+        printf &quot;String \t\t\t= \&quot;%s\&quot;\n&quot;, $arg0._M_data()
+        printf &quot;String size/length \t= %u\n&quot;, $arg0._M_rep()._M_length
+        printf &quot;String capacity \t= %u\n&quot;, $arg0._M_rep()._M_capacity
+        printf &quot;String ref-count \t= %d\n&quot;, $arg0._M_rep()._M_refcount
+    end
+end
+
+document pstring
+    Prints std::string information.
+    Syntax: pstring &lt;string&gt;
+    Example:
+    pstring s - Prints content, size/length, capacity and ref-count of string s
+end 
+
+#
+# std::wstring
+#
+
+define pwstring
+    if $argc == 0
+        help pwstring
+    else
+        call printf(&quot;WString \t\t= \&quot;%ls\&quot;\n&quot;, $arg0._M_data())
+        printf &quot;WString size/length \t= %u\n&quot;, $arg0._M_rep()._M_length
+        printf &quot;WString capacity \t= %u\n&quot;, $arg0._M_rep()._M_capacity
+        printf &quot;WString ref-count \t= %d\n&quot;, $arg0._M_rep()._M_refcount
+    end
+end
+
+document pwstring
+    Prints std::wstring information.
+    Syntax: pwstring &lt;wstring&gt;
+    Example:
+    pwstring s - Prints content, size/length, capacity and ref-count of wstring s
+end 
+
+#
+# C++ related beautifiers (optional)
+#
+
+set print pretty on
+set print object on
+set print static-members on
+set print vtbl on
+set print demangle on
+set demangle-style gnu-v3
+set print sevenbit-strings off
+
+一些常用内置的命令
+
+
+Data type   GDB command 
+  std::vector&lt;T&gt;  
+    pvector stl_variable   
+    std::list&lt;T&gt;  plist stl_variable T   std::map&lt;T,T&gt; pmap stl_variable   std::multimap&lt;T,T&gt;    pmap stl_variable   std::set&lt;T&gt;   pset stl_variable T   std::multiset&lt;T&gt;  pset stl_variable   std::deque&lt;T&gt; pdequeue stl_variable   std::stack&lt;T&gt; pstack stl_variable   std::queue&lt;T&gt; pqueue stl_variable   std::priority_queue&lt;T&gt;    ppqueue stl_variable   std::bitset&lt;n&gt;td&gt;  pbitset stl_variable   std::string pstring stl_variable   std::widestring pwstring stl_variable  
+</rich_text></node><node name="tools" prog_lang="custom-colors" readonly="False" tags="" unique_id="14"><rich_text>taskwarrior 
 </rich_text><rich_text link="webs http://taskwarrior.org/projects/show/taskwarrior">http://taskwarrior.org/projects/show/taskwarrior</rich_text><rich_text>
 javascript x86
 </rich_text><rich_text link="webs http://bellard.org/jslinux/">http://bellard.org/jslinux/</rich_text><rich_text>
 taobao code 据说有不少的C++
 </rich_text><rich_text link="webs http://code.taobao.org/">http://code.taobao.org/</rich_text><rich_text>
-wiki plantUML 
+wiki plantUML 
 
 </rich_text><rich_text link="webs http://blog.csdn.net/ciaos/article/details/8501446">http://blog.csdn.net/ciaos/article/details/8501446</rich_text><rich_text>
 
+golang wiki
+</rich_text><rich_text link="webs http://code.google.com/p/golang-china/wiki/go_tutorial">http://code.google.com/p/golang-china/wiki/go_tutorial</rich_text><rich_text>
+</rich_text><rich_text link="webs http://w771.51qiangzuo.com/">http://w771.51qiangzuo.com/</rich_text><rich_text>
+</rich_text><rich_text link="webs http://go-tour-zh.appsp0t.com/#23">http://go-tour-zh.appsp0t.com/#23</rich_text><rich_text>
+
+how to install opencv on ubuntu, configure and build 
+</rich_text><rich_text link="webs http://www.samontab.com/web/2010/04/installing-opencv-2-1-in-ubuntu/">http://www.samontab.com/web/2010/04/installing-opencv-2-1-in-ubuntu/</rich_text><rich_text>
+工作机器上编译 g++ -ggdb `pkg-config --cflags opencv` t.cpp `pkg-config --libs opencv`
+</rich_text><rich_text scale="h1">Genymotion            Andriod模拟器
+
+糖果主机
+</rich_text><rich_text link="webs http://www.sugarhosts.com/zh-cn/hosting/shared-web-hosting/" scale="h1">http://www.sugarhosts.com/zh-cn/hosting/shared-web-hosting/</rich_text><rich_text scale="h1">
+</rich_text><rich_text>
+wikidpad 
+wget -q -O - http://archive.getdeb.net/getdeb-archive.key | sudo apt-key add -
+sudo sh -c 'echo &quot;deb http://archive.getdeb.net/ubuntu precise-getdeb apps&quot; &gt;&gt; /etc/apt/sources.list.d/getdeb.list'
+sudo apt-get update
+sudo apt-get install wikidpad
+
+
+cleaver ppt工具支持markdown 
+jq Linux 下的json解析工具，
+
+html5 超炫的网页
+</rich_text><rich_text link="webs http://dreamsky.github.io/main/blog/crazy-tentacles/">http://dreamsky.github.io/main/blog/crazy-tentacles/</rich_text><rich_text>
+
+vpn
+</rich_text><rich_text link="webs https://www.grjsq.me/xianlu.html">https://www.grjsq.me/xianlu.html</rich_text><rich_text>
+代理
+</rich_text><rich_text link="webs http://www.samair.ru/proxy-by-country/China-01.htm">http://www.samair.ru/proxy-by-country/China-01.htm</rich_text><rich_text> 
+论文
+</rich_text><rich_text link="webs http://buptcnc.cn/Lab_Paper/">http://buptcnc.cn/Lab_Paper/</rich_text><rich_text>
 </rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
 :set rnu 相对行号
 
 
 http://vim.sourceforge.net/scripts/script_search_results.php?order_by=rating
-</rich_text></node><node name="vobile" prog_lang="custom-colors" readonly="False" tags="" unique_id="16"><rich_text>./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i 2.1387533947744.1387534303616.vdna -r t.xml</rich_text></node><node name="Myself" prog_lang="custom-colors" readonly="False" tags="" unique_id="17"><rich_text></rich_text><node name="TOREAD" prog_lang="custom-colors" readonly="False" tags="" unique_id="18"><rich_text>计算机类:
-       SICP
-      core algorithms deployed
-       </rich_text><rich_text link="webs http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773">http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773</rich_text><rich_text>
+</rich_text><node name="vim常用 " prog_lang="custom-colors" readonly="False" tags="vim" unique_id="26"><rich_text weight="heavy">marker折叠方式时，我们需要用标计来标识代码的折叠，系统默认是{{{和}}}• 折叠命令</rich_text><rich_text>
+• 
+• zf　创建折叠，比如在marker方式下：
+•         zf56G，创建从当前行起到56行的代码折叠；
+•         10zf或10zf+或zf10↓，创建从当前行起到后10行的代码折叠。
+•         10zf-或zf10↑，创建从当前行起到之前10行的代码折叠。
+•         在括号处zf%，创建从当前行起到对应的匹配的括号上去（（），{}，[]，&lt;&gt;等）。
+• zd  删除 (delete) 在光标下的折叠。仅当 'foldmethod' 设为 &quot;manual&quot; 或 &quot;marker&quot; 时有效。
+• zD  循环删除 (Delete) 光标下的折叠，即嵌套删除折叠。仅当 'foldmethod' 设为 &quot;manual&quot; 或 &quot;marker&quot; 时有效。
+• zE  除去 (Eliminate) 窗口里“所有”的折叠。仅当 'foldmethod' 设为 &quot;manual&quot; 或 &quot;marker&quot; 时有效。
+
+</rich_text><rich_text weight="heavy">:r !ls 会把执行的命令导入到vim中</rich_text><rich_text>
+
+</rich_text><rich_text link="webs http://ju.outofmemory.cn/entry/49172">http://ju.outofmemory.cn/entry/49172</rich_text><rich_text>
+
+vim ide
+</rich_text><rich_text link="webs http://blog.jobbole.com/72744/">http://blog.jobbole.com/72744/</rich_text><rich_text>
+
+</rich_text><rich_text link="webs http://zuyunfei.com/2013/05/16/killer-plugin-of-vim-youcompleteme/">http://zuyunfei.com/2013/05/16/killer-plugin-of-vim-youcompleteme/</rich_text></node></node><node name="vobile" prog_lang="custom-colors" readonly="False" tags="" unique_id="16"><rich_text>./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i 2.1387533947744.1387534303616.vdna -r t.xml
+./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i </rich_text><rich_text link="webs http://192.168.1.249/download/2.1388696339843.1388699999970.tgz">2.1388696339843.1388699999970.</rich_text><rich_text>vdna -r x.xml
+
+</rich_text><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="41"><rich_text>vobile 常用
+
+</rich_text><rich_text weight="heavy">
+1.vdna monitor sequence:</rich_text><rich_text>
+processor-&gt;processor: pcm-&gt;flac
+
+processor-&gt;dnaUploader:pcm,image
+dnaUploader-&gt;webpy:POST
+
+webpy-&gt;server: inotify
+server-&gt;+acrserver: query
+acrserver-&gt;-server: return
+note over server: if success delete pcm,\nelse sav it.
+
+
+state over A: Initial state
+e here.
 
 
 
-LDD3          Linux Device Driver 3rd
-LKD3          Linux Kernel Development 3rd
-ULK3          Understanding the Linux Kernel 3rd
-PLKA          Professional Linux Kernel Architecture
-UML            User Mode Linux
+</rich_text><rich_text weight="heavy">2. wiki模板：</rich_text><rich_text>
 
-Intel V3       Intel? 64 and IA-32 Architectures Software Developer’s Manual Volume 3 (3A, 3B &amp; 3C): System Programming Guide
+= VDNALive 3.2.1 netStreaming  Detail Design =
+修订记录
+
+|| 版本号 || 日期 || 编写 || 审核 || 摘要 ||
+|| 0.9 || 2013-08-12 || 李云 ||  || 初始化. ||
+
+[[TOC()]]
+
+## 结构定义 ##
+
+### 模块总体结构定义 ###
+
+ * 描述模块功能定义, 说明它在整个系统中的位置, 即与其他模块间的关联和依赖 关系.
+ * 说明模块内部子模块划分, 调用方式, 依赖性和隔离性, 建议以结构图说明.
+
+### 子模块1结构定义 ###
+
+ * 说明子模块1的结构描述, 建议以结构图说明.
+ * 说明子模块实现的函数或方法名称, 参数等.
+
+## 流程定义 ##
+
+### 流程1 ###
+
+#### 流程描述和入口 ####
+ 
+ * 描述流程入口, 确定模块的上层调用者.
+ * 说明流程的特点(是否常驻内存、顺序处理还是并发处理、是可重入的还是不可 重入的等)
+
+#### 主流程 ####
+
+ * 输入: 定义该流程的输入参数的详细说明, 包括名称, 标识, 取值范围, 格式, 含义, 及参数间的顺序或依赖等关系.
+ * 处理过程: 描述该流程在模块内部的处理过程, 建议用流程图, 或伪代码完成.
+ * 输出: 定义该流程的输出参数的详细说明, 包括名称, 标识, 取值范围, 格式, 含义, 及参数间的顺序或依赖等关系.
+ * 关键对象: 说明该流程中涉及的关键对象的状态变更和变更条件.
+ * 算法: 定义具体计算方法, 和计算步骤. (如果有).
+ * 性能: 定义该流程的全部性能要求, 包括输入输出的精度, 灵活性, 时间特性等.
+
+#### 分支流程1 ####
+
+ * 定义分支流程1的输入, 输出, 处理过程等.
+
+#### 页面Demo ####
+
+ * 如果有.
+
+#### 单元测试 ####
+
+ * 描述单元测试的方案, 定义覆盖该USE CASE的单元测试函数. 包括: 测试函数名 称, 测试目标函数, 基本逻辑, 正确结果的描述.
+ * 如果需要进行性能测试, 需要说明性能测试的方案, 测试环境, 和需要达到的目标.
+
+## 数据对象定义 ##
+
+ * 定义关键抽象对象及其属性, 定义对象间的依赖, 派生, 聚合等关系. 如果必 要, 可以用类图来表示.
+ * 定义关键数据对象的类型, 数据结构, 存储方式.
+ * 说明模块的关键对象, 及其状态和在各个流程中的状态改变的条件. 可用状态图 或图表说明(如果有). 如:
+
+关键对象'''trackingOrder'''
+
+|| || new || pending || confirmed || tracking || finished || cancelled ||
+|| 流程1 || pending || x || x || x || x || x ||
+|| 流程2 || x || confirmed|new || x || x || x || x ||
+|| 流程3 || x || x || tracking || x || x || x ||
+
+## 数据库定义 ##
+
+ * n/a
+
+## 接口定义 ##
+
+ * 完善 [wiki: 详细接口设计页面链接]
+ * 定义涉及的接口的详细请求方式, 输入, 输出的详细说明. 包括名称, 标识, 取 值范围, 格式, 含义等. 并给出输入输出的 sample.
+
+## 监控设计 ##
+
+ * 描述本模块的监控点和监控规程, 如采用 DBPC 或系统本身实现一个监控模块 (需要说明该监控模块的逻辑和正确输出和异常输出)等. 如:
+ * Key Manager: DBPC 心跳监控.
+ * Redis Server: 由 Redis Client 定期请求 Redis Server, 发送一个 Get 请 求, 请求 Key 为 &quot;&quot; 的 value. 如果 Redis Server 正常返回或返回无效的 Key 则, Redis Server 正常, 反之, Redis Client 停止 DBPC 的心跳监控.
+ * 此外, 可以参考, OPS 监控的要求格式, 提供监控列表. 以有助于 OPS Review. !</rich_text><rich_text link="webs http://color:#3465A4">http://seals.vobile.cn/trac/Ops/wiki/Conventions/Monitor-App</rich_text><rich_text>
+
+## TODO List ##
+
+ * 说明在详细设计阶段, 尚未解决而在系统完成之前必须解决的问题.
+ * 说明本详细设计引入的风险, 以及可以实现而没有实现的解决方案.
+ * 说明详细设计缺陷, 以及可能的解决方案.
+</rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="57"><rich_text>ls -F|grep /$|while read a ; do cd $a; ^Cr f in *.bmp; do nf=${f%%.*}.jpg; convert $f $nf;convert $nf -crop 355x90+100+245 c_$nf; echo c_$nf; done; cd ..; done
+for f in c_*.jpg; do ./a.out $f 50 5 3 &gt;&gt;t; done
+
+
+curl -d '@t' &quot;http://192.168.1.50:8080/jobTracker/task/submit&quot; -H&quot;Content-Type:application/json&quot;
+curl -d&quot;@t052006&quot; &quot;</rich_text><rich_text link="webs http://54.193.192.104/jobTracker/task/submit&quot;">http://54.193.192.104/jobTracker/task/submit&quot;</rich_text><rich_text> -H&quot;Content-Type:application/json&quot;</rich_text></node></node><node name="Myself" prog_lang="custom-colors" readonly="False" tags="" unique_id="17"><rich_text>
+
+root@EQX-200:/vobiledata/rtfpdownload/tasks/16193/1/tmp# for f in  *.*.tgz ; do echo $f; tar xvzf $f; done;
+1.1399139879988.1399143599607.tgz
+1.1399140000008.1399143600000.inf
+1.1399139879988.1399143599607.vdna
+1.1399143479584.1399147199704.tgz
+1.1399143599604.1399147200000.inf
+1.1399143479584.1399147199704.vdna
+1.1399147079681.1399150799801.tgz
+1.1399147199701.1399150800000.inf
+1.1399147079681.1399150799801.vdna
+1.1399154279640.1399157999760.tgz
+1.1399154399660.1399158000000.inf
+1.1399154279640.1399157999760.vdna
+1.1399157879737.1399161599857.tgz
+1.1399157999757.1399161600000.inf
+1.1399157879737.1399161599857.vdna
+1.1399161479834.1399165199954.tgz
+1.1399161599854.1399165200000.inf
+1.1399161479834.1399165199954.vdna
+</rich_text><node name="TOREAD" prog_lang="custom-colors" readonly="False" tags="" unique_id="18"><rich_text>计算机类:
+       SICP
+      core algorithms deployed
+       </rich_text><rich_text link="webs http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773">http://cstheory.stackexchange.com/questions/19759/core-algorithms-deployed/19773#19773</rich_text><rich_text>
+
+
+
+LDD3          Linux Device Driver 3rd
+LKD3          Linux Kernel Development 3rd
+ULK3          Understanding the Linux Kernel 3rd
+PLKA          Professional Linux Kernel Architecture
+UML            User Mode Linux
+
+Intel V3       Intel? 64 and IA-32 Architectures Software Developer’s Manual Volume 3 (3A, 3B &amp; 3C): System Programming Guide
 
 
 
 经济类:
-    国富论
+    国富论
 </rich_text><rich_text link="webs http://wenku.baidu.com/view/38ec644033687e21af45a9ae.html">http://wenku.baidu.com/view/38ec644033687e21af45a9ae.html</rich_text><rich_text>
 
 
@@ -498,8 +2022,14 @@ Intel V3       Intel? 64 and IA-32 Architectures Software Developer’s Manu
 
 
 文学类:
-    王朔文集
-</rich_text></node><node name="music" prog_lang="custom-colors" readonly="False" tags="" unique_id="19"><rich_text>Sitting Down here - LeneMarlin
+    王朔文集
+
+
+
+</rich_text><rich_text scale="h3">The.Linux.Networking.Architecture.Design.and.Implementation.of.Network</rich_text><rich_text>
+
+</rich_text><rich_text link="webs http://download.csdn.net/download/rootfs/174317">http://download.csdn.net/download/rootfs/174317</rich_text><rich_text>
+</rich_text><rich_text link="webs http://download.csdn.net/detail/fljandy/3922715">http://download.csdn.net/detail/fljandy/3922715</rich_text></node><node name="music" prog_lang="custom-colors" readonly="False" tags="" unique_id="19"><rich_text>Sitting Down here - LeneMarlin
 The Game - Lunik
 Chancenlos - Annett Louisan
 Till I see you again - xx
@@ -511,13 +2041,13 @@ Somersault - Courtney Jaye
 如果爱是一场婚礼 - 金巧巧
 三个人的错误 - 王宛之
 哭笑不得 - xx
-阳光下的我们 - 
+阳光下的我们 - 
 别找我麻烦 -
 我在朋友婚礼上唱这首歌 - 徐海星
 良人 - 邓芙茹
 我们好像在哪见过 - 杨综纬
 小狗圆舞曲 - 肖邦
-</rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="20"><rich_text>functional 
+</rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="20"><rich_text>functional 
 线程安全
 
 
@@ -526,25 +2056,965 @@ wirte a script which vim can load tags which the open file is needed and lib scr
 
 寻找业余项目可以尝试从Elance、 oDesk或者Freelancer这些网站开始。
 
-</rich_text></node></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+</rich_text></node><node name="HZ" prog_lang="custom-colors" readonly="False" tags="" unique_id="55"><rich_text>漠尔阁zi （一下子想不起来，莫名奇妙）
+lege (难弄，难对付,挑三捡四）niannong
+燥（sao）语（wo），废话
+zhongdeibuzhun: 脑子进水，不靠谱
+kang 藏起来，不能藏人
+gang 放起来
+gu 锅子
+menmenzang 忍受噪音？
+wu 湖
+nixing 
+aozidewei 难以言语的郁闷，无奈的感觉
+jinggaizai ?
+ju 九
+gulai 过来
+xiaozi 鱼跳出水面
+kaoweir 约会？？
+shaibir 网兜
+keizekei 刚刚好，不多不少 
+aiaijiao 碰巧刚好 
+luwei ??? 舒服？双？
+dilur 丢人
+sikuaodier 十拿九稳
+xiaoxiaohong  火红
+jiangweilao 身体虚弱
+ teche 赶不上？
+ taiyuyulai 慢慢来
+ jinggaizai 花很漂亮
+ zai 卖相好
+ gawudila 糊涂
+ medou 笨蛋
+ naizao 踩到
+ naiweij(y)inge 不好意思 
+ harendaoguai 吓人
+ hegelaozao 很早很早
+ yadaodi 晚上
+ beyali 半夜
+ wo 说
+ daoweikei 吃难吃的东西， 做恶心的事
+ jin zongbang 石头剪刀布
+ quwair 吃饭
+ sezao 厉害
+ zesha 干啥 
+ biemiaodei 比比看
+ memumezang  糊里糊涂
+ xiaoyeguoer 零食
+ sahuadeilar 什么东西
+ saguar 小气，扣门
+ yezi  鞋子
+ jekoudei 膝盖
+ wulideler 糊，糊状
+ ade 打嗝
+ chuwuhua 发霉
+ renyangwudao  胡闹，（对小孩子说）调皮 
+ hangbulangdang 全部加起来
+ yibaohuar 很近
+ dengdei 倔强，不听劝
+ cixuer 找不痛快， 脾气不好
+ zaxice 尿床
+ xidepair 尿布
+ hucilangdang 粗枝大叶，
+ daomen 好
+ gualeyigao 摔了一跤
+ jiepang 腿
+ dei4 抖</rich_text></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="46"><rich_text></rich_text></node></node><node name="opencv" prog_lang="custom-colors" readonly="False" tags="" unique_id="59"><rich_text>基于OpenCV的匀速模糊图像复原与算法分析
+</rich_text><rich_text link="webs http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9">http://www.open-open.com/doc/view/eaca794805cc4872830d6899d7aab4d9</rich_text><rich_text>
+opencv 的一些例子
+</rich_text><rich_text link="webs http://zwmin.com/?cat=1">http://zwmin.com/?cat=1</rich_text><rich_text>
 
-2. mysql&gt; show status like '%onn%';
+opencv_tutorials
+</rich_text><rich_text link="webs http://blog.sina.com.cn/s/articlelist_2632294837_10_1.html">http://blog.sina.com.cn/s/
+articlelist_2632294837_10_1.html</rich_text><rich_text>
 
-3. SHOW PROCESSLIST
+CvArr、Mat、CvMat、IplImage、BYTE转换  
+</rich_text><rich_text link="webs http://cncncv.blog.163.com/blog/static/2061810262012316527760/">http://cncncv.blog.163.com/blog/static/2061810262012316527760/</rich_text><rich_text>
 
-4. SET NAMES 'utf8'    #mysql 设置编码
+</rich_text><node name="CvArr、Mat、CvMat、IplImage、BYTE转换  " prog_lang="custom-colors" readonly="False" tags="" unique_id="60"><rich_text>一、Mat类型：矩阵类型，Matrix。
+    在openCV中，Mat是一个多维的密集数据数组。可以用来处理向量和矩阵、图像、直方图等等常见的多维数据。
+    Mat有3个重要的方法：
+         1、Mat mat = imread(const String* filename);            读取图像
+         2、imshow(const string frameName, InputArray mat);      显示图像
+         3、imwrite (const string&amp; filename, InputArray img);    储存图像
+    Mat类型较CvMat与IplImage类型来说，有更强的矩阵运算能力，支持常见的矩阵运算。在计算密集型的应用当中，将CvMat与IplImage类型转化为Mat类型将大大减少计算时间花费。
+A.Mat -&gt; IplImage
+同样只是创建图像头，而没有复制数据。
+例： // 假设Mat类型的imgMat图像数据存在
+IplImage pImg= IplImage(imgMat); 
+B.Mat -&gt; CvMat
+与IplImage的转换类似，不复制数据，只创建矩阵头。
+例： // 假设Mat类型的imgMat图像数据存在
+     CvMat cvMat = imgMat;
+ 
+二、CvMat类型与IplImage类型：“图像”类型
+       在 openCV中，Mat类型与CvMat和IplImage类型都可以代表和显示图像，但是，Mat类型侧重于计算，数学性较高，openCV对Mat类 型的计算也进行了优化。而CvMat和IplImage类型更侧重于“图像”，openCV对其中的图像操作（缩放、单通道提取、图像阈值操作等）进行了 优化。
+补充：IplImage由CvMat派生，而CvMat由CvArr派生即CvArr -&gt; CvMat -&gt; IplImage
+            CvArr用作函数的参数，无论传入的是CvMat或IplImage，内部都是按CvMat处理。
+1.CvMat
+A.CvMat-&gt; IplImage
+IplImage* img = cvCreateImage(cvGetSize(mat),8,1);
+cvGetImage(matI,img);
+cvSaveImage(&quot;rice1.bmp&quot;,img);
+B.CvMat-&gt;Mat
+与IplImage的转换类似，可以选择是否复制数据。
+Mat::Mat(const CvMat* m, bool copyData=false);
+在openCV中，没有向量（vector）的数据结构。任何时候，但我们要表示向量时，用矩阵数据表示即可。
+但是，CvMat类型与我们在线性代数课程上学的向量概念相比，更抽象，比如CvMat的元素数据类型并不仅限于基础数据类型，比如，下面创建一个二维数据矩阵：
+              CvMat* cvCreatMat(int rows ,int cols , int type);
+这里的type可以是任意的预定义数据类型，比如RGB或者别的多通道数据。这样我们便可以在一个CvMat矩阵上表示丰富多彩的图像了。
+ 
+2.IplImage
+在类型关系上，我们可以说IplImage类型继承自CvMat类型，当然还包括其他的变量将之解析成图像数据。
+IplImage 类型较之CvMat多了很多参数，比如depth和nChannels。在普通的矩阵类型当中，通常深度和通道数被同时表示，如用32位表示 RGB+Alpha.但是，在图像处理中，我们往往将深度与通道数分开处理，这样做是OpenCV对图像表示的一种优化方案。
+IplImage 的对图像的另一种优化是变量origin----原点。在计算机视觉处理上，一个重要的不便是对原点的定义不清楚，图像来源，编码格式，甚至操作系统都会 对原地的选取产生影响。为了弥补这一点，openCV允许用户定义自己的原点设置。取值0表示原点位于图片左上角，1表示左下角。
+dataOrder参数定义数据的格式。有IPL_DATA_ORDER_PIXEL和IPL_DATA_ORDER_PLANE两种取值，前者便是对于像素，不同的通道的数据交叉排列，后者表示所有通道按顺序平行排列。
+IplImage类型的所有额外变量都是对“图像”的表示与计算能力的优化。
+A.IplImage -&gt; Mat
+IplImage* pImg = cvLoadImage(&quot;lena.jpg&quot;);
+Mat img(pImg,0); // 0是不複製影像，也就是pImg與img的data共用同個記憶體位置，header各自有
+B.IplImage -&gt; CvMat
+法1：CvMat mathdr, *mat = cvGetMat( img, &amp;mathdr );
+法2：CvMat *mat = cvCreateMat( img-&gt;height, img-&gt;width, CV_64FC3 );
+  cvConvert( img, mat );
+C.IplImage*-&gt; BYTE*
+BYTE* data= img-&gt;imageData;
+ 
+CvMat和IplImage创建时的一个小区别：
+1、建立矩阵时，第一个参数为行数，第二个参数为列数。
+CvMat* cvCreateMat( int rows, int cols, int type );
+2、建立图像时，CvSize第一个参数为宽度，即列数；第二个参数为高度，即行数。这 个和CvMat矩阵正好相反。
+IplImage* cvCreateImage(CvSize size, int depth, int channels );
+CvSize cvSize( int width, int height );
+ 
+IplImage内部buffer每行是按4字节对齐的，CvMat没有这个限制
+ 
+补充：
+A.BYTE*-&gt; IplImage*
+img= cvCreateImageHeader(cvSize(width,height),depth,channels);
+cvSetData(img,data,step);
+//首先由cvCreateImageHeader()创建IplImage图像头，制定图像的尺寸，深度和通道数；
+//然后由cvSetData()根据BYTE*图像数据指针设置IplImage图像头的数据数据，
+//其中step指定该IplImage图像每行占的字节数，对于1通道的IPL_DEPTH_8U图像，step可以等于width。
+</rich_text></node><node name="resize" prog_lang="custom-colors" readonly="False" tags="" unique_id="61"><rich_text>double scale=0.5; //设置缩放倍数
+string imageurl = &quot;F:/opencv/samples/cpp/baboon.jpg&quot;;
+Mat image =imread(imageurl);Â 
+//缩放 
+Size dsize = Size(image.cols*scale,image.rows*scale);
+Mat image2 = Mat(dsize,CV_32S);
+resize(image, image2,dsize);
+
+
+
+ffmpeg -y -i </rich_text><rich_text link="webs http://122.192.67.86:8088/ts100">http://122.192.67.86:8088/ts100</rich_text><rich_text> -strict -2 ts100.2.mp4</rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="47"><rich_text>03/13/2014 08:29:18 60
+for f in *.mp4; do edge=`./dnagen/dna_gen.sh -i $f -v /dev/null 2&gt;&amp;1 |grep &quot;vfp gen&quot; |sed 's/vfp gen //g'`; echo ${f%%.*} $edge &gt;&gt; info;  done
+
+2742
+2795
+
+1399
+1452
+2630ca54-ab7c-11e3-8346-22000ac69225
+021af21a-a64b-11e3-9ac5-22000ac69225
+</rich_text><node name="TODO" prog_lang="custom-colors" readonly="False" tags="" unique_id="49"><rich_text>1. BlackMagic 卡的时间戳要要修改
+1. 处理丢帧的情况, (Osprey 没有这种情况, Black Magic要考虑, )
+2. 
+TVAds tracker 使用python调用 C++的方法,把merge cdna的部分替换
+
+curl -d '@t' &quot;http://192.168.1.50:8080/jobTracker/task/submit&quot; -H&quot;Content-Type:application/json&quot;
+curl -d '@t' &quot;http://54.193.192.104/jobTracker/task/submit&quot; -H&quot;Content-Type:application/json&quot;
+
+tesseract chi.sansserif.exp3.tif chi.sansserif.exp3 nobatch box.train
+unicharset_extractor chi.sansserif.exp3.box
+mftraining -F font_properties -U unicharset -O chi.unicharset chi.sansserif.exp3.tr
+cntraining chi.sansserif.exp3.tr
+mv  inttemp normproto pffmtable shapetable chi3/
+rm chi.unicharset unicharset
+
+unicharset_extractor chi.sansserif.exp0.box chi.sansserif.exp1.box chi.sansserif.exp2.box chi.sansserif.exp3.box 
+mftraining -F font_properties -U unicharset -O chi.unicharset chi.sansserif.exp0.tr chi.sansserif.exp1.tr chi.sansserif.exp2.tr chi.sansserif.exp3.tr 
+
+　　下载地址：请用迅雷下载b  
+</rich_text><rich_text link="webs http://thunder://QUFodHRwOi8vNDYuZHVvdGUub3JnOjgwODAvb2ZmaWNlMjAwN3Byby56aXBaWg==">thunder://QUFodHRwOi8vNDYuZHVvdGUub3JnOjgwODAvb2ZmaWNlMjAwN3Byby56aXBaWg==</rich_text><rich_text>
+</rich_text><rich_text link="webs http://thunder://QUFodHRwOi8vNTEuZHVvdGUub3JnL29mZmljZTIwMDdwcm8uemlwWlo=">thunder://QUFodHRwOi8vNTEuZHVvdGUub3JnL29mZmljZTIwMDdwcm8uemlwWlo=</rich_text><rich_text>
+</rich_text><rich_text link="webs http://thunder://QUFodHRwOi8vNTMuZHVvdGUub3JnL29mZmljZTIwMDdwcm8uemlwWlo=">thunder://QUFodHRwOi8vNTMuZHVvdGUub3JnL29mZmljZTIwMDdwcm8uemlwWlo=</rich_text><rich_text>
+
+　　产品序列号：KGFVY-7733B-8WCK9-KTG64-BC7D8
+　　
+　　
+　write_dna_control_block(VIDEO_DNA, sizeof(buffer), info-&gt;begin_time.tv_sec * 1000 + info-&gt;begin_time.tv_usec / 1000, m_cfp_file);
+    //write_dna_control_block(VIDEO_DNA, sizeof(buffer), m_current_task_begin_time.tv_sec * 1000 + first_frame_time_offset, m_cfp_file);
+    fwrite(buffer, sizeof(buffer), 1, m_cfp_file);
+    fflush(m_cfp_file);
+
+R610:/vobiledata/fake_test# bin/taskGenerator.py:188: DeprecationWarning: struct integer overflow masking is deprecated
+  media_len = struct.pack('I', media_len)
+                   path: </rich_text><rich_text link="webs http://vapptime1.cntv.cloudcdn.net:8000/cache/259_/seg0/index.m3u8?AUTH=mzOnaiK35MMeLBl9HWG6P/01FkXeoiAvFkVputWbv4YpdVWoxZu1/icILzsZ5RsTud1rnhOR/IJEyxz0alNxzw==">http://vapptime1.cntv.cloudcdn.net:8000/cache/259_/seg0/index.m3u8?AUTH=mzOnaiK35MMeLBl9HWG6P/01FkXeoiAvFkVputWbv4YpdVWoxZu1/icILzsZ5RsTud1rnhOR/IJEyxz0alNxzw==</rich_text><rich_text>
+
+eyerestdaemon 会占cpu到100% ,fix it
+
+ gpac 依赖于 libavcodec-extra-53 (&gt;= 4:0.8-1~)；然而：
+  未安装软件包 libavcodec-extra-53。
+ gpac 依赖于 libavutil-extra-51 (&gt;= 4:0.8-1~)；然而：
+  未安装软件包 libavutil-extra-51。
+ gpac 依赖于 libdirectfb-1.2-0；然而：
+  未安装软件包 libdirectfb-1.2-0。
+ gpac 依赖于 libmozjs185-1.0 (&gt;= 1.8.5-1.0.0)；然而：
+  未安装软件包 libmozjs185-1.0。
+ gpac 依赖于 libopenjpeg2；然而：
+  未安装软件包 libopenjpeg2。
+
+
+hackergame robot runaway reference </rich_text><rich_text link="webs http://www.redblobgames.com/pathfinding/a-star/introduction.html">http://www.redblobgames.com/pathfinding/a-star/introduction.html</rich_text><rich_text>
+</rich_text><rich_text link="webs http://www.redblobgames.com/pathfinding/a-star/introduction.html">http://www.redblobgames.com/pathfinding/a-star/introduction.html</rich_text><rich_text>
+A* maze </rich_text><rich_text link="webs http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html">http://theory.stanford.edu/~amitp/GameProgramming/AStarComparison.html</rich_text><rich_text>
+算法可视化
+</rich_text><rich_text link="webs http://bindog.github.io/%E7%90%86%E8%AE%BA/2014/08/09/visualizing-algorithms/">http://bindog.github.io/%E7%90%86%E8%AE%BA/2014/08/09/visualizing-algorithms/</rich_text><rich_text>
+
+
+</rich_text><rich_text link="webs http://www.livenewschat.eu/canada/">http://www.livenewschat.eu/canada/</rich_text><rich_text> cbc  ffmpeg -y  -rtmp_swfurl </rich_text><rich_text link="webs http://msnbclive.eu/player.swf">http://msnbclive.eu/player.swf</rich_text><rich_text> -i rtmp://d.cdn.newschat.tv/edge/canadas_live -strict -2 x.mp4
+
+</rich_text><rich_text link="webs http://www.dw.de/media-center/live-tv/s-100825">http://www.dw.de/media-center/live-tv/s-100825</rich_text><rich_text> dw
+</rich_text><rich_text link="webs http://www.rtve.es/noticias/directo/canal-24h/">http://www.rtve.es/noticias/directo/canal-24h/</rich_text><rich_text> rtve 
+
+http://nimplus1.giniko.com/zdftv/zdftv.stream/chunklist_w345141444.m3u8
+
+curl '</rich_text><rich_text link="webs http://nimplus1.giniko.com/tfmtv/tfmtv.stream/playlist.m3u8'">http://nimplus1.giniko.com/tfmtv/tfmtv.stream/playlist.m3u8'</rich_text><rich_text> -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' -H 'Accept-Encoding: gzip, deflate' -H 'Accept-Language: en-US,en;q=0.5' -H 'Connection: keep-alive' -H 'Cookie: __utma=52549950.1896136233.1409734827.1411458890.1411461214.17; __utmz=52549950.1410859242.8.2.utmcsr=billing.giniko.com|utmccn=(referral)|utmcmd=referral|utmcct=/; __utmc=52549950; __utmb=52549950.31.10.1411461214; PHPSESSID=m639bkisnm3e97m5sq726pis65' -H 'Host: nimplus1.giniko.com' -H 'Referer: </rich_text><rich_text link="webs http://www.giniko.com/dvr/jwplayer/jwplayer.flash.swf'">http://www.giniko.com/dvr/jwplayer/jwplayer.flash.swf'</rich_text><rich_text> -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:30.0) Gecko/20100101 Firefox/30.0'
+
+curl '</rich_text><rich_text link="webs http://nimplus1.giniko.com/daserste/daserste.stream/playlist.m3u8'">http://nimplus1.giniko.com/daserste/daserste.stream/playlist.m3u8'</rich_text><rich_text> -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' -H 'Accept-Encoding: gzip, deflate' -H 'Accept-Language: en-US,en;q=0.5' -H 'Connection: keep-alive' -H 'Cookie: __utma=52549950.1896136233.1409734827.1411461214.1411523305.18; __utmz=52549950.1410859242.8.2.utmcsr=billing.giniko.com|utmccn=(referral)|utmcmd=referral|utmcct=/; __utmc=52549950; PHPSESSID=5gp32iqk2brtju1s61hk13mvf2; __utmb=52549950.3.10.1411523305' -H 'Host: nimplus1.giniko.com' -H 'Referer: </rich_text><rich_text link="webs http://www.giniko.com/dvr/jwplayer/jwplayer.flash.swf'">http://www.giniko.com/dvr/jwplayer/jwplayer.flash.swf'</rich_text><rich_text> -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:30.0) Gecko/20100101 Firefox/30.0'
+
+
+bbc: </rich_text><rich_text link="webs http://www.bbc.co.uk">http://www.bbc.co.uk</rich_text><rich_text>
+cbc: </rich_text><rich_text link="webs http://www.livenewschat.eu/canada/">http://www.livenewschat.eu/canada/</rich_text><rich_text>
+zdf: </rich_text><rich_text link="webs http://nimplus1.giniko.com">http://nimplus1.giniko.com</rich_text><rich_text>
+ard: </rich_text><rich_text link="webs http://nimplus1.giniko.com">http://nimplus1.giniko.com</rich_text><rich_text>
+sky: </rich_text><rich_text link="webs http://www.streamago.tv/">http://www.streamago.tv/</rich_text><rich_text>
+</rich_text></node><node name="OCR" prog_lang="custom-colors" readonly="False" tags="" unique_id="58"><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> C++, python 实现， 不支持中文
+
+ocr文字识别调研：
+</rich_text><rich_text link="webs http://www.oschina.net/p/ocropus">OCRopus</rich_text><rich_text> |开源|python |Linux| 不支持英文，
+</rich_text><rich_text link="webs http://www.oschina.net/p/tesseract-ocr">Tesseract</rich_text><rich_text> |开源|C/C++等|Linux，windows| 支持中文等多种语言，英文的识别率很高，
+</rich_text><rich_text link="webs http://www.oschina.net/p/gocr">GOCR</rich_text><rich_text>|开源||Linux|要使用tesseract 的语言库
+YAGF|开源|| Linux|使用tesseract语言库
+ABBYY|闭源||windows|测试的版本ABBY FinReader 12, 识别率95%以上，对识别的图片没有太大的要求
+
+后面主要工作是调研 Tesseract， 安装版本3.02, （最新的3.03版本编译不过）。Tesseract 网站上提供的简体中文数据不太适用，识别率极低。用sans， 48字体，常用3500字重新生成字库， 如果字体
+
+
+tesseract 训练流程：
+  1. 生成box文件使用jTessBoxEditor（下载地址：http://sourceforge.net/projects/vietocr/files/jTessBoxEditor/）， java -jar jTessBoxEditor.jar, 
+    TiFF/Box Generator -&gt; Input 导入常用字集(txt格式即可)，
+    注意选择字体和调整字间距，字间距对OCR识别有很大影响
+  2. 定义字体特征文件 font_properties,  文件内容格式如下：
+  &lt;fontname&gt; &lt;italic&gt; &lt;bold&gt; &lt;fixed&gt; &lt;serif&gt; &lt;fraktur&gt;  
+  其中fontname为字体名称，必须与[lang]. [fontname].exp[num].box中的名称保持一致。&lt;italic&gt; 、&lt;bold&gt;  、&lt;fixed&gt; 、&lt;serif&gt;、 &lt;fraktur&gt;的取值为1或0，表示字体是否具有这些属性。
+这里在样本图片所在目录下创建一个名称为font_properties的文件:
+font 0 0 0 0 0  
+  3. 生成语言文件：
+        以num.font为例， num.font.tif 为jTessBoxEditor在1中生成：
+        tesseract num.font.exp0.tif num.font.exp0 nobatch box.train  
+        
+        unicharset_extractor num.font.exp0.box  
+        mftraining -F font_properties -U unicharset -O num.unicharset num.font.exp0.tr  
+ 
+ 
+        cntraining   num.font.exp0.tr  
+   
+
+        mv normproto num.normproto  
+        mv inttemp num.inttemp  
+        mv pffmtable num.pffmtable  
+
+        combine_tessdata.exe num.  
+        
+        
+ 参见： 
+       </rich_text><rich_text link="webs http://blog.csdn.net/firehood_/article/details/8433077">http://blog.csdn.net/firehood_/article/details/8433077</rich_text><rich_text>
+       
+
+         </rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="64"><rich_text>1. 在 videoCapture 截图服务中， 使用的是os.mkstemp() 来创建 合并音频的临时文件， 要用tempfile 中的mkstempfile来代替
+2. 修改taskgenerator中dna 合并的部分，先把audio / video dna extract first, then merge them
+3. audio time is earlier than viedo while netstream capture recording videos
+4. </rich_text></node><node name="sql" prog_lang="sql" readonly="False" tags="" unique_id="10"><rich_text>
+create table VideoSource
+(
+    id              int(10) unsigned        not null AUTO_INCREMENT,
+    channel_uuid    char(36)                not null,
+    channel_name    char(50)                DEFAULT NULL,
+    network         char(50)                DEFAULT NULL,
+    dma             char(50)                DEFAULT NULL,
+    status          enum(&quot;idle&quot;, &quot;error&quot;, &quot;printing&quot;) NOT NULL default &quot;idle&quot;,
+    update_at       timestamp               not null DEFAULT '0000-00-00 00:00:00',
+    primary key (id)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+create table vodProgram
+(
+    id              int(10) unsigned        not null AUTO_INCREMENT,
+    channel_id      int(10) unsigned        not null,
+    program_uuid    char(36)                not null,
+    vod_name        varchar(255)            not null,
+    md5             char(36)                DEFAULT null,
+    start_ts        int(13) unsigned,
+    end_ts          int(13) unsigned,
+    program_status  enum(&quot;succeed&quot;, &quot;initialized&quot;, &quot;processing&quot;) not null default &quot;initialized&quot;,
+    primary key (id)
+)
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+            id: 1
+    channel_id: 1
+      vod_name: Mystery_Diners_Day1.mp4
+           md5: 04d55e6215b666f5e04ef2aa5082f6e7
+      start_ts: 0
+        end_ts: 1787798
+program_status: initialized
+1 row in set (0.00 sec)
+</rich_text></node><node name="VTWeb API" prog_lang="custom-colors" readonly="False" tags="" unique_id="38"><rich_text>1. 登陆
+  接口: https://vobileVT/VTWeb/login
+  方法: POST
+  参数:
+            username
+            password
+   response:
+            ErrorCode
+            ErrorMsg
+            
+2. 入库：
+    接口: http://vobileVT/VTWeb/ingest
+    方法: POST
+    参数：
+            dnadata
+            keyword
+    response:
+            ErrorCode
+            ErrorMsg
+            instance_uuid
+            meta_uuid
+
+            
+         
+4. 母本管理
+    接口：http://vobileVT/VTWeb/reference/{uuid}
+    方法：GET, PUT
+    参数：
+            GET: N/A
+            PUT:
+                meta_uuid
+                instance_uuid
+    response:
+        GET:
+              ErrorCode
+              ErrorMsg
+              instance_uuid
+              meta_uuid
+              keyworld
+              duration
+              
+         PUT:
+             ErrorCode
+             ErrorMsg
+    
+ 4. Keyword管理
+    接口：http://vobileVT/VTWeb/keyworld/{keyword}
+    方法: DELETE, PUT
+    参数:
+        DELETE: N/A
+        PUT: 
+            instance_uuid
+            meta_uuid
+    response:
+        DELETE:
+            ErrorCode, ErrorMsg
+        PUT:
+            ErrorCode, ErrorMsg, taskId
+            
+ 5. 开启监测
+    接口: http://vobileVT/VTWeb/startmonitor
+    方法: POST
+    参数:
+        taskId
+     response:  
+        ErrorCod, ErrorMsg
+        
+ 6.Match
+    接口: http://vobileVT/VTWeb/getMatchList/{taskId}
+    方法: GET
+    参数: N/A
+    response:
+        ErrorCode, ErrorMsg, matchedMediaList, 
+        mediaId, matchedDuration, mediaUrl, notifiedStatus, claimedStatus
+        
+ 7. 发送邮件/claim
+    接口: http://vobileVT/VTWeb/notification
+    方法: POST
+    参数:
+        matchedMediaList, mediaId, type, notifiedStatus, claimedStatus
+    response:
+       ErrorCode, ErrorMsg
+        </rich_text></node><node name="api" prog_lang="custom-colors" readonly="False" tags="" unique_id="52"><rich_text>[[TOC()]]
+
+= Vobile VideoTracking API =
+
+== Introduction ==
+
+Todo
+
+== Audience ==
+Todo
+
+== API Key ==
+
+All developers need to apply for a API Key before getting started. The API Key should not be shared.
+
+== Usage Limits ==
+Todo
+
+== Current Version ==
+By default, all requests receive the v1 version of the API.
+
+== Schema ==
+All API access is over HTTPS, and accessed from the &quot;api.vobile.net&quot; domain. All data is sent and received as JSON.
+
+Blank fields are included as &quot;null&quot; instead of being omitted.
+
+All timestamps are returned in ISO 8601 format:
+
+{{{
+YYYY-MM-DDTHH:MM:SSZ
+}}}
+
+Summary Representations: When you fetch a list of resources, the response includes a subset of the attributes for that resource. The summary representation excludes some attributes. If you want to obtain these attributes, fetch the “detailed” representation.
+
+Detailed Representations: When you fetch an individual resource, the response typically includes all attributes for that resource.
+
+== Parameters ==
+
+Many API methods take optional parameters. For GET requests, any parameters not specified as a segment in the path can be passed as an HTTP query string parameter.
+
+For POST, PATCH, PUT, and DELETE requests, parameters not included in the URL should be encoded as JSON with a Content-Type of 'application/json'.
+
+== Obtaining Token ==
+A Obtaining Token request takes the following form:
+
+{{{
+Get
+</rich_text><rich_text link="webs https://api.vobile.net/vt/api/token?api_key=API-KEY&amp;client_id=CLIENT-ID">https://api.vobile.net/vt/api/token?api_key=API-KEY&amp;client_id=CLIENT-ID</rich_text><rich_text>
+
+Authorization: null
+Content-Type: application/json
+}}}
+=== Request Parameters ===
+Certain parameters are required while others are optional. As is standard in URLs, all parameters are separated using the ampersand (&amp;) character. The list of parameters and their possible values are enumerated below.
+
+==== Required parameters ====
+
+ * api_key: The API Key you received from Vobile.
+
+==== Optional parameters ====
+
+ * client_id: 
+
+=== Response ===
+By default, the response will take the following form:
+{{{
+HTTP/1.1 200 OK
+
+Authorization: &quot;TOKEN&quot;
+
+{
+  &quot;result&quot;: null,
+  &quot;error&quot;: null,
+  &quot;version&quot;: &quot;v1&quot;
+}
+}}}
+
+==== Response Elements ====
+
+Authorization: 
+
+==== Failed authentication limit ====
+
+Authenticating with invalid API Key will return &quot;401&quot; Unauthorized.
+{{{
+HTTP/1.1 401 Unauthorized
+
+{
+  &quot;result&quot;: null,
+  &quot;error&quot;: {
+    code: &quot;60401&quot;
+    &quot;message&quot;: &quot;Bad API Key&quot;,
+  }  
+  &quot;version&quot;: &quot;v1&quot;
+}
+}}}
+
+After detecting several requests with invalid API Key within a short period, the API will temporarily reject all authentication attempts for that IP address with 403 Forbidden:
+{{{
+HTTP/1.1 403 Forbidden
+
+{
+  &quot;result&quot;: null,
+  &quot;error&quot;: {
+    code: &quot;60403&quot;
+    &quot;message&quot;: &quot;Maximum number of attempts attempts exceeded. Please try again later.&quot;,
+  }  
+  &quot;version&quot;: &quot;v1&quot;
+}
+}}}
+
+== Ingest VDNA ==
+Introduction(Todo)
+{{{
+POST
+
+https://api.vobile.net/vt/api/dnaingest
+
+Authorization: &quot;TOKEN&quot;
+}}}
+=== Request Parameters ===
+==== Required parameters ====
+ * api_token
+ * dna_data
+=== Response ===
+Normal:
+{{{
+{
+  &quot;code&quot;: 0,
+  &quot;body&quot;: [
+    {
+      &quot;id&quot;: {
+        &quot;value&quot;: &quot;&quot;,
+        &quot;type&quot;: &quot;Other&quot;
+      },
+      &quot;type&quot;: &quot;Movie&quot;,
+      &quot;tag&quot;: &quot;&quot;,
+      &quot;duration&quot;: 11,
+      &quot;updated_at&quot;: &quot;2014-10-30 08:52:20&quot;,
+      &quot;title&quot;: &quot;test_movie&quot;,
+      &quot;studio_owner&quot;: &quot;&quot;,
+      &quot;instances&quot;: [
+        &quot;0f10e926-6012-11e4-9f57-fa163e2f152f&quot;
+      ],
+      &quot;release_date&quot;: &quot;2014-10-30&quot;,
+      &quot;rating&quot;: &quot;&quot;,
+      &quot;company_id&quot;: 1,
+      &quot;right_owner&quot;: &quot;&quot;,
+      &quot;cast&quot;: &quot;&quot;,
+      &quot;is_valid&quot;: &quot;valid&quot;,
+      &quot;genre&quot;: &quot;&quot;,
+      &quot;typed_info&quot;: {
+        &quot;description&quot;: &quot;&quot;,
+        &quot;sub_type&quot;: &quot;Movie&quot;,
+        &quot;metalink&quot;: &quot;&quot;,
+        &quot;country&quot;: &quot;&quot;,
+        &quot;alternate_url&quot;: &quot;&quot;,
+        &quot;track_no&quot;: 0,
+        &quot;alternate_info&quot;: &quot;&quot;,
+        &quot;director&quot;: &quot;&quot;
+      },
+      &quot;created_at&quot;: &quot;2014-10-30 08:52:20&quot;,
+      &quot;meta_uuid&quot;: &quot;0f08c07a-6012-11e4-931d-fa163e2f152f&quot;
+    }
+  ],
+  &quot;msg&quot;: &quot;Successful&quot;
+}
+}}}
+Error:
+{{{
+}}}
+
+
+== Meta Management ==
+== Get Meta ==
+Introduction (Todo)
+
+{{{
+GET 
+
+</rich_text><rich_text link="webs https://api.vobile.net/vt/api/meta/json?meta_uuid=META_UUID">https://api.vobile.net/vt/api/meta/json?meta_uuid=META_UUID</rich_text><rich_text>
+
+Authorization: &quot;TOKEN&quot;
+Content-Type: application/json
+
+}}}
+=== Request Parameters ===
+Certain parameters are required while others are optional. As is standard in URLs, all parameters are separated using the ampersand (&amp;) character. The list of parameters and their possible values are enumerated below.
+
+==== Required parameters ====
+ * api_token
+ * meta_uuid
+
+==== Optional parameters ====
+=== Response ===
+{{{
+
+{
+             &quot;id&quot;: &quot;8409&quot;,
+             &quot;company_id&quot;: &quot;116&quot;,
+             &quot;title&quot;: &quot;South Park&quot;,
+             &quot;display_name&quot;: &quot;South Park&quot;,
+             &quot;format_title&quot;: &quot;&quot;,
+             &quot;studio&quot;: &quot;&quot;,
+             &quot;releasedate&quot;: &quot;2012-06-06&quot;,
+             &quot;startdate&quot;: &quot;2012-06-01 01:00:00.0&quot;,
+             &quot;published_time&quot;: &quot;2012-06-01 01:00:00.0&quot;,
+             &quot;created&quot;: &quot;2012-06-06 18:11:35.0&quot;,
+             &quot;tracking_setting_id&quot;: &quot;4&quot;,
+             &quot;duration&quot;: 298,
+             &quot;meta_uuid&quot;: &quot;d2024750-afbf-11e1-99c2-080027cf46d6&quot;,
+             &quot;priority_name&quot;: &quot;1&quot;,
+             &quot;delete_flag&quot;: 0,
+             &quot;updated&quot;: &quot;2013-01-29 23:02:29.0&quot;,
+             &quot;tag&quot;: &quot;&quot;,
+             &quot;contentType&quot;: &quot;Music&quot;,
+             &quot;cast&quot;: &quot;&quot;,
+             &quot;needConfirmFlag&quot;: 0,
+             &quot;vddbDeleted&quot;: true
+ }
+
+}}}
+==== Response Elements ====
+ * id
+ * Todo
+
+### Update Meta ###
+
+#### Introduction ####
+
+{{{
+
+</rich_text><rich_text link="webs http">http</rich_text><rich_text> method: PUT
+
+</rich_text><rich_text link="webs https://api.videotracker.vobile.net/meta/up?api_token=API_TOKEN&amp;meta_uuid=META_UUID">https://api.videotracker.vobile.net/meta/up?api_token=API_TOKEN&amp;meta_uuid=META_UUID</rich_text><rich_text>
+
+{
+     &quot;title&quot;: &quot;South Park&quot;,
+     &quot;display_name&quot;: &quot;South Park&quot;,
+     &quot;release_date&quot;: &quot;2012-06-06&quot;,
+     &quot;published_time&quot;: &quot;2012-06-01 01:00:00.0&quot;,
+     &quot;duration&quot;: 298,
+     &quot;priority_name&quot;: &quot;1&quot;
+}
+
+}}}
+#### Request Parameters ####
+
+##### Required Parameters #####
+
+api_token meta_uuid
+
+##### Optional Parameters #####
+
+display_name release_date published_time  duration priority_name
+
+#### Response ####
+
+Normal:
+
+{{{
+
+{&quot;errcode&quot;:0,&quot;errmsg&quot;:&quot;ok&quot;}
+
+}}}
+Error:
+
+{{{
+
+{&quot;errcode&quot;:9999,&quot;errmsg&quot;:&quot;ok&quot;}
+
+}}}
+## Keyword Managment ##
+
+### Get Keyword ###
+
+#### Introduction ####
+
+{{{
+
+</rich_text><rich_text link="webs http">http</rich_text><rich_text> method: GET
+
+</rich_text><rich_text link="webs https://api.videotracker.vobile.net/keyword/get?api_token=API_TOKEN&amp;meta_uuid=META_UUID">https://api.videotracker.vobile.net/keyword/get?api_token=API_TOKEN&amp;meta_uuid=META_UUID</rich_text><rich_text>
+
+}}}
+#### Request Parameters ####
+
+##### Required Parameters #####
+
+api_token meta_uuid
+
+#### Response ####
+
+{{{
+
+}}}
+#### Example ####
+
+{{{
+
+}}}
+### Update Keyword ###
+
+#### Introduction ####
+
+{{{
+
+</rich_text><rich_text link="webs http">http</rich_text><rich_text> method: PUT
+
+</rich_text><rich_text link="webs https://api.videotracker.vobile.net/keyword/up?api_token=API_TOKEN&amp;meta_uuid=META_UUID">https://api.videotracker.vobile.net/keyword/up?api_token=API_TOKEN&amp;meta_uuid=META_UUID</rich_text><rich_text>
+
+{
+     [{keyword: &quot;KEYWORD&quot;},{keyword: &quot;KEYWORD&quot;}]
+}
+
+}}}
+#### Request Parameters ####
+
+##### Required Parameters #####
+
+api_token meta_uuid
+
+##### Optional Parameters #####
+
+keyword
+
+#### Response ####
+
+Normal:
+
+{{{
+
+{&quot;errcode&quot;:0,&quot;errmsg&quot;:&quot;ok&quot;}
+
+}}}
+Error:
+
+{{{
+
+{&quot;errcode&quot;:9999,&quot;errmsg&quot;:&quot;ok&quot;}
+
+}}}
+#### Example ####
+
+{{{
+
+}}}
+## Meta Tracking ##
+
+### Start Tracking ###
+
+#### Introduction ####
+
+{{{
+
+</rich_text><rich_text link="webs http">http</rich_text><rich_text> method: POST
+
+</rich_text><rich_text link="webs https://api.videotracker.vobile.net/meta/start?api_token=API_TOKEN&amp;meta_uuid=META_UUID">https://api.videotracker.vobile.net/meta/start?api_token=API_TOKEN&amp;meta_uuid=META_UUID</rich_text><rich_text>
+
+{
+    start_date: &quot;START_DATE&quot;,
+    tracking_days: TRACKING_DAYS
+}
+
+}}}
+#### Request Parameters ####
+
+##### Required Parameters #####
+
+api_token meta_uuid
+
+##### Optional Parameters #####
+
+start_date tracking_days
+
+#### Response ####
+
+{{{
+
+}}}
+#### Example ####
+
+{{{
+
+}}}
+## Match Result ##
+
+### Show Result ###
+
+#### Introduction ####
+
+{{{
+
+</rich_text><rich_text link="webs http">http</rich_text><rich_text> method: GET
+
+</rich_text><rich_text link="webs https://api.videotracker.vobile.net/match/get?api_token=API_TOKEN&amp;page=PAGE&amp;meta_uuid=META_UUID">https://api.videotracker.vobile.net/match/get?api_token=API_TOKEN&amp;page=PAGE&amp;meta_uuid=META_UUID</rich_text><rich_text>
+
+}}}
+#### Request Parameters ####
+
+##### Required Parameters #####
+
+api_token
+
+##### Optional Parameters #####
+
+meta_uuid page
+
+#### Response ####
+
+{{{
+
+}}}
+#### Example ####
+
+{{{
+
+}}}</rich_text></node></node><node name="CNTV" prog_lang="custom-colors" readonly="False" tags="" unique_id="32"><rich_text link="webs http://www.giniko.com/watch.php?id=36">http://www.giniko.com/watch.php?id=36</rich_text><rich_text>  ZDF need account</rich_text></node><node name="javascripts" prog_lang="custom-colors" readonly="False" tags="" unique_id="48"><rich_text link="webs http://javascript.ruanyifeng.com/">http://javascript.ruanyifeng.com/</rich_text></node><node name="Mysql" prog_lang="custom-colors" readonly="False" tags="" unique_id="11"><rich_text>1.  mysql show connections
+
+2. mysql&gt; show status like '%onn%';
+
+3. SHOW PROCESSLIST
+
+4. SET NAMES 'utf8'    #mysql 设置编码
 
 
 
 mysql&gt; select current_timestamp() ;
 
-</rich_text></node><node name="git" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="4"><rich_text>touch README.md git init git commit -m &quot;first commit&quot; git remote add origingit@github.com:szqh97/test.gitgit push -u origin master
+s</rich_text><rich_text foreground="#ff0000">hell&gt; </rich_text><rich_text foreground="#ff0000" weight="heavy">mysqldump --quick </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name</rich_text><rich_text foreground="#ff0000" weight="heavy"> | gzip &gt; </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name.contents</rich_text><rich_text foreground="#ff0000" weight="heavy">.gz</rich_text><rich_text foreground="#ff0000">(该例子中创建的文件是压缩格式）。</rich_text><rich_text>
+ 
+</rich_text><rich_text foreground="#ff0000">恢复/转移到另一台的命令如下:</rich_text><rich_text>
+</rich_text><rich_text foreground="#ff0000">shell&gt; </rich_text><rich_text foreground="#ff0000" weight="heavy">gunzip &lt; </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name.contents</rich_text><rich_text foreground="#ff0000" weight="heavy">.gz | mysql </rich_text><rich_text foreground="#ff0000" style="italic" weight="heavy">db_name</rich_text><rich_text foreground="#ff0000">以上命令,适用于*nix 操作系统的机器</rich_text><rich_text>
+</rich_text></node><node name="git" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="4"><rich_text>Git创建Develop分支的命令：
+　　git checkout -b develop master
+将Develop分支发布到Master分支的命令：
+　　# 切换到Master分支
+ 　　git checkout master
+　　# 对Develop分支进行合并
+ 　　git merge --no-ff develop
 
-1. git 恢复删除的文件 
+</rich_text><rich_text link="webs http://www.ruanyifeng.com/blog/2012/07/git.html">http://www.ruanyifeng.com/blog/2012/07/git.html</rich_text><rich_text>
 
-        git checkout filename
+ git reset --hard HEAD~3
+会将最新的3次提交全部重置，就像没有提交过一样。
+
+touch README.md
+ git init
+ git commit -m &quot;first commit&quot; 
+ git remote add origingit@github.com:szqh97/test.git
+ git push -u origin master
+
+1. git 恢复删除的文件 
+
+        git checkout filename
 
 
 
 http://blog.xupeng.me/2011/12/14/migrate-to-octopress/
+
+github fork项目后，代码更新
+协助约定
+ 
+每个人都可以fork一份自己的repo，所有的修改都在自己私有的repo上进行；
+修改完成，测试通过后通过给主repo发pull request请求合并；
+主repo（Johnqing/n.js）的管理团队收到pull request请求后，review代码，合并进来；
+个人的repo需及时和主repo保持同步；
+第1步：fork一份自己的repo
+ 
+打开Johnqing/n.js在Github上的主页（</rich_text><rich_text link="webs https://github.com/Johnqing/n.js)，在右上角点击“fork”就可以fork一份自己的repo，现在我们就有了一份自己的repo，接下里我们的操&gt;作都是基于自己的repo">https://github.com/Johnqing/n.js)，在右上角点击“fork”就可以fork一份自己的repo，现在我们就有了一份自己的repo，接下里我们的操&gt;作都是基于自己的repo</rich_text><rich_text>
+第2步：clone自己的repo
+ 
+上面我们fork了自己的repo，接着就可以clone下来了，先到自己的repo主页（</rich_text><rich_text link="webs https://github.com/ispxin/n.js），找到repo的git地址，诸如这样">https://github.com/ispxin/n.js），找到repo的git地址，诸如这样</rich_text><rich_text> </rich_text><rich_text link="webs https://github.com/ispxin/n.js.git,然后clone到本地">https://github.com/ispxin/n.js.git,然后clone到本地</rich_text><rich_text>
+git clone </rich_text><rich_text link="webs https://github.com/ispxin/n.js.git">https://github.com/ispxin/n.js.git</rich_text><rich_text>
+第3步：查看和添加远程分支
+ 
+我们接着cd到项目里，看下当前的git远程仓库，如下
+cd n.js
+git remote -v
+ 
+好了，到这里仓库就添加完成了，为了保持和主仓库的代码一致，我们接着需要获取下主仓库的最新代码。
+第4步：获取主仓库最新代码
+git fetch Johnqing
+第5步：合并到自己的分支里
+git merge Johnqing/master
+第6步：本地修改代码，提交到自己的repo
+ 
+修改完后
+git add .
+git commit -m &quot;本次修改描述&quot; 
+ 
+最后我把本次修改提交到自己的远程仓库（ispxin/n.js）中，操作如下
+git push origin master
+第7步：给主repo发pull request
+ 
+提交到自己repo后，就可以给主repo发一个请求合并的pull request，操作步骤是这样的: 
+ 
+打开</rich_text><rich_text link="webs https://github.com/ispxin/n.js，点击“pull">https://github.com/ispxin/n.js，点击“pull</rich_text><rich_text> request”的界面，添加详细的描述信息后
+第8步：主repo收到pull request后，可以merge进来
+ 
+这个可以review修改，如果没问题就可以直接“Merge pull requst”，merge后就可以在主仓库看到了
+分类: 杂七杂八
+</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="40"><rich_text weight="heavy">VOA</rich_text><rich_text>
+</rich_text><rich_text style="italic">voa     mms://a1905.l211052072.c2110.g.lm.akamaistream.net/D/1905/2110/v0001/reflector:52072</rich_text><rich_text>
+
+voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822
+
+
+grep &quot;Internal*&quot; -B1 tg|grep -v &quot;\-\-&quot;|sed '/xml\ stream/d'|sed 's/^.*\ post\ data\ is:\ //g'
+
+find . -iname &quot;16.*.mp4&quot; -or -iname &quot;1.*.mp4&quot; -or -iname &quot;4.*.mp4&quot; | sed 's/\.\///g'|while read a; do r=`grep $a t`; if [ $r != 0 ] then echo $a &gt;&gt;t0306; fi; done
+
+find . -iname &quot;16.*.mp4&quot; -or -iname &quot;1.*.mp4&quot; -or -iname &quot;4.*.mp4&quot; | sed 's/\.\///g'| while read a; do  grep $a t; if [ $? != 0 ]; then echo $a &gt;&gt; t0306; fi; done</rich_text></node><node name="gnuplot" prog_lang="sh" readonly="False" tags="" unique_id="54"><rich_text>1. 显示图片
+        set term gif
+        set output &quot;abc.png&quot;
+        plot sin(x)
+
+ 2.清单 1. 从 -pi 到 +pi 的 sin(x)
+ set xrange [-pi:pi]
+ plot sin(x)
+ reset
+ 
+ 清单 2. 命名图和轴
+set title &quot;My first graph&quot;
+set xlabel &quot;Angle, \n in degrees&quot;
+set ylabel &quot;sin(angle)&quot;
+plot sin(x)
+
+
+带有 tics、标题、网格和标签的轴的 sin(x)
+gnuplot&gt; set xrange [-pi:pi]
+gnuplot&gt; set xtics (&quot;0&quot; 0, &quot;90&quot; pi/2 , &quot;-90&quot; -pi/2 , &quot;&quot; pi/4 , &quot;&quot; -pi/4 , &quot;&quot; 3*pi/4 , &quot;&quot; -3*pi/4 )
+gnuplot&gt; set grid
+gnuplot&gt; set xlabel &quot;Angle. \n in degrees&quot;
+gnuplot&gt; set ylabel &quot;sin(angle)&quot;
+gnuplot&gt; plot sin(x)
+gnuplot&gt; set output &quot;test.png&quot;
+gnuplot&gt; plot sin(x)
+</rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="" unique_id="22"><rich_text>Linux 剪裁
+</rich_text><rich_text link="webs http://blog.csdn.net/jinsen/article/details/4890922">http://blog.csdn.net/jinsen/article/details/4890922</rich_text><rich_text>
+2. Linux 破解wifi密码
+</rich_text><rich_text link="webs http://linux.cn/thread/12013/1/1/">http://linux.cn/thread/12013/1/1/</rich_text><rich_text>
+3. Linux Grep 算法
+
+</rich_text><rich_text link="webs http://www.cnblogs.com/lanxuezaipiao/p/3452579.html">http://www.cnblogs.com/lanxuezaipiao/p/3452579.html</rich_text><rich_text>
+4.Linux 技巧
+</rich_text><rich_text link="webs http://linux.cn/article-2389-1.html">http://linux.cn/article-2389-1.html</rich_text><rich_text>
+
+python yield generator coroutine &amp;&amp; these in C++
+
+
+</rich_text><rich_text link="webs https://helloworldopen.com/techspec">https://helloworldopen.com/techspec</rich_text><rich_text>
+
+linux deepin 
+</rich_text><rich_text link="webs https://github.com/linuxdeepin">https://github.com/linuxdeepin</rich_text><rich_text>
+
+修改下guake 源码， 把gnome-term的一些快捷键另进去
+
+intresting code
+</rich_text><rich_text link="webs http://www.keithschwarz.com/interesting/">http://www.keithschwarz.com/interesting/</rich_text><rich_text>
+
+hack fan
+</rich_text><rich_text link="webs http://fediafedia.com/neo/">http://fediafedia.com/neo/</rich_text><rich_text>  
+
 </rich_text></node></cherrytree>
