@@ -23,6 +23,7 @@ msg.hpp 103
 2. 
 
 
+
 3.     j= vecInt.capacity();       //j=0  
 
 4.     i = vecInt.size();          //i=0       
