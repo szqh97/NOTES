@@ -173,7 +173,11 @@ C++设计模式
 leanCloud
 </rich_text><rich_text link="webs https://leancloud.cn/start.html">https://leancloud.cn/start.html</rich_text><rich_text>
 C++析构中不能抛出异常
-</rich_text><rich_text link="webs http://www.cnblogs.com/zhyg6516/archive/2011/03/08/1977007.html">http://www.cnblogs.com/zhyg6516/archive/2011/03/08/1977007.html</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
+</rich_text><rich_text link="webs http://www.cnblogs.com/zhyg6516/archive/2011/03/08/1977007.html">http://www.cnblogs.com/zhyg6516/archive/2011/03/08/1977007.html</rich_text><rich_text>
+
+
+</rich_text><rich_text scale="h1">Double-Checked Locking Is Fixed In C++11</rich_text><rich_text>
+</rich_text><rich_text link="webs http://preshing.com/20130930/double-checked-locking-is-fixed-in-cpp11/">http://preshing.com/20130930/double-checked-locking-is-fixed-in-cpp11/</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
 switch语句本身常常说明问题：（1）需要多态行为;（2）存在职责错放。应该考虑采用一种更通用的方案，比如抽象代替switch或者将职责赋予其他对象
 
     Bridge:
