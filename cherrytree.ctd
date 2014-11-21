@@ -177,7 +177,11 @@ C++析构中不能抛出异常
 
 
 </rich_text><rich_text scale="h1">Double-Checked Locking Is Fixed In C++11</rich_text><rich_text>
-</rich_text><rich_text link="webs http://preshing.com/20130930/double-checked-locking-is-fixed-in-cpp11/">http://preshing.com/20130930/double-checked-locking-is-fixed-in-cpp11/</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
+</rich_text><rich_text link="webs http://preshing.com/20130930/double-checked-locking-is-fixed-in-cpp11/">http://preshing.com/20130930/double-checked-locking-is-fixed-in-cpp11/</rich_text><rich_text>
+
+C++ Blog
+</rich_text><rich_text link="webs http://preshing.com/">http://preshing.com/</rich_text><rich_text>
+</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
 switch语句本身常常说明问题：（1）需要多态行为;（2）存在职责错放。应该考虑采用一种更通用的方案，比如抽象代替switch或者将职责赋予其他对象
 
     Bridge:
