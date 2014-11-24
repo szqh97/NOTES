@@ -91,12 +91,12 @@ std::vector&lt;T&gt;(v).swap(v);的作用相当于：
 该例中执行这句时，capacity收缩到500
 LD_PRELOAD环境变量加载一些库,覆盖原有的方法,
 
- 标记符and, and_eq, bitand, bitor, compl, not, not_eq, or, or_eq, xor, xor_eq, &lt;%, %&gt;, &lt;: 和 :&gt;都可以用来代替我们常用的&amp;&amp;, &amp;=, &amp;, |, ~, !, !=, ||, |=, ^, ^=, {, }, [ 和 ]。在键盘上缺乏必要的符号时你可以使用这些运算标记符来代替。
+</rich_text><rich_text justification="left"></rich_text><rich_text> 标记符and, and_eq, bitand, bitor, compl, not, not_eq, or, or_eq, xor, xor_eq, &lt;%, %&gt;, &lt;: 和 :&gt;都可以用来代替我们常用的&amp;&amp;, &amp;=, &amp;, |, ~, !, !=, ||, |=, ^, ^=, {, }, [ 和 ]。在键盘上缺乏必要的符号时你可以使用这些运算标记符来代替。
 
+</rich_text><rich_text justification="left"></rich_text><rich_text>
+</rich_text><rich_text justification="left"></rich_text><rich_text>
 
-
-
- placement new 是 new操作符的一个替代语法，作用在已分配的对象上，该对象已有正确的大小和正确的赋值，这包括建立虚函数表和调用构造函数。
+</rich_text><rich_text justification="left"></rich_text><rich_text> placement new 是 new操作符的一个替代语法，作用在已分配的对象上，该对象已有正确的大小和正确的赋值，这包括建立虚函数表和调用构造函数。
 placement new实际上是把原本new做的两步工作分开来：第一步自己分配内存，第二步调用类的构造函数在自己已分配的内存上构建新的对象。
 placement new的好处：1）在已分配好的内存上进行对象的构建，构建速度快。2）已分配好的内存可以反复利用，有效的避免内存碎片问题。
 </rich_text><encoded_png anchor="1" char_offset="930">anchor</encoded_png><encoded_png char_offset="1115">iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABHNCSVQICAgIfAhkiAAAAglJREFUKJF1kL+L2mAYx9+8JnkPDq0/FhFihCraVopyLehqhUIH6aII/gUFR7fr0qMVaf+Cgke4pUXBUJIQ7Q2WDtapYIcTLVYlxcEl2oSaXIpJpztOyT3bl+fzgef5OoDNNBqNEELoczgcPi6XyxeiKE73GWgnTqfTJ6qqHrrd7sVgMHhux+yIoigCnudhJBL5qigK7Pf795LJpCAIAiYIwo6I3wy6rt9nGOZU0zRCURSPruuIZdlXGIadZDKZUwDAe1sRQqhFo9FzwzDAaDR6tt1ugxRFfSMIwvR6vUO7k3eG53mQz+c/ZrPZH7cxtuVc7XAc125b4jzPE7IsP/V4POe5XM4AAAAMw4BpmjiE8HLvEqiqasbpdH6Bq9XqcbVaPWu1Wmccx/mvINM0CYfDYVxljuMOut3u21qt9kFRlCNcluWAJEkHk8kkT9P0LwDAS8uygGmaBITwWpQkqcgwzAtFUcjZbJbEA4HAMJFIrOfz+Z3lcnmXZdkHCKELwzAOSZL80+l0gKZpsV6vl/H7/ZcURak+n+83xvM8puv6o8ViEavX6+82mw0ej8eHo9EohhD6GwqFpuPx+KHL5dJKpdIxRVEThND368ctywLNZjNZLBY/0TS9BgCYJEn+S6VSPyuVyhuO44I3i8L2axYEAa7X66N2u30SDAaH6XT6ta7rq0KhsMP9B4Xg5ezSIykbAAAAAElFTkSuQmCC</encoded_png><codebox char_offset="1117" frame_height="269" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="True">// most vexing parse
@@ -440,7 +440,7 @@ for(;;)
       // 则用来处理这个用户的socket的事情是，比如说read(fd,xxx)之类，或者一些其他的处理。
          do_use_fd(events[n].data.fd);
    }
-}</codebox></node></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
+}</codebox></node></node><node name="Questions" prog_lang="custom-colors" readonly="False" tags="" unique_id="69"><rich_text>1. C++类方法是如何运行，成员变量的封装机制是如何的</rich_text></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
 </rich_text><rich_text link="webs http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/">http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/</rich_text><rich_text>
 
 UML </rich_text><rich_text link="webs http://yuml.me/diagram/scruffy/class/draw">http://yuml.me/diagram/scruffy/class/draw</rich_text><rich_text>
