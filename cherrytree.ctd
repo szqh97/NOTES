@@ -89,7 +89,24 @@ std::vector&lt;T&gt;(v).swap(v);的作用相当于：
   这样写的作用是：把v的容量缩小到最佳值
 
 该例中执行这句时，capacity收缩到500
-LD_PRELOAD环境变量加载一些库,覆盖原有的方法,</rich_text></node><node name="FAQ" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="6"><rich_text>how to use </rich_text><rich_text foreground="#ff0000">delete this</rich_text><rich_text>
+LD_PRELOAD环境变量加载一些库,覆盖原有的方法,
+
+ 标记符and, and_eq, bitand, bitor, compl, not, not_eq, or, or_eq, xor, xor_eq, &lt;%, %&gt;, &lt;: 和 :&gt;都可以用来代替我们常用的&amp;&amp;, &amp;=, &amp;, |, ~, !, !=, ||, |=, ^, ^=, {, }, [ 和 ]。在键盘上缺乏必要的符号时你可以使用这些运算标记符来代替。
+
+
+
+</rich_text><encoded_png anchor="1" char_offset="930">anchor</encoded_png><encoded_png char_offset="1115">iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABHNCSVQICAgIfAhkiAAAAglJREFUKJF1kL+L2mAYx9+8JnkPDq0/FhFihCraVopyLehqhUIH6aII/gUFR7fr0qMVaf+Cgke4pUXBUJIQ7Q2WDtapYIcTLVYlxcEl2oSaXIpJpztOyT3bl+fzgef5OoDNNBqNEELoczgcPi6XyxeiKE73GWgnTqfTJ6qqHrrd7sVgMHhux+yIoigCnudhJBL5qigK7Pf795LJpCAIAiYIwo6I3wy6rt9nGOZU0zRCURSPruuIZdlXGIadZDKZUwDAe1sRQqhFo9FzwzDAaDR6tt1ugxRFfSMIwvR6vUO7k3eG53mQz+c/ZrPZH7cxtuVc7XAc125b4jzPE7IsP/V4POe5XM4AAAAMw4BpmjiE8HLvEqiqasbpdH6Bq9XqcbVaPWu1Wmccx/mvINM0CYfDYVxljuMOut3u21qt9kFRlCNcluWAJEkHk8kkT9P0LwDAS8uygGmaBITwWpQkqcgwzAtFUcjZbJbEA4HAMJFIrOfz+Z3lcnmXZdkHCKELwzAOSZL80+l0gKZpsV6vl/H7/ZcURak+n+83xvM8puv6o8ViEavX6+82mw0ej8eHo9EohhD6GwqFpuPx+KHL5dJKpdIxRVEThND368ctywLNZjNZLBY/0TS9BgCYJEn+S6VSPyuVyhuO44I3i8L2axYEAa7X66N2u30SDAaH6XT6ta7rq0KhsMP9B4Xg5ezSIykbAAAAAElFTkSuQmCC</encoded_png><codebox char_offset="1117" frame_height="269" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="True">// most vexing parse
+// 这个解释正确？
+// 1) 类型std::string的变量会通过std::string()实例化吗？
+// 2) 一个函数声明，返回一个std::string值并有一个函数指针参数，
+// 该函数也返回一个std::string但没有参数？
+std::string foo(std::string()); // 等价于string foo(string (*)())
+ 
+// 还是这个正确？
+// 1)类型int变量会通过int(x)实例化吗？
+// 2)一个函数声明，返回一个int值并有一个参数，
+// 该参数是一个名为x的int型变量吗？
+int bar(int(x));</codebox></node><node name="FAQ" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="6"><rich_text>how to use </rich_text><rich_text foreground="#ff0000">delete this</rich_text><rich_text>
 As long as you're careful, it's OK for an object to commit suicide (delete this).
 Here's how I define &quot;careful&quot;:
 1. You must be absolutely 100% positively sure that this object was allocated via new (not by new[], nor by </rich_text><rich_text link="webs http://www.parashift.com/c++-faq-lite/placement-new.html">placementnew</rich_text><rich_text>, nor a local object on the stack, nor a global, nor a member of another object; but by plain ordinary new).
