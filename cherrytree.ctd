@@ -151,6 +151,9 @@ int myentry(int argc, char *argv[])
 
 LD_PRELOAD环境变量加载一些库,覆盖原有的方法,
 
+   TCMalloc 通用内存池内存管理的库，替换new/free
+   pollmalloc 百度的的内存池
+
 C++ 通用集合
 </rich_text><rich_text link="webs http://blog.jobbole.com/78901/">http://blog.jobbole.com/78901/</rich_text></node><node name="todo" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="7"><rich_text foreground="#000000">1. Loki 封装设计模式的一个类库，有时间看一下</rich_text><rich_text>
 </rich_text><rich_text link="webs http://loki-lib.sourceforge.net/index.php?n=Main.HomePage">http://loki-lib.sourceforge.net/index.php?n=Main.HomePage</rich_text><rich_text>
@@ -440,7 +443,10 @@ for(;;)
       // 则用来处理这个用户的socket的事情是，比如说read(fd,xxx)之类，或者一些其他的处理。
          do_use_fd(events[n].data.fd);
    }
-}</codebox></node></node><node name="Questions" prog_lang="custom-colors" readonly="False" tags="" unique_id="69"><rich_text>1. C++类方法是如何运行，成员变量的封装机制是如何的</rich_text></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
+}</codebox></node></node><node name="distributed" prog_lang="custom-colors" readonly="False" tags="" unique_id="70"><rich_text>HDFS </rich_text><rich_text link="webs http://www.cnblogs.com/chinacloud/archive/2010/12/03/1895369.html">http://www.cnblogs.com/chinacloud/archive/2010/12/03/1895369.html</rich_text><rich_text>
+   
+hypertable 存储会额外占用40Byte， MVCC模式（copy on write)Old record is deleted when call cache compaction.
+</rich_text></node><node name="Questions" prog_lang="custom-colors" readonly="False" tags="" unique_id="69"><rich_text>1. C++类方法是如何运行，成员变量的封装机制是如何的</rich_text></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
 </rich_text><rich_text link="webs http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/">http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/</rich_text><rich_text>
 
 UML </rich_text><rich_text link="webs http://yuml.me/diagram/scruffy/class/draw">http://yuml.me/diagram/scruffy/class/draw</rich_text><rich_text>
@@ -1378,6 +1384,8 @@ flock -x 200
 flock -u 200
  ) 200&gt;/tmp/tset.lock
 </rich_text><rich_text>
+
+IO测试工具 iozone
 </rich_text><codebox char_offset="3052" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">sed 的一些命令
 
 + :：:label，标志一个label，用于b/t的跳转
