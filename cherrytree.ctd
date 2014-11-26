@@ -1885,9 +1885,9 @@ vpn
 </rich_text></node><node name="vim" prog_lang="custom-colors" readonly="False" tags="" unique_id="15"><rich_text>:earlier 1f直接恢复到上次写入
 :set rnu 相对行号
 
-
+VimAwesome 收录了100000多个实用的vim插件
 http://vim.sourceforge.net/scripts/script_search_results.php?order_by=rating
-</rich_text><node name="vim常用 " prog_lang="custom-colors" readonly="False" tags="vim" unique_id="26"><rich_text weight="heavy">marker折叠方式时，我们需要用标计来标识代码的折叠，系统默认是{{{和}}}• 折叠命令</rich_text><rich_text>
+ XTODO 高亮FIXME, TODO 等 </rich_text><node name="vim常用 " prog_lang="custom-colors" readonly="False" tags="vim" unique_id="26"><rich_text weight="heavy">marker折叠方式时，我们需要用标计来标识代码的折叠，系统默认是{{{和}}}• 折叠命令</rich_text><rich_text>
 • 
 • zf　创建折叠，比如在marker方式下：
 •         zf56G，创建从当前行起到56行的代码折叠；
