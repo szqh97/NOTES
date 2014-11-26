@@ -446,7 +446,10 @@ for(;;)
 }</codebox></node></node><node name="distributed" prog_lang="custom-colors" readonly="False" tags="" unique_id="70"><rich_text>HDFS </rich_text><rich_text link="webs http://www.cnblogs.com/chinacloud/archive/2010/12/03/1895369.html">http://www.cnblogs.com/chinacloud/archive/2010/12/03/1895369.html</rich_text><rich_text>
    
 hypertable 存储会额外占用40Byte， MVCC模式（copy on write)Old record is deleted when call cache compaction.
-</rich_text></node><node name="Questions" prog_lang="custom-colors" readonly="False" tags="" unique_id="69"><rich_text>1. C++类方法是如何运行，成员变量的封装机制是如何的</rich_text></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
+
+</rich_text><rich_text scale="sup">
+</rich_text><rich_text scale="h1">分布式文件系统比较之Swift V.S. HDFS</rich_text><rich_text>
+</rich_text><rich_text link="webs http://f.dataguru.cn/thread-124202-1-1.html">http://f.dataguru.cn/thread-124202-1-1.html</rich_text></node><node name="Questions" prog_lang="custom-colors" readonly="False" tags="" unique_id="69"><rich_text>1. C++类方法是如何运行，成员变量的封装机制是如何的</rich_text></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
 </rich_text><rich_text link="webs http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/">http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/</rich_text><rich_text>
 
 UML </rich_text><rich_text link="webs http://yuml.me/diagram/scruffy/class/draw">http://yuml.me/diagram/scruffy/class/draw</rich_text><rich_text>
