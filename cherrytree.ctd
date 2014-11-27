@@ -62,6 +62,8 @@ msg.hpp 103
 
 5.模板函数的声明与定义分离会编译失败
 
+c++11 thread  compile error: what():  Enable multithreading to use std::thread: Operation not permitted
+g++ -Wl,--no-as-needed -std=c++11 -pthread test_thread.cpp
 
 第三种办法 最简单的使用swap,清除元素并回收内存
 
@@ -99,7 +101,7 @@ LD_PRELOAD环境变量加载一些库,覆盖原有的方法,
 </rich_text><rich_text justification="left"></rich_text><rich_text> placement new 是 new操作符的一个替代语法，作用在已分配的对象上，该对象已有正确的大小和正确的赋值，这包括建立虚函数表和调用构造函数。
 placement new实际上是把原本new做的两步工作分开来：第一步自己分配内存，第二步调用类的构造函数在自己已分配的内存上构建新的对象。
 placement new的好处：1）在已分配好的内存上进行对象的构建，构建速度快。2）已分配好的内存可以反复利用，有效的避免内存碎片问题。
-</rich_text><encoded_png anchor="1" char_offset="930">anchor</encoded_png><encoded_png char_offset="1115">iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABHNCSVQICAgIfAhkiAAAAglJREFUKJF1kL+L2mAYx9+8JnkPDq0/FhFihCraVopyLehqhUIH6aII/gUFR7fr0qMVaf+Cgke4pUXBUJIQ7Q2WDtapYIcTLVYlxcEl2oSaXIpJpztOyT3bl+fzgef5OoDNNBqNEELoczgcPi6XyxeiKE73GWgnTqfTJ6qqHrrd7sVgMHhux+yIoigCnudhJBL5qigK7Pf795LJpCAIAiYIwo6I3wy6rt9nGOZU0zRCURSPruuIZdlXGIadZDKZUwDAe1sRQqhFo9FzwzDAaDR6tt1ugxRFfSMIwvR6vUO7k3eG53mQz+c/ZrPZH7cxtuVc7XAc125b4jzPE7IsP/V4POe5XM4AAAAMw4BpmjiE8HLvEqiqasbpdH6Bq9XqcbVaPWu1Wmccx/mvINM0CYfDYVxljuMOut3u21qt9kFRlCNcluWAJEkHk8kkT9P0LwDAS8uygGmaBITwWpQkqcgwzAtFUcjZbJbEA4HAMJFIrOfz+Z3lcnmXZdkHCKELwzAOSZL80+l0gKZpsV6vl/H7/ZcURak+n+83xvM8puv6o8ViEavX6+82mw0ej8eHo9EohhD6GwqFpuPx+KHL5dJKpdIxRVEThND368ctywLNZjNZLBY/0TS9BgCYJEn+S6VSPyuVyhuO44I3i8L2axYEAa7X66N2u30SDAaH6XT6ta7rq0KhsMP9B4Xg5ezSIykbAAAAAElFTkSuQmCC</encoded_png><codebox char_offset="1117" frame_height="269" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="True">// most vexing parse
+</rich_text><encoded_png anchor="1" char_offset="1093">anchor</encoded_png><encoded_png char_offset="1278">iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABHNCSVQICAgIfAhkiAAAAglJREFUKJF1kL+L2mAYx9+8JnkPDq0/FhFihCraVopyLehqhUIH6aII/gUFR7fr0qMVaf+Cgke4pUXBUJIQ7Q2WDtapYIcTLVYlxcEl2oSaXIpJpztOyT3bl+fzgef5OoDNNBqNEELoczgcPi6XyxeiKE73GWgnTqfTJ6qqHrrd7sVgMHhux+yIoigCnudhJBL5qigK7Pf795LJpCAIAiYIwo6I3wy6rt9nGOZU0zRCURSPruuIZdlXGIadZDKZUwDAe1sRQqhFo9FzwzDAaDR6tt1ugxRFfSMIwvR6vUO7k3eG53mQz+c/ZrPZH7cxtuVc7XAc125b4jzPE7IsP/V4POe5XM4AAAAMw4BpmjiE8HLvEqiqasbpdH6Bq9XqcbVaPWu1Wmccx/mvINM0CYfDYVxljuMOut3u21qt9kFRlCNcluWAJEkHk8kkT9P0LwDAS8uygGmaBITwWpQkqcgwzAtFUcjZbJbEA4HAMJFIrOfz+Z3lcnmXZdkHCKELwzAOSZL80+l0gKZpsV6vl/H7/ZcURak+n+83xvM8puv6o8ViEavX6+82mw0ej8eHo9EohhD6GwqFpuPx+KHL5dJKpdIxRVEThND368ctywLNZjNZLBY/0TS9BgCYJEn+S6VSPyuVyhuO44I3i8L2axYEAa7X66N2u30SDAaH6XT6ta7rq0KhsMP9B4Xg5ezSIykbAAAAAElFTkSuQmCC</encoded_png><codebox char_offset="1280" frame_height="269" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="True">// most vexing parse
 // 这个解释正确？
 // 1) 类型std::string的变量会通过std::string()实例化吗？
 // 2) 一个函数声明，返回一个std::string值并有一个函数指针参数，
@@ -111,7 +113,7 @@ std::string foo(std::string()); // 等价于string foo(string (*)())
 // 1)类型int变量会通过int(x)实例化吗？
 // 2)一个函数声明，返回一个int值并有一个参数，
 // 该参数是一个名为x的int型变量吗？
-int bar(int(x));</codebox><encoded_png anchor="3" char_offset="1120">anchor</encoded_png></node><node name="FAQ" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="6"><rich_text>how to use </rich_text><rich_text foreground="#ff0000">delete this</rich_text><rich_text>
+int bar(int(x));</codebox><encoded_png anchor="3" char_offset="1283">anchor</encoded_png></node><node name="FAQ" prog_lang="custom-colors" readonly="False" tags="C++" unique_id="6"><rich_text>how to use </rich_text><rich_text foreground="#ff0000">delete this</rich_text><rich_text>
 As long as you're careful, it's OK for an object to commit suicide (delete this).
 Here's how I define &quot;careful&quot;:
 1. You must be absolutely 100% positively sure that this object was allocated via new (not by new[], nor by </rich_text><rich_text link="webs http://www.parashift.com/c++-faq-lite/placement-new.html">placementnew</rich_text><rich_text>, nor a local object on the stack, nor a global, nor a member of another object; but by plain ordinary new).
@@ -206,6 +208,12 @@ C++析构中不能抛出异常
 
 C++ Blog
 </rich_text><rich_text link="webs http://preshing.com/">http://preshing.com/</rich_text><rich_text>
+
+
+</rich_text><rich_text link="webs http://www.cnblogs.com/haippy/p/3235560.html" scale="h2">C++11 并发指南一(C++11 多线程初探)</rich_text><rich_text>
+</rich_text><rich_text link="webs http://www.cnblogs.com/haippy/p/3235560.html">http://www.cnblogs.com/haippy/p/3235560.html</rich_text><rich_text>
+
+
 </rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
 switch语句本身常常说明问题：（1）需要多态行为;（2）存在职责错放。应该考虑采用一种更通用的方案，比如抽象代替switch或者将职责赋予其他对象
 
