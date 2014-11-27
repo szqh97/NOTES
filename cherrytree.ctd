@@ -454,7 +454,11 @@ hypertable 存储会额外占用40Byte， MVCC模式（copy on write)Old record 
 
 </rich_text><rich_text link="webs http://www.programmer.com.cn/12403/">OpenStack对象存储——Swift</rich_text><rich_text>
 
-</rich_text><rich_text link="webs http://www.programmer.com.cn/12403/">http://www.programmer.com.cn/12403/</rich_text></node><node name="Questions" prog_lang="custom-colors" readonly="False" tags="" unique_id="69"><rich_text>1. C++类方法是如何运行，成员变量的封装机制是如何的</rich_text></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
+</rich_text><rich_text link="webs http://www.programmer.com.cn/12403/">http://www.programmer.com.cn/12403/</rich_text><rich_text>
+
+
+OpenStack Swift 存储策略
+</rich_text><rich_text link="webs http://www.ibm.com/developerworks/cn/cloud/library/1411_limy_openstackswift/?cmp=dwskl&amp;cpb=dw&amp;ct=dwcon&amp;cr=cn_CSDN_t10_1&amp;ccy=cn">http://www.ibm.com/developerworks/cn/cloud/library/1411_limy_openstackswift/?cmp=dwskl&amp;cpb=dw&amp;ct=dwcon&amp;cr=cn_CSDN_t10_1&amp;ccy=cn</rich_text></node><node name="Questions" prog_lang="custom-colors" readonly="False" tags="" unique_id="69"><rich_text>1. C++类方法是如何运行，成员变量的封装机制是如何的</rich_text></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
 </rich_text><rich_text link="webs http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/">http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/</rich_text><rich_text>
 
 UML </rich_text><rich_text link="webs http://yuml.me/diagram/scruffy/class/draw">http://yuml.me/diagram/scruffy/class/draw</rich_text><rich_text>
