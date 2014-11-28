@@ -466,7 +466,11 @@ hypertable 存储会额外占用40Byte， MVCC模式（copy on write)Old record 
 
 
 OpenStack Swift 存储策略
-</rich_text><rich_text link="webs http://www.ibm.com/developerworks/cn/cloud/library/1411_limy_openstackswift/?cmp=dwskl&amp;cpb=dw&amp;ct=dwcon&amp;cr=cn_CSDN_t10_1&amp;ccy=cn">http://www.ibm.com/developerworks/cn/cloud/library/1411_limy_openstackswift/?cmp=dwskl&amp;cpb=dw&amp;ct=dwcon&amp;cr=cn_CSDN_t10_1&amp;ccy=cn</rich_text></node><node name="Questions" prog_lang="custom-colors" readonly="False" tags="" unique_id="69"><rich_text>1. C++类方法是如何运行，成员变量的封装机制是如何的</rich_text></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
+</rich_text><rich_text link="webs http://www.ibm.com/developerworks/cn/cloud/library/1411_limy_openstackswift/?cmp=dwskl&amp;cpb=dw&amp;ct=dwcon&amp;cr=cn_CSDN_t10_1&amp;ccy=cn">http://www.ibm.com/developerworks/cn/cloud/library/1411_limy_openstackswift/?cmp=dwskl&amp;cpb=dw&amp;ct=dwcon&amp;cr=cn_CSDN_t10_1&amp;ccy=cn</rich_text><rich_text>
+
+Openstack Swift 原理、架构与 API 介绍
+
+</rich_text><rich_text link="webs http://www.ibm.com/developerworks/cn/cloud/library/1310_zhanghua_openstackswift/index.html">http://www.ibm.com/developerworks/cn/cloud/library/1310_zhanghua_openstackswift/index.html</rich_text></node><node name="Questions" prog_lang="custom-colors" readonly="False" tags="" unique_id="69"><rich_text>1. C++类方法是如何运行，成员变量的封装机制是如何的</rich_text></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
 </rich_text><rich_text link="webs http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/">http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/</rich_text><rich_text>
 
 UML </rich_text><rich_text link="webs http://yuml.me/diagram/scruffy/class/draw">http://yuml.me/diagram/scruffy/class/draw</rich_text><rich_text>
@@ -3086,4 +3090,5 @@ intresting code
 hack fan
 </rich_text><rich_text link="webs http://fediafedia.com/neo/">http://fediafedia.com/neo/</rich_text><rich_text>  
 
-</rich_text></node></cherrytree>
+API接口编辑
+</rich_text><rich_text link="webs http://swagger.io/">http://swagger.io/</rich_text></node></cherrytree>
