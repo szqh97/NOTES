@@ -473,7 +473,7 @@ Openstack Swift 原理、架构与 API 介绍
 </rich_text><rich_text link="webs http://www.ibm.com/developerworks/cn/cloud/library/1310_zhanghua_openstackswift/index.html">http://www.ibm.com/developerworks/cn/cloud/library/1310_zhanghua_openstackswift/index.html</rich_text><rich_text>
 
 </rich_text><rich_text scale="h2">Openstack中的Swift资料整理及CAP原理简介</rich_text><rich_text>
-
+    
 
 </rich_text><rich_text link="webs http://blog.sina.com.cn/s/blog_3fe961ae010133vi.html">http://blog.sina.com.cn/s/blog_3fe961ae010133vi.html</rich_text></node><node name="Questions" prog_lang="custom-colors" readonly="False" tags="" unique_id="69"><rich_text>1. C++类方法是如何运行，成员变量的封装机制是如何的</rich_text></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
 </rich_text><rich_text link="webs http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/">http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/</rich_text><rich_text>
