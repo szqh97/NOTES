@@ -101,6 +101,13 @@ LD_PRELOAD环境变量加载一些库,覆盖原有的方法,
 </rich_text><rich_text justification="left"></rich_text><rich_text> placement new 是 new操作符的一个替代语法，作用在已分配的对象上，该对象已有正确的大小和正确的赋值，这包括建立虚函数表和调用构造函数。
 placement new实际上是把原本new做的两步工作分开来：第一步自己分配内存，第二步调用类的构造函数在自己已分配的内存上构建新的对象。
 placement new的好处：1）在已分配好的内存上进行对象的构建，构建速度快。2）已分配好的内存可以反复利用，有效的避免内存碎片问题。
+
+C++11 Thread
+  swap(std::thread&amp; t) 将两个线程对象的底层句柄进行交换
+  detach() 允许执行该方法的线程独立于本线程对象的执行而继续执行。脱离后的线程就再也不能执行join了
+  
+  线程函数中要是抛出了异常的话，使用通常的try-catch方式是捕获不到该异常的.要在线程间传递异常，你可以先在线程函数中捕获它们，然后再将它们保存到一个合适的地方，随后再让另外一个线程从这个地方取得这些异常。
+  
 </rich_text><encoded_png anchor="1" char_offset="1093">anchor</encoded_png><encoded_png char_offset="1278">iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAABHNCSVQICAgIfAhkiAAAAglJREFUKJF1kL+L2mAYx9+8JnkPDq0/FhFihCraVopyLehqhUIH6aII/gUFR7fr0qMVaf+Cgke4pUXBUJIQ7Q2WDtapYIcTLVYlxcEl2oSaXIpJpztOyT3bl+fzgef5OoDNNBqNEELoczgcPi6XyxeiKE73GWgnTqfTJ6qqHrrd7sVgMHhux+yIoigCnudhJBL5qigK7Pf795LJpCAIAiYIwo6I3wy6rt9nGOZU0zRCURSPruuIZdlXGIadZDKZUwDAe1sRQqhFo9FzwzDAaDR6tt1ugxRFfSMIwvR6vUO7k3eG53mQz+c/ZrPZH7cxtuVc7XAc125b4jzPE7IsP/V4POe5XM4AAAAMw4BpmjiE8HLvEqiqasbpdH6Bq9XqcbVaPWu1Wmccx/mvINM0CYfDYVxljuMOut3u21qt9kFRlCNcluWAJEkHk8kkT9P0LwDAS8uygGmaBITwWpQkqcgwzAtFUcjZbJbEA4HAMJFIrOfz+Z3lcnmXZdkHCKELwzAOSZL80+l0gKZpsV6vl/H7/ZcURak+n+83xvM8puv6o8ViEavX6+82mw0ej8eHo9EohhD6GwqFpuPx+KHL5dJKpdIxRVEThND368ctywLNZjNZLBY/0TS9BgCYJEn+S6VSPyuVyhuO44I3i8L2axYEAa7X66N2u30SDAaH6XT6ta7rq0KhsMP9B4Xg5ezSIykbAAAAAElFTkSuQmCC</encoded_png><codebox char_offset="1280" frame_height="269" frame_width="800" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="True">// most vexing parse
 // 这个解释正确？
 // 1) 类型std::string的变量会通过std::string()实例化吗？
