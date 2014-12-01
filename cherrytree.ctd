@@ -491,7 +491,16 @@ Openstack Swift 原理、架构与 API 介绍
     
 </rich_text><rich_text scale="h2">Facebook Haystack图片存储架构</rich_text><rich_text>
 
-</rich_text><rich_text link="webs http://www.nosqlnotes.net/archives/116">http://www.nosqlnotes.net/archives/116</rich_text></node><node name="Questions" prog_lang="custom-colors" readonly="False" tags="" unique_id="69"><rich_text>1. C++类方法是如何运行，成员变量的封装机制是如何的</rich_text></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
+</rich_text><rich_text link="webs http://www.nosqlnotes.net/archives/116">http://www.nosqlnotes.net/archives/116</rich_text><rich_text>
+GlusterFS集群文件系统研究
+</rich_text><rich_text link="webs http://blog.csdn.net/liuaigui/article/details/6284551">http://blog.csdn.net/liuaigui/article/details/6284551</rich_text><rich_text>
+
+像Fastdfs，ZFS，Lustre，Hadoop，GlusterFS
+</rich_text><rich_text scale="sup">
+    
+</rich_text><rich_text scale="h1">         </rich_text><rich_text link="webs http://blog.csdn.net/njchenyi/article/details/6392770" scale="h1">         GlusterFS学习手记（转自Tim的Blog）         </rich_text><rich_text scale="h1">     </rich_text><rich_text>
+
+</rich_text><rich_text link="webs http://blog.csdn.net/njchenyi/article/details/6392770">http://blog.csdn.net/njchenyi/article/details/6392770</rich_text></node><node name="Questions" prog_lang="custom-colors" readonly="False" tags="" unique_id="69"><rich_text>1. C++类方法是如何运行，成员变量的封装机制是如何的</rich_text></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
 </rich_text><rich_text link="webs http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/">http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/</rich_text><rich_text>
 
 UML </rich_text><rich_text link="webs http://yuml.me/diagram/scruffy/class/draw">http://yuml.me/diagram/scruffy/class/draw</rich_text><rich_text>
