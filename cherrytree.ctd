@@ -496,8 +496,12 @@ OpenStack Swift单节点部署手册
 </rich_text><rich_text scale="h2">Facebook Haystack图片存储架构</rich_text><rich_text>
 
 </rich_text><rich_text link="webs http://www.nosqlnotes.net/archives/116">http://www.nosqlnotes.net/archives/116</rich_text><rich_text>
+
 GlusterFS集群文件系统研究
 </rich_text><rich_text link="webs http://blog.csdn.net/liuaigui/article/details/6284551">http://blog.csdn.net/liuaigui/article/details/6284551</rich_text><rich_text>
+
+ceph
+</rich_text><rich_text link="webs http://blog.csdn.net/changtao381/article/details/8698935">http://blog.csdn.net/changtao381/article/details/8698935</rich_text><rich_text>
 
 像Fastdfs，ZFS，Lustre，Hadoop，GlusterFS
 </rich_text><rich_text scale="sup">
