@@ -551,9 +551,12 @@ ceph
  
  </rich_text><rich_text link="webs https://www.mirantis.com/blog/object-storage-openstack-cloud-swift-ceph/">https://www.mirantis.com/blog/object-storage-openstack-cloud-swift-ceph/</rich_text><rich_text>
  
+ openstack swift tag
+ </rich_text><rich_text link="webs http://codefine.co/tag/openstack-swift/">http://codefine.co/tag/openstack-swift/</rich_text><rich_text>
+ 
  
 </rich_text><rich_text scale="h1">GlusterFS与Ceph性能测试报告</rich_text><rich_text>
-ps. 
+ps. ceph完败glusterfs
 
  </rich_text><rich_text link="webs http://www.openstack.cn/p2215.html">http://www.openstack.cn/p2215.html</rich_text><rich_text>
 </rich_text><node name="fs" prog_lang="custom-colors" readonly="False" tags="" unique_id="71"><rich_text>     GlusterFS是一个(Cluster File System)分布式集群文件系统,  它的最大特点就是以 Brick (Dirctory)  为节点。具有强大的线性横向扩展能力，通过扩展能够支持数PB存储容量和处理数千客户端。GlusterFS借助TCP/IP或InfiniBand  RDMA 网络将物理分布的存储资源聚集在一起，使用单一全局命名空间来管理数据。
