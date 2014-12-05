@@ -574,7 +574,11 @@ ps. ceph完败glusterfs
 </rich_text><rich_text link="webs http://outofmemory.cn/wr/?u=http%3A%2F%2Fnoops.me%2F%3Fp%3D1098">http://outofmemory.cn/wr/?u=http%3A%2F%2Fnoops.me%2F%3Fp%3D1098</rich_text><rich_text>
 
 
-</rich_text><rich_text link="webs http://www.ssrc.ucsc.edu/Papers/weil-osdi06.pdf">http://www.ssrc.ucsc.edu/Papers/weil-osdi06.pdf</rich_text><encoded_png anchor="import" char_offset="2417">anchor</encoded_png><node name="fs" prog_lang="custom-colors" readonly="False" tags="" unique_id="71"><rich_text>     GlusterFS是一个(Cluster File System)分布式集群文件系统,  它的最大特点就是以 Brick (Dirctory)  为节点。具有强大的线性横向扩展能力，通过扩展能够支持数PB存储容量和处理数千客户端。GlusterFS借助TCP/IP或InfiniBand  RDMA 网络将物理分布的存储资源聚集在一起，使用单一全局命名空间来管理数据。
+</rich_text><rich_text link="webs http://www.ssrc.ucsc.edu/Papers/weil-osdi06.pdf">http://www.ssrc.ucsc.edu/Papers/weil-osdi06.pdf</rich_text><rich_text>
+
+
+</rich_text><rich_text link="webs http://blog.csdn.net/liuhong1123/article/details/12835865" scale="h1">分布式存储系统（GlusterFS，Swift，Cassandra）设计对比         </rich_text><rich_text>
+</rich_text><rich_text link="webs http://blog.csdn.net/liuhong1123/article/details/12835865">http://blog.csdn.net/liuhong1123/article/details/12835865</rich_text><encoded_png anchor="import" char_offset="2417">anchor</encoded_png><node name="fs" prog_lang="custom-colors" readonly="False" tags="" unique_id="71"><rich_text>     GlusterFS是一个(Cluster File System)分布式集群文件系统,  它的最大特点就是以 Brick (Dirctory)  为节点。具有强大的线性横向扩展能力，通过扩展能够支持数PB存储容量和处理数千客户端。GlusterFS借助TCP/IP或InfiniBand  RDMA 网络将物理分布的存储资源聚集在一起，使用单一全局命名空间来管理数据。
 </rich_text></node></node><node name="Questions" prog_lang="custom-colors" readonly="False" tags="" unique_id="69"><rich_text>1. C++类方法是如何运行，成员变量的封装机制是如何的</rich_text></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
 </rich_text><rich_text link="webs http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/">http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/</rich_text><rich_text>
 
