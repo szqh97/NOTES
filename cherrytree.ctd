@@ -591,6 +591,10 @@ ps. ceph完败glusterfs
 
     
     </rich_text><rich_text link="webs http://www.linuxidc.com/Linux/2014-06/102993.htm">http://www.linuxidc.com/Linux/2014-06/102993.htm</rich_text><rich_text>
+    
+</rich_text><rich_text link="webs http://blog.coolceph.com/" scale="h1">CoolCeph</rich_text><rich_text>
+
+    </rich_text><rich_text link="webs http://blog.coolceph.com/">http://blog.coolceph.com/</rich_text><rich_text>
 </rich_text><encoded_png anchor="import" char_offset="2417">anchor</encoded_png><node name="fs" prog_lang="custom-colors" readonly="False" tags="" unique_id="71"><rich_text>     GlusterFS是一个(Cluster File System)分布式集群文件系统,  它的最大特点就是以 Brick (Dirctory)  为节点。具有强大的线性横向扩展能力，通过扩展能够支持数PB存储容量和处理数千客户端。GlusterFS借助TCP/IP或InfiniBand  RDMA 网络将物理分布的存储资源聚集在一起，使用单一全局命名空间来管理数据。
 </rich_text></node></node><node name="Questions" prog_lang="custom-colors" readonly="False" tags="" unique_id="69"><rich_text>1. C++类方法是如何运行，成员变量的封装机制是如何的</rich_text></node><node name="Programming" prog_lang="custom-colors" readonly="False" tags="" unique_id="68"><rich_text>设计模式解析 源码
 </rich_text><rich_text link="webs http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/">http://www.netobjectives.com/resources/books/design-patterns-explained/cpp-code-examples/</rich_text><rich_text>
