@@ -166,7 +166,7 @@ C++设计模式
 </rich_text><rich_text link="webs http://c.chinaitlab.com/special/sjms/Index.html">http://c.chinaitlab.com/special/sjms/Index.html</rich_text></node><node name="others" prog_lang="custom-colors" readonly="False" tags="others" unique_id="28"><rich_text weight="heavy">VOA</rich_text><rich_text>
 </rich_text><rich_text style="italic">voa     mms://a1905.l211052072.c2110.g.lm.akamaistream.net/D/1905/2110/v0001/reflector:52072</rich_text><rich_text>
 
-voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822</rich_text></node><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="29"><rich_text>TVADS 发送job
+voa news mms://a823.l211056822.c2110.g.lm.akamaistream.net/d/823/2110/v0001/reflector:56822</rich_text></node><node name="work 常用" prog_lang="custom-colors" readonly="False" tags="work" unique_id="29"><rich_text>TVADS 发送job
 </rich_text><rich_text justification="left"></rich_text><codebox char_offset="12" frame_height="80" frame_width="100" highlight_brackets="False" show_line_numbers="False" syntax_highlighting="sh" width_in_pixels="False">curl -d '@task' &quot;http://192.168.1.50:8080/jobTracker/task/submit&quot; -H&quot;Content-Type:application/json&quot;</codebox></node><node name="snippet" prog_lang="custom-colors" readonly="False" tags="" unique_id="42"><rich_text justification="left"></rich_text><rich_text>
 </rich_text><rich_text justification="left"></rich_text><codebox char_offset="0" frame_height="500" frame_width="100" highlight_brackets="True" show_line_numbers="False" syntax_highlighting="cpp" width_in_pixels="False">/*异常处理，通过流来计算行数 */
 void readIntegerFile(const string&amp; fileName, vector&lt;int&gt;&amp; dest) throw(FileOpenError, FileReadError)
@@ -495,7 +495,7 @@ PS：以上在安装好的时候会自动启动。
 1. ffmpeg convert aac to mp3
 
 
-/opt/ffmpeg/ffmpeg -y -rtmp_swfurl </rich_text><rich_text link="webs http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=DUCMEKOG679DD4E32B47AF6CF70A425282ACFE73839">http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=DUCMEKOG679DD4E32B47AF6CF70A425282ACFE73839</rich_text><rich_text> -i rtmp://lv9.ustvnow.com/dvrtest/ERR22WHP0USTVNOW2 -acodec copy -vcodec copy -map 0:v -map 0:a -bsf:v h264_mp4toannexb -f segment -segment_format mpegts -segment_time 1800 /opt/vobile/recorder/var/work/cbs/%d.ts
+/opt/ffmpeg/ffmpeg -y -rtmp_swfurl </rich_text><rich_text link="webs http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=DUCMEKOG679DD4E32B47AF6CF70A425282ACFE73839">http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=DUCMEKOG679DD4E32B47AF6CF70A425282ACFE73839</rich_text><rich_text> -i rtmp://lv9.ustvnow.com/dvrtest/ERR22WHP0USTVNOW2 -acodec copy -vcodec copy -map 0:v -map 0:a -bsf:v h264_mp4toannexb -f segment -segment_format mpegts -segment_time 1800 /opt/work/recorder/var/work/cbs/%d.ts
 
 
 
@@ -625,7 +625,7 @@ FFmpeg option x264 option
 -fastpskip/+fastpskip –no-fast-pskip 
 +aud –aud 
 
-/opt/ffmpeg/ffmpeg -y -rtmp_swfurl </rich_text><rich_text link="webs http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=WRAFDIGP67956133A6391A37CE3C3EFEB14BC4F589E">http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=WRAFDIGP67956133A6391A37CE3C3EFEB14BC4F589E</rich_text><rich_text> -i rtmp://lv9.ustvnow.com/dvrtest/8AB2CWGALUSTVNOW2 -acodec copy -vcodec copy -map 0:v -map 0:a -bsf:v h264_mp4toannexb -f segment -segment_format mpegts -segment_time 1800 /opt/vobile/recorder/var/work/nbc/%d.ts
+/opt/ffmpeg/ffmpeg -y -rtmp_swfurl </rich_text><rich_text link="webs http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=WRAFDIGP67956133A6391A37CE3C3EFEB14BC4F589E">http://www.ustvnow.com/player/flowplayer.commercial-3.2.15.swf?sid=WRAFDIGP67956133A6391A37CE3C3EFEB14BC4F589E</rich_text><rich_text> -i rtmp://lv9.ustvnow.com/dvrtest/8AB2CWGALUSTVNOW2 -acodec copy -vcodec copy -map 0:v -map 0:a -bsf:v h264_mp4toannexb -f segment -segment_format mpegts -segment_time 1800 /opt/work/recorder/var/work/nbc/%d.ts
 </rich_text><rich_text link="webs http://93.184.221.133/hls-live/20C1A9/bbc_world/ls_satlink/b_828.m3u8">http://93.184.221.133/hls-live/20C1A9/bbc_world/ls_satlink/b_828.m3u8</rich_text><rich_text> bbc_world
 ffmpeg 直接录制v4l2
 ffmpeg  -y -f alsa -i hw:1 -f video4linux2 -s 720x480 -r 25 -i /dev/video1 2.2.mp4
@@ -1570,10 +1570,10 @@ http://vim.sourceforge.net/scripts/script_search_results.php?order_by=rating
 vim ide
 </rich_text><rich_text link="webs http://blog.jobbole.com/72744/">http://blog.jobbole.com/72744/</rich_text><rich_text>
 
-</rich_text></node></node><node name="vobile" prog_lang="custom-colors" readonly="False" tags="" unique_id="16"><rich_text>./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i 2.1387533947744.1387534303616.vdna -r t.xml
+</rich_text></node></node><node name="work" prog_lang="custom-colors" readonly="False" tags="" unique_id="16"><rich_text>./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i 2.1387533947744.1387534303616.vdna -r t.xml
 ./vdna_query -s 192.168.1.46 -u admin  -w admin123 -T dna --profile=Common -i </rich_text><rich_text link="webs http://192.168.1.249/download/2.1388696339843.1388699999970.tgz">2.1388696339843.1388699999970.</rich_text><rich_text>vdna -r x.xml
 
-</rich_text><node name="vobile 常用" prog_lang="custom-colors" readonly="False" tags="vobile" unique_id="41"><rich_text>vobile 常用
+</rich_text><node name="work 常用" prog_lang="custom-colors" readonly="False" tags="work" unique_id="41"><rich_text>work 常用
 
 </rich_text><rich_text weight="heavy">
 1.vdna monitor sequence:</rich_text><rich_text>
@@ -1673,7 +1673,7 @@ e here.
  * 描述本模块的监控点和监控规程, 如采用 DBPC 或系统本身实现一个监控模块 (需要说明该监控模块的逻辑和正确输出和异常输出)等. 如:
  * Key Manager: DBPC 心跳监控.
  * Redis Server: 由 Redis Client 定期请求 Redis Server, 发送一个 Get 请 求, 请求 Key 为 &quot;&quot; 的 value. 如果 Redis Server 正常返回或返回无效的 Key 则, Redis Server 正常, 反之, Redis Client 停止 DBPC 的心跳监控.
- * 此外, 可以参考, OPS 监控的要求格式, 提供监控列表. 以有助于 OPS Review. !</rich_text><rich_text link="webs http://color:#3465A4">http://seals.vobile.cn/trac/Ops/wiki/Conventions/Monitor-App</rich_text><rich_text>
+ * 此外, 可以参考, OPS 监控的要求格式, 提供监控列表. 以有助于 OPS Review. !</rich_text><rich_text link="webs http://color:#3465A4">http://seals.work.cn/trac/Ops/wiki/Conventions/Monitor-App</rich_text><rich_text>
 
 ## TODO List ##
 
@@ -1687,7 +1687,7 @@ for f in c_*.jpg; do ./a.out $f 50 5 3 &gt;&gt;t; done
 curl -d '@t' &quot;http://192.168.1.50:8080/jobTracker/task/submit&quot; -H&quot;Content-Type:application/json&quot;
 curl -d&quot;@t052006&quot; &quot;</rich_text><rich_text link="webs http://54.193.192.104/jobTracker/task/submit&quot;">http://54.193.192.104/jobTracker/task/submit&quot;</rich_text><rich_text> -H&quot;Content-Type:application/json&quot;</rich_text></node></node><node name="Myself" prog_lang="custom-colors" readonly="False" tags="" unique_id="17"><rich_text>
 
-root@EQX-200:/vobiledata/rtfpdownload/tasks/16193/1/tmp# for f in  *.*.tgz ; do echo $f; tar xvzf $f; done;
+root@EQX-200:/workdata/rtfpdownload/tasks/16193/1/tmp# for f in  *.*.tgz ; do echo $f; tar xvzf $f; done;
 1.1399139879988.1399143599607.tgz
 1.1399140000008.1399143600000.inf
 1.1399139879988.1399143599607.vdna
@@ -1952,7 +1952,7 @@ mftraining -F font_properties -U unicharset -O chi.unicharset chi.sansserif.exp0
     fwrite(buffer, sizeof(buffer), 1, m_cfp_file);
     fflush(m_cfp_file);
 
-R610:/vobiledata/fake_test# bin/taskGenerator.py:188: DeprecationWarning: struct integer overflow masking is deprecated
+R610:/workdata/fake_test# bin/taskGenerator.py:188: DeprecationWarning: struct integer overflow masking is deprecated
   media_len = struct.pack('I', media_len)
                    path: </rich_text><rich_text link="webs http://vapptime1.cntv.cloudcdn.net:8000/cache/259_/seg0/index.m3u8?AUTH=mzOnaiK35MMeLBl9HWG6P/01FkXeoiAvFkVputWbv4YpdVWoxZu1/icILzsZ5RsTud1rnhOR/IJEyxz0alNxzw==">http://vapptime1.cntv.cloudcdn.net:8000/cache/259_/seg0/index.m3u8?AUTH=mzOnaiK35MMeLBl9HWG6P/01FkXeoiAvFkVputWbv4YpdVWoxZu1/icILzsZ5RsTud1rnhOR/IJEyxz0alNxzw==</rich_text><rich_text>
 
