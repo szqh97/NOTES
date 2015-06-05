@@ -2659,7 +2659,7 @@ program_status: initialized
        ErrorCode, ErrorMsg
         </rich_text></node><node name="api" prog_lang="custom-colors" readonly="False" tags="" unique_id="52"><rich_text>[[TOC()]]
 
-= Vobile VideoTracking API =
+= work_vvv VideoTracking API =
 
 == Introduction ==
 
@@ -2714,7 +2714,7 @@ Certain parameters are required while others are optional. As is standard in URL
 
 ==== Required parameters ====
 
- * api_key: The API Key you received from Vobile.
+ * api_key: The API Key you received from work_vvv.
 
 ==== Optional parameters ====
 
